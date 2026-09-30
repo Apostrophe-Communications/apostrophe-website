@@ -63,8 +63,6 @@ window.APOS_PAGE = () => {
   function hero() {
     const sig = $("#sig");
     const P = { L: $(".p-left", sig), R: $(".p-right", sig), D: $(".p-dot", sig) };
-    const lines = $$(".hero__line");
-    const chars = lines.map((l) => split(l, true));
     const hdr = $("#hdr");
 
     // pointer glow (desktop) / ambient drift (touch)
@@ -81,37 +79,22 @@ window.APOS_PAGE = () => {
       }
     }
 
-    if (RM) { gsap.set(lines, { visibility: "hidden" }); signature(); return; }
+    if (RM) { signature(); return; }
 
     gsap.set(hdr, { autoAlpha: 0 });
 
-    // where the logo dot must sit to act as the full stop after “We Build”
-    const periodOffset = () => {
-      const pr = $(".hero__period").getBoundingClientRect();
-      const sr = sig.getBoundingClientRect();
-      const cx = sr.left + 0.597 * sr.width, cy = sr.top + 0.503 * sr.height;
-      const diam = (280 / 800) * sr.width;
-      return { x: pr.left + pr.width / 2 - cx, y: pr.top + pr.height / 2 - cy, scale: pr.width / diam };
-    };
-
+    // The logo builds itself: the dot drops in, the two strokes swing
+    // around it, then the name and the call to action follow.
     const tl = gsap.timeline({ delay: document.documentElement.classList.contains("arrived") ? 0.6 : 0.2, onComplete: done });
-    lines.forEach((l, i) => {
-      tl.set(l, { visibility: "visible" });
-      tl.fromTo(chars[i], { yPercent: 110 }, { yPercent: 0, duration: 1.05, ease: "expo.out", stagger: 0.035 }, i ? "-=0.25" : 0);
-      if (i < lines.length - 1) tl.to(chars[i], { yPercent: -110, duration: 0.65, ease: "expo.in", stagger: 0.02 }, "+=0.5");
-    });
-    const po = periodOffset();
-    tl.fromTo(P.D, { opacity: 1, x: po.x, y: po.y, scale: 0 }, { scale: po.scale, duration: 0.7, ease: "back.out(3)" }, "-=0.45")
-      .to(chars[2], { yPercent: 110, duration: 0.7, ease: "expo.in", stagger: 0.025 }, "+=0.55")
-      .to(P.D, { x: 0, y: 0, scale: 1, duration: 1.3, ease: "expo.inOut" }, "<0.25")
-      .fromTo(P.L, { opacity: 0, x: () => -W() * 0.22, y: () => H() * 0.2, rotation: -24 }, { opacity: 1, x: 0, y: 0, rotation: 0, duration: 1.5, ease: "expo.out" }, "-=0.6")
+    tl.fromTo(P.D, { opacity: 1, y: () => -H() * 0.18, scale: 0 }, { y: 0, scale: 1, duration: 1.1, ease: "back.out(2.2)" })
+      .fromTo(P.L, { opacity: 0, x: () => -W() * 0.22, y: () => H() * 0.2, rotation: -24 }, { opacity: 1, x: 0, y: 0, rotation: 0, duration: 1.5, ease: "expo.out" }, "-=0.45")
       .fromTo(P.R, { opacity: 0, x: () => W() * 0.22, y: () => H() * 0.26, rotation: 30 }, { opacity: 1, x: 0, y: 0, rotation: 0, duration: 1.5, ease: "expo.out" }, "<0.08")
       .to(".hero__wordmark", { clipPath: "inset(0 0% 0 0)", duration: 1.3, ease: "expo.inOut" }, "-=1.1")
       .fromTo(".hero__cta", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 1, ease: "expo.out" }, "-=0.55")
       .to([hdr, ".hero__scroll"], { autoAlpha: 1, duration: 1 }, "<");
 
     // Overall pace of the opening (1 = original, higher = faster).
-    tl.timeScale(1.75);
+    tl.timeScale(1.3);
 
     // The page stays put while the opening plays, so nothing can fall out of
     // sync. Any scroll, tap or key press fast-forwards it to the end.
@@ -123,7 +106,7 @@ window.APOS_PAGE = () => {
     scrollTo(0, 0);
     lock(true);
     const safety = setTimeout(() => tl.progress(1), 9000);
-    const skip = () => { tl.timeScale(8); off(); };
+    const skip = () => { tl.timeScale(6); off(); };
     const off = () => ["wheel", "touchstart", "touchmove", "keydown", "pointerdown"].forEach((e) => removeEventListener(e, skip));
     ["wheel", "touchstart", "touchmove", "keydown", "pointerdown"].forEach((e) => addEventListener(e, skip, { passive: true }));
 
@@ -131,7 +114,6 @@ window.APOS_PAGE = () => {
       off();
       clearTimeout(safety);
       lock(false);
-      gsap.set(lines, { visibility: "hidden" });
       signature();
       // hero content lifts away as you scroll
       gsap.to("#heroBrand", { yPercent: -30, opacity: 0, ease: "none", scrollTrigger: { trigger: "#hero", start: "top top", end: "bottom 20%", scrub: true } });
