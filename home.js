@@ -69,8 +69,8 @@ window.APOS_PAGE = () => {
     if (!RM) {
       window.APOS_BREATHE && window.APOS_BREATHE(glow, $("#hero"));
       if (FINE) {
-        const gx = gsap.quickTo(glow, "x", { duration: 1.6, ease: "power3" });
-        const gy = gsap.quickTo(glow, "y", { duration: 1.6, ease: "power3" });
+        const gx = gsap.quickTo(glow, "x", { duration: 0.55, ease: "power3" });
+        const gy = gsap.quickTo(glow, "y", { duration: 0.55, ease: "power3" });
         gsap.set(glow, { x: W() / 2, y: H() / 2 });
         $("#hero").addEventListener("pointermove", (e) => { gx(e.clientX); gy(e.clientY); });
       } else {

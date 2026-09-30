@@ -288,7 +288,7 @@
   }
   window.APOS_BREATHE = breathe;
   function initGlows() {
-    const hosts = [...$$(".t-dark"), $("#menu")].filter((el) => el && !el.querySelector(".hero__glow, .glow"));
+    const hosts = [...$$(".t-dark, .t-stone"), $("#menu")].filter((el) => el && !el.querySelector(".hero__glow, .glow"));
     hosts.forEach((sec) => {
       const g = document.createElement("div");
       g.className = "glow";
@@ -300,8 +300,8 @@
       if (RM) return;
       breathe(g, sec);
       if (FINE) {
-        const gx = gsap.quickTo(g, "x", { duration: 1.8, ease: "power3" });
-        const gy = gsap.quickTo(g, "y", { duration: 1.8, ease: "power3" });
+        const gx = gsap.quickTo(g, "x", { duration: 0.55, ease: "power3" });
+        const gy = gsap.quickTo(g, "y", { duration: 0.55, ease: "power3" });
         sec.addEventListener("pointermove", (e) => {
           const r = sec.getBoundingClientRect();
           gx(e.clientX - r.left); gy(e.clientY - r.top);

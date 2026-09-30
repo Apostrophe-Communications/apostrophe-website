@@ -285,7 +285,7 @@ html.rm .sig .p-left, html.rm .sig .p-right, html.rm .sig .p-dot { opacity: 1; }
   position: absolute; z-index: 0; left: 0; top: 0;
   width: 60vmax; height: 60vmax; margin: -30vmax 0 0 -30vmax;
   border-radius: 50%;
-  background: radial-gradient(closest-side, rgba(238, 187, 72, 0.42), rgba(238, 187, 72, 0.2) 30%, rgba(238, 187, 72, 0.07) 56%, rgba(238, 187, 72, 0) 74%);
+  background: radial-gradient(closest-side, rgba(var(--glow), 0.42), rgba(var(--glow), 0.2) 30%, rgba(var(--glow), 0.07) 56%, rgba(var(--glow), 0) 74%);
   pointer-events: none;
   will-change: transform;
 }
@@ -731,7 +731,7 @@ html.rm .services { height: auto; padding: 120px 0; }
   position: absolute; z-index: 0; left: 0; top: 0;
   width: 60vmax; height: 60vmax; margin: -30vmax 0 0 -30vmax;
   border-radius: 50%;
-  background: radial-gradient(closest-side, rgba(238, 187, 72, 0.42), rgba(238, 187, 72, 0.2) 30%, rgba(238, 187, 72, 0.07) 56%, rgba(238, 187, 72, 0) 74%);
+  background: radial-gradient(closest-side, rgba(var(--glow), 0.42), rgba(var(--glow), 0.2) 30%, rgba(var(--glow), 0.07) 56%, rgba(var(--glow), 0) 74%);
   pointer-events: none;
   will-change: transform;
 }
@@ -778,3 +778,7 @@ html.rm .hdr { opacity: 1 !important; visibility: visible !important; }
 .tcard { opacity: 1; }
 .tcard > * { transition: opacity .8s var(--ease); }
 .tcard:not(.is-active) > * { opacity: .45; }
+
+/* glow colour: dusty blue on espresso, espresso on dusty blue */
+:root { --glow: 200, 219, 252; }
+.t-stone { --glow: 56, 25, 5; }
