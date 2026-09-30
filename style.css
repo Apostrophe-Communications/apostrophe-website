@@ -404,8 +404,15 @@ html.rm .statement .sw { opacity: 1; }
 .work { padding: clamp(100px, 16svh, 180px) 0 0; overflow: hidden; }
 .work__head { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: clamp(40px, 7svh, 70px); }
 .work__title { font-size: clamp(3rem, 8vw, 7.5rem); }
-.work__pin { height: 100svh; display: flex; align-items: center; }
-.work__track { display: flex; gap: clamp(16px, 2.4vw, 36px); padding: 0 var(--gutter); will-change: transform; }
+.work__pin { padding: 10px 0 clamp(80px, 12svh, 130px); }
+.work__track { display: flex; gap: clamp(16px, 2.4vw, 36px); padding: 0 var(--gutter) 40px; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x proximity; scroll-padding: 0 var(--gutter); scrollbar-width: none; cursor: grab; }
+.work__track::-webkit-scrollbar { display: none; }
+.work__track.is-dragging { scroll-snap-type: none; cursor: grabbing; user-select: none; }
+.work__track .wcard { scroll-snap-align: start; }
+.work__ctrl { display: flex; align-items: center; gap: 10px; }
+.work__ctrl button { width: 52px; height: 52px; border-radius: 50%; border: 1px solid rgba(56,25,5,.25); display: grid; place-items: center; transition: background .4s, color .4s, border-color .4s; }
+.work__ctrl button:hover { background: var(--ink); color: var(--yellow); border-color: var(--ink); }
+.work__ctrl svg { width: 16px; height: 16px; }
 .wcard { flex: none; width: clamp(280px, 30vw, 460px); }
 .wcard__media { position: relative; aspect-ratio: 4 / 5; border-radius: 6px; overflow: hidden; }
 .wcard__media > * { position: absolute; inset: -6% ; width: 112%; height: 112%; will-change: transform; }
@@ -419,9 +426,8 @@ html.rm .statement .sw { opacity: 1; }
 .wcard--end a:hover .circle { transform: scale(1.12) rotate(-45deg); }
 
 @media (max-width: 899px) {
-  .work__pin { height: auto; display: block; padding-bottom: 90px; }
-  .work__track { overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding-bottom: 8px; scroll-padding: 0 var(--gutter); }
-  .work__track::-webkit-scrollbar { display: none; }
+  .work__track { scroll-snap-type: x mandatory; }
+  .work__ctrl button { display: none; }
   .wcard { width: 76vw; scroll-snap-align: start; }
 }
 

@@ -115,7 +115,12 @@
   let lenis = null;
   function initScroll() {
     if (RM || typeof Lenis === "undefined") return;
-    lenis = new Lenis({ lerp: 0.1, wheelMultiplier: 1, smoothWheel: true, syncTouch: false });
+    lenis = new Lenis({
+      lerp: 0.1, wheelMultiplier: 1, smoothWheel: true, syncTouch: false,
+      // sideways swipes over a horizontal gallery belong to the gallery, not the page
+      virtualScroll: ({ event, deltaX, deltaY }) =>
+        !(event.target.closest && event.target.closest(".work__track") && Math.abs(deltaX) > Math.abs(deltaY)),
+    });
     lenis.on("scroll", ScrollTrigger.update);
     gsap.ticker.add((t) => lenis.raf(t * 1000));
     gsap.ticker.lagSmoothing(0);

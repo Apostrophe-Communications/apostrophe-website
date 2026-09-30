@@ -216,38 +216,63 @@ window.APOS_PAGE = () => {
 
   /* ---------------- work carousel ---------------- */
   function work() {
+    // A sideways gallery: vertical scrolling always moves on down the page;
+    // the cards move with a sideways trackpad swipe, a mouse drag or the arrows.
     const track = $("#workTrack");
     const cards = $$(".wcard", track);
-    const mm = gsap.matchMedia();
-    mm.add("(min-width: 900px) and (prefers-reduced-motion: no-preference)", () => {
-      const dist = () => track.scrollWidth - innerWidth;
-      // card centres are cached on refresh; each frame is pure maths + transforms
-      let centres = [], medias = [];
-      const measure = () => {
-        centres = cards.map((c) => c.offsetLeft + c.offsetWidth / 2);
-        medias = cards.map((c) => c.querySelector(".wcard__media > *"));
-      };
-      const fx = () => {
-        const tx = gsap.getProperty(track, "x"), mid = innerWidth / 2, W0 = innerWidth;
-        cards.forEach((c, i) => {
-          const d = (centres[i] + tx - mid) / W0;
-          const a = Math.min(Math.abs(d), 1);
-          c.style.transform = `translate3d(0,${a * 40}px,0) scale(${1 - a * 0.1})`;
-          if (medias[i]) medias[i].style.transform = `translate3d(${d * -6}%,0,0)`;
-        });
-      };
-      measure();
-      $("#workPin").style.zIndex = 2;   // cards stay above the cursor glow while pinned
-      gsap.to(track, {
-        x: () => -dist(), ease: "none",
-        scrollTrigger: { trigger: "#workPin", start: "top top", end: () => `+=${dist()}`, pin: true, scrub: 0.8, anticipatePin: 1, invalidateOnRefresh: true, onUpdate: fx, onRefreshInit: measure, onRefresh: fx },
+    const medias = cards.map((c) => c.querySelector(".wcard__media > *"));
+    const step = () => (cards[1] ? cards[1].offsetLeft - cards[0].offsetLeft : track.clientWidth * 0.8);
+
+    // centre card sits forward; others ease back (maths only, no layout reads per frame)
+    let centres = [];
+    const measure = () => { centres = cards.map((c) => c.offsetLeft + c.offsetWidth / 2); };
+    let ticking = false;
+    const fx = () => {
+      ticking = false;
+      if (RM) return;
+      const mid = track.scrollLeft + track.clientWidth / 2, W0 = track.clientWidth;
+      cards.forEach((c, i) => {
+        const d = (centres[i] - mid) / W0;
+        const a = Math.min(Math.abs(d), 1);
+        c.style.transform = innerWidth >= 900 ? `translate3d(0,${a * 36}px,0) scale(${1 - a * 0.08})` : "";
+        if (medias[i]) medias[i].style.transform = `translate3d(${d * -6}%,0,0)`;
       });
-      return () => { $("#workPin").style.zIndex = ""; cards.forEach((c) => { c.style.transform = ""; const m = c.querySelector(".wcard__media > *"); if (m) m.style.transform = ""; }); };
+    };
+    const queue = () => { if (!ticking) { ticking = true; requestAnimationFrame(fx); } };
+    measure(); fx();
+    track.addEventListener("scroll", queue, { passive: true });
+    addEventListener("resize", () => { measure(); queue(); });
+
+    // arrows
+    const go = (dir) => track.scrollBy({ left: dir * step(), behavior: RM ? "auto" : "smooth" });
+    $("#workPrev").addEventListener("click", () => go(-1));
+    $("#workNext").addEventListener("click", () => go(1));
+
+    // click-and-drag with a mouse
+    let down = false, moved = false, sx = 0, sl = 0;
+    track.addEventListener("pointerdown", (e) => {
+      if (e.pointerType !== "mouse") return;
+      down = true; moved = false; sx = e.clientX; sl = track.scrollLeft;
+      track.classList.add("is-dragging");
     });
-    // mobile: native swipe, cards ease in as they arrive
-    mm.add("(max-width: 899px) and (prefers-reduced-motion: no-preference)", () => {
-      gsap.from(cards, { opacity: 0, x: 60, duration: 1.1, ease: "expo.out", stagger: 0.08, scrollTrigger: { trigger: track, start: "top 85%", once: true } });
+    addEventListener("pointermove", (e) => {
+      if (!down) return;
+      const dx = e.clientX - sx;
+      if (Math.abs(dx) > 4) moved = true;
+      track.scrollLeft = sl - dx;
     });
+    addEventListener("pointerup", () => {
+      if (!down) return;
+      down = false;
+      track.classList.remove("is-dragging");
+      // settle on the nearest card
+      const i = Math.round(track.scrollLeft / step());
+      track.scrollTo({ left: i * step(), behavior: "smooth" });
+    });
+    track.addEventListener("click", (e) => { if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; } }, true);
+    track.addEventListener("dragstart", (e) => e.preventDefault());
+
+    if (!RM) gsap.from(cards, { opacity: 0, x: 80, duration: 1.2, ease: "expo.out", stagger: 0.08, scrollTrigger: { trigger: track, start: "top 85%", once: true } });
   }
 
   /* ---------------- brand marquee (reacts to scroll speed) ---------------- */
