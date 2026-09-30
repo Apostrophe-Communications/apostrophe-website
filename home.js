@@ -94,7 +94,7 @@ window.APOS_PAGE = () => {
       return { x: pr.left + pr.width / 2 - cx, y: pr.top + pr.height / 2 - cy, scale: pr.width / diam };
     };
 
-    const tl = gsap.timeline({ delay: document.documentElement.classList.contains("arrived") ? 0.9 : 0.35, onComplete: done });
+    const tl = gsap.timeline({ delay: document.documentElement.classList.contains("arrived") ? 0.6 : 0.2, onComplete: done });
     lines.forEach((l, i) => {
       tl.set(l, { visibility: "visible" });
       tl.fromTo(chars[i], { yPercent: 110 }, { yPercent: 0, duration: 1.05, ease: "expo.out", stagger: 0.035 }, i ? "-=0.25" : 0);
@@ -109,6 +109,9 @@ window.APOS_PAGE = () => {
       .to(".hero__wordmark", { clipPath: "inset(0 0% 0 0)", duration: 1.3, ease: "expo.inOut" }, "-=1.1")
       .fromTo(".hero__cta", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 1, ease: "expo.out" }, "-=0.55")
       .to([hdr, ".hero__scroll"], { autoAlpha: 1, duration: 1 }, "<");
+
+    // Overall pace of the opening (1 = original, higher = faster).
+    tl.timeScale(1.75);
 
     // Scrolling, tapping or a key press fast-forwards the intro.
     const skip = () => { if (tl.isActive()) tl.timeScale(6); off(); };
