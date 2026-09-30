@@ -70,9 +70,21 @@
     const stickers = $$(".sticker", el);
     const label = $(".hive__label", el);
     let items = [], D0 = 100, step = 120;
-    const qx = stickers.map((s) => gsap.quickTo(s, "x", { duration: 0.55, ease: "power3" }));
-    const qy = stickers.map((s) => gsap.quickTo(s, "y", { duration: 0.55, ease: "power3" }));
-    const qs = stickers.map((s) => gsap.quickTo(s, "scale", { duration: 0.55, ease: "power3" }));
+    // one eased loop moves and scales every sticker together, and sleeps once they settle
+    const st = stickers.map(() => ({ x: 0, y: 0, s: 1, tx: 0, ty: 0, ts: 1 }));
+    let running = false;
+    const tick = (time, dt) => {
+      const k = 1 - Math.exp(-dt / 110);
+      let moving = false;
+      st.forEach((v, i) => {
+        v.x += (v.tx - v.x) * k; v.y += (v.ty - v.y) * k; v.s += (v.ts - v.s) * k;
+        if (Math.abs(v.tx - v.x) > 0.05 || Math.abs(v.ty - v.y) > 0.05 || Math.abs(v.ts - v.s) > 0.001) moving = true;
+        stickers[i].style.transform = `translate3d(${v.x}px,${v.y}px,0) scale(${v.s})`;
+      });
+      if (!moving) { gsap.ticker.remove(tick); running = false; }
+    };
+    const wake = () => { if (!running) { running = true; gsap.ticker.add(tick); } };
+    const aim = (i, x, y, s) => { const v = st[i]; v.tx = x; v.ty = y; v.ts = s; wake(); };
 
     // rows alternate between n and n-1 stickers, centred
     function layout(animate) {
@@ -95,11 +107,17 @@
       el.style.setProperty("--d", D0 + "px");
       el.style.height = Math.ceil(D0 * 0.6 + Math.max(0, row - 1) * rowH + D0 + D0 * 0.5) + "px";
       items.forEach((it) => {
-        const props = { x: it.bx, y: it.by, scale: 1, autoAlpha: 1 };
-        animate && !RM ? gsap.to(it.el, { ...props, duration: 0.9, ease: "expo.inOut" }) : gsap.set(it.el, props);
+        const v = st[it.idx];
+        if (!animate || RM) { v.x = v.tx = it.bx; v.y = v.ty = it.by; }
+        aim(it.idx, it.bx, it.by, 1);
+        it.el.style.visibility = "";
+        gsap.to(it.el.firstElementChild, { opacity: 1, duration: 0.5 });
       });
-      stickers.filter((s) => s.classList.contains("is-hidden")).forEach((s) =>
-        animate && !RM ? gsap.to(s, { scale: 0, autoAlpha: 0, duration: 0.4, ease: "power2.in" }) : gsap.set(s, { scale: 0, autoAlpha: 0 }));
+      stickers.forEach((s, i) => {
+        if (!s.classList.contains("is-hidden")) return;
+        aim(i, st[i].tx, st[i].ty, 0.001);
+        gsap.to(s.firstElementChild, { opacity: 0, duration: 0.3, onComplete: () => { s.style.visibility = "hidden"; } });
+      });
     }
 
     function magnify(px, py) {
@@ -108,9 +126,9 @@
       items.forEach((it) => {
         const dx = it.bx + D0 / 2 - px, dy = it.by + D0 / 2 - py, d = Math.hypot(dx, dy) || 1;
         const t = Math.max(0, 1 - d / R);
-        const push = Math.sin(Math.PI * t) * step * 0.22;
-        qx[it.idx](it.bx + (dx / d) * push); qy[it.idx](it.by + (dy / d) * push);
-        qs[it.idx](1 + 0.72 * t * t * t + (d < D0 * 0.55 ? 0.12 : 0));
+        const e = t * t * (3 - 2 * t);                 // smoothstep falloff
+        const push = e * (1 - e) * step * 0.5;           // neighbours ease aside, the centre stays put
+        aim(it.idx, it.bx + (dx / d) * push, it.by + (dy / d) * push, 1 + 0.6 * e * e);
         it.el.style.zIndex = Math.round(t * 100);
         if (d < nd) { nd = d; near = it; }
       });
@@ -124,7 +142,7 @@
       } else gsap.to(label, { autoAlpha: 0, duration: 0.3 });
     }
     function rest() {
-      items.forEach((it) => { qx[it.idx](it.bx); qy[it.idx](it.by); qs[it.idx](1); it.el.style.zIndex = ""; });
+      items.forEach((it) => { aim(it.idx, it.bx, it.by, 1); it.el.style.zIndex = ""; });
       stickers.forEach((s) => s.classList.remove("is-near"));
       gsap.to(label, { autoAlpha: 0, duration: 0.3 });
     }
@@ -138,11 +156,13 @@
       el.addEventListener("pointerleave", rest);
     }
     // stickers pop on as the section arrives
+    // (the pop-in animates the inner disc so it never fights the hover loop on the outer sticker)
     if (!RM) {
-      gsap.set(stickers, { scale: 0, autoAlpha: 0 });
+      const discs = stickers.map((s) => s.firstElementChild);
+      gsap.set(discs, { scale: 0 });
       ScrollTrigger.create({
         trigger: el, start: "top 85%", once: true,
-        onEnter: () => gsap.to(items.map((it) => it.el), { scale: 1, autoAlpha: 1, duration: 0.9, ease: "back.out(2.2)", stagger: { each: 0.035, from: "random" } }),
+        onEnter: () => gsap.to(discs, { scale: 1, duration: 0.9, ease: "back.out(2.2)", stagger: { each: 0.035, from: "random" } }),
       });
     }
     return {

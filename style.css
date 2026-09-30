@@ -958,3 +958,8 @@ body.menu-open .hdr .hdr__label { color: var(--yellow); }
 .sticker__disc img { width: calc(var(--d) * var(--fw, .6)); height: calc(var(--d) * var(--fh, .3)); max-height: none; object-fit: contain; }
 .sticker.is-near .sticker__disc { box-shadow: none; background: rgba(56,25,5,.03); }
 #homeHive { margin-top: clamp(10px, 3svh, 40px); }
+/* the tilt lives on the logo (a circle looks the same rotated), leaving the disc free for the pop-in */
+.sticker__disc, .sticker.is-near .sticker__disc { transform: none; transition: background .5s var(--ease), border-color .5s var(--ease); }
+.sticker__disc > * { transform: rotate(var(--r, 0deg)); transition: transform .7s var(--ease); }
+.sticker.is-near .sticker__disc > * { transform: rotate(0deg); }
+.sticker { will-change: transform; }

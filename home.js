@@ -15,7 +15,10 @@ window.APOS_PAGE = () => {
   $(".services__count em").textContent = `/ ${String(D.services.length).padStart(2, "0")}`;
 
   const featured = D.featured.map((slug) => D.projects.find((p) => p.slug === slug)).filter(Boolean);
-  hive($("#homeHive"), featured, { max: 150, per: 6.2 });
+  // the showcase projects first, then more from every category to fill out the honeycomb
+  const more = ["omega-ethos", "governor-house", "abraham-thakore", "glass-sutra", "chopard-jwc", "saundh", "copper-chimney", "mrunalini-rao", "tag-heuer", "stonex"]
+    .map((slug) => D.projects.find((p) => p.slug === slug)).filter(Boolean);
+  hive($("#homeHive"), [...featured, ...more], { max: 112, per: 9.5 });
 
   const bandSet = `<div class="band__set">${(D.topBrands || []).map((b) => `<span>${logo(b)}</span><i></i>`).join("")}</div>`;
   $("#bandTrack").innerHTML = bandSet + bandSet.replace('class="band__set"', 'class="band__set" aria-hidden="true"');
