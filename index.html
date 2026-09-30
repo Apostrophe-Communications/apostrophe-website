@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Apostrophe Communications — PR &amp; Marketing</title>
+  <meta name="description" content="Apostrophe Communications is a PR and marketing agency crafting stories for luxury, fashion, lifestyle, interiors and hospitality brands across India.">
+  <meta name="theme-color" content="#0e0e0c">
+  <meta property="og:title" content="Apostrophe Communications">
+  <meta property="og:description" content="You think. You move. We build.">
+  <meta property="og:image" content="assets/img/logo-full-black.png">
+  <link rel="icon" href="assets/img/mark.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Marcellus&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script>document.documentElement.classList.add("js");history.scrollRestoration="manual";</script>
+</head>
+<body data-page="home">
+
+  <!-- The signature: the A mark in three pieces, choreographed on scroll -->
+  <div class="sig" id="sig" aria-hidden="true">
+    <svg class="p-left" viewBox="350 380 800 768"><path fill="currentColor" d="M728 387H878C852 397 826 427 807 460L563 1040C541 1092 500 1141 418 1141H357L643 460C662 416 690 388 728 387Z"/></svg>
+    <svg class="p-right" viewBox="350 380 800 768"><path fill="currentColor" d="M808 728H962L1143 1141H1083C1003 1141 962 1094 940 1044L808 728Z"/></svg>
+    <svg class="p-dot" viewBox="350 380 800 768"><circle fill="#E4A524" cx="827.5" cy="766" r="140"/></svg>
+  </div>
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="s t-dark hero grain" id="hero" data-theme="dark">
+      <div class="hero__glow" id="glow"></div>
+      <h1 class="sr-only">You think, you move, we build. Apostrophe Communications.</h1>
+      <div class="hero__words" aria-hidden="true">
+        <div class="hero__line">You Think,</div>
+        <div class="hero__line">You Move</div>
+        <div class="hero__line">We Build<span class="hero__period"></span></div>
+      </div>
+      <div class="hero__brand" id="heroBrand">
+        <img class="hero__wordmark" src="assets/img/wordmark-white.png" alt="Apostrophe Communications" width="1088" height="224">
+        <a class="btn btn--yellow hero__cta" href="contact.html">We’re Ready When You Are <span class="arr"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 13 13 3M5 3h8v8"/></svg></span></a>
+      </div>
+      <div class="hero__scroll"><span>Scroll</span><i></i></div>
+    </section>
+
+    <!-- About -->
+    <section class="s t-light intro" id="intro" data-theme="light">
+      <div class="wrap">
+        <div class="intro__inner">
+          <span class="eyebrow">About Apostrophe</span>
+          <p class="statement" id="statement">A PR–oactive team, guided by a strategic vision to create, refine and share impactful stories that help businesses reach their goals.</p>
+        </div>
+        <div class="stats" id="stats"></div>
+        <div style="text-align:center;margin-top:clamp(60px,10svh,100px)" data-reveal>
+          <a class="btn btn--ghost" href="about.html">Our story <span class="arr" style="background:none;color:inherit;width:auto"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 13 13 3M5 3h8v8"/></svg></span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section class="s t-dark services grain" id="services" data-theme="dark">
+      <div class="wrap services__inner">
+        <div class="services__side">
+          <span class="eyebrow">What we do</span>
+          <div class="services__count"><span id="svcNum">01</span><em>/ 06</em></div>
+          <p class="services__note">Six disciplines, one point of view: stories that earn attention and keep it.</p>
+        </div>
+        <div class="wheel" id="wheel">
+          <span class="wheel__marker" id="wheelMarker"></span>
+          <ul class="wheel__list" id="wheelList"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Selected work -->
+    <section class="s t-light work" id="work" data-theme="light">
+      <div class="wrap work__head">
+        <h2 class="work__title" data-split>Selected work</h2>
+        <a class="btn btn--ghost" href="projects.html" data-reveal>View all projects</a>
+      </div>
+      <div class="work__pin" id="workPin">
+        <div class="work__track" id="workTrack"></div>
+      </div>
+    </section>
+
+    <!-- Brands marquee -->
+    <section class="s t-light marquee" id="marquee" data-theme="light" aria-label="Brands we have worked with">
+      <div class="marquee__track" id="marqueeTrack"></div>
+    </section>
+
+    <!-- Recognitions -->
+    <section class="s t-dark recog grain" id="recog" data-theme="dark">
+      <div class="wrap">
+        <h2 class="recog__title" data-split>Recognitions</h2>
+        <div id="recogList"></div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="s t-stone testi" id="testi" data-theme="light">
+      <div class="wrap testi__head">
+        <small data-reveal>Trusted</small>
+        <h2 data-split>by 100+ brands</h2>
+      </div>
+      <div class="slider" id="slider">
+        <div class="slider__track" id="sliderTrack"></div>
+        <div class="slider__nav">
+          <button id="prev" aria-label="Previous testimonial"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M14 8H2M7 3 2 8l5 5"/></svg></button>
+          <div class="slider__dots" id="dots"></div>
+          <button id="next" aria-label="Next testimonial"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 8h12M9 3l5 5-5 5"/></svg></button>
+        </div>
+      </div>
+    </section>
+
+    <div id="footer"></div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.11/dist/lenis.min.js"></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/home.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
