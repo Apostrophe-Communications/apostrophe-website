@@ -757,3 +757,13 @@ html.rm .hdr { opacity: 1 !important; visibility: visible !important; }
   box-shadow: 0 0 0 clamp(18px, 2.4vw, 34px) var(--ivory);
 }
 .band__btn:hover { transform: translate(-50%, calc(var(--band-h, 62px) / 2 - 50%)); }
+
+/* ---------- The yellow dot is the only pointer (mouse / trackpad only) ---------- */
+@media (hover: hover) and (pointer: fine) {
+  html.dot-cursor, html.dot-cursor * { cursor: none !important; }
+}
+.cursor { transition: background-color .3s var(--ease); }
+.cursor.is-link { background: rgba(228, 165, 36, .38); }
+.cursor.on-yellow { background: var(--ink); }
+.cursor.on-yellow.is-link { background: rgba(14, 14, 12, .3); }
+.cursor.has-label { background: var(--dot); }

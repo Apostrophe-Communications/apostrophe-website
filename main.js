@@ -191,21 +191,30 @@
   function initCursor() {
     if (!FINE || RM) return;
     const cur = $("#cursor");
-    const xTo = gsap.quickTo(cur, "x", { duration: 0.45, ease: "power3" });
-    const yTo = gsap.quickTo(cur, "y", { duration: 0.45, ease: "power3" });
+    // The dot is the only pointer, so it tracks tightly (no floaty lag).
+    const xTo = gsap.quickTo(cur, "x", { duration: 0.12, ease: "power2" });
+    const yTo = gsap.quickTo(cur, "y", { duration: 0.12, ease: "power2" });
+    document.documentElement.classList.add("dot-cursor");
     let shown = false;
     addEventListener("pointermove", (e) => {
-      if (!shown) { gsap.set(cur, { x: e.clientX, y: e.clientY }); gsap.to(cur, { opacity: 1, duration: 0.4 }); shown = true; }
+      if (!shown) { gsap.set(cur, { x: e.clientX, y: e.clientY }); gsap.to(cur, { opacity: 1, duration: 0.3 }); shown = true; }
       xTo(e.clientX); yTo(e.clientY);
     }, { passive: true });
     document.addEventListener("mouseleave", () => { gsap.to(cur, { opacity: 0, duration: 0.3 }); shown = false; });
-    const state = (s) => gsap.to(cur, { scale: s, duration: 0.5, ease: "expo.out", overwrite: "auto" });
+    addEventListener("pointerdown", () => gsap.to(cur, { scale: "*=0.8", duration: 0.15, yoyo: true, repeat: 1, ease: "power2.out" }));
+    const state = (s) => gsap.to(cur, { scale: s, duration: 0.45, ease: "expo.out", overwrite: "auto" });
     document.addEventListener("pointerover", (e) => {
-      const view = e.target.closest("[data-cursor]");
-      const link = e.target.closest("a, button, input, textarea");
+      const t = e.target;
+      const view = t.closest("[data-cursor]");
+      const link = t.closest("a, button, label, [role=button]");
+      const field = t.closest("input, textarea, select");
+      // on yellow backgrounds the dot turns ink so it never disappears
+      cur.classList.toggle("on-yellow", !!t.closest(".t-yellow, .btn--yellow, .hero__cta"));
+      cur.classList.toggle("is-link", !!link && !view);
       if (view) { cur.querySelector("span").textContent = view.dataset.cursor; cur.classList.add("has-label"); state(1); }
-      else if (link) { cur.classList.remove("has-label"); state(0.4); }
-      else { cur.classList.remove("has-label"); state(0.12); }
+      else if (link) { cur.classList.remove("has-label"); state(0.5); }
+      else if (field) { cur.classList.remove("has-label"); state(0.09); }
+      else { cur.classList.remove("has-label"); state(0.14); }
     });
   }
 
