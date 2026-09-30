@@ -86,26 +86,33 @@
     const wake = () => { if (!running) { running = true; gsap.ticker.add(tick); } };
     const aim = (i, x, y, s) => { const v = st[i]; v.tx = x; v.ty = y; v.ts = s; wake(); };
 
-    // rows alternate between n and n-1 stickers, centred
+    // fill a hex lattice from the centre outwards so the set forms one round cluster
+    // (the first projects sit in the middle); on narrow screens the circle stretches into an upright oval
     function layout(animate) {
       const W = el.clientWidth;
       D0 = Math.round(Math.min(max, Math.max(76, W / per)));
       const gap = Math.round(D0 * 0.2);
       step = D0 + gap;
-      const n = Math.max(3, Math.floor((W - D0 * 0.4 + gap) / step));
       const rowH = step * 0.87;
       const vis = stickers.filter((s) => !s.classList.contains("is-hidden"));
-      items = [];
-      let i = 0, row = 0;
-      while (i < vis.length) {
-        const left = vis.length - i;
-        let k = Math.min(row % 2 ? n - 1 : n, left);
-        const rowW = k * step - gap;
-        for (let c = 0; c < k; c++, i++) items.push({ el: vis[i], idx: +vis[i].dataset.i, bx: (W - rowW) / 2 + c * step, by: D0 * 0.3 + row * rowH });
-        row++;
+      const N = vis.length, R = Math.ceil(Math.sqrt(N)) + 3;
+      const pts = [];
+      for (let r = -2 * R; r <= 2 * R; r++) for (let c = -2 * R; c <= 2 * R; c++)
+        pts.push({ x: (c + (Math.abs(r) % 2) * 0.5) * step, y: r * rowH });
+      let aspect = 1, pick = [];
+      for (let tries = 0; tries < 30; tries++) {
+        pick = pts.map((q) => ({ ...q, m: Math.hypot(q.x, q.y / aspect) + Math.atan2(q.y, q.x) * 1e-3 }))
+          .sort((u, v) => u.m - v.m).slice(0, N);
+        const xs = pick.map((q) => q.x);
+        if (N < 2 || Math.max(...xs) - Math.min(...xs) + D0 <= W) break;
+        aspect *= 1.12;
       }
+      const xs = pick.map((q) => q.x), ys = pick.map((q) => q.y);
+      const minX = Math.min(...xs), maxX = Math.max(...xs), minY = Math.min(...ys), maxY = Math.max(...ys);
+      const ox = (W - (maxX - minX + D0)) / 2 - minX, oy = D0 * 0.3 - minY;
+      items = vis.map((v, i) => ({ el: v, idx: +v.dataset.i, bx: pick[i].x + ox, by: pick[i].y + oy }));
       el.style.setProperty("--d", D0 + "px");
-      el.style.height = Math.ceil(D0 * 0.6 + Math.max(0, row - 1) * rowH + D0 + D0 * 0.5) + "px";
+      el.style.height = Math.ceil(N ? maxY - minY + D0 * 2.2 : 0) + "px";
       items.forEach((it) => {
         const v = st[it.idx];
         if (!animate || RM) { v.x = v.tx = it.bx; v.y = v.ty = it.by; }
