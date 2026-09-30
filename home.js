@@ -193,9 +193,8 @@ window.APOS_PAGE = () => {
       y: () => -(n - 0.5) * h(),
       ease: "none",
       scrollTrigger: {
-        id: "services-pin", trigger: "#services", start: "top top", end: () => `+=${(n - 1) * H() * 0.55}`,
-        pin: true, scrub: 0.6, anticipatePin: 1, invalidateOnRefresh: true,
-        snap: { snapTo: 1 / (n - 1), duration: { min: 0.25, max: 0.6 }, delay: 0.08, ease: "power2.inOut" },
+        id: "services-pin", trigger: "#services", start: "top top", end: () => `+=${(n - 1) * H() * 0.26}`,
+        pin: true, scrub: 0.35, anticipatePin: 1, invalidateOnRefresh: true,
         onUpdate: (self) => setState(self.progress * (n - 1)),
       },
     });
