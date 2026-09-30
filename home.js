@@ -221,19 +221,25 @@ window.APOS_PAGE = () => {
     const mm = gsap.matchMedia();
     mm.add("(min-width: 900px) and (prefers-reduced-motion: no-preference)", () => {
       const dist = () => track.scrollWidth - innerWidth;
+      // card centres are cached on refresh; each frame is pure maths + transforms
+      let centres = [], medias = [];
+      const measure = () => {
+        centres = cards.map((c) => c.offsetLeft + c.offsetWidth / 2);
+        medias = cards.map((c) => c.querySelector(".wcard__media > *"));
+      };
       const fx = () => {
-        const mid = innerWidth / 2;
-        cards.forEach((c) => {
-          const r = c.getBoundingClientRect();
-          const d = (r.left + r.width / 2 - mid) / innerWidth; // -1..1
-          const m = c.querySelector(".wcard__media > *");
-          c.style.transform = `translateY(${Math.abs(d) * 40}px) scale(${1 - Math.min(Math.abs(d), 1) * 0.1})`;
-          if (m) m.style.transform = `translateX(${d * -6}%)`;
+        const tx = gsap.getProperty(track, "x"), mid = innerWidth / 2, W0 = innerWidth;
+        cards.forEach((c, i) => {
+          const d = (centres[i] + tx - mid) / W0;
+          const a = Math.min(Math.abs(d), 1);
+          c.style.transform = `translate3d(0,${a * 40}px,0) scale(${1 - a * 0.1})`;
+          if (medias[i]) medias[i].style.transform = `translate3d(${d * -6}%,0,0)`;
         });
       };
+      measure();
       gsap.to(track, {
         x: () => -dist(), ease: "none",
-        scrollTrigger: { trigger: "#workPin", start: "top top", end: () => `+=${dist()}`, pin: true, scrub: 0.8, anticipatePin: 1, invalidateOnRefresh: true, onUpdate: fx, onRefresh: fx },
+        scrollTrigger: { trigger: "#workPin", start: "top top", end: () => `+=${dist()}`, pin: true, scrub: 0.8, anticipatePin: 1, invalidateOnRefresh: true, onUpdate: fx, onRefreshInit: measure, onRefresh: fx },
       });
       return () => cards.forEach((c) => { c.style.transform = ""; const m = c.querySelector(".wcard__media > *"); if (m) m.style.transform = ""; });
     });
@@ -247,15 +253,20 @@ window.APOS_PAGE = () => {
   function marquee() {
     if (RM) return;
     const loop = gsap.to("#marqueeTrack", { xPercent: -50, duration: 50, ease: "none", repeat: -1 });
-    let dir = 1;
+    let dir = 1, target = 1, active = false;
     ScrollTrigger.create({
       trigger: "#marquee", start: "top bottom", end: "bottom top",
+      onToggle: (self) => { active = self.isActive; active ? loop.play() : loop.pause(); },
       onUpdate: (self) => {
         dir = self.direction;
-        const boost = Math.min(Math.abs(self.getVelocity()) / 250, 6);
-        gsap.to(loop, { timeScale: dir * (1 + boost), duration: 0.3, overwrite: true });
-        gsap.to(loop, { timeScale: dir, duration: 1.2, delay: 0.3, ease: "power2.out" });
+        target = dir * (1 + Math.min(Math.abs(self.getVelocity()) / 250, 6));
       },
+    });
+    gsap.ticker.add(() => {
+      if (!active) return;
+      target += (dir - target) * 0.04;            // settle back to cruising speed
+      const ts = loop.timeScale();
+      loop.timeScale(ts + (target - ts) * 0.12);  // ease towards the target
     });
   }
 
