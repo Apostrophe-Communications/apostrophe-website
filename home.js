@@ -113,13 +113,24 @@ window.APOS_PAGE = () => {
     // Overall pace of the opening (1 = original, higher = faster).
     tl.timeScale(1.75);
 
-    // Scrolling, tapping or a key press fast-forwards the intro.
-    const skip = () => { if (tl.isActive()) tl.timeScale(6); off(); };
-    const off = () => ["wheel", "touchstart", "keydown", "pointerdown"].forEach((e) => removeEventListener(e, skip));
-    ["wheel", "touchstart", "keydown", "pointerdown"].forEach((e) => addEventListener(e, skip, { passive: true }));
+    // The page stays put while the opening plays, so nothing can fall out of
+    // sync. Any scroll, tap or key press fast-forwards it to the end.
+    const lenis = window.APOS_UI.lenis;
+    const lock = (on) => {
+      document.documentElement.style.overflow = on ? "hidden" : "";
+      if (lenis) on ? lenis.stop() : lenis.start();
+    };
+    scrollTo(0, 0);
+    lock(true);
+    const safety = setTimeout(() => tl.progress(1), 9000);
+    const skip = () => { tl.timeScale(8); off(); };
+    const off = () => ["wheel", "touchstart", "touchmove", "keydown", "pointerdown"].forEach((e) => removeEventListener(e, skip));
+    ["wheel", "touchstart", "touchmove", "keydown", "pointerdown"].forEach((e) => addEventListener(e, skip, { passive: true }));
 
     function done() {
       off();
+      clearTimeout(safety);
+      lock(false);
       gsap.set(lines, { visibility: "hidden" });
       signature();
       // hero content lifts away as you scroll
