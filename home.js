@@ -133,7 +133,7 @@ window.APOS_PAGE = () => {
     if (RM) return;
     const sig = $("#sig");
     const L = $(".p-left", sig), R = $(".p-right", sig), Dt = $(".p-dot", sig);
-    const stone = "#dcd5c4", ivory = "#f6f3ec";
+    const stone = "#c8dbfc", ivory = "#fdf9cc"; // dusty blue framing, butter logo
     let master;
 
     // One scrubbed timeline for the whole journey. Every stage goes from an
