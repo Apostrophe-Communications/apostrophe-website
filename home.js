@@ -241,6 +241,17 @@ window.APOS_PAGE = () => {
     const queue = () => { if (!ticking) { ticking = true; requestAnimationFrame(fx); } };
     measure(); fx();
     track.addEventListener("scroll", queue, { passive: true });
+
+    // edge arrows: show only where there is more to see
+    const gallery = track.parentElement;
+    const ends = () => {
+      const max = track.scrollWidth - track.clientWidth - 16;
+      gallery.classList.toggle("is-start", track.scrollLeft <= 16);
+      gallery.classList.toggle("is-end", track.scrollLeft >= max);
+    };
+    track.addEventListener("scroll", ends, { passive: true });
+    addEventListener("resize", ends);
+    ends();
     addEventListener("resize", () => { measure(); queue(); });
 
     // arrows
