@@ -283,9 +283,9 @@ html.rm .sig .p-left, html.rm .sig .p-right, html.rm .sig .p-dot { opacity: 1; }
 }
 .hero__glow {
   position: absolute; z-index: 0; left: 0; top: 0;
-  width: 70vmax; height: 70vmax; margin: -35vmax 0 0 -35vmax;
+  width: 60vmax; height: 60vmax; margin: -30vmax 0 0 -30vmax;
   border-radius: 50%;
-  background: radial-gradient(closest-side, rgba(255, 190, 0, 0.09), rgba(255, 190, 0, 0) 70%);
+  background: radial-gradient(closest-side, rgba(255, 190, 0, 0.34), rgba(255, 190, 0, 0.16) 30%, rgba(228, 165, 36, 0.06) 56%, rgba(228, 165, 36, 0) 74%);
   pointer-events: none;
   will-change: transform;
 }
@@ -729,9 +729,9 @@ html.rm .services { height: auto; padding: 120px 0; }
 /* ---------- Signature glow: the soft yellow orb that lives in every dark section ---------- */
 .s > .glow, .menu > .glow {
   position: absolute; z-index: 0; left: 0; top: 0;
-  width: 70vmax; height: 70vmax; margin: -35vmax 0 0 -35vmax;
+  width: 60vmax; height: 60vmax; margin: -30vmax 0 0 -30vmax;
   border-radius: 50%;
-  background: radial-gradient(closest-side, rgba(255, 190, 0, 0.1), rgba(228, 165, 36, 0.04) 45%, rgba(255, 190, 0, 0) 72%);
+  background: radial-gradient(closest-side, rgba(255, 190, 0, 0.34), rgba(255, 190, 0, 0.16) 30%, rgba(228, 165, 36, 0.06) 56%, rgba(228, 165, 36, 0) 74%);
   pointer-events: none;
   will-change: transform;
 }
@@ -763,7 +763,7 @@ html.rm .hdr { opacity: 1 !important; visibility: visible !important; }
   html.dot-cursor, html.dot-cursor * { cursor: none !important; }
 }
 .cursor { transition: background-color .3s var(--ease); }
-.cursor.is-link { background: rgba(228, 165, 36, .38); }
+.cursor.is-link { background: var(--dot); }
 .cursor.on-yellow { background: var(--ink); }
-.cursor.on-yellow.is-link { background: rgba(14, 14, 12, .3); }
+.cursor.on-yellow.is-link { background: var(--ink); }
 .cursor.has-label { background: var(--dot); }

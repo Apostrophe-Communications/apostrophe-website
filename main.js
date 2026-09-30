@@ -212,7 +212,7 @@
       cur.classList.toggle("on-yellow", !!t.closest(".t-yellow, .btn--yellow, .hero__cta"));
       cur.classList.toggle("is-link", !!link && !view);
       if (view) { cur.querySelector("span").textContent = view.dataset.cursor; cur.classList.add("has-label"); state(1); }
-      else if (link) { cur.classList.remove("has-label"); state(0.5); }
+      else if (link) { cur.classList.remove("has-label"); state(0.26); }
       else if (field) { cur.classList.remove("has-label"); state(0.09); }
       else { cur.classList.remove("has-label"); state(0.14); }
     });
@@ -281,6 +281,12 @@
   }
 
   /* ---------- signature glow in every dark section ---------- */
+  // a slow swell in size and brightness, only while its section is on screen
+  function breathe(g, sec) {
+    const tw = gsap.fromTo(g, { scale: 0.9, opacity: 0.8 }, { scale: 1.12, opacity: 1, duration: 3.2, ease: "sine.inOut", yoyo: true, repeat: -1, paused: true });
+    ScrollTrigger.create({ trigger: sec, start: "top bottom", end: "bottom top", onToggle: (st) => (st.isActive ? tw.play() : tw.pause()) });
+  }
+  window.APOS_BREATHE = breathe;
   function initGlows() {
     const hosts = [...$$(".t-dark"), $("#menu")].filter((el) => el && !el.querySelector(".hero__glow, .glow"));
     hosts.forEach((sec) => {
@@ -292,6 +298,7 @@
       const place = () => gsap.set(g, { x: sec.clientWidth * 0.72, y: Math.min(sec.clientHeight, innerHeight) * 0.35 });
       place();
       if (RM) return;
+      breathe(g, sec);
       if (FINE) {
         const gx = gsap.quickTo(g, "x", { duration: 1.8, ease: "power3" });
         const gy = gsap.quickTo(g, "y", { duration: 1.8, ease: "power3" });

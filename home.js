@@ -67,6 +67,7 @@ window.APOS_PAGE = () => {
     // pointer glow (desktop) / ambient drift (touch)
     const glow = $("#glow");
     if (!RM) {
+      window.APOS_BREATHE && window.APOS_BREATHE(glow, $("#hero"));
       if (FINE) {
         const gx = gsap.quickTo(glow, "x", { duration: 1.6, ease: "power3" });
         const gy = gsap.quickTo(glow, "y", { duration: 1.6, ease: "power3" });
