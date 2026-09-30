@@ -766,13 +766,13 @@ window.APOS = {
     "work/apala-5.jpg",
     "work/apala-6.jpg"
    ],
-   "logo": "logos/apala.png",
-   "lw": 489,
+   "logo": "logos/apala-v2.png",
+   "lw": 371,
    "lh": 180,
-   "sticker": "stickers/apala.png",
-   "sw": 270,
-   "sh": 181,
-   "badge": true
+   "sticker": "stickers/apala-v2.png",
+   "sw": 441,
+   "sh": 214,
+   "badge": false
   },
   {
    "slug": "chopard-jwc",
@@ -1863,7 +1863,13 @@ window.APOS = {
     "work/fcml-3.jpg",
     "work/fcml-4.jpg"
    ],
-   "sticker": ""
+   "sticker": "stickers/fcml.png",
+   "sw": 199,
+   "sh": 56,
+   "badge": false,
+   "logo": "logos/fcml.png",
+   "lw": 640,
+   "lh": 180
   },
   {
    "slug": "at-home",
@@ -2903,8 +2909,8 @@ window.APOS = {
     },
     {
      "name": "Apala",
-     "logo": "logos/apala.png",
-     "w": 489,
+     "logo": "logos/apala-v2.png",
+     "w": 371,
      "h": 180,
      "slug": "apala"
     }
@@ -2929,7 +2935,10 @@ window.APOS = {
     },
     {
      "name": "FCML",
-     "slug": "fcml"
+     "slug": "fcml",
+     "logo": "logos/fcml.png",
+     "w": 640,
+     "h": 180
     },
     {
      "name": "Abraham & Thakore Home",
