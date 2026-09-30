@@ -126,9 +126,9 @@ window.APOS_PAGE = () => {
   }
 
   /* ---------------- signature choreography ----------------
-     The three pieces of the A leave the hero, frame the About section
-     like two figures, then the dot travels on to become the services
-     marker before bowing out.                                           */
+     The three pieces of the A leave the hero and frame the About section
+     like figures (the dot stays large so it never reads as the cursor),
+     then all three drift off before Services.                            */
   function signature() {
     if (RM) return;
     const sig = $("#sig");
@@ -146,31 +146,21 @@ window.APOS_PAGE = () => {
       const w = innerWidth, h = innerHeight, m = w < 900;
       const k = m ? 1.55 : 2.3;
 
-      const intro = $("#intro"), work = $("#work");
+      const intro = $("#intro");
       const svcST = ScrollTrigger.getById("services-pin");
       const introTop = intro.offsetTop, introBottom = introTop + intro.offsetHeight;
       const svcTop = svcST ? svcST.start : $("#services").offsetTop;
-      const workTop = work.offsetTop;
-
-      // dot → services marker (services is pinned, so this spot is fixed on screen)
-      const sr = sig.getBoundingClientRect();
-      const home = { x: sr.left + 0.597 * sr.width, y: sr.top + 0.503 * sr.height, d: (280 / 800) * sr.width };
-      const mk = $("#wheelMarker").getBoundingClientRect();
-      const secTop = $("#services").getBoundingClientRect().top;
-      const marker = { x: mk.left + mk.width / 2 - home.x, y: mk.top - secTop + mk.height / 2 - home.y, scale: mk.width / home.d };
 
       const S = {
         logo:   { L: { x: 0, y: 0, rotation: 0, scale: 1, opacity: 1 }, R: { x: 0, y: 0, rotation: 0, scale: 1, opacity: 1 }, D: { x: 0, y: 0, scale: 1, opacity: 1 } },
-        frame:  { L: { x: -w * (m ? 0.42 : 0.4), y: h * 0.12, rotation: -6, scale: k, opacity: 1 }, R: { x: w * (m ? 0.4 : 0.39), y: h * 0.2, rotation: 9, scale: k, opacity: 1 }, D: { x: w * (m ? 0.34 : 0.3), y: -h * 0.26, scale: 0.2, opacity: 1 } },
-        drift:  { L: { x: -w * (m ? 0.42 : 0.4), y: -h * 0.14, rotation: 5, scale: k, opacity: 1 }, R: { x: w * (m ? 0.4 : 0.39), y: -h * 0.24, rotation: -5, scale: k, opacity: 1 }, D: { x: w * (m ? 0.34 : 0.3), y: h * 0.02, scale: 0.2, opacity: 1 } },
-        svc:    { L: { x: -w * 0.95, y: -h * 0.14, rotation: -24, scale: k, opacity: 0 }, R: { x: w * 0.95, y: -h * 0.24, rotation: 24, scale: k, opacity: 0 }, D: { ...marker, opacity: 1 } },
-        gone:   { D: { x: marker.x, y: marker.y - h * 0.5, scale: 0, opacity: 1 } },
+        frame:  { L: { x: -w * (m ? 0.42 : 0.4), y: h * 0.12, rotation: -6, scale: k, opacity: 1 }, R: { x: w * (m ? 0.4 : 0.39), y: h * 0.2, rotation: 9, scale: k, opacity: 1 }, D: { x: w * (m ? 0.36 : 0.33), y: -h * 0.24, scale: 1.3, opacity: 1 } },
+        drift:  { L: { x: -w * (m ? 0.42 : 0.4), y: -h * 0.14, rotation: 5, scale: k, opacity: 1 }, R: { x: w * (m ? 0.4 : 0.39), y: -h * 0.24, rotation: -5, scale: k, opacity: 1 }, D: { x: w * (m ? 0.36 : 0.33), y: h * 0.06, scale: 1.5, opacity: 1 } },
+        svc:    { L: { x: -w * 0.95, y: -h * 0.14, rotation: -24, scale: k, opacity: 0 }, R: { x: w * 0.95, y: -h * 0.24, rotation: 24, scale: k, opacity: 0 }, D: { x: w * 0.75, y: -h * 0.3, scale: 1.6, opacity: 0 } },
       };
 
       const a = Math.max(0, introTop - h), b = Math.max(a + 1, introTop - h * 0.15);
       const c = Math.max(b + 1, introBottom);
       const d0 = Math.max(c, svcTop - h), d1 = Math.max(d0 + 1, svcTop);
-      const e0 = Math.max(d1, workTop - h), e1 = Math.max(e0 + 1, workTop - h * 0.4);
 
       const tl = gsap.timeline({ paused: true, defaults: { immediateRender: false, ease: "none" } });
       const stage = (from, to, t0, t1, ease) => {
@@ -185,11 +175,10 @@ window.APOS_PAGE = () => {
       tl.fromTo(sig, { color: ivory }, { color: stone, duration: b - a }, a);
       stage(S.frame, S.drift, b, c, "none");
       stage(S.drift, S.svc, d0, d1, "power3.inOut");
-      stage({ D: S.svc.D }, S.gone, e0, e1, "power2.in");
-      tl.set({}, {}, e1);
+      tl.set({}, {}, d1);
 
       master = tl;
-      ScrollTrigger.create({ id: "signature", animation: tl, start: 0, end: e1, scrub: 1 });
+      ScrollTrigger.create({ id: "signature", animation: tl, start: 0, end: d1, scrub: 1 });
       tl.progress(keep || ScrollTrigger.getById("signature").progress);
     };
 
