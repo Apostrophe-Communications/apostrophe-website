@@ -931,3 +931,4 @@ body.menu-open .hdr .hdr__label { color: var(--yellow); }
 }
 @media (max-width: 560px) { .pgrid:has(.ptile) { grid-template-columns: repeat(2, 1fr); } }
 .foot-bar * { min-width: 0; } .foot-bar li, .foot-bar a, .foot-bar p { overflow-wrap: anywhere; }
+.plist__title { font-size: var(--fs-h2); line-height: 1; }

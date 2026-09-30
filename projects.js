@@ -19,7 +19,7 @@ window.APOS_PAGE = () => {
     </a>`).join("");
 
   // client index
-  $("#clientIndex").innerHTML = D.clientIndex.map((c) => `
+  $("#clientIndex").innerHTML = D.clientIndex.map((c) => ({ ...c, brands: c.brands.filter((b) => !b.slug) })).filter((c) => c.brands.length).map((c) => `
     <div class="index__cat" data-reveal>
       <h3>${esc(c.name)}</h3>
       <div class="index__logos">${c.brands.map((b) => b.slug
