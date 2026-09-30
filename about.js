@@ -2,12 +2,17 @@
    About page
    ========================================================================== */
 window.APOS_PAGE = () => {
-  const { $, $$, RM, esc, media, MARK } = window.APOS_UI;
+  const { $, $$, RM, esc, media, logo, MARK } = window.APOS_UI;
   const D = window.APOS;
 
   $("#founderMark").innerHTML = MARK();
-  $("#founderPhoto").innerHTML = media({ title: "Kritika Lalchandani", tone: 1 }, "Founder photo placeholder");
-  $("#logos").innerHTML = D.partners.map((n) => `<div data-reveal>${esc(n)}</div>`).join("");
+  $("#founderPhoto").innerHTML = media({ title: "Kritika Lalchandani", image: "team/kritika-lalchandani.jpg" });
+  $("#team").innerHTML = D.team.map((t) => `
+    <figure class="team__card" data-reveal>
+      <div class="team__photo"><img src="${esc(t.photo)}" alt="${esc(t.name)}" loading="lazy" decoding="async"></div>
+      <figcaption><h3>${esc(t.name)}</h3><p>${esc(t.role)}</p></figcaption>
+    </figure>`).join("");
+  $("#logos").innerHTML = D.press.map((b) => `<div data-reveal>${logo(b)}</div>`).join("");
 
   if (RM) return;
 

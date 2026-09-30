@@ -15,19 +15,19 @@ window.APOS = {
    "label": "Years of experience"
   },
   {
-   "value": 100,
-   "suffix": "+",
-   "label": "Satisfied clients"
-  },
-  {
    "value": 250,
    "suffix": "+",
-   "label": "Projects delivered"
+   "label": "Premium Indian & global brands"
   },
   {
-   "value": 7,
+   "value": 18,
    "suffix": "+",
-   "label": "Verticals in India"
+   "label": "Cities with campaigns"
+  },
+  {
+   "value": 90,
+   "suffix": "+",
+   "label": "Affiliates across India"
   }
  ],
  "services": [
@@ -56,7 +56,163 @@ window.APOS = {
    "name": "Dining & Hospitality"
   }
  ],
- "topBrands": ["BVLGARI", "Chopard", "Omega", "TAG Heuer", "Rado", "Tiffany & Co.", "Versace", "Ferragamo", "Bally", "Paul Smith", "Brooks Brothers", "Tarun Tahiliani", "Abraham & Thakore", "Bath & Body Works", "Benefit Cosmetics", "Diesel", "GANT", "Superdry", "Lladró", "West Elm", "Pottery Barn Kids", "Farzi Café", "Nando’s", "Hamleys"],
+ "topBrands": [
+  {
+   "name": "BVLGARI",
+   "logo": "logos/bvlgari.png",
+   "w": 720,
+   "h": 78,
+   "slug": "bvlgari-jwc"
+  },
+  {
+   "name": "Chopard",
+   "logo": "logos/chopard.png",
+   "w": 503,
+   "h": 180,
+   "slug": "chopard-jwc"
+  },
+  {
+   "name": "Omega",
+   "logo": "logos/omega.png",
+   "w": 370,
+   "h": 180,
+   "slug": "omega-ethos"
+  },
+  {
+   "name": "TAG Heuer",
+   "logo": "logos/tag-heuer.png",
+   "w": 297,
+   "h": 180,
+   "slug": "tag-heuer"
+  },
+  {
+   "name": "Rado",
+   "logo": "logos/rado.png",
+   "w": 569,
+   "h": 180,
+   "slug": "rado"
+  },
+  {
+   "name": "Tiffany & Co.",
+   "logo": "logos/tiffany-and-co.png",
+   "w": 720,
+   "h": 93
+  },
+  {
+   "name": "Versace",
+   "logo": "logos/versace.png",
+   "w": 329,
+   "h": 180
+  },
+  {
+   "name": "Ferragamo",
+   "logo": "logos/ferragamo.png",
+   "w": 720,
+   "h": 86
+  },
+  {
+   "name": "Bally",
+   "logo": "logos/bally.png",
+   "w": 269,
+   "h": 180,
+   "slug": "bally"
+  },
+  {
+   "name": "Paul Smith",
+   "logo": "logos/paul-smith.png",
+   "w": 720,
+   "h": 144,
+   "slug": "paul-smith"
+  },
+  {
+   "name": "Brooks Brothers",
+   "logo": "logos/brooks-brothers.png",
+   "w": 452,
+   "h": 180
+  },
+  {
+   "name": "Tarun Tahiliani",
+   "logo": "logos/tarun-tahiliani.png",
+   "w": 720,
+   "h": 72,
+   "slug": "tarun-tahiliani"
+  },
+  {
+   "name": "Abraham & Thakore",
+   "logo": "logos/abraham-and-thakore.png",
+   "w": 635,
+   "h": 180,
+   "slug": "abraham-thakore"
+  },
+  {
+   "name": "Bath & Body Works",
+   "logo": "logos/bath-and-body-works.png",
+   "w": 215,
+   "h": 180,
+   "slug": "bath-body-works"
+  },
+  {
+   "name": "Benefit Cosmetics",
+   "logo": "logos/benefit-cosmetics.png",
+   "w": 550,
+   "h": 180
+  },
+  {
+   "name": "Diesel",
+   "logo": "logos/diesel.png",
+   "w": 472,
+   "h": 180
+  },
+  {
+   "name": "GANT",
+   "logo": "logos/gant.png",
+   "w": 352,
+   "h": 180
+  },
+  {
+   "name": "Superdry",
+   "logo": "logos/superdry.png",
+   "w": 671,
+   "h": 180
+  },
+  {
+   "name": "Lladró",
+   "logo": "logos/lladro.png",
+   "w": 635,
+   "h": 180,
+   "slug": "lladro"
+  },
+  {
+   "name": "West Elm",
+   "logo": "logos/west-elm.png",
+   "w": 720,
+   "h": 121
+  },
+  {
+   "name": "Pottery Barn Kids",
+   "logo": "logos/pottery-barn-kids.png",
+   "w": 471,
+   "h": 180
+  },
+  {
+   "name": "Farzi Café",
+   "logo": "logos/farzi-cafe.png",
+   "w": 425,
+   "h": 180
+  },
+  {
+   "name": "Nando’s",
+   "logo": "logos/nando-s.png",
+   "w": 560,
+   "h": 180
+  },
+  {
+   "name": "Hamleys",
+   "logo": "logos/hamleys.png",
+   "w": 338,
+   "h": 180
+  }
+ ],
  "featured": [
   "bvlgari-jwc",
   "rado",
@@ -77,7 +233,7 @@ window.APOS = {
     "Media & Storytelling"
    ],
    "featured": true,
-   "image": "",
+   "image": "work/bvlgari-jwc-1.jpg",
    "tone": 0,
    "highlights": [],
    "placeholder": false,
@@ -110,7 +266,10 @@ window.APOS = {
       "v": "The showcase brought together a curated audience of luxury consumers and buyers for an exclusive encounter with Bvlgari's exceptional timepieces and High Jewellery Watches, strengthening the brand's engagement with the Delhi luxury community and reinforcing Johnson Watch Co.'s positioning as a destination for exceptional horology."
      }
     ]
-   }
+   },
+   "gallery": [
+    "work/bvlgari-jwc-2.jpg"
+   ]
   },
   {
    "slug": "rado",
@@ -122,7 +281,7 @@ window.APOS = {
     "Digital Influence"
    ],
    "featured": true,
-   "image": "",
+   "image": "work/rado-1.jpg",
    "tone": 1,
    "highlights": [
     {
@@ -174,7 +333,12 @@ window.APOS = {
       "v": "By combining earned media with targeted digital amplification, Apostrophe helped turn a brand announcement into a broader cultural conversation around RADO's heritage, innovation and contemporary relevance."
      }
     ]
-   }
+   },
+   "gallery": [
+    "work/rado-2.jpg",
+    "work/rado-3.jpg",
+    "work/rado-4.jpg"
+   ]
   },
   {
    "slug": "tasva",
@@ -186,7 +350,7 @@ window.APOS = {
     "Experiences & Activations"
    ],
    "featured": true,
-   "image": "",
+   "image": "work/tasva-1.jpg",
    "tone": 2,
    "highlights": [
     {
@@ -300,7 +464,16 @@ window.APOS = {
       "v": "The continued engagement across multiple TASVA initiatives reflects Apostrophe's ability to build long-term brand momentum rather than isolated event visibility, connecting fashion, celebrity, media and community ecosystems around the brand."
      }
     ]
-   }
+   },
+   "gallery": [
+    "work/tasva-2.jpg",
+    "work/tasva-3.jpg",
+    "work/tasva-4.jpg",
+    "work/tasva-5.jpg",
+    "work/tasva-6.jpg",
+    "work/tasva-7.jpg",
+    "work/tasva-8.jpg"
+   ]
   },
   {
    "slug": "tarun-tahiliani",
@@ -312,7 +485,7 @@ window.APOS = {
     "Fashion & Design Culture"
    ],
    "featured": true,
-   "image": "",
+   "image": "work/tarun-tahiliani-1.jpg",
    "tone": 3,
    "highlights": [
     {
@@ -368,7 +541,14 @@ window.APOS = {
       "v": "The combination of 20–25 celebrity dressing wins in six months, CAT-A influencer associations and strategic Fashion Week PR has helped maintain a consistent luxury narrative around the designer while deepening relationships with India's leading fashion media."
      }
     ]
-   }
+   },
+   "gallery": [
+    "work/tarun-tahiliani-2.jpg",
+    "work/tarun-tahiliani-3.jpg",
+    "work/tarun-tahiliani-4.jpg",
+    "work/tarun-tahiliani-5.jpg",
+    "work/tarun-tahiliani-6.jpg"
+   ]
   },
   {
    "slug": "lladro",
@@ -380,7 +560,7 @@ window.APOS = {
     "Strategic Collaborations"
    ],
    "featured": true,
-   "image": "",
+   "image": "work/lladro-1.jpg",
    "tone": 4,
    "highlights": [],
    "placeholder": false,
@@ -429,7 +609,16 @@ window.APOS = {
       "v": "Through a combination of premium event associations, influential design voices, architect partnerships and real-world product placements, Apostrophe helped communicate Lladró's timeless craftsmanship, artistic legacy and versatility to a broader and highly relevant audience."
      }
     ]
-   }
+   },
+   "gallery": [
+    "work/lladro-2.jpg",
+    "work/lladro-3.jpg",
+    "work/lladro-4.jpg",
+    "work/lladro-5.jpg",
+    "work/lladro-6.jpg",
+    "work/lladro-7.jpg",
+    "work/lladro-8.jpg"
+   ]
   },
   {
    "slug": "bath-body-works",
@@ -441,7 +630,7 @@ window.APOS = {
     "Media & Storytelling"
    ],
    "featured": true,
-   "image": "",
+   "image": "work/bath-body-works-1.jpg",
    "tone": 5,
    "highlights": [],
    "placeholder": true,
@@ -474,7 +663,15 @@ window.APOS = {
       "v": "Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Maecenas faucibus mollis interdum, nullam quis risus eget urna mollis ornare vel eu leo."
      }
     ]
-   }
+   },
+   "gallery": [
+    "work/bath-body-works-2.jpg",
+    "work/bath-body-works-3.jpg",
+    "work/bath-body-works-4.jpg",
+    "work/bath-body-works-5.jpg",
+    "work/bath-body-works-6.jpg",
+    "work/bath-body-works-7.jpg"
+   ]
   },
   {
    "slug": "apala",
@@ -486,7 +683,7 @@ window.APOS = {
     "Influencer Relations"
    ],
    "featured": true,
-   "image": "",
+   "image": "work/apala-1.jpg",
    "tone": 0,
    "highlights": [],
    "placeholder": true,
@@ -519,7 +716,14 @@ window.APOS = {
       "v": "Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Maecenas faucibus mollis interdum, nullam quis risus eget urna mollis ornare vel eu leo."
      }
     ]
-   }
+   },
+   "gallery": [
+    "work/apala-2.jpg",
+    "work/apala-3.jpg",
+    "work/apala-4.jpg",
+    "work/apala-5.jpg",
+    "work/apala-6.jpg"
+   ]
   },
   {
    "slug": "chopard-jwc",
@@ -531,7 +735,7 @@ window.APOS = {
     "Strategic Collaborations"
    ],
    "featured": false,
-   "image": "",
+   "image": "work/chopard-jwc-1.jpg",
    "tone": 1,
    "highlights": [],
    "placeholder": false,
@@ -572,7 +776,8 @@ window.APOS = {
       "v": "The combination of a highly curated guest list, collector-community engagement and the whiskey-pairing experience created a more meaningful setting for the L.U.C collection, while strengthening Chopard and Johnson Watch Co.'s engagement with Delhi's luxury and watch enthusiast community."
      }
     ]
-   }
+   },
+   "gallery": []
   },
   {
    "slug": "omega-ethos",
@@ -625,7 +830,8 @@ window.APOS = {
       "v": "The seamless integration of PR, guest curation and event execution enabled Omega to extend its presence beyond the retail environment and create a more personal connection with its local luxury consumer base."
      }
     ]
-   }
+   },
+   "gallery": []
   },
   {
    "slug": "tag-heuer",
@@ -670,7 +876,8 @@ window.APOS = {
       "v": "Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Maecenas faucibus mollis interdum, nullam quis risus eget urna mollis ornare vel eu leo."
      }
     ]
-   }
+   },
+   "gallery": []
   },
   {
    "slug": "mrunalini-rao",
@@ -682,7 +889,7 @@ window.APOS = {
     "Celebrity Relations"
    ],
    "featured": false,
-   "image": "",
+   "image": "work/mrunalini-rao-1.jpg",
    "tone": 4,
    "highlights": [
     {
@@ -740,7 +947,15 @@ window.APOS = {
       "v": "More importantly, the sustained media and celebrity strategy helped strengthen Mrunalini Rao's editorial presence, luxury positioning and recognition as a contemporary Indian craft voice, creating visibility that extended beyond individual launches and into the broader fashion conversation."
      }
     ]
-   }
+   },
+   "gallery": [
+    "work/mrunalini-rao-2.jpg",
+    "work/mrunalini-rao-3.jpg",
+    "work/mrunalini-rao-4.jpg",
+    "work/mrunalini-rao-5.jpg",
+    "work/mrunalini-rao-6.jpg",
+    "work/mrunalini-rao-7.jpg"
+   ]
   },
   {
    "slug": "abraham-thakore",
@@ -752,7 +967,7 @@ window.APOS = {
     "Fashion & Design Culture"
    ],
    "featured": false,
-   "image": "",
+   "image": "work/abraham-thakore-1.jpg",
    "tone": 5,
    "highlights": [
     {
@@ -810,7 +1025,15 @@ window.APOS = {
       "v": "Beyond individual launches, the work strengthened Abraham & Thakore’s visibility across fashion, luxury and design media, reinforcing its position as a leading voice in contemporary Indian design and creating sustained industry relevance across retail, collections and Fashion Week."
      }
     ]
-   }
+   },
+   "gallery": [
+    "work/abraham-thakore-2.jpg",
+    "work/abraham-thakore-3.jpg",
+    "work/abraham-thakore-4.jpg",
+    "work/abraham-thakore-5.jpg",
+    "work/abraham-thakore-6.jpg",
+    "work/abraham-thakore-7.jpg"
+   ]
   },
   {
    "slug": "sameer-madan",
@@ -822,7 +1045,7 @@ window.APOS = {
     "Fashion & Design Culture"
    ],
    "featured": false,
-   "image": "",
+   "image": "work/sameer-madan-1.jpg",
    "tone": 0,
    "highlights": [],
    "placeholder": false,
@@ -855,7 +1078,15 @@ window.APOS = {
       "v": "The combined approach strengthened Sameer Madan's visibility across luxury, fashion and design audiences, deepened editorial and industry relevance, and reinforced the brand's position as one of India's emerging contemporary fashion voices."
      }
     ]
-   }
+   },
+   "gallery": [
+    "work/sameer-madan-2.jpg",
+    "work/sameer-madan-3.jpg",
+    "work/sameer-madan-4.jpg",
+    "work/sameer-madan-5.jpg",
+    "work/sameer-madan-6.jpg",
+    "work/sameer-madan-7.jpg"
+   ]
   },
   {
    "slug": "bally",
@@ -867,7 +1098,7 @@ window.APOS = {
     "Strategic Collaborations"
    ],
    "featured": false,
-   "image": "",
+   "image": "work/bally-1.jpg",
    "tone": 1,
    "highlights": [],
    "placeholder": false,
@@ -908,7 +1139,13 @@ window.APOS = {
       "v": "The initiative strengthened client engagement while creating content and visibility that extended the impact of the event beyond the guest experience."
      }
     ]
-   }
+   },
+   "gallery": [
+    "work/bally-2.jpg",
+    "work/bally-3.jpg",
+    "work/bally-4.jpg",
+    "work/bally-5.jpg"
+   ]
   },
   {
    "slug": "paul-smith",
@@ -920,7 +1157,7 @@ window.APOS = {
     "Retail & Store Launches"
    ],
    "featured": false,
-   "image": "",
+   "image": "work/paul-smith-1.jpg",
    "tone": 2,
    "highlights": [
     {
@@ -974,7 +1211,14 @@ window.APOS = {
       "v": "The repeat engagement across two seasonal launches reflected Apostrophe's ability to create consistent, elevated brand experiences while adapting the execution to each collection and occasion."
      }
     ]
-   }
+   },
+   "gallery": [
+    "work/paul-smith-2.jpg",
+    "work/paul-smith-3.jpg",
+    "work/paul-smith-4.jpg",
+    "work/paul-smith-5.jpg",
+    "work/paul-smith-6.jpg"
+   ]
   },
   {
    "slug": "saundh",
@@ -986,7 +1230,7 @@ window.APOS = {
     "Influencer Relations"
    ],
    "featured": false,
-   "image": "",
+   "image": "work/saundh-1.jpg",
    "tone": 3,
    "highlights": [
     {
@@ -1056,7 +1300,15 @@ window.APOS = {
       "v": "The media programme generated 2.3M+ reach and ₹1.6M+ calculated PR value, while the combination of collection campaigns, store launch amplification, influencer collaborations and celebrity visibility strengthened Saundh's presence across both established fashion audiences and emerging regional markets."
      }
     ]
-   }
+   },
+   "gallery": [
+    "work/saundh-2.jpg",
+    "work/saundh-3.jpg",
+    "work/saundh-4.jpg",
+    "work/saundh-5.jpg",
+    "work/saundh-6.jpg",
+    "work/saundh-7.jpg"
+   ]
   },
   {
    "slug": "truebrowns",
@@ -1068,7 +1320,7 @@ window.APOS = {
     "Influencer Relations"
    ],
    "featured": false,
-   "image": "",
+   "image": "work/truebrowns-1.jpg",
    "tone": 4,
    "highlights": [
     {
@@ -1150,7 +1402,14 @@ window.APOS = {
       "v": "The combination of strategic media coverage, high-profile celebrity dressing, creator collaborations and social amplification enabled trueBrowns to build consistent cultural visibility and a stronger contemporary fashion identity."
      }
     ]
-   }
+   },
+   "gallery": [
+    "work/truebrowns-2.jpg",
+    "work/truebrowns-3.jpg",
+    "work/truebrowns-4.jpg",
+    "work/truebrowns-5.jpg",
+    "work/truebrowns-6.jpg"
+   ]
   },
   {
    "slug": "cover-story",
@@ -1162,7 +1421,7 @@ window.APOS = {
     "Media & Storytelling"
    ],
    "featured": false,
-   "image": "",
+   "image": "work/cover-story-1.jpg",
    "tone": 5,
    "highlights": [],
    "placeholder": true,
@@ -1195,7 +1454,10 @@ window.APOS = {
       "v": "Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Maecenas faucibus mollis interdum, nullam quis risus eget urna mollis ornare vel eu leo."
      }
     ]
-   }
+   },
+   "gallery": [
+    "work/cover-story-2.jpg"
+   ]
   },
   {
    "slug": "forever-new",
@@ -1207,7 +1469,7 @@ window.APOS = {
     "Media & Storytelling"
    ],
    "featured": false,
-   "image": "",
+   "image": "work/forever-new-1.jpg",
    "tone": 0,
    "highlights": [],
    "placeholder": true,
@@ -1240,7 +1502,11 @@ window.APOS = {
       "v": "Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Maecenas faucibus mollis interdum, nullam quis risus eget urna mollis ornare vel eu leo."
      }
     ]
-   }
+   },
+   "gallery": [
+    "work/forever-new-2.jpg",
+    "work/forever-new-3.jpg"
+   ]
   },
   {
    "slug": "envisage",
@@ -1312,7 +1578,8 @@ window.APOS = {
       "v": "The programme established a stronger editorial footprint for both the studio and its founder, while the collaborations with Sarita Handa and Bharat Floorings extended Envisage's influence beyond traditional architectural practice into the broader design and luxury ecosystem."
      }
     ]
-   }
+   },
+   "gallery": []
   },
   {
    "slug": "stonex",
@@ -1324,7 +1591,7 @@ window.APOS = {
     "Media & Storytelling"
    ],
    "featured": false,
-   "image": "",
+   "image": "work/stonex-1.jpg",
    "tone": 2,
    "highlights": [],
    "placeholder": false,
@@ -1377,7 +1644,8 @@ window.APOS = {
       "v": "Through immersive experiences, targeted media engagement, premium brand partnerships and original content, Apostrophe helped Stonex build stronger relationships with the people shaping India's design landscape and generate sustained industry visibility around the brand."
      }
     ]
-   }
+   },
+   "gallery": []
   },
   {
    "slug": "fcml",
@@ -1389,7 +1657,7 @@ window.APOS = {
     "Influencer Relations"
    ],
    "featured": false,
-   "image": "",
+   "image": "work/fcml-1.jpg",
    "tone": 3,
    "highlights": [],
    "placeholder": false,
@@ -1442,7 +1710,12 @@ window.APOS = {
       "v": "By bringing together established practitioners and meaningful conversations around materiality and design, Apostrophe helped create a stronger design authority and cultural relevance for the brand."
      }
     ]
-   }
+   },
+   "gallery": [
+    "work/fcml-2.jpg",
+    "work/fcml-3.jpg",
+    "work/fcml-4.jpg"
+   ]
   },
   {
    "slug": "at-home",
@@ -1454,7 +1727,7 @@ window.APOS = {
     "Fashion & Design Culture"
    ],
    "featured": false,
-   "image": "",
+   "image": "work/at-home-1.jpg",
    "tone": 4,
    "highlights": [
     {
@@ -1506,7 +1779,12 @@ window.APOS = {
       "v": "The sustained editorial approach helped establish the brand through factual, balanced and credible storytelling, while strengthening relationships with leading publications and creating a strong foundation for Abraham & Thakore's continued presence within the luxury home and design landscape."
      }
     ]
-   }
+   },
+   "gallery": [
+    "work/at-home-2.jpg",
+    "work/at-home-3.jpg",
+    "work/at-home-4.jpg"
+   ]
   },
   {
    "slug": "glass-sutra",
@@ -1518,7 +1796,7 @@ window.APOS = {
     "Experiences & Activations"
    ],
    "featured": false,
-   "image": "",
+   "image": "work/glass-sutra-1.jpg",
    "tone": 5,
    "highlights": [
     {
@@ -1600,7 +1878,13 @@ window.APOS = {
       "v": "The combination of sustained editorial visibility and high-value brand collaborations generated 40+ media features, strengthened founder recognition, increased sales enquiries and drove positive word-of-mouth. More importantly, the strategic partnerships demonstrated Glass Sutra's ability to translate its craft into immersive experiences, cultural installations and brand collaborations, creating new commercial and creative avenues for the studio."
      }
     ]
-   }
+   },
+   "gallery": [
+    "work/glass-sutra-2.jpg",
+    "work/glass-sutra-3.jpg",
+    "work/glass-sutra-4.jpg",
+    "work/glass-sutra-5.jpg"
+   ]
   },
   {
    "slug": "governor-house",
@@ -1612,7 +1896,7 @@ window.APOS = {
     "Media & Storytelling"
    ],
    "featured": false,
-   "image": "",
+   "image": "work/governor-house-1.jpg",
    "tone": 0,
    "highlights": [
     {
@@ -1668,7 +1952,14 @@ window.APOS = {
       "v": "The combination of immersive hospitality, strategic guest curation and targeted media engagement helped establish the property within relevant luxury, lifestyle and hospitality conversations, while creating sustained opportunities for editorial and social amplification."
      }
     ]
-   }
+   },
+   "gallery": [
+    "work/governor-house-2.jpg",
+    "work/governor-house-3.jpg",
+    "work/governor-house-4.jpg",
+    "work/governor-house-5.jpg",
+    "work/governor-house-6.jpg"
+   ]
   },
   {
    "slug": "tres",
@@ -1713,7 +2004,8 @@ window.APOS = {
       "v": "Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Maecenas faucibus mollis interdum, nullam quis risus eget urna mollis ornare vel eu leo."
      }
     ]
-   }
+   },
+   "gallery": []
   },
   {
    "slug": "copper-chimney",
@@ -1725,7 +2017,7 @@ window.APOS = {
     "Influencer Relations"
    ],
    "featured": false,
-   "image": "",
+   "image": "work/copper-chimney-1.jpg",
    "tone": 2,
    "highlights": [],
    "placeholder": false,
@@ -1774,7 +2066,8 @@ window.APOS = {
       "v": "Through the combination of editorial outreach, creator engagement, digital collaborations and strategic gifting, Apostrophe created multiple avenues for Copper Chimney to remain part of relevant food and lifestyle conversations beyond traditional media coverage."
      }
     ]
-   }
+   },
+   "gallery": []
   },
   {
    "slug": "lopera",
@@ -1786,7 +2079,7 @@ window.APOS = {
     "Influencer Relations"
    ],
    "featured": false,
-   "image": "",
+   "image": "work/lopera-1.jpg",
    "tone": 3,
    "highlights": [],
    "placeholder": false,
@@ -1835,7 +2128,13 @@ window.APOS = {
       "v": "By combining occasion-led campaigns with carefully selected creator, community and cultural collaborations, Apostrophe helped build a more contemporary and culturally connected brand presence."
      }
     ]
-   }
+   },
+   "gallery": [
+    "work/lopera-2.jpg",
+    "work/lopera-3.jpg",
+    "work/lopera-4.jpg",
+    "work/lopera-5.jpg"
+   ]
   },
   {
    "slug": "beeyoung",
@@ -1847,7 +2146,7 @@ window.APOS = {
     "Strategic Collaborations"
    ],
    "featured": false,
-   "image": "",
+   "image": "work/beeyoung-1.jpg",
    "tone": 4,
    "highlights": [
     {
@@ -1946,7 +2245,13 @@ window.APOS = {
       "v": "The combination of earned media, cultural associations, creator advocacy, social storytelling and strategic collaborations helped establish BeeYoung as a more distinctive and culturally connected player within the strong beer category."
      }
     ]
-   }
+   },
+   "gallery": [
+    "work/beeyoung-2.jpg",
+    "work/beeyoung-3.jpg",
+    "work/beeyoung-4.jpg",
+    "work/beeyoung-5.jpg"
+   ]
   },
   {
    "slug": "4700bc",
@@ -1958,7 +2263,7 @@ window.APOS = {
     "Influencer Relations"
    ],
    "featured": false,
-   "image": "",
+   "image": "work/4700bc-1.jpg",
    "tone": 5,
    "highlights": [],
    "placeholder": false,
@@ -2011,7 +2316,10 @@ window.APOS = {
       "v": "Through a combination of celebrity advocacy, influencer gifting and product-led social content, the campaign expanded the brand's reach across relevant consumer communities while strengthening awareness of its festive product range."
      }
     ]
-   }
+   },
+   "gallery": [
+    "work/4700bc-2.jpg"
+   ]
   },
   {
    "slug": "flow",
@@ -2023,7 +2331,7 @@ window.APOS = {
     "Strategic Collaborations"
    ],
    "featured": false,
-   "image": "",
+   "image": "work/flow-1.jpg",
    "tone": 0,
    "highlights": [
     {
@@ -2097,164 +2405,637 @@ window.APOS = {
       "v": "The approach helped FLOW move beyond a one-time launch moment to build an active ecosystem of media, creators, communities and cultural partners, giving the venue sustained relevance within Delhi's evolving hospitality landscape."
      }
     ]
-   }
+   },
+   "gallery": [
+    "work/flow-2.jpg",
+    "work/flow-3.jpg"
+   ]
   }
  ],
  "clientIndex": [
   {
    "name": "Luxury Retail",
    "brands": [
-    "BVLGARI",
-    "Johnson Watch Co.",
-    "Chopard",
-    "Omega",
-    "TAG Heuer",
-    "Rado",
-    "Tiffany & Co.",
-    "Versace",
-    "Ferragamo",
-    "Bally",
-    "Paul Smith",
-    "Brooks Brothers",
-    "Mrunalini Rao",
-    "Abraham & Thakore",
-    "Sameer Madan",
-    "Pankaj & Nidhi",
-    "Jorah",
-    "Ordinaree",
-    "Vazaneh",
-    "Studio Medium",
-    "The Chanakya",
-    "JJ Valaya",
-    "Raghav Rathore",
-    "Elisha Wadhwani",
-    "Tarun Tahiliani",
-    "TASVA"
+    {
+     "name": "BVLGARI",
+     "logo": "logos/bvlgari.png",
+     "w": 720,
+     "h": 78,
+     "slug": "bvlgari-jwc"
+    },
+    {
+     "name": "Johnson Watch Co.",
+     "logo": "logos/johnson-watch-co.png",
+     "w": 607,
+     "h": 180
+    },
+    {
+     "name": "Chopard",
+     "logo": "logos/chopard.png",
+     "w": 503,
+     "h": 180,
+     "slug": "chopard-jwc"
+    },
+    {
+     "name": "Omega",
+     "logo": "logos/omega.png",
+     "w": 370,
+     "h": 180,
+     "slug": "omega-ethos"
+    },
+    {
+     "name": "TAG Heuer",
+     "logo": "logos/tag-heuer.png",
+     "w": 297,
+     "h": 180,
+     "slug": "tag-heuer"
+    },
+    {
+     "name": "Rado",
+     "logo": "logos/rado.png",
+     "w": 569,
+     "h": 180,
+     "slug": "rado"
+    },
+    {
+     "name": "Tiffany & Co.",
+     "logo": "logos/tiffany-and-co.png",
+     "w": 720,
+     "h": 93
+    },
+    {
+     "name": "Versace",
+     "logo": "logos/versace.png",
+     "w": 329,
+     "h": 180
+    },
+    {
+     "name": "Ferragamo",
+     "logo": "logos/ferragamo.png",
+     "w": 720,
+     "h": 86
+    },
+    {
+     "name": "Bally",
+     "logo": "logos/bally.png",
+     "w": 269,
+     "h": 180,
+     "slug": "bally"
+    },
+    {
+     "name": "Paul Smith",
+     "logo": "logos/paul-smith.png",
+     "w": 720,
+     "h": 144,
+     "slug": "paul-smith"
+    },
+    {
+     "name": "Brooks Brothers",
+     "logo": "logos/brooks-brothers.png",
+     "w": 452,
+     "h": 180
+    },
+    {
+     "name": "Mrunalini Rao",
+     "logo": "logos/mrunalini-rao.png",
+     "w": 720,
+     "h": 95,
+     "slug": "mrunalini-rao"
+    },
+    {
+     "name": "Abraham & Thakore",
+     "logo": "logos/abraham-and-thakore.png",
+     "w": 635,
+     "h": 180,
+     "slug": "abraham-thakore"
+    },
+    {
+     "name": "Sameer Madan",
+     "logo": "logos/sameer-madan.png",
+     "w": 720,
+     "h": 89,
+     "slug": "sameer-madan"
+    },
+    {
+     "name": "Pankaj & Nidhi",
+     "logo": "logos/pankaj-and-nidhi.png",
+     "w": 341,
+     "h": 180
+    },
+    {
+     "name": "Jorah",
+     "logo": "logos/jorah.png",
+     "w": 510,
+     "h": 180
+    },
+    {
+     "name": "Ordinaree"
+    },
+    {
+     "name": "Vazaneh"
+    },
+    {
+     "name": "Studio Medium",
+     "logo": "logos/studio-medium.png",
+     "w": 720,
+     "h": 60
+    },
+    {
+     "name": "The Chanakya",
+     "logo": "logos/the-chanakya.png",
+     "w": 142,
+     "h": 180
+    },
+    {
+     "name": "JJ Valaya",
+     "logo": "logos/jj-valaya.png",
+     "w": 720,
+     "h": 103
+    },
+    {
+     "name": "Raghav Rathore",
+     "logo": "logos/raghavendra-rathore.png",
+     "w": 231,
+     "h": 180
+    },
+    {
+     "name": "Elisha Wadhwani",
+     "logo": "logos/elisha-wadhwani.png",
+     "w": 297,
+     "h": 180
+    },
+    {
+     "name": "Tarun Tahiliani",
+     "logo": "logos/tarun-tahiliani.png",
+     "w": 720,
+     "h": 72,
+     "slug": "tarun-tahiliani"
+    },
+    {
+     "name": "TASVA",
+     "logo": "logos/tasva.png",
+     "w": 720,
+     "h": 138,
+     "slug": "tasva"
+    }
    ]
   },
   {
    "name": "Fashion & Lifestyle",
    "brands": [
-    "Bath & Body Works",
-    "Saundh",
-    "trueBrowns",
-    "Cover Story",
-    "Forever New",
-    "Superdry",
-    "Diesel",
-    "Teejh",
-    "Joker & Witch",
-    "Bunaai",
-    "Benefit Cosmetics",
-    "True Religion",
-    "GANT",
-    "G-Star RAW",
-    "Purearth",
-    "Hamleys",
-    "Replay",
-    "Coyu",
-    "Apala"
+    {
+     "name": "Bath & Body Works",
+     "logo": "logos/bath-and-body-works.png",
+     "w": 215,
+     "h": 180,
+     "slug": "bath-body-works"
+    },
+    {
+     "name": "Saundh",
+     "logo": "logos/saundh.png",
+     "w": 489,
+     "h": 180,
+     "slug": "saundh"
+    },
+    {
+     "name": "trueBrowns",
+     "logo": "logos/truebrowns.png",
+     "w": 720,
+     "h": 107,
+     "slug": "truebrowns"
+    },
+    {
+     "name": "Cover Story",
+     "logo": "logos/cover-story.png",
+     "w": 720,
+     "h": 155,
+     "slug": "cover-story"
+    },
+    {
+     "name": "Forever New",
+     "logo": "logos/forever-new.png",
+     "w": 720,
+     "h": 68,
+     "slug": "forever-new"
+    },
+    {
+     "name": "Superdry",
+     "logo": "logos/superdry.png",
+     "w": 671,
+     "h": 180
+    },
+    {
+     "name": "Diesel",
+     "logo": "logos/diesel.png",
+     "w": 472,
+     "h": 180
+    },
+    {
+     "name": "Teejh"
+    },
+    {
+     "name": "Joker & Witch"
+    },
+    {
+     "name": "Bunaai",
+     "logo": "logos/bunaai.png",
+     "w": 494,
+     "h": 180
+    },
+    {
+     "name": "Benefit Cosmetics",
+     "logo": "logos/benefit-cosmetics.png",
+     "w": 550,
+     "h": 180
+    },
+    {
+     "name": "True Religion",
+     "logo": "logos/true-religion.png",
+     "w": 720,
+     "h": 147
+    },
+    {
+     "name": "GANT",
+     "logo": "logos/gant.png",
+     "w": 352,
+     "h": 180
+    },
+    {
+     "name": "G-Star RAW",
+     "logo": "logos/g-star-raw.png",
+     "w": 720,
+     "h": 66
+    },
+    {
+     "name": "Purearth",
+     "logo": "logos/purearth.png",
+     "w": 720,
+     "h": 90
+    },
+    {
+     "name": "Hamleys",
+     "logo": "logos/hamleys.png",
+     "w": 338,
+     "h": 180
+    },
+    {
+     "name": "Replay",
+     "logo": "logos/replay.png",
+     "w": 720,
+     "h": 151
+    },
+    {
+     "name": "Coyu",
+     "logo": "logos/coyu.png",
+     "w": 412,
+     "h": 104
+    },
+    {
+     "name": "Apala",
+     "logo": "logos/apala.png",
+     "w": 489,
+     "h": 180,
+     "slug": "apala"
+    }
    ]
   },
   {
    "name": "Interiors & Living",
    "brands": [
-    "Envisage",
-    "Stonex",
-    "FCML",
-    "Abraham & Thakore Home",
-    "Lladró",
-    "Glass Sutra",
-    "Pottery Barn Kids",
-    "West Elm",
-    "Ikkis",
-    "DecorKart",
-    "Tahiliani Homes",
-    "Valaya Homes",
-    "Sogani by Vibhore Sogani"
+    {
+     "name": "Envisage",
+     "logo": "logos/envisage.png",
+     "w": 592,
+     "h": 128,
+     "slug": "envisage"
+    },
+    {
+     "name": "Stonex",
+     "logo": "logos/stonex.png",
+     "w": 507,
+     "h": 180,
+     "slug": "stonex"
+    },
+    {
+     "name": "FCML",
+     "slug": "fcml"
+    },
+    {
+     "name": "Abraham & Thakore Home",
+     "logo": "logos/abraham-and-thakore-home.png",
+     "w": 616,
+     "h": 180,
+     "slug": "at-home"
+    },
+    {
+     "name": "Lladró",
+     "logo": "logos/lladro.png",
+     "w": 635,
+     "h": 180,
+     "slug": "lladro"
+    },
+    {
+     "name": "Glass Sutra",
+     "logo": "logos/glass-sutra.png",
+     "w": 290,
+     "h": 180,
+     "slug": "glass-sutra"
+    },
+    {
+     "name": "Pottery Barn Kids",
+     "logo": "logos/pottery-barn-kids.png",
+     "w": 471,
+     "h": 180
+    },
+    {
+     "name": "West Elm",
+     "logo": "logos/west-elm.png",
+     "w": 720,
+     "h": 121
+    },
+    {
+     "name": "Ikkis",
+     "logo": "logos/ikkis.png",
+     "w": 497,
+     "h": 180
+    },
+    {
+     "name": "DecorKart"
+    },
+    {
+     "name": "Tahiliani Homes",
+     "logo": "logos/tahiliani-homes.png",
+     "w": 219,
+     "h": 180
+    },
+    {
+     "name": "Valaya Homes",
+     "logo": "logos/valaya-home.png",
+     "w": 708,
+     "h": 180
+    },
+    {
+     "name": "Sogani by Vibhore Sogani",
+     "logo": "logos/sogani.png",
+     "w": 469,
+     "h": 180
+    }
    ]
   },
   {
    "name": "Dining & Hospitality",
    "brands": [
-    "Governor House",
-    "Tres",
-    "Copper Chimney",
-    "L’Opéra",
-    "BeeYoung",
-    "4700BC",
-    "FLOW",
-    "Cosy Box",
-    "Younion",
-    "Araya Bagh",
-    "Punjab Grill",
-    "YouMee",
-    "Zambar",
-    "The Artful Baker",
-    "The Chatter House",
-    "Louis Burger",
-    "San San",
-    "Indy by Q’la",
-    "Farzi Café",
-    "Nando’s",
-    "Diva",
-    "Townhall",
-    "Papaya",
-    "Cashmir Vodka",
-    "The Irish House",
-    "Bombay Brasserie",
-    "Uncafe",
-    "Pope’s",
-    "Marieta"
+    {
+     "name": "Governor House",
+     "logo": "logos/governor-house.png",
+     "w": 237,
+     "h": 180,
+     "slug": "governor-house"
+    },
+    {
+     "name": "Tres",
+     "logo": "logos/tres.png",
+     "w": 267,
+     "h": 180,
+     "slug": "tres"
+    },
+    {
+     "name": "Copper Chimney",
+     "logo": "logos/copper-chimney.png",
+     "w": 720,
+     "h": 117,
+     "slug": "copper-chimney"
+    },
+    {
+     "name": "L’Opéra",
+     "logo": "logos/l-opera.png",
+     "w": 283,
+     "h": 180,
+     "slug": "lopera"
+    },
+    {
+     "name": "BeeYoung",
+     "logo": "logos/beeyoung.png",
+     "w": 480,
+     "h": 180,
+     "slug": "beeyoung"
+    },
+    {
+     "name": "4700BC",
+     "logo": "logos/4700bc.png",
+     "w": 168,
+     "h": 180,
+     "slug": "4700bc"
+    },
+    {
+     "name": "FLOW",
+     "logo": "logos/flow.png",
+     "w": 226,
+     "h": 180,
+     "slug": "flow"
+    },
+    {
+     "name": "Cosy Box",
+     "logo": "logos/cosy-box.png",
+     "w": 102,
+     "h": 180
+    },
+    {
+     "name": "Younion",
+     "logo": "logos/younion.png",
+     "w": 168,
+     "h": 180
+    },
+    {
+     "name": "Araya Bagh",
+     "logo": "logos/araya-bagh.png",
+     "w": 540,
+     "h": 180
+    },
+    {
+     "name": "Punjab Grill",
+     "logo": "logos/punjab-grill.png",
+     "w": 468,
+     "h": 180
+    },
+    {
+     "name": "YouMee",
+     "logo": "logos/youmee.png",
+     "w": 173,
+     "h": 180
+    },
+    {
+     "name": "Zambar",
+     "logo": "logos/zambar.png",
+     "w": 333,
+     "h": 180
+    },
+    {
+     "name": "The Artful Baker",
+     "logo": "logos/the-artful-baker.png",
+     "w": 220,
+     "h": 180
+    },
+    {
+     "name": "The Chatter House",
+     "logo": "logos/the-chatter-house.png",
+     "w": 151,
+     "h": 180
+    },
+    {
+     "name": "Louis Burger",
+     "logo": "logos/louis-burger.png",
+     "w": 306,
+     "h": 180
+    },
+    {
+     "name": "San San",
+     "logo": "logos/san-san.png",
+     "w": 215,
+     "h": 180
+    },
+    {
+     "name": "Indy by Q’la",
+     "logo": "logos/indy-by-q-la.png",
+     "w": 263,
+     "h": 180
+    },
+    {
+     "name": "Farzi Café",
+     "logo": "logos/farzi-cafe.png",
+     "w": 425,
+     "h": 180
+    },
+    {
+     "name": "Nando’s",
+     "logo": "logos/nando-s.png",
+     "w": 560,
+     "h": 180
+    },
+    {
+     "name": "Diva",
+     "logo": "logos/diva.png",
+     "w": 420,
+     "h": 180
+    },
+    {
+     "name": "Townhall",
+     "logo": "logos/townhall.png",
+     "w": 720,
+     "h": 113
+    },
+    {
+     "name": "Papaya",
+     "logo": "logos/papaya.png",
+     "w": 278,
+     "h": 180
+    },
+    {
+     "name": "Cashmir Vodka",
+     "logo": "logos/cashmir-vodka.png",
+     "w": 491,
+     "h": 180
+    },
+    {
+     "name": "The Irish House",
+     "logo": "logos/the-irish-house.png",
+     "w": 226,
+     "h": 180
+    },
+    {
+     "name": "Bombay Brasserie",
+     "logo": "logos/bombay-brasserie.png",
+     "w": 231,
+     "h": 180
+    },
+    {
+     "name": "Uncafe",
+     "logo": "logos/uncafe.png",
+     "w": 418,
+     "h": 180
+    },
+    {
+     "name": "Pope’s",
+     "logo": "logos/pope-s.png",
+     "w": 387,
+     "h": 180
+    },
+    {
+     "name": "Marieta",
+     "logo": "logos/marieta.png",
+     "w": 583,
+     "h": 180
+    }
    ]
   },
   {
    "name": "Founder & Leadership",
    "brands": [
-    "Zorawar Kalra",
-    "Rohit Aggarwal",
-    "Udita Bansal"
+    {
+     "name": "Zorawar Kalra"
+    },
+    {
+     "name": "Rohit Aggarwal"
+    },
+    {
+     "name": "Udita Bansal"
+    }
    ]
   }
  ],
  "awards": [
   {
-   "group": "Founder",
+   "group": "Agency",
    "items": [
     {
-     "title": "40 Under 40",
-     "org": "e4m PR & Corporate Communications",
+     "title": "Gold, Best Campaign in Fashion & Lifestyle",
+     "org": "AFAQs Communicon, for TASVA × Aditya Birla Group",
+     "year": "2025"
+    },
+    {
+     "title": "Rising PR Consultancy of the Year",
+     "org": "BW Excel Awards",
+     "year": "2025"
+    },
+    {
+     "title": "Silver, Best Fashion, Beauty & Lifestyle Campaign",
+     "org": "ET Kaleido",
      "year": "2024"
     },
     {
-     "title": "40 Under 40",
-     "org": "BW Businessworld",
-     "year": ""
-    },
-    {
-     "title": "NSRCEL",
-     "org": "IIM Bangalore",
+     "title": "Incubated at IIM Bangalore",
+     "org": "NSRCEL, IIM Bangalore",
      "year": ""
     }
    ]
   },
   {
-   "group": "Agency",
+   "group": "Founder",
    "items": [
     {
-     "title": "Kaleido PR Awards",
-     "org": "Kaleido",
+     "title": "Emerging Entrepreneur of the Year",
+     "org": "E4M Women Achievers & Summit Awards",
+     "year": "2025"
+    },
+    {
+     "title": "PR 40 Under 40",
+     "org": "BW Businessworld",
      "year": "2024"
     },
     {
-     "title": "Lorem ipsum award",
-     "org": "Placeholder organisation",
-     "year": "2025"
-    },
+     "title": "PR & Corp Comm 40 Under 40",
+     "org": "E4M",
+     "year": "2023"
+    }
+   ]
+  },
+  {
+   "group": "Team",
+   "items": [
     {
-     "title": "Dolor sit amet recognition",
-     "org": "Placeholder organisation",
-     "year": "2025"
+     "title": "30 Under 30: Sapna Gaur",
+     "org": "E4M",
+     "year": ""
     }
    ]
   }
@@ -2286,38 +3067,181 @@ window.APOS = {
    "role": "Brand, Designation"
   }
  ],
- "partners": [
-  "Partner 01",
-  "Partner 02",
-  "Partner 03",
-  "Partner 04",
-  "Partner 05",
-  "Partner 06",
-  "Partner 07",
-  "Partner 08",
-  "Partner 09",
-  "Partner 10",
-  "Partner 11",
-  "Partner 12",
-  "Partner 13",
-  "Partner 14",
-  "Partner 15"
- ],
  "offices": [
   "Mumbai",
   "Bangalore",
-  "Chennai",
   "Hyderabad",
-  "Pune",
-  "Kolkata",
-  "Jaipur"
+  "Chennai"
  ],
  "contact": {
   "email": "connect@apostrophecommunications.com",
-  "phone": "+91 00000 00000",
-  "address": "New Delhi, India",
-  "instagram": "#",
+  "phone": "+91 98183 09622",
+  "address": "67, Lower Ground Floor, Hemkunt Colony, Greater Kailash 1, New Delhi 110048",
+  "instagram": "https://instagram.com/apostrophe",
   "linkedin": "#",
   "formEndpoint": ""
- }
+ },
+ "press": [
+  {
+   "name": "Vogue India",
+   "logo": "press/vogue-india.png",
+   "w": 414,
+   "h": 180
+  },
+  {
+   "name": "Harper's Bazaar India",
+   "logo": "press/harper-s-bazaar-india.png",
+   "w": 542,
+   "h": 180
+  },
+  {
+   "name": "Elle",
+   "logo": "press/elle.png",
+   "w": 364,
+   "h": 132
+  },
+  {
+   "name": "GQ India",
+   "logo": "press/gq-india.png",
+   "w": 242,
+   "h": 180
+  },
+  {
+   "name": "Grazia",
+   "logo": "press/grazia.png",
+   "w": 572,
+   "h": 180
+  },
+  {
+   "name": "Architectural Digest",
+   "logo": "press/architectural-digest.png",
+   "w": 239,
+   "h": 180
+  },
+  {
+   "name": "Forbes India",
+   "logo": "press/forbes-india.png",
+   "w": 643,
+   "h": 180
+  },
+  {
+   "name": "Hello! India",
+   "logo": "press/hello-india.png",
+   "w": 423,
+   "h": 180
+  },
+  {
+   "name": "Femina",
+   "logo": "press/femina.png",
+   "w": 448,
+   "h": 96
+  },
+  {
+   "name": "Cosmopolitan",
+   "logo": "press/cosmopolitan.png",
+   "w": 720,
+   "h": 122
+  },
+  {
+   "name": "Brides Today",
+   "logo": "press/brides-today.png",
+   "w": 575,
+   "h": 180
+  },
+  {
+   "name": "Mint",
+   "logo": "press/mint.png",
+   "w": 511,
+   "h": 180
+  },
+  {
+   "name": "Manifest",
+   "logo": "press/manifest.png",
+   "w": 544,
+   "h": 132
+  },
+  {
+   "name": "The Nod",
+   "logo": "press/the-nod.png",
+   "w": 272,
+   "h": 180
+  },
+  {
+   "name": "Lifestyle Asia",
+   "logo": "press/lifestyle-asia.png",
+   "w": 720,
+   "h": 117
+  },
+  {
+   "name": "The Hindu",
+   "logo": "press/the-hindu.png",
+   "w": 427,
+   "h": 180
+  },
+  {
+   "name": "The Economic Times",
+   "logo": "press/the-economic-times.png",
+   "w": 720,
+   "h": 86
+  },
+  {
+   "name": "India Today",
+   "logo": "press/india-today.png",
+   "w": 368,
+   "h": 156
+  },
+  {
+   "name": "Elle Decor",
+   "logo": "press/elle-decor.png",
+   "w": 720,
+   "h": 170
+  },
+  {
+   "name": "Livingetc",
+   "logo": "press/livingetc.png",
+   "w": 713,
+   "h": 180
+  },
+  {
+   "name": "Luxebook",
+   "logo": "press/luxebook.png",
+   "w": 720,
+   "h": 92
+  },
+  {
+   "name": "Mansworld",
+   "logo": "press/mansworld.png",
+   "w": 124,
+   "h": 180
+  },
+  {
+   "name": "Indulge",
+   "logo": "press/indulge.png",
+   "w": 544,
+   "h": 152
+  },
+  {
+   "name": "BW Businessworld",
+   "logo": "press/bw-businessworld.png",
+   "w": 720,
+   "h": 109
+  }
+ ],
+ "team": [
+  {
+   "name": "Nidhi Gupta",
+   "role": "Director of Operations & Growth",
+   "photo": "team/nidhi-gupta.jpg"
+  },
+  {
+   "name": "Aditi Khachi",
+   "role": "Director, Strategy & Business",
+   "photo": "team/aditi-khachi.jpg"
+  },
+  {
+   "name": "Sapna Gaur",
+   "role": "Associate Director",
+   "photo": "team/sapna-gaur.jpg"
+  }
+ ]
 };

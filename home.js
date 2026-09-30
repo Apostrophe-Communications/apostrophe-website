@@ -2,7 +2,7 @@
    Home page
    ========================================================================== */
 window.APOS_PAGE = () => {
-  const { $, $$, RM, FINE, esc, media, split, ARROW } = window.APOS_UI;
+  const { $, $$, RM, FINE, esc, media, split, ARROW, logo } = window.APOS_UI;
   const D = window.APOS;
   const W = () => innerWidth, H = () => innerHeight;
   const mobile = () => innerWidth < 900;
@@ -25,7 +25,7 @@ window.APOS_PAGE = () => {
     </a>`).join("") +
     `<div class="wcard wcard--end"><a href="projects.html"><span class="circle">${ARROW}</span>All projects</a></div>`;
 
-  const bandSet = `<div class="band__set">${(D.topBrands || []).map((b) => `<span>${esc(b)}</span><i></i>`).join("")}</div>`;
+  const bandSet = `<div class="band__set">${(D.topBrands || []).map((b) => `<span>${logo(b)}</span><i></i>`).join("")}</div>`;
   $("#bandTrack").innerHTML = bandSet + bandSet.replace('class="band__set"', 'class="band__set" aria-hidden="true"');
 
   $("#recogList").innerHTML = D.awards.map((g) => `

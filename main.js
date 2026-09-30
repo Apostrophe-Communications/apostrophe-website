@@ -38,6 +38,15 @@
     return `<div class="ph tone-${p.tone ?? 0}" aria-hidden="true"><span class="ph__mono">${esc(initials(p.title))}</span><span class="ph__tag">${label}</span></div>`;
   }
 
+  /* A brand logo drawn as a mask so it takes the text colour of whatever it sits on.
+     Sized by area (not height) so wide wordmarks and tall badges feel equally heavy. */
+  function logo(b) {
+    if (!b.logo) return `<span class="lg lg--txt">${esc(b.name)}</span>`;
+    const ar = b.w / b.h;
+    const w = Math.min(Math.sqrt(ar) * 1.0, 3.4), h = w / ar;
+    return `<span class="lg" role="img" aria-label="${esc(b.name)}" style="--lw:${w.toFixed(3)};--lh:${h.toFixed(3)};--src:url('${esc(b.logo)}')"></span>`;
+  }
+
   /* Split an element's text into masked words (and optionally chars). */
   function split(el, chars = false) {
     if (el.dataset.splitDone) return $$(chars ? ".c" : ".w > span", el);
@@ -339,7 +348,7 @@
   initCursor();
   initTransitions();
 
-  window.APOS_UI = { $, $$, RM, FINE, esc, media, split, initReveals, countUp, ARROW, MARK, get lenis() { return lenis; } };
+  window.APOS_UI = { $, $$, RM, FINE, esc, media, logo, split, initReveals, countUp, ARROW, MARK, get lenis() { return lenis; } };
 
   // Page scripts register themselves on APOS_PAGE; run once fonts are ready so splits measure correctly.
   const ready = document.fonts ? document.fonts.ready : Promise.resolve();

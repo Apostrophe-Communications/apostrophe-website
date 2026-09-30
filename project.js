@@ -49,6 +49,13 @@ window.APOS_PAGE = () => {
       </div>
     </section>
 
+    ${(p.gallery || []).length ? `
+    <section class="s t-light cs-gallery" data-theme="light">
+      <div class="wrap cs-gallery__grid">
+        ${p.gallery.map((src, n) => `<figure class="cs-gallery__item" data-reveal><img src="${esc(src)}" alt="${esc(p.title)}, image ${n + 2}" loading="lazy" decoding="async"></figure>`).join("")}
+      </div>
+    </section>` : ""}
+
     <a class="s t-dark cs-next grain" data-theme="dark" href="project.html?p=${next.slug}" data-cursor="Next">
       <div class="wrap"><small>Next project</small><h2>${esc(next.title)}</h2></div>
     </a>`;

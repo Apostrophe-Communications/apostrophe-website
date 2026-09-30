@@ -2,7 +2,7 @@
    Projects page: filterable grid + client index
    ========================================================================== */
 window.APOS_PAGE = () => {
-  const { $, $$, RM, esc, media } = window.APOS_UI;
+  const { $, $$, RM, esc, media, logo } = window.APOS_UI;
   const D = window.APOS;
   const catName = Object.fromEntries(D.categories.map((c) => [c.id, c.name]));
 
@@ -24,7 +24,9 @@ window.APOS_PAGE = () => {
   $("#clientIndex").innerHTML = D.clientIndex.map((c) => `
     <div class="index__cat" data-reveal>
       <h3>${esc(c.name)}</h3>
-      <p class="index__brands">${c.brands.map((b) => `<span>${esc(b)}</span>`).join("<i></i>")}</p>
+      <div class="index__logos">${c.brands.map((b) => b.slug
+        ? `<a class="index__b has-page" href="project.html?p=${b.slug}" title="${esc(b.name)}: view project">${logo(b)}</a>`
+        : `<span class="index__b" title="${esc(b.name)}">${logo(b)}</span>`).join("")}</div>
     </div>`).join("");
 
   const cards = $$(".pcard");
