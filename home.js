@@ -99,8 +99,12 @@ window.APOS_PAGE = () => {
     // The page stays put while the opening plays, so nothing can fall out of
     // sync. Any scroll, tap or key press fast-forwards it to the end.
     const lenis = window.APOS_UI.lenis;
+    // touch devices scroll natively, so block swipes as well while locked
+    const noSwipe = (e) => e.cancelable && e.preventDefault();
     const lock = (on) => {
-      document.documentElement.style.overflow = on ? "hidden" : "";
+      document.documentElement.style.overflow = document.body.style.overflow = on ? "hidden" : "";
+      if (on) addEventListener("touchmove", noSwipe, { passive: false });
+      else removeEventListener("touchmove", noSwipe);
       if (lenis) on ? lenis.stop() : lenis.start();
     };
     scrollTo(0, 0);
