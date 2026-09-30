@@ -50,7 +50,7 @@
   /* ---------- Sticker honeycomb (Selected work) ----------
      Project logos as outlined stickers in a hex grid that magnifies under the
      cursor, like the Apple Watch app grid. Used on Home (featured) and Projects (all). */
-  function hive(el, projects, { max = 132, per = 8.2 } = {}) {
+  function hive(el, projects, { max = 132, per = 8.2, centre: centreHTML = "" } = {}) {
     const catName = Object.fromEntries(window.APOS.categories.map((c) => [c.id, c.name]));
     // fit each logo inside the circle: an inscribed rectangle, then evened out by area
     const fit = (p) => {
@@ -65,8 +65,10 @@
         <span class="sticker__disc" style="--r:${((i * 37) % 9) - 4}deg">${p.sticker
           ? `<img src="${esc(p.sticker)}" alt="" style="${fit(p)}" decoding="async">`
           : `<span class="sticker__txt">${esc(p.title)}</span>`}</span>
-      </a>`).join("") + `<div class="hive__label" aria-hidden="true"><b></b><em></em></div>`;
+      </a>`).join("") + `<div class="hive__label" aria-hidden="true"><b></b><em></em></div>`
+      + (centreHTML ? `<div class="hive__centre">${centreHTML}</div>` : "");
 
+    const centre = $(".hive__centre", el);
     const stickers = $$(".sticker", el);
     const label = $(".hive__label", el);
     let items = [], D0 = 100, step = 120;
@@ -99,20 +101,28 @@
       const pts = [];
       for (let r = -2 * R; r <= 2 * R; r++) for (let c = -2 * R; c <= 2 * R; c++)
         pts.push({ x: (c + (Math.abs(r) % 2) * 0.5) * step, y: r * rowH });
+      // an optional centrepiece (e.g. the section title) leaves a hole the stickers ring around
+      const cw = centre ? centre.offsetWidth : 0, ch = centre ? centre.offsetHeight : 0;
+      const hole = !!centre && W >= cw + step * 3.2;
+      const hw = cw / 2 + D0 * 0.5 + gap, hh = ch / 2 + D0 * 0.5 + gap;
       let aspect = 1, pick = [];
       for (let tries = 0; tries < 30; tries++) {
-        pick = pts.map((q) => ({ ...q, m: Math.hypot(q.x, q.y / aspect) + Math.atan2(q.y, q.x) * 1e-3 }))
+        pick = pts
+          .filter((q) => !hole || Math.abs(q.x) >= hw || Math.abs(q.y) >= hh)
+          .map((q) => ({ ...q, m: (hole ? Math.hypot(q.x / (hw + step), q.y / (hh + step)) : Math.hypot(q.x, q.y / aspect)) + Math.atan2(q.y, q.x) * 1e-3 }))
           .sort((u, v) => u.m - v.m).slice(0, N);
         const xs = pick.map((q) => q.x);
-        if (N < 2 || Math.max(...xs) - Math.min(...xs) + D0 <= W) break;
+        if (hole || N < 2 || Math.max(...xs) - Math.min(...xs) + D0 <= W) break;
         aspect *= 1.12;
       }
       const xs = pick.map((q) => q.x), ys = pick.map((q) => q.y);
       const minX = Math.min(...xs), maxX = Math.max(...xs), minY = Math.min(...ys), maxY = Math.max(...ys);
-      const ox = (W - (maxX - minX + D0)) / 2 - minX, oy = D0 * 0.3 - minY;
-      items = vis.map((v, i) => ({ el: v, idx: +v.dataset.i, bx: pick[i].x + ox, by: pick[i].y + oy }));
+      const top = D0 * 0.3 + (centre && !hole ? ch + D0 * 0.5 : 0);
+      const cx0 = hole ? W / 2 : W / 2 - (minX + maxX) / 2, cy0 = top - (minY - D0 / 2);
+      items = vis.map((v, i) => ({ el: v, idx: +v.dataset.i, bx: pick[i].x + cx0 - D0 / 2, by: pick[i].y + cy0 - D0 / 2 }));
+      if (centre) gsap.set(centre, hole ? { x: cx0, y: cy0, xPercent: -50, yPercent: -50 } : { x: W / 2, y: D0 * 0.3, xPercent: -50, yPercent: 0 });
       el.style.setProperty("--d", D0 + "px");
-      el.style.height = Math.ceil(N ? maxY - minY + D0 * 2.2 : 0) + "px";
+      el.style.height = Math.ceil(N ? top + maxY - minY + D0 * 1.9 : 0) + "px";
       items.forEach((it) => {
         const v = st[it.idx];
         if (!animate || RM) { v.x = v.tx = it.bx; v.y = v.ty = it.by; }

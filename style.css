@@ -977,3 +977,9 @@ body.menu-open .hdr .hdr__label { color: var(--yellow); }
 .hdr__back:hover { opacity: 1; background: var(--dot); border-color: var(--dot); color: var(--ink); }
 .hdr__back:hover svg { transform: translateX(-3px); }
 @media (max-width: 760px) { .hdr__back { width: 36px; padding: 0; justify-content: center; } .hdr__back em { display: none; } }
+
+/* title + button sit in the middle of the home sticker ring */
+.hive__centre { position: absolute; left: 0; top: 0; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: clamp(18px, 2.4vw, 28px); text-align: center; width: max-content; max-width: 100%; }
+.hive__centre .work__title { margin: 0; line-height: 1; white-space: nowrap; }
+#homeHive { margin-top: 0; }
+.work { padding-top: clamp(80px, 12svh, 130px); }
