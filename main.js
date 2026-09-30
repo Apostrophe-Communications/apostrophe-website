@@ -215,9 +215,8 @@
       const field = t.closest("input, textarea, select");
       // on yellow backgrounds the dot turns ink so it never disappears
       cur.classList.toggle("on-yellow", !!t.closest(".t-yellow, .btn--yellow, .hero__cta"));
-      cur.classList.toggle("is-link", !!link && !view);
-      if (view) { cur.querySelector("span").textContent = view.dataset.cursor; cur.classList.add("has-label"); state(1); }
-      else if (link) { cur.classList.remove("has-label"); state(0.26); }
+      cur.classList.toggle("is-link", !!(link || view));
+      if (link || view) { cur.classList.remove("has-label"); state(0.26); }
       else if (field) { cur.classList.remove("has-label"); state(0.09); }
       else { cur.classList.remove("has-label"); state(0.14); }
     });
