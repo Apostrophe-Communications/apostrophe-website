@@ -767,3 +767,14 @@ html.rm .hdr { opacity: 1 !important; visibility: visible !important; }
 .cursor.on-yellow { background: var(--ink); }
 .cursor.on-yellow.is-link { background: var(--ink); }
 .cursor.has-label { background: var(--dot); }
+
+/* ---------- Testimonial cards: espresso tiles, butter + dusty-blue type ---------- */
+.tcard { background: var(--ink); color: var(--ivory); }
+.tcard blockquote { color: var(--ivory); }
+.tcard__who b { color: var(--stone); }
+.tcard__who small { color: rgba(253, 249, 204, .62); }
+.tcard__av { background: var(--stone); color: var(--ink); }
+.tcard.is-active { box-shadow: 0 34px 70px -32px rgba(56, 25, 5, .55); }
+.tcard { opacity: 1; }
+.tcard > * { transition: opacity .8s var(--ease); }
+.tcard:not(.is-active) > * { opacity: .45; }
