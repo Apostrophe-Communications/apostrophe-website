@@ -32,7 +32,7 @@ window.APOS_PAGE = () => {
         const r = await fetch(c.formEndpoint, { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(data) });
         if (!r.ok) throw new Error();
         form.reset();
-        status.textContent = "Thank you — we’ll be in touch shortly.";
+        status.textContent = "Thank you, we’ll be in touch shortly.";
       } catch {
         status.textContent = `Something went wrong. Please email us at ${c.email}.`;
       }

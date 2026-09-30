@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Apostrophe — shared behaviour
+   Apostrophe: shared behaviour
    Smooth scroll, header, menu, cursor, page transitions and scroll reveals.
    Only transform + opacity are animated so motion stays smooth on phones.
    ========================================================================== */
@@ -72,9 +72,9 @@
       "afterbegin",
       `<a class="skip" href="#main">Skip to content</a>
       <header class="hdr" id="hdr">
-        <a class="hdr__logo" href="index.html" aria-label="Apostrophe Communications — home">${MARK()}</a>
+        <a class="hdr__logo" href="index.html" aria-label="Apostrophe Communications home page">${MARK()}</a>
         <a class="hdr__name" href="index.html">Apostrophe Communications</a>
-        <button class="hdr__toggle" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span aria-hidden="true">’</span></button>
+        <button class="hdr__toggle" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><em class="hdr__label" aria-hidden="true">Menu</em><span aria-hidden="true">’</span></button>
       </header>
       <nav class="menu" id="menu" aria-label="Main">
         <div class="menu__nav"><ul>${NAV.map(([t, h, id]) => `<li><a href="${h}" class="${id === page ? "is-current" : ""}"><span>${t}</span></a></li>`).join("")}</ul></div>
@@ -105,7 +105,7 @@
             <div><h4>Say hello</h4><ul><li><a class="link-u" href="mailto:${c.email}">${c.email}</a></li><li>${c.phone}</li><li>${c.address}</li></ul></div>
             <div><h4>Follow</h4><ul><li><a class="link-u" href="${c.instagram}">Instagram</a></li><li><a class="link-u" href="${c.linkedin}">LinkedIn</a></li></ul></div>
           </div>
-          <div class="foot-bar__bottom"><span>© ${new Date().getFullYear()} Apostrophe Communications</span><span>Partner offices — ${D.offices.join(" · ")}</span></div>
+          <div class="foot-bar__bottom"><span>© ${new Date().getFullYear()} Apostrophe Communications</span><span>Partner offices: ${D.offices.join(" · ")}</span></div>
         </div>
       </footer>`;
     }
@@ -168,6 +168,7 @@
       document.body.classList.toggle("menu-open", open);
       btn.setAttribute("aria-expanded", open);
       btn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+      btn.querySelector(".hdr__label").textContent = open ? "Close" : "Menu";
       tl?.kill();
       const o = origin(), R = Math.hypot(innerWidth, innerHeight);
       const k = RM ? 0.01 : 1;

@@ -1,5 +1,5 @@
 /* ============================================================
-   APOSTROPHE — SITE CONTENT
+   APOSTROPHE: SITE CONTENT
    Everything on the site that changes (projects, awards,
    testimonials, partners, contact) lives in this one file.
    - To add a project: copy one object in `projects` and edit it.
@@ -101,7 +101,7 @@ window.APOS = {
      },
      {
       "t": "p",
-      "v": "From the guest journey to on-ground coordination, our role was focused on creating an environment where the collection could take centre stage — allowing the craftsmanship, innovation and world-record design of the Octo Finissimo Saga to speak for itself."
+      "v": "From the guest journey to on-ground coordination, our role was focused on creating an environment where the collection could take centre stage, allowing the craftsmanship, innovation and world-record design of the Octo Finissimo Saga to speak for itself."
      }
     ],
     "impact": [
@@ -227,7 +227,7 @@ window.APOS = {
      },
      {
       "t": "h",
-      "v": "Baraat by TASVA — TASVA's First-Ever Standalone Show"
+      "v": "Baraat by TASVA: TASVA's First-Ever Standalone Show"
      },
      {
       "t": "p",
@@ -675,7 +675,7 @@ window.APOS = {
   {
    "slug": "mrunalini-rao",
    "title": "Mrunalini Rao",
-   "subtitle": "Hastakala — ten years of craft",
+   "subtitle": "Hastakala: ten years of craft",
    "category": "luxury",
    "tags": [
     "Media & Storytelling",
@@ -727,7 +727,7 @@ window.APOS = {
      },
      {
       "t": "p",
-      "v": "The approach was designed to make Mrunalini Rao the story, not simply the collection — building recognition around her design voice, craftsmanship and place within India's evolving luxury landscape."
+      "v": "The approach was designed to make Mrunalini Rao the story, not simply the collection, building recognition around her design voice, craftsmanship and place within India's evolving luxury landscape."
      }
     ],
     "impact": [
@@ -1352,7 +1352,7 @@ window.APOS = {
      },
      {
       "t": "p",
-      "v": "Apostrophe also hosted a curated Stonex FAM Trip for media and influencers to the brand's Kishangarh facility and experience centre. The visit was designed as an immersive introduction to Stonex's world — moving beyond a conventional factory visit to showcase the scale, craftsmanship and creative possibilities of the marble industry."
+      "v": "Apostrophe also hosted a curated Stonex FAM Trip for media and influencers to the brand's Kishangarh facility and experience centre. The visit was designed as an immersive introduction to Stonex's world, moving beyond a conventional factory visit to showcase the scale, craftsmanship and creative possibilities of the marble industry."
      },
      {
       "t": "p",
@@ -1563,7 +1563,7 @@ window.APOS = {
      },
      {
       "t": "h",
-      "v": "Glass Sutra × DSSC — The Thali Tradition"
+      "v": "Glass Sutra × DSSC: The Thali Tradition"
      },
      {
       "t": "p",
@@ -1575,11 +1575,11 @@ window.APOS = {
      },
      {
       "t": "p",
-      "v": "Apostrophe facilitated a collaboration with Absolut to launch India's first Air Bar. The launch took place at Dey's Studio, Glass Sutra, New Delhi, with a striking glass structure created using empty vodka bottles — demonstrating the creative and transformative potential of glass as a material."
+      "v": "Apostrophe facilitated a collaboration with Absolut to launch India's first Air Bar. The launch took place at Dey's Studio, Glass Sutra, New Delhi, with a striking glass structure created using empty vodka bottles, demonstrating the creative and transformative potential of glass as a material."
      },
      {
       "t": "h",
-      "v": "Glass Sutra × NEXA — S-Cross"
+      "v": "Glass Sutra × NEXA: S-Cross"
      },
      {
       "t": "p",
@@ -1898,13 +1898,13 @@ window.APOS = {
       "t": "list",
       "label": "Apostrophe also developed a series of cross-brand collaborations to expand BeeYoung's reach through complementary consumer communities. These included",
       "v": [
-       "BeeYoung × Pipo Foods — 44K followers | 525 content interactions",
-       "BeeYoung × Uncle Jacks — 56K followers | 873 content interactions",
-       "BeeYoung × Wat-a-Burger — 21K followers | 1,403 content interactions",
-       "BeeYoung × Cornitos — 34K followers | 840 content interactions",
-       "BeeYoung × Fleurons — 10K followers | 732 content interactions",
-       "BeeYoung × Artisan Meats — 5K followers | 411 content interactions",
-       "BeeYoung × &Blooms — 10K followers | 758 content interactions"
+       "BeeYoung × Pipo Foods: 44K followers | 525 content interactions",
+       "BeeYoung × Uncle Jacks: 56K followers | 873 content interactions",
+       "BeeYoung × Wat-a-Burger: 21K followers | 1,403 content interactions",
+       "BeeYoung × Cornitos: 34K followers | 840 content interactions",
+       "BeeYoung × Fleurons: 10K followers | 732 content interactions",
+       "BeeYoung × Artisan Meats: 5K followers | 411 content interactions",
+       "BeeYoung × &Blooms: 10K followers | 758 content interactions"
       ]
      },
      {
@@ -1929,16 +1929,16 @@ window.APOS = {
       "t": "list",
       "label": "The brand's product and market positioning was further validated through multiple industry recognitions, including",
       "v": [
-       "Ambrosia IND Spirit 2023 — Best Packaging Awards 2023, Unique Packaging",
-       "Brewer World 2023 — Packaged Strong Lager, Silver",
+       "Ambrosia IND Spirit 2023: Best Packaging Awards 2023, Unique Packaging",
+       "Brewer World 2023: Packaged Strong Lager, Silver",
        "European Beer Challenge 2023",
-       "Spiritz Selection Awards 2021 & 2022 — BeeYoung Gold",
-       "Brewer World Conclave 2022 — Gold in Packaging & Liquid Tasting",
-       "Spiritz Selection Awards 2020 — Bronze, Strong Lager (Packaged)",
-       "Homegrown — Silver in Liquid Tasting",
-       "Small Business Awards 2020 — Business of the Year",
-       "Spiritz Achievers Awards 2020 — Fastest Growing Brand, Gold",
-       "Spiritz Achievers Awards 2019 — Best Debutant Beer of the Year"
+       "Spiritz Selection Awards 2021 & 2022: BeeYoung Gold",
+       "Brewer World Conclave 2022: Gold in Packaging & Liquid Tasting",
+       "Spiritz Selection Awards 2020: Bronze, Strong Lager (Packaged)",
+       "Homegrown: Silver in Liquid Tasting",
+       "Small Business Awards 2020: Business of the Year",
+       "Spiritz Achievers Awards 2020: Fastest Growing Brand, Gold",
+       "Spiritz Achievers Awards 2019: Best Debutant Beer of the Year"
       ]
      },
      {

@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Project detail — built from APOS.projects using ?p=<slug>
+   Project detail: built from APOS.projects using ?p=<slug>
    ========================================================================== */
 window.APOS_PAGE = () => {
   const { $, esc, media } = window.APOS_UI;
@@ -9,7 +9,7 @@ window.APOS_PAGE = () => {
   const p = D.projects[i];
   const next = D.projects[(i + 1) % D.projects.length];
   const cat = D.categories.find((c) => c.id === p.category)?.name || "";
-  document.title = `${p.title} — Apostrophe Communications`;
+  document.title = `${p.title} | Apostrophe Communications`;
 
   const blocks = (list) => list.map((b) => {
     if (b.t === "h") return `<h3>${esc(b.v)}</h3>`;
@@ -40,7 +40,7 @@ window.APOS_PAGE = () => {
 
     <section class="s t-light cs-body" data-theme="light">
       <div class="wrap">
-        ${p.placeholder ? `<p class="cs-note">Placeholder copy — the case study for ${esc(p.title)} will be added soon.</p>` : ""}
+        ${p.placeholder ? `<p class="cs-note">Placeholder copy. The case study for ${esc(p.title)} will be added soon.</p>` : ""}
         ${SECS.filter(([k]) => p.sections[k]).map(([k, label], n) => `
           <div class="cs-sec">
             <div class="cs-sec__label"><span>${String(n + 1).padStart(2, "0")}</span><h2 data-split>${label}</h2></div>

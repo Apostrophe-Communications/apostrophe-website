@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Projects page — filterable grid + client index
+   Projects page: filterable grid + client index
    ========================================================================== */
 window.APOS_PAGE = () => {
   const { $, $$, RM, esc, media } = window.APOS_UI;
