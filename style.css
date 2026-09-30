@@ -384,8 +384,8 @@ html.rm .statement .sw { opacity: 1; }
 }
 .services__side { align-self: stretch; display: flex; flex-direction: column; justify-content: space-between; padding: calc(var(--header-h) + 40px) 0 48px; }
 .services__side .eyebrow { color: var(--mist); }
-.services__count { font-family: var(--display); font-size: clamp(2.8rem, 5vw, 4.5rem); line-height: 1; }
-.services__count em { font-style: normal; color: var(--graphite); font-size: 0.4em; margin-left: 0.3em; }
+.services__count { font-family: var(--display); font-size: clamp(1.6rem, 2.4vw, 2.2rem); line-height: 1; }
+.services__count em { font-style: normal; color: var(--graphite); font-size: 0.55em; margin-left: 0.3em; }
 .services__note { max-width: 260px; font-size: 13px; color: var(--mist); margin: 0; }
 .wheel { position: relative; height: 100%; overflow: hidden;
   -webkit-mask-image: linear-gradient(transparent, #000 28%, #000 72%, transparent);
@@ -951,3 +951,10 @@ body.menu-open .hdr .hdr__label { color: var(--yellow); }
 .hive__label { position: absolute; left: 0; top: 0; z-index: 200; pointer-events: none; text-align: center; white-space: nowrap; background: var(--ink); color: var(--ivory); padding: 8px 16px 9px; border-radius: 999px; display: flex; flex-direction: column; gap: 1px; }
 .hive__label b { font-family: var(--display); font-weight: 400; font-size: var(--fs-small); }
 .hive__label em { font-style: normal; font-family: var(--display); font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--yellow); }
+
+/* stickers: outlined on butter, logos in their own colours */
+.sticker__disc { background: transparent; border: 1.5px solid var(--ink); box-shadow: none; overflow: visible; }
+.sticker__disc::after { display: none; }
+.sticker__disc img { width: calc(var(--d) * var(--fw, .6)); height: calc(var(--d) * var(--fh, .3)); max-height: none; object-fit: contain; }
+.sticker.is-near .sticker__disc { box-shadow: none; background: rgba(56,25,5,.03); }
+#homeHive { margin-top: clamp(10px, 3svh, 40px); }

@@ -132,9 +132,9 @@ window.APOS = {
   },
   {
    "name": "Tarun Tahiliani",
-   "logo": "logos/tarun-tahiliani.png",
+   "logo": "logos/tarun-tahiliani-v2.png",
    "w": 720,
-   "h": 72,
+   "h": 68,
    "slug": "tarun-tahiliani"
   },
   {
@@ -274,9 +274,9 @@ window.APOS = {
    "lw": 720,
    "lh": 78,
    "sticker": "stickers/bvlgari-jwc.png",
-   "sbg": "#ffffff",
    "sw": 359,
-   "sh": 39
+   "sh": 39,
+   "badge": false
   },
   {
    "slug": "rado",
@@ -350,9 +350,9 @@ window.APOS = {
    "lw": 569,
    "lh": 180,
    "sticker": "stickers/rado.png",
-   "sbg": "#ffffff",
    "sw": 520,
-   "sh": 165
+   "sh": 165,
+   "badge": false
   },
   {
    "slug": "tasva",
@@ -492,9 +492,9 @@ window.APOS = {
    "lw": 720,
    "lh": 138,
    "sticker": "stickers/tasva.png",
-   "sbg": "#ffffff",
    "sw": 491,
-   "sh": 94
+   "sh": 94,
+   "badge": false
   },
   {
    "slug": "tarun-tahiliani",
@@ -570,13 +570,13 @@ window.APOS = {
     "work/tarun-tahiliani-5.jpg",
     "work/tarun-tahiliani-6.jpg"
    ],
-   "logo": "logos/tarun-tahiliani.png",
+   "logo": "logos/tarun-tahiliani-v2.png",
    "lw": 720,
-   "lh": 72,
-   "sticker": "stickers/tarun-tahiliani.png",
-   "sbg": "#ffffff",
-   "sw": 311,
-   "sh": 31
+   "lh": 68,
+   "sticker": "stickers/tarun-tahiliani-v2.png",
+   "sw": 520,
+   "sh": 197,
+   "badge": false
   },
   {
    "slug": "lladro",
@@ -651,9 +651,9 @@ window.APOS = {
    "lw": 635,
    "lh": 180,
    "sticker": "stickers/lladro.png",
-   "sbg": "#ffffff",
    "sw": 201,
-   "sh": 57
+   "sh": 57,
+   "badge": false
   },
   {
    "slug": "bath-body-works",
@@ -711,9 +711,9 @@ window.APOS = {
    "lw": 215,
    "lh": 180,
    "sticker": "stickers/bath-body-works.png",
-   "sbg": "#ffffff",
    "sw": 482,
-   "sh": 404
+   "sh": 404,
+   "badge": false
   },
   {
    "slug": "apala",
@@ -770,9 +770,9 @@ window.APOS = {
    "lw": 489,
    "lh": 180,
    "sticker": "stickers/apala.png",
-   "sbg": "#361200",
-   "sw": 320,
-   "sh": 213
+   "sw": 270,
+   "sh": 181,
+   "badge": true
   },
   {
    "slug": "chopard-jwc",
@@ -831,9 +831,9 @@ window.APOS = {
    "lw": 503,
    "lh": 180,
    "sticker": "stickers/chopard-jwc.png",
-   "sbg": "#ffffff",
    "sw": 520,
-   "sh": 186
+   "sh": 186,
+   "badge": false
   },
   {
    "slug": "omega-ethos",
@@ -892,9 +892,9 @@ window.APOS = {
    "lw": 370,
    "lh": 180,
    "sticker": "stickers/omega-ethos.png",
-   "sbg": "#ffffff",
    "sw": 499,
-   "sh": 243
+   "sh": 243,
+   "badge": false
   },
   {
    "slug": "tag-heuer",
@@ -945,9 +945,9 @@ window.APOS = {
    "lw": 297,
    "lh": 180,
    "sticker": "stickers/tag-heuer.png",
-   "sbg": "#ffffff",
    "sw": 520,
-   "sh": 315
+   "sh": 315,
+   "badge": false
   },
   {
    "slug": "mrunalini-rao",
@@ -1030,9 +1030,9 @@ window.APOS = {
    "lw": 720,
    "lh": 95,
    "sticker": "stickers/mrunalini-rao.png",
-   "sbg": "#ffffff",
    "sw": 348,
-   "sh": 46
+   "sh": 46,
+   "badge": false
   },
   {
    "slug": "abraham-thakore",
@@ -1115,9 +1115,9 @@ window.APOS = {
    "lw": 635,
    "lh": 180,
    "sticker": "stickers/abraham-thakore.png",
-   "sbg": "#ffffff",
    "sw": 520,
-   "sh": 147
+   "sh": 147,
+   "badge": false
   },
   {
    "slug": "sameer-madan",
@@ -1175,9 +1175,9 @@ window.APOS = {
    "lw": 720,
    "lh": 89,
    "sticker": "stickers/sameer-madan.png",
-   "sbg": "#ffffff",
    "sw": 491,
-   "sh": 61
+   "sh": 61,
+   "badge": false
   },
   {
    "slug": "bally",
@@ -1241,9 +1241,9 @@ window.APOS = {
    "lw": 269,
    "lh": 180,
    "sticker": "stickers/bally.png",
-   "sbg": "#ffffff",
    "sw": 361,
-   "sh": 242
+   "sh": 242,
+   "badge": false
   },
   {
    "slug": "paul-smith",
@@ -1321,9 +1321,9 @@ window.APOS = {
    "lw": 720,
    "lh": 144,
    "sticker": "stickers/paul-smith.png",
-   "sbg": "#ffffff",
    "sw": 290,
-   "sh": 58
+   "sh": 58,
+   "badge": false
   },
   {
    "slug": "saundh",
@@ -1418,9 +1418,9 @@ window.APOS = {
    "lw": 489,
    "lh": 180,
    "sticker": "stickers/saundh.png",
-   "sbg": "#ffffff",
    "sw": 220,
-   "sh": 81
+   "sh": 81,
+   "badge": false
   },
   {
    "slug": "truebrowns",
@@ -1526,9 +1526,9 @@ window.APOS = {
    "lw": 720,
    "lh": 107,
    "sticker": "stickers/truebrowns.png",
-   "sbg": "#ffffff",
    "sw": 510,
-   "sh": 76
+   "sh": 76,
+   "badge": false
   },
   {
    "slug": "cover-story",
@@ -1581,9 +1581,9 @@ window.APOS = {
    "lw": 720,
    "lh": 155,
    "sticker": "stickers/cover-story.png",
-   "sbg": "#ffffff",
    "sw": 520,
-   "sh": 112
+   "sh": 112,
+   "badge": false
   },
   {
    "slug": "forever-new",
@@ -1637,9 +1637,9 @@ window.APOS = {
    "lw": 720,
    "lh": 68,
    "sticker": "stickers/forever-new.png",
-   "sbg": "#ffffff",
    "sw": 446,
-   "sh": 42
+   "sh": 42,
+   "badge": false
   },
   {
    "slug": "envisage",
@@ -1717,9 +1717,9 @@ window.APOS = {
    "lw": 592,
    "lh": 128,
    "sticker": "stickers/envisage.png",
-   "sbg": "#ffffff",
    "sw": 148,
-   "sh": 32
+   "sh": 32,
+   "badge": false
   },
   {
    "slug": "stonex",
@@ -1790,9 +1790,9 @@ window.APOS = {
    "lw": 507,
    "lh": 180,
    "sticker": "stickers/stonex.png",
-   "sbg": "#ffffff",
    "sw": 169,
-   "sh": 60
+   "sh": 60,
+   "badge": false
   },
   {
    "slug": "fcml",
@@ -1863,8 +1863,7 @@ window.APOS = {
     "work/fcml-3.jpg",
     "work/fcml-4.jpg"
    ],
-   "sticker": "",
-   "sbg": "#ffffff"
+   "sticker": ""
   },
   {
    "slug": "at-home",
@@ -1938,9 +1937,9 @@ window.APOS = {
    "lw": 616,
    "lh": 180,
    "sticker": "stickers/at-home.png",
-   "sbg": "#ffffff",
    "sw": 520,
-   "sh": 147
+   "sh": 147,
+   "badge": false
   },
   {
    "slug": "glass-sutra",
@@ -2045,9 +2044,9 @@ window.APOS = {
    "lw": 290,
    "lh": 180,
    "sticker": "stickers/glass-sutra.png",
-   "sbg": "#ffffff",
    "sw": 161,
-   "sh": 100
+   "sh": 100,
+   "badge": false
   },
   {
    "slug": "governor-house",
@@ -2127,9 +2126,9 @@ window.APOS = {
    "lw": 237,
    "lh": 180,
    "sticker": "stickers/governor-house.png",
-   "sbg": "#27364b",
    "sw": 480,
-   "sh": 363
+   "sh": 365,
+   "badge": true
   },
   {
    "slug": "tres",
@@ -2180,9 +2179,9 @@ window.APOS = {
    "lw": 267,
    "lh": 180,
    "sticker": "stickers/tres.png",
-   "sbg": "#ffffff",
    "sw": 160,
-   "sh": 108
+   "sh": 108,
+   "badge": false
   },
   {
    "slug": "copper-chimney",
@@ -2249,9 +2248,9 @@ window.APOS = {
    "lw": 720,
    "lh": 117,
    "sticker": "stickers/copper-chimney.png",
-   "sbg": "#ffffff",
    "sw": 479,
-   "sh": 78
+   "sh": 78,
+   "badge": false
   },
   {
    "slug": "lopera",
@@ -2323,9 +2322,9 @@ window.APOS = {
    "lw": 283,
    "lh": 180,
    "sticker": "stickers/lopera.png",
-   "sbg": "#ffffff",
    "sw": 211,
-   "sh": 134
+   "sh": 134,
+   "badge": false
   },
   {
    "slug": "beeyoung",
@@ -2447,9 +2446,9 @@ window.APOS = {
    "lw": 480,
    "lh": 180,
    "sticker": "stickers/beeyoung.png",
-   "sbg": "#ffffff",
    "sw": 136,
-   "sh": 51
+   "sh": 51,
+   "badge": false
   },
   {
    "slug": "4700bc",
@@ -2522,9 +2521,9 @@ window.APOS = {
    "lw": 168,
    "lh": 180,
    "sticker": "stickers/4700bc.png",
-   "sbg": "#030202",
-   "sw": 145,
-   "sh": 160
+   "sw": 151,
+   "sh": 162,
+   "badge": true
   },
   {
    "slug": "flow",
@@ -2619,9 +2618,9 @@ window.APOS = {
    "lw": 226,
    "lh": 180,
    "sticker": "stickers/flow.png",
-   "sbg": "#ffffff",
    "sw": 206,
-   "sh": 164
+   "sh": 164,
+   "badge": false
   }
  ],
  "clientIndex": [
@@ -2778,9 +2777,9 @@ window.APOS = {
     },
     {
      "name": "Tarun Tahiliani",
-     "logo": "logos/tarun-tahiliani.png",
+     "logo": "logos/tarun-tahiliani-v2.png",
      "w": 720,
-     "h": 72,
+     "h": 68,
      "slug": "tarun-tahiliani"
     },
     {

@@ -47,6 +47,113 @@
     return `<span class="lg" role="img" aria-label="${esc(b.name)}" style="--lw:${w.toFixed(3)};--lh:${h.toFixed(3)};--src:url('${esc(b.logo)}')"></span>`;
   }
 
+  /* ---------- Sticker honeycomb (Selected work) ----------
+     Project logos as outlined stickers in a hex grid that magnifies under the
+     cursor, like the Apple Watch app grid. Used on Home (featured) and Projects (all). */
+  function hive(el, projects, { max = 132, per = 8.2 } = {}) {
+    const catName = Object.fromEntries(window.APOS.categories.map((c) => [c.id, c.name]));
+    // fit each logo inside the circle: an inscribed rectangle, then evened out by area
+    const fit = (p) => {
+      const ar = p.sw / p.sh, rho = 0.36, k = Math.sqrt(1 + ar * ar);
+      let w = (2 * rho * ar) / k, h = (2 * rho) / k;
+      const s = Math.min(1, Math.sqrt((p.badge ? 0.2 : 0.14) / (w * h)));
+      return `--fw:${(w * s).toFixed(3)};--fh:${(h * s).toFixed(3)}`;
+    };
+    el.classList.add("hive");
+    el.innerHTML = projects.map((p, i) => `
+      <a class="sticker" href="project.html?p=${p.slug}" data-cat="${p.category}" data-i="${i}" aria-label="${esc(p.title)}: ${esc(p.subtitle)}">
+        <span class="sticker__disc" style="--r:${((i * 37) % 9) - 4}deg">${p.sticker
+          ? `<img src="${esc(p.sticker)}" alt="" style="${fit(p)}" decoding="async">`
+          : `<span class="sticker__txt">${esc(p.title)}</span>`}</span>
+      </a>`).join("") + `<div class="hive__label" aria-hidden="true"><b></b><em></em></div>`;
+
+    const stickers = $$(".sticker", el);
+    const label = $(".hive__label", el);
+    let items = [], D0 = 100, step = 120;
+    const qx = stickers.map((s) => gsap.quickTo(s, "x", { duration: 0.55, ease: "power3" }));
+    const qy = stickers.map((s) => gsap.quickTo(s, "y", { duration: 0.55, ease: "power3" }));
+    const qs = stickers.map((s) => gsap.quickTo(s, "scale", { duration: 0.55, ease: "power3" }));
+
+    // rows alternate between n and n-1 stickers, centred
+    function layout(animate) {
+      const W = el.clientWidth;
+      D0 = Math.round(Math.min(max, Math.max(76, W / per)));
+      const gap = Math.round(D0 * 0.2);
+      step = D0 + gap;
+      const n = Math.max(3, Math.floor((W - D0 * 0.4 + gap) / step));
+      const rowH = step * 0.87;
+      const vis = stickers.filter((s) => !s.classList.contains("is-hidden"));
+      items = [];
+      let i = 0, row = 0;
+      while (i < vis.length) {
+        const left = vis.length - i;
+        let k = Math.min(row % 2 ? n - 1 : n, left);
+        const rowW = k * step - gap;
+        for (let c = 0; c < k; c++, i++) items.push({ el: vis[i], idx: +vis[i].dataset.i, bx: (W - rowW) / 2 + c * step, by: D0 * 0.3 + row * rowH });
+        row++;
+      }
+      el.style.setProperty("--d", D0 + "px");
+      el.style.height = Math.ceil(D0 * 0.6 + Math.max(0, row - 1) * rowH + D0 + D0 * 0.5) + "px";
+      items.forEach((it) => {
+        const props = { x: it.bx, y: it.by, scale: 1, autoAlpha: 1 };
+        animate && !RM ? gsap.to(it.el, { ...props, duration: 0.9, ease: "expo.inOut" }) : gsap.set(it.el, props);
+      });
+      stickers.filter((s) => s.classList.contains("is-hidden")).forEach((s) =>
+        animate && !RM ? gsap.to(s, { scale: 0, autoAlpha: 0, duration: 0.4, ease: "power2.in" }) : gsap.set(s, { scale: 0, autoAlpha: 0 }));
+    }
+
+    function magnify(px, py) {
+      const R = step * 2.1;
+      let near = null, nd = Infinity;
+      items.forEach((it) => {
+        const dx = it.bx + D0 / 2 - px, dy = it.by + D0 / 2 - py, d = Math.hypot(dx, dy) || 1;
+        const t = Math.max(0, 1 - d / R);
+        const push = Math.sin(Math.PI * t) * step * 0.22;
+        qx[it.idx](it.bx + (dx / d) * push); qy[it.idx](it.by + (dy / d) * push);
+        qs[it.idx](1 + 0.72 * t * t * t + (d < D0 * 0.55 ? 0.12 : 0));
+        it.el.style.zIndex = Math.round(t * 100);
+        if (d < nd) { nd = d; near = it; }
+      });
+      const on = near && nd < D0 * 0.62;
+      stickers.forEach((s) => s.classList.toggle("is-near", on && s === near.el));
+      if (on) {
+        const p = projects[near.idx];
+        label.querySelector("b").textContent = p.title;
+        label.querySelector("em").textContent = catName[p.category];
+        gsap.to(label, { x: near.bx + D0 / 2, y: near.by + D0 * 1.42, autoAlpha: 1, duration: 0.45, ease: "power3" });
+      } else gsap.to(label, { autoAlpha: 0, duration: 0.3 });
+    }
+    function rest() {
+      items.forEach((it) => { qx[it.idx](it.bx); qy[it.idx](it.by); qs[it.idx](1); it.el.style.zIndex = ""; });
+      stickers.forEach((s) => s.classList.remove("is-near"));
+      gsap.to(label, { autoAlpha: 0, duration: 0.3 });
+    }
+
+    layout(false);
+    gsap.set(label, { autoAlpha: 0, xPercent: -50 });
+    let rw = el.clientWidth;
+    addEventListener("resize", () => { if (el.clientWidth !== rw) { rw = el.clientWidth; layout(false); ScrollTrigger.refresh(); } });
+    if (FINE && !RM) {
+      el.addEventListener("pointermove", (e) => { const r = el.getBoundingClientRect(); magnify(e.clientX - r.left, e.clientY - r.top); });
+      el.addEventListener("pointerleave", rest);
+    }
+    // stickers pop on as the section arrives
+    if (!RM) {
+      gsap.set(stickers, { scale: 0, autoAlpha: 0 });
+      ScrollTrigger.create({
+        trigger: el, start: "top 85%", once: true,
+        onEnter: () => gsap.to(items.map((it) => it.el), { scale: 1, autoAlpha: 1, duration: 0.9, ease: "back.out(2.2)", stagger: { each: 0.035, from: "random" } }),
+      });
+    }
+    return {
+      filter(test) {
+        stickers.forEach((s) => s.classList.toggle("is-hidden", !test(s.dataset.cat)));
+        rest(); layout(true);
+        setTimeout(() => ScrollTrigger.refresh(), 950);
+      },
+    };
+  }
+
   /* Split an element's text into masked words (and optionally chars). */
   function split(el, chars = false) {
     if (el.dataset.splitDone) return $$(chars ? ".c" : ".w > span", el);
@@ -348,7 +455,7 @@
   initCursor();
   initTransitions();
 
-  window.APOS_UI = { $, $$, RM, FINE, esc, media, logo, split, initReveals, countUp, ARROW, MARK, get lenis() { return lenis; } };
+  window.APOS_UI = { $, $$, RM, FINE, esc, media, logo, hive, split, initReveals, countUp, ARROW, MARK, get lenis() { return lenis; } };
 
   // Page scripts register themselves on APOS_PAGE; run once fonts are ready so splits measure correctly.
   const ready = document.fonts ? document.fonts.ready : Promise.resolve();

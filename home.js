@@ -2,7 +2,7 @@
    Home page
    ========================================================================== */
 window.APOS_PAGE = () => {
-  const { $, $$, RM, FINE, esc, media, split, ARROW, logo } = window.APOS_UI;
+  const { $, $$, RM, FINE, esc, media, split, ARROW, logo, hive } = window.APOS_UI;
   const D = window.APOS;
   const W = () => innerWidth, H = () => innerHeight;
   const mobile = () => innerWidth < 900;
@@ -15,15 +15,7 @@ window.APOS_PAGE = () => {
   $(".services__count em").textContent = `/ ${String(D.services.length).padStart(2, "0")}`;
 
   const featured = D.featured.map((slug) => D.projects.find((p) => p.slug === slug)).filter(Boolean);
-  $("#workTrack").innerHTML = featured.map((p, i) => `
-    <a class="wcard" href="project.html?p=${p.slug}" data-cursor="View">
-      <div class="wcard__media">${media(p)}</div>
-      <div class="wcard__meta">
-        <div><div class="wcard__title">${esc(p.title)}</div><div class="wcard__sub">${esc(p.subtitle)}</div></div>
-        <span class="wcard__n">${String(i + 1).padStart(2, "0")}</span>
-      </div>
-    </a>`).join("") +
-    `<div class="wcard wcard--end"><a href="projects.html"><span class="circle">${ARROW}</span>All projects</a></div>`;
+  hive($("#homeHive"), featured, { max: 150, per: 6.2 });
 
   const bandSet = `<div class="band__set">${(D.topBrands || []).map((b) => `<span>${logo(b)}</span><i></i>`).join("")}</div>`;
   $("#bandTrack").innerHTML = bandSet + bandSet.replace('class="band__set"', 'class="band__set" aria-hidden="true"');
@@ -53,7 +45,6 @@ window.APOS_PAGE = () => {
   hero();
   statement();
   services();
-  work();
   marquee("#bandTrack", "#band", 60);
   recognitions();
   slider();
@@ -212,78 +203,6 @@ window.APOS_PAGE = () => {
       svc.style.background = "transparent";
       svc.style.zIndex = 2;
     }
-  }
-
-  /* ---------------- work carousel ---------------- */
-  function work() {
-    // A sideways gallery: vertical scrolling always moves on down the page;
-    // the cards move with a sideways trackpad swipe, a mouse drag or the arrows.
-    const track = $("#workTrack");
-    const cards = $$(".wcard", track);
-    const medias = cards.map((c) => c.querySelector(".wcard__media > *"));
-    const step = () => (cards[1] ? cards[1].offsetLeft - cards[0].offsetLeft : track.clientWidth * 0.8);
-
-    // centre card sits forward; others ease back (maths only, no layout reads per frame)
-    let centres = [];
-    const measure = () => { centres = cards.map((c) => c.offsetLeft + c.offsetWidth / 2); };
-    let ticking = false;
-    const fx = () => {
-      ticking = false;
-      if (RM) return;
-      const mid = track.scrollLeft + track.clientWidth / 2, W0 = track.clientWidth;
-      cards.forEach((c, i) => {
-        const d = (centres[i] - mid) / W0;
-        const a = Math.min(Math.abs(d), 1);
-        c.style.transform = innerWidth >= 900 ? `translate3d(0,${a * 36}px,0) scale(${1 - a * 0.08})` : "";
-        if (medias[i]) medias[i].style.transform = `translate3d(${d * -6}%,0,0)`;
-      });
-    };
-    const queue = () => { if (!ticking) { ticking = true; requestAnimationFrame(fx); } };
-    measure(); fx();
-    track.addEventListener("scroll", queue, { passive: true });
-
-    // edge arrows: show only where there is more to see
-    const gallery = track.parentElement;
-    const ends = () => {
-      const max = track.scrollWidth - track.clientWidth - 16;
-      gallery.classList.toggle("is-start", track.scrollLeft <= 16);
-      gallery.classList.toggle("is-end", track.scrollLeft >= max);
-    };
-    track.addEventListener("scroll", ends, { passive: true });
-    addEventListener("resize", ends);
-    ends();
-    addEventListener("resize", () => { measure(); queue(); });
-
-    // arrows
-    const go = (dir) => track.scrollBy({ left: dir * step(), behavior: RM ? "auto" : "smooth" });
-    $("#workPrev").addEventListener("click", () => go(-1));
-    $("#workNext").addEventListener("click", () => go(1));
-
-    // click-and-drag with a mouse
-    let down = false, moved = false, sx = 0, sl = 0;
-    track.addEventListener("pointerdown", (e) => {
-      if (e.pointerType !== "mouse") return;
-      down = true; moved = false; sx = e.clientX; sl = track.scrollLeft;
-      track.classList.add("is-dragging");
-    });
-    addEventListener("pointermove", (e) => {
-      if (!down) return;
-      const dx = e.clientX - sx;
-      if (Math.abs(dx) > 4) moved = true;
-      track.scrollLeft = sl - dx;
-    });
-    addEventListener("pointerup", () => {
-      if (!down) return;
-      down = false;
-      track.classList.remove("is-dragging");
-      // settle on the nearest card
-      const i = Math.round(track.scrollLeft / step());
-      track.scrollTo({ left: i * step(), behavior: "smooth" });
-    });
-    track.addEventListener("click", (e) => { if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; } }, true);
-    track.addEventListener("dragstart", (e) => e.preventDefault());
-
-    if (!RM) gsap.from(cards, { opacity: 0, x: 80, duration: 1.2, ease: "expo.out", stagger: 0.08, scrollTrigger: { trigger: track, start: "top 85%", once: true } });
   }
 
   /* ---------------- brand marquee (reacts to scroll speed) ---------------- */
