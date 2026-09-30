@@ -3,7 +3,7 @@
    Everything on the site that changes (projects, awards,
    testimonials, partners, contact) lives in this one file.
    - To add a project: copy one object in `projects` and edit it.
-   - To use a real photo: set `image: "assets/img/projects/<file>.jpg"`.
+   - To use a real photo: set `image: "images/<file>.jpg"`.
    - `formEndpoint`: paste a Formspree / Web3Forms URL to make the
      contact form send directly (empty = opens the visitor's email app).
    ============================================================ */

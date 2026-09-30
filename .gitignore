@@ -1,0 +1,11 @@
+# Private source material — keep out of the public repo
+*.pdf
+*.xlsx
+*.ai
+*.af
+*.af~lock~
+/apos logo full.png
+/black apos logo.png
+/white apos logo.png
+.claude/
+.DS_Store
