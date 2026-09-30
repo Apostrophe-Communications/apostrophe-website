@@ -738,3 +738,22 @@ html.rm .services { height: auto; padding: 120px 0; }
 .has-glow { overflow: hidden; }
 .menu > :not(.glow) { position: relative; z-index: 1; }
 html.rm .hdr { opacity: 1 !important; visibility: visible !important; }
+
+/* ---------- Brands band (under the stats) ---------- */
+.band { position: relative; padding: 0 0 clamp(80px, 12svh, 130px); overflow: hidden; }
+.band__strip {
+  border-top: 1px solid rgba(14,14,12,.14); border-bottom: 1px solid rgba(14,14,12,.14);
+  padding: 20px 0; overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.band__track { display: flex; width: max-content; will-change: transform; }
+.band__set { display: flex; align-items: center; flex: none; }
+.band__set span { font-family: var(--display); font-size: clamp(13px, 1.1vw, 16px); letter-spacing: .24em; text-transform: uppercase; white-space: nowrap; padding: 0 2.2em; color: var(--graphite); }
+.band__set i { width: 5px; height: 5px; border-radius: 50%; background: var(--dot); flex: none; }
+.band__btn {
+  position: absolute; left: 50%; top: 0; z-index: 3;
+  transform: translate(-50%, calc(var(--band-h, 62px) / 2 - 50%));
+  box-shadow: 0 0 0 clamp(18px, 2.4vw, 34px) var(--ivory);
+}
+.band__btn:hover { transform: translate(-50%, calc(var(--band-h, 62px) / 2 - 50%)); }

@@ -56,6 +56,7 @@ window.APOS = {
    "name": "Dining & Hospitality"
   }
  ],
+ "topBrands": ["BVLGARI", "Chopard", "Omega", "TAG Heuer", "Rado", "Tiffany & Co.", "Versace", "Ferragamo", "Bally", "Paul Smith", "Brooks Brothers", "Tarun Tahiliani", "Abraham & Thakore", "Bath & Body Works", "Benefit Cosmetics", "Diesel", "GANT", "Superdry", "Lladró", "West Elm", "Pottery Barn Kids", "Farzi Café", "Nando’s", "Hamleys"],
  "featured": [
   "bvlgari-jwc",
   "rado",

@@ -25,9 +25,8 @@ window.APOS_PAGE = () => {
     </a>`).join("") +
     `<div class="wcard wcard--end"><a href="projects.html"><span class="circle">${ARROW}</span>All projects</a></div>`;
 
-  const brands = D.clientIndex.slice(0, 4).flatMap((c) => c.brands.slice(0, 7));
-  const set = `<div class="marquee__set">${brands.map((b) => `<span>${esc(b)}</span><i></i>`).join("")}</div>`;
-  $("#marqueeTrack").innerHTML = set + set.replace('class="marquee__set"', 'class="marquee__set" aria-hidden="true"');
+  const bandSet = `<div class="band__set">${(D.topBrands || []).map((b) => `<span>${esc(b)}</span><i></i>`).join("")}</div>`;
+  $("#bandTrack").innerHTML = bandSet + bandSet.replace('class="band__set"', 'class="band__set" aria-hidden="true"');
 
   $("#recogList").innerHTML = D.awards.map((g) => `
     <div class="recog__grid recog__group">
@@ -55,7 +54,7 @@ window.APOS_PAGE = () => {
   statement();
   services();
   work();
-  marquee();
+  marquee("#bandTrack", "#band", 60);
   recognitions();
   slider();
 
@@ -133,49 +132,68 @@ window.APOS_PAGE = () => {
     if (RM) return;
     const sig = $("#sig");
     const L = $(".p-left", sig), R = $(".p-right", sig), Dt = $(".p-dot", sig);
-    const k = () => (mobile() ? 1.55 : 2.3);
-    const stone = "#dcd5c4";
+    const stone = "#dcd5c4", ivory = "#f6f3ec";
+    let master;
 
-    // dot → services marker (services is pinned, so this spot is fixed on screen)
-    const toMarker = () => {
+    // One scrubbed timeline for the whole journey. Every stage goes from an
+    // explicit state to an explicit state, so fast flicks, jumps or resizes
+    // can never leave the pieces stranded between stages.
+    // Timeline time = scroll pixels, rebuilt whenever the layout is measured.
+    const build = () => {
+      const keep = master ? master.scrollTrigger.progress : 0;
+      if (master) { master.scrollTrigger.kill(); master.kill(); }
+      const w = innerWidth, h = innerHeight, m = w < 900;
+      const k = m ? 1.55 : 2.3;
+
+      const intro = $("#intro"), work = $("#work");
+      const svcST = ScrollTrigger.getById("services-pin");
+      const introTop = intro.offsetTop, introBottom = introTop + intro.offsetHeight;
+      const svcTop = svcST ? svcST.start : $("#services").offsetTop;
+      const workTop = work.offsetTop;
+
+      // dot → services marker (services is pinned, so this spot is fixed on screen)
       const sr = sig.getBoundingClientRect();
       const home = { x: sr.left + 0.597 * sr.width, y: sr.top + 0.503 * sr.height, d: (280 / 800) * sr.width };
-      const m = $("#wheelMarker").getBoundingClientRect();
-      const sec = $("#services").getBoundingClientRect();
-      return { x: m.left + m.width / 2 - home.x, y: m.top - sec.top + m.height / 2 - home.y, scale: m.width / home.d };
+      const mk = $("#wheelMarker").getBoundingClientRect();
+      const secTop = $("#services").getBoundingClientRect().top;
+      const marker = { x: mk.left + mk.width / 2 - home.x, y: mk.top - secTop + mk.height / 2 - home.y, scale: mk.width / home.d };
+
+      const S = {
+        logo:   { L: { x: 0, y: 0, rotation: 0, scale: 1, opacity: 1 }, R: { x: 0, y: 0, rotation: 0, scale: 1, opacity: 1 }, D: { x: 0, y: 0, scale: 1, opacity: 1 } },
+        frame:  { L: { x: -w * (m ? 0.42 : 0.4), y: h * 0.12, rotation: -6, scale: k, opacity: 1 }, R: { x: w * (m ? 0.4 : 0.39), y: h * 0.2, rotation: 9, scale: k, opacity: 1 }, D: { x: w * (m ? 0.34 : 0.3), y: -h * 0.26, scale: 0.2, opacity: 1 } },
+        drift:  { L: { x: -w * (m ? 0.42 : 0.4), y: -h * 0.14, rotation: 5, scale: k, opacity: 1 }, R: { x: w * (m ? 0.4 : 0.39), y: -h * 0.24, rotation: -5, scale: k, opacity: 1 }, D: { x: w * (m ? 0.34 : 0.3), y: h * 0.02, scale: 0.2, opacity: 1 } },
+        svc:    { L: { x: -w * 0.95, y: -h * 0.14, rotation: -24, scale: k, opacity: 0 }, R: { x: w * 0.95, y: -h * 0.24, rotation: 24, scale: k, opacity: 0 }, D: { ...marker, opacity: 1 } },
+        gone:   { D: { x: marker.x, y: marker.y - h * 0.5, scale: 0, opacity: 1 } },
+      };
+
+      const a = Math.max(0, introTop - h), b = Math.max(a + 1, introTop - h * 0.15);
+      const c = Math.max(b + 1, introBottom);
+      const d0 = Math.max(c, svcTop - h), d1 = Math.max(d0 + 1, svcTop);
+      const e0 = Math.max(d1, workTop - h), e1 = Math.max(e0 + 1, workTop - h * 0.4);
+
+      const tl = gsap.timeline({ paused: true, defaults: { immediateRender: false, ease: "none" } });
+      const stage = (from, to, t0, t1, ease) => {
+        const dur = t1 - t0;
+        ["L", "R", "D"].forEach((key) => {
+          if (!to[key]) return;
+          const el = { L, R, D: Dt }[key];
+          tl.fromTo(el, { ...from[key] }, { ...to[key], duration: dur, ease }, t0);
+        });
+      };
+      stage(S.logo, S.frame, a, b, "power2.inOut");
+      tl.fromTo(sig, { color: ivory }, { color: stone, duration: b - a }, a);
+      stage(S.frame, S.drift, b, c, "none");
+      stage(S.drift, S.svc, d0, d1, "power3.inOut");
+      stage({ D: S.svc.D }, S.gone, e0, e1, "power2.in");
+      tl.set({}, {}, e1);
+
+      master = tl;
+      ScrollTrigger.create({ id: "signature", animation: tl, start: 0, end: e1, scrub: 1 });
+      tl.progress(keep || ScrollTrigger.getById("signature").progress);
     };
 
-    const seg = (trigger, start, end, to) => {
-      const tl = gsap.timeline({ scrollTrigger: { trigger, start, end, scrub: 1, invalidateOnRefresh: true } });
-      to(tl);
-      return tl;
-    };
-
-    // 1 · hero → about: pieces part and frame the page
-    seg("#intro", "top bottom", "top 15%", (tl) => tl
-      .to(L, { x: () => -W() * (mobile() ? 0.42 : 0.4), y: () => H() * 0.12, rotation: -6, scale: k, ease: "power2.inOut" }, 0)
-      .to(R, { x: () => W() * (mobile() ? 0.4 : 0.39), y: () => H() * 0.2, rotation: 9, scale: k, ease: "power2.inOut" }, 0)
-      .to(Dt, { x: () => W() * (mobile() ? 0.34 : 0.3), y: () => -H() * 0.26, scale: 0.2, ease: "power2.inOut" }, 0)
-      .to(sig, { color: stone, ease: "none" }, 0));
-
-    // 2 · drift while reading About, like figures turning to watch
-    seg("#intro", "top 15%", "bottom top", (tl) => tl
-      .to(L, { y: () => -H() * 0.14, rotation: 5, ease: "none" }, 0)
-      .to(R, { y: () => -H() * 0.24, rotation: -5, ease: "none" }, 0)
-      .to(Dt, { y: () => H() * 0.02, ease: "none" }, 0));
-
-    // 3 · into services: strokes leave, the dot becomes the marker
-    seg("#services", "top bottom", "top top", (tl) => tl
-      .to(L, { x: () => -W() * 0.95, rotation: -24, opacity: 0, ease: "power2.in" }, 0)
-      .to(R, { x: () => W() * 0.95, rotation: 24, opacity: 0, ease: "power2.in" }, 0)
-      .to(Dt, { x: () => toMarker().x, y: () => toMarker().y, scale: () => toMarker().scale, ease: "power3.inOut" }, 0));
-
-    // 4 · after services: the dot bows out
-    seg("#work", "top bottom", "top 40%", (tl) => tl
-      .to(Dt, { y: () => toMarker().y - H() * 0.5, scale: 0, ease: "power2.in" }, 0));
-
-    ScrollTrigger.sort();
-    ScrollTrigger.refresh();
+    build();
+    ScrollTrigger.addEventListener("refresh", build);
   }
 
   /* ---------------- statement reading reveal ---------------- */
@@ -206,7 +224,7 @@ window.APOS_PAGE = () => {
       y: () => -(n - 0.5) * h(),
       ease: "none",
       scrollTrigger: {
-        trigger: "#services", start: "top top", end: () => `+=${(n - 1) * H() * 0.55}`,
+        id: "services-pin", trigger: "#services", start: "top top", end: () => `+=${(n - 1) * H() * 0.55}`,
         pin: true, scrub: 0.6, anticipatePin: 1, invalidateOnRefresh: true,
         snap: { snapTo: 1 / (n - 1), duration: { min: 0.25, max: 0.6 }, delay: 0.08, ease: "power2.inOut" },
         onUpdate: (self) => setState(self.progress * (n - 1)),
@@ -250,12 +268,12 @@ window.APOS_PAGE = () => {
   }
 
   /* ---------------- brand marquee (reacts to scroll speed) ---------------- */
-  function marquee() {
+  function marquee(trackSel, sectionSel, duration) {
     if (RM) return;
-    const loop = gsap.to("#marqueeTrack", { xPercent: -50, duration: 50, ease: "none", repeat: -1 });
+    const loop = gsap.to(trackSel, { xPercent: -50, duration, ease: "none", repeat: -1 });
     let dir = 1, target = 1, active = false;
     ScrollTrigger.create({
-      trigger: "#marquee", start: "top bottom", end: "bottom top",
+      trigger: sectionSel, start: "top bottom", end: "bottom top",
       onToggle: (self) => { active = self.isActive; active ? loop.play() : loop.pause(); },
       onUpdate: (self) => {
         dir = self.direction;
