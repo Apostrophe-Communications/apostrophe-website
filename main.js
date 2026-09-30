@@ -310,6 +310,7 @@
   const ready = document.fonts ? document.fonts.ready : Promise.resolve();
   Promise.race([ready, new Promise((r) => setTimeout(r, 1500))]).then(() => {
     window.APOS_PAGE && window.APOS_PAGE();
+    document.documentElement.classList.add("motion-ok");
     initGlows();
     initReveals();
     initHeader();

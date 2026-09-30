@@ -737,3 +737,4 @@ html.rm .services { height: auto; padding: 120px 0; }
 }
 .has-glow { overflow: hidden; }
 .menu > :not(.glow) { position: relative; z-index: 1; }
+html.rm .hdr { opacity: 1 !important; visibility: visible !important; }
