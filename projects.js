@@ -2,7 +2,7 @@
    Projects page: filterable grid + client index
    ========================================================================== */
 window.APOS_PAGE = () => {
-  const { $, $$, RM, esc, media, logo } = window.APOS_UI;
+  const { $, $$, RM, FINE, esc, logo } = window.APOS_UI;
   const D = window.APOS;
   const catName = Object.fromEntries(D.categories.map((c) => [c.id, c.name]));
 
@@ -13,11 +13,9 @@ window.APOS_PAGE = () => {
 
   // grid
   $("#pgrid").innerHTML = D.projects.map((p) => `
-    <a class="pcard" href="project.html?p=${p.slug}" data-cat="${p.category}" data-cursor="View">
-      <div class="pcard__media">${media(p)}</div>
-      <div class="pcard__meta"><span>${esc(catName[p.category])}</span><span class="pill">${esc(p.tags[0])}</span></div>
-      <h2 class="pcard__title">${esc(p.title)}</h2>
-      <p class="pcard__sub">${esc(p.subtitle)}</p>
+    <a class="pcard ptile" href="project.html?p=${p.slug}" data-cat="${p.category}" aria-label="${esc(p.title)}: ${esc(p.subtitle)}">
+      <span class="ptile__logo">${logo({ name: p.title, logo: p.logo, w: p.lw, h: p.lh })}</span>
+      <span class="ptile__cap"><b>${esc(p.title)}</b><em>${esc(catName[p.category])}</em></span>
     </a>`).join("");
 
   // client index
@@ -30,6 +28,17 @@ window.APOS_PAGE = () => {
     </div>`).join("");
 
   const cards = $$(".pcard");
+
+  // on a mouse, the logo leans toward the cursor inside its tile
+  if (!RM && FINE) cards.forEach((c) => {
+    const l = c.querySelector(".ptile__logo");
+    const x = gsap.quickTo(l, "x", { duration: 0.6, ease: "power3" }), y = gsap.quickTo(l, "y", { duration: 0.6, ease: "power3" });
+    c.addEventListener("pointermove", (e) => {
+      const r = c.getBoundingClientRect();
+      x(((e.clientX - r.left) / r.width - 0.5) * 18); y(((e.clientY - r.top) / r.height - 0.5) * 18);
+    });
+    c.addEventListener("pointerleave", () => { x(0); y(0); });
+  });
 
   // cards rise in as they enter
   if (!RM) {

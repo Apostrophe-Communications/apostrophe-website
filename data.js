@@ -269,7 +269,10 @@ window.APOS = {
    },
    "gallery": [
     "work/bvlgari-jwc-2.jpg"
-   ]
+   ],
+   "logo": "logos/bvlgari.png",
+   "lw": 720,
+   "lh": 78
   },
   {
    "slug": "rado",
@@ -338,7 +341,10 @@ window.APOS = {
     "work/rado-2.jpg",
     "work/rado-3.jpg",
     "work/rado-4.jpg"
-   ]
+   ],
+   "logo": "logos/rado.png",
+   "lw": 569,
+   "lh": 180
   },
   {
    "slug": "tasva",
@@ -473,7 +479,10 @@ window.APOS = {
     "work/tasva-6.jpg",
     "work/tasva-7.jpg",
     "work/tasva-8.jpg"
-   ]
+   ],
+   "logo": "logos/tasva.png",
+   "lw": 720,
+   "lh": 138
   },
   {
    "slug": "tarun-tahiliani",
@@ -548,7 +557,10 @@ window.APOS = {
     "work/tarun-tahiliani-4.jpg",
     "work/tarun-tahiliani-5.jpg",
     "work/tarun-tahiliani-6.jpg"
-   ]
+   ],
+   "logo": "logos/tarun-tahiliani.png",
+   "lw": 720,
+   "lh": 72
   },
   {
    "slug": "lladro",
@@ -618,7 +630,10 @@ window.APOS = {
     "work/lladro-6.jpg",
     "work/lladro-7.jpg",
     "work/lladro-8.jpg"
-   ]
+   ],
+   "logo": "logos/lladro.png",
+   "lw": 635,
+   "lh": 180
   },
   {
    "slug": "bath-body-works",
@@ -671,7 +686,10 @@ window.APOS = {
     "work/bath-body-works-5.jpg",
     "work/bath-body-works-6.jpg",
     "work/bath-body-works-7.jpg"
-   ]
+   ],
+   "logo": "logos/bath-and-body-works.png",
+   "lw": 215,
+   "lh": 180
   },
   {
    "slug": "apala",
@@ -723,7 +741,10 @@ window.APOS = {
     "work/apala-4.jpg",
     "work/apala-5.jpg",
     "work/apala-6.jpg"
-   ]
+   ],
+   "logo": "logos/apala.png",
+   "lw": 489,
+   "lh": 180
   },
   {
    "slug": "chopard-jwc",
@@ -777,7 +798,10 @@ window.APOS = {
      }
     ]
    },
-   "gallery": []
+   "gallery": [],
+   "logo": "logos/chopard.png",
+   "lw": 503,
+   "lh": 180
   },
   {
    "slug": "omega-ethos",
@@ -831,7 +855,10 @@ window.APOS = {
      }
     ]
    },
-   "gallery": []
+   "gallery": [],
+   "logo": "logos/omega.png",
+   "lw": 370,
+   "lh": 180
   },
   {
    "slug": "tag-heuer",
@@ -877,7 +904,10 @@ window.APOS = {
      }
     ]
    },
-   "gallery": []
+   "gallery": [],
+   "logo": "logos/tag-heuer.png",
+   "lw": 297,
+   "lh": 180
   },
   {
    "slug": "mrunalini-rao",
@@ -955,7 +985,10 @@ window.APOS = {
     "work/mrunalini-rao-5.jpg",
     "work/mrunalini-rao-6.jpg",
     "work/mrunalini-rao-7.jpg"
-   ]
+   ],
+   "logo": "logos/mrunalini-rao.png",
+   "lw": 720,
+   "lh": 95
   },
   {
    "slug": "abraham-thakore",
@@ -1033,7 +1066,10 @@ window.APOS = {
     "work/abraham-thakore-5.jpg",
     "work/abraham-thakore-6.jpg",
     "work/abraham-thakore-7.jpg"
-   ]
+   ],
+   "logo": "logos/abraham-and-thakore.png",
+   "lw": 635,
+   "lh": 180
   },
   {
    "slug": "sameer-madan",
@@ -1086,7 +1122,10 @@ window.APOS = {
     "work/sameer-madan-5.jpg",
     "work/sameer-madan-6.jpg",
     "work/sameer-madan-7.jpg"
-   ]
+   ],
+   "logo": "logos/sameer-madan.png",
+   "lw": 720,
+   "lh": 89
   },
   {
    "slug": "bally",
@@ -1145,7 +1184,10 @@ window.APOS = {
     "work/bally-3.jpg",
     "work/bally-4.jpg",
     "work/bally-5.jpg"
-   ]
+   ],
+   "logo": "logos/bally.png",
+   "lw": 269,
+   "lh": 180
   },
   {
    "slug": "paul-smith",
@@ -1218,7 +1260,10 @@ window.APOS = {
     "work/paul-smith-4.jpg",
     "work/paul-smith-5.jpg",
     "work/paul-smith-6.jpg"
-   ]
+   ],
+   "logo": "logos/paul-smith.png",
+   "lw": 720,
+   "lh": 144
   },
   {
    "slug": "saundh",
@@ -1308,7 +1353,10 @@ window.APOS = {
     "work/saundh-5.jpg",
     "work/saundh-6.jpg",
     "work/saundh-7.jpg"
-   ]
+   ],
+   "logo": "logos/saundh.png",
+   "lw": 489,
+   "lh": 180
   },
   {
    "slug": "truebrowns",
@@ -1409,7 +1457,10 @@ window.APOS = {
     "work/truebrowns-4.jpg",
     "work/truebrowns-5.jpg",
     "work/truebrowns-6.jpg"
-   ]
+   ],
+   "logo": "logos/truebrowns.png",
+   "lw": 720,
+   "lh": 107
   },
   {
    "slug": "cover-story",
@@ -1457,7 +1508,10 @@ window.APOS = {
    },
    "gallery": [
     "work/cover-story-2.jpg"
-   ]
+   ],
+   "logo": "logos/cover-story.png",
+   "lw": 720,
+   "lh": 155
   },
   {
    "slug": "forever-new",
@@ -1506,7 +1560,10 @@ window.APOS = {
    "gallery": [
     "work/forever-new-2.jpg",
     "work/forever-new-3.jpg"
-   ]
+   ],
+   "logo": "logos/forever-new.png",
+   "lw": 720,
+   "lh": 68
   },
   {
    "slug": "envisage",
@@ -1579,7 +1636,10 @@ window.APOS = {
      }
     ]
    },
-   "gallery": []
+   "gallery": [],
+   "logo": "logos/envisage.png",
+   "lw": 592,
+   "lh": 128
   },
   {
    "slug": "stonex",
@@ -1645,7 +1705,10 @@ window.APOS = {
      }
     ]
    },
-   "gallery": []
+   "gallery": [],
+   "logo": "logos/stonex.png",
+   "lw": 507,
+   "lh": 180
   },
   {
    "slug": "fcml",
@@ -1784,7 +1847,10 @@ window.APOS = {
     "work/at-home-2.jpg",
     "work/at-home-3.jpg",
     "work/at-home-4.jpg"
-   ]
+   ],
+   "logo": "logos/abraham-and-thakore-home.png",
+   "lw": 616,
+   "lh": 180
   },
   {
    "slug": "glass-sutra",
@@ -1884,7 +1950,10 @@ window.APOS = {
     "work/glass-sutra-3.jpg",
     "work/glass-sutra-4.jpg",
     "work/glass-sutra-5.jpg"
-   ]
+   ],
+   "logo": "logos/glass-sutra.png",
+   "lw": 290,
+   "lh": 180
   },
   {
    "slug": "governor-house",
@@ -1959,7 +2028,10 @@ window.APOS = {
     "work/governor-house-4.jpg",
     "work/governor-house-5.jpg",
     "work/governor-house-6.jpg"
-   ]
+   ],
+   "logo": "logos/governor-house.png",
+   "lw": 237,
+   "lh": 180
   },
   {
    "slug": "tres",
@@ -2005,7 +2077,10 @@ window.APOS = {
      }
     ]
    },
-   "gallery": []
+   "gallery": [],
+   "logo": "logos/tres.png",
+   "lw": 267,
+   "lh": 180
   },
   {
    "slug": "copper-chimney",
@@ -2067,7 +2142,10 @@ window.APOS = {
      }
     ]
    },
-   "gallery": []
+   "gallery": [],
+   "logo": "logos/copper-chimney.png",
+   "lw": 720,
+   "lh": 117
   },
   {
    "slug": "lopera",
@@ -2134,7 +2212,10 @@ window.APOS = {
     "work/lopera-3.jpg",
     "work/lopera-4.jpg",
     "work/lopera-5.jpg"
-   ]
+   ],
+   "logo": "logos/l-opera.png",
+   "lw": 283,
+   "lh": 180
   },
   {
    "slug": "beeyoung",
@@ -2251,7 +2332,10 @@ window.APOS = {
     "work/beeyoung-3.jpg",
     "work/beeyoung-4.jpg",
     "work/beeyoung-5.jpg"
-   ]
+   ],
+   "logo": "logos/beeyoung.png",
+   "lw": 480,
+   "lh": 180
   },
   {
    "slug": "4700bc",
@@ -2319,7 +2403,10 @@ window.APOS = {
    },
    "gallery": [
     "work/4700bc-2.jpg"
-   ]
+   ],
+   "logo": "logos/4700bc.png",
+   "lw": 168,
+   "lh": 180
   },
   {
    "slug": "flow",
@@ -2409,7 +2496,10 @@ window.APOS = {
    "gallery": [
     "work/flow-2.jpg",
     "work/flow-3.jpg"
-   ]
+   ],
+   "logo": "logos/flow.png",
+   "lw": 226,
+   "lh": 180
   }
  ],
  "clientIndex": [

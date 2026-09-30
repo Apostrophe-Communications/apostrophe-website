@@ -99,7 +99,7 @@
     const foot = $("#footer");
     if (foot) {
       foot.innerHTML = `
-      <section class="s t-yellow foot-cta" data-theme="light">
+      <section class="s t-stone foot-cta" data-theme="light">
         <div class="wrap">
           <small data-reveal>Have a project in mind?</small>
           <h2 data-split>Let’s work together</h2>
