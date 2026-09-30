@@ -272,7 +272,11 @@ window.APOS = {
    ],
    "logo": "logos/bvlgari.png",
    "lw": 720,
-   "lh": 78
+   "lh": 78,
+   "sticker": "stickers/bvlgari-jwc.png",
+   "sbg": "#ffffff",
+   "sw": 359,
+   "sh": 39
   },
   {
    "slug": "rado",
@@ -344,7 +348,11 @@ window.APOS = {
    ],
    "logo": "logos/rado.png",
    "lw": 569,
-   "lh": 180
+   "lh": 180,
+   "sticker": "stickers/rado.png",
+   "sbg": "#ffffff",
+   "sw": 520,
+   "sh": 165
   },
   {
    "slug": "tasva",
@@ -482,7 +490,11 @@ window.APOS = {
    ],
    "logo": "logos/tasva.png",
    "lw": 720,
-   "lh": 138
+   "lh": 138,
+   "sticker": "stickers/tasva.png",
+   "sbg": "#ffffff",
+   "sw": 491,
+   "sh": 94
   },
   {
    "slug": "tarun-tahiliani",
@@ -560,7 +572,11 @@ window.APOS = {
    ],
    "logo": "logos/tarun-tahiliani.png",
    "lw": 720,
-   "lh": 72
+   "lh": 72,
+   "sticker": "stickers/tarun-tahiliani.png",
+   "sbg": "#ffffff",
+   "sw": 311,
+   "sh": 31
   },
   {
    "slug": "lladro",
@@ -633,7 +649,11 @@ window.APOS = {
    ],
    "logo": "logos/lladro.png",
    "lw": 635,
-   "lh": 180
+   "lh": 180,
+   "sticker": "stickers/lladro.png",
+   "sbg": "#ffffff",
+   "sw": 201,
+   "sh": 57
   },
   {
    "slug": "bath-body-works",
@@ -689,7 +709,11 @@ window.APOS = {
    ],
    "logo": "logos/bath-and-body-works.png",
    "lw": 215,
-   "lh": 180
+   "lh": 180,
+   "sticker": "stickers/bath-body-works.png",
+   "sbg": "#ffffff",
+   "sw": 482,
+   "sh": 404
   },
   {
    "slug": "apala",
@@ -744,7 +768,11 @@ window.APOS = {
    ],
    "logo": "logos/apala.png",
    "lw": 489,
-   "lh": 180
+   "lh": 180,
+   "sticker": "stickers/apala.png",
+   "sbg": "#361200",
+   "sw": 320,
+   "sh": 213
   },
   {
    "slug": "chopard-jwc",
@@ -801,7 +829,11 @@ window.APOS = {
    "gallery": [],
    "logo": "logos/chopard.png",
    "lw": 503,
-   "lh": 180
+   "lh": 180,
+   "sticker": "stickers/chopard-jwc.png",
+   "sbg": "#ffffff",
+   "sw": 520,
+   "sh": 186
   },
   {
    "slug": "omega-ethos",
@@ -858,7 +890,11 @@ window.APOS = {
    "gallery": [],
    "logo": "logos/omega.png",
    "lw": 370,
-   "lh": 180
+   "lh": 180,
+   "sticker": "stickers/omega-ethos.png",
+   "sbg": "#ffffff",
+   "sw": 499,
+   "sh": 243
   },
   {
    "slug": "tag-heuer",
@@ -907,7 +943,11 @@ window.APOS = {
    "gallery": [],
    "logo": "logos/tag-heuer.png",
    "lw": 297,
-   "lh": 180
+   "lh": 180,
+   "sticker": "stickers/tag-heuer.png",
+   "sbg": "#ffffff",
+   "sw": 520,
+   "sh": 315
   },
   {
    "slug": "mrunalini-rao",
@@ -988,7 +1028,11 @@ window.APOS = {
    ],
    "logo": "logos/mrunalini-rao.png",
    "lw": 720,
-   "lh": 95
+   "lh": 95,
+   "sticker": "stickers/mrunalini-rao.png",
+   "sbg": "#ffffff",
+   "sw": 348,
+   "sh": 46
   },
   {
    "slug": "abraham-thakore",
@@ -1069,7 +1113,11 @@ window.APOS = {
    ],
    "logo": "logos/abraham-and-thakore.png",
    "lw": 635,
-   "lh": 180
+   "lh": 180,
+   "sticker": "stickers/abraham-thakore.png",
+   "sbg": "#ffffff",
+   "sw": 520,
+   "sh": 147
   },
   {
    "slug": "sameer-madan",
@@ -1125,7 +1173,11 @@ window.APOS = {
    ],
    "logo": "logos/sameer-madan.png",
    "lw": 720,
-   "lh": 89
+   "lh": 89,
+   "sticker": "stickers/sameer-madan.png",
+   "sbg": "#ffffff",
+   "sw": 491,
+   "sh": 61
   },
   {
    "slug": "bally",
@@ -1187,7 +1239,11 @@ window.APOS = {
    ],
    "logo": "logos/bally.png",
    "lw": 269,
-   "lh": 180
+   "lh": 180,
+   "sticker": "stickers/bally.png",
+   "sbg": "#ffffff",
+   "sw": 361,
+   "sh": 242
   },
   {
    "slug": "paul-smith",
@@ -1263,7 +1319,11 @@ window.APOS = {
    ],
    "logo": "logos/paul-smith.png",
    "lw": 720,
-   "lh": 144
+   "lh": 144,
+   "sticker": "stickers/paul-smith.png",
+   "sbg": "#ffffff",
+   "sw": 290,
+   "sh": 58
   },
   {
    "slug": "saundh",
@@ -1356,7 +1416,11 @@ window.APOS = {
    ],
    "logo": "logos/saundh.png",
    "lw": 489,
-   "lh": 180
+   "lh": 180,
+   "sticker": "stickers/saundh.png",
+   "sbg": "#ffffff",
+   "sw": 220,
+   "sh": 81
   },
   {
    "slug": "truebrowns",
@@ -1460,7 +1524,11 @@ window.APOS = {
    ],
    "logo": "logos/truebrowns.png",
    "lw": 720,
-   "lh": 107
+   "lh": 107,
+   "sticker": "stickers/truebrowns.png",
+   "sbg": "#ffffff",
+   "sw": 510,
+   "sh": 76
   },
   {
    "slug": "cover-story",
@@ -1511,7 +1579,11 @@ window.APOS = {
    ],
    "logo": "logos/cover-story.png",
    "lw": 720,
-   "lh": 155
+   "lh": 155,
+   "sticker": "stickers/cover-story.png",
+   "sbg": "#ffffff",
+   "sw": 520,
+   "sh": 112
   },
   {
    "slug": "forever-new",
@@ -1563,7 +1635,11 @@ window.APOS = {
    ],
    "logo": "logos/forever-new.png",
    "lw": 720,
-   "lh": 68
+   "lh": 68,
+   "sticker": "stickers/forever-new.png",
+   "sbg": "#ffffff",
+   "sw": 446,
+   "sh": 42
   },
   {
    "slug": "envisage",
@@ -1639,7 +1715,11 @@ window.APOS = {
    "gallery": [],
    "logo": "logos/envisage.png",
    "lw": 592,
-   "lh": 128
+   "lh": 128,
+   "sticker": "stickers/envisage.png",
+   "sbg": "#ffffff",
+   "sw": 148,
+   "sh": 32
   },
   {
    "slug": "stonex",
@@ -1708,7 +1788,11 @@ window.APOS = {
    "gallery": [],
    "logo": "logos/stonex.png",
    "lw": 507,
-   "lh": 180
+   "lh": 180,
+   "sticker": "stickers/stonex.png",
+   "sbg": "#ffffff",
+   "sw": 169,
+   "sh": 60
   },
   {
    "slug": "fcml",
@@ -1778,7 +1862,9 @@ window.APOS = {
     "work/fcml-2.jpg",
     "work/fcml-3.jpg",
     "work/fcml-4.jpg"
-   ]
+   ],
+   "sticker": "",
+   "sbg": "#ffffff"
   },
   {
    "slug": "at-home",
@@ -1850,7 +1936,11 @@ window.APOS = {
    ],
    "logo": "logos/abraham-and-thakore-home.png",
    "lw": 616,
-   "lh": 180
+   "lh": 180,
+   "sticker": "stickers/at-home.png",
+   "sbg": "#ffffff",
+   "sw": 520,
+   "sh": 147
   },
   {
    "slug": "glass-sutra",
@@ -1953,7 +2043,11 @@ window.APOS = {
    ],
    "logo": "logos/glass-sutra.png",
    "lw": 290,
-   "lh": 180
+   "lh": 180,
+   "sticker": "stickers/glass-sutra.png",
+   "sbg": "#ffffff",
+   "sw": 161,
+   "sh": 100
   },
   {
    "slug": "governor-house",
@@ -2031,7 +2125,11 @@ window.APOS = {
    ],
    "logo": "logos/governor-house.png",
    "lw": 237,
-   "lh": 180
+   "lh": 180,
+   "sticker": "stickers/governor-house.png",
+   "sbg": "#27364b",
+   "sw": 480,
+   "sh": 363
   },
   {
    "slug": "tres",
@@ -2080,7 +2178,11 @@ window.APOS = {
    "gallery": [],
    "logo": "logos/tres.png",
    "lw": 267,
-   "lh": 180
+   "lh": 180,
+   "sticker": "stickers/tres.png",
+   "sbg": "#ffffff",
+   "sw": 160,
+   "sh": 108
   },
   {
    "slug": "copper-chimney",
@@ -2145,7 +2247,11 @@ window.APOS = {
    "gallery": [],
    "logo": "logos/copper-chimney.png",
    "lw": 720,
-   "lh": 117
+   "lh": 117,
+   "sticker": "stickers/copper-chimney.png",
+   "sbg": "#ffffff",
+   "sw": 479,
+   "sh": 78
   },
   {
    "slug": "lopera",
@@ -2215,7 +2321,11 @@ window.APOS = {
    ],
    "logo": "logos/l-opera.png",
    "lw": 283,
-   "lh": 180
+   "lh": 180,
+   "sticker": "stickers/lopera.png",
+   "sbg": "#ffffff",
+   "sw": 211,
+   "sh": 134
   },
   {
    "slug": "beeyoung",
@@ -2335,7 +2445,11 @@ window.APOS = {
    ],
    "logo": "logos/beeyoung.png",
    "lw": 480,
-   "lh": 180
+   "lh": 180,
+   "sticker": "stickers/beeyoung.png",
+   "sbg": "#ffffff",
+   "sw": 136,
+   "sh": 51
   },
   {
    "slug": "4700bc",
@@ -2406,7 +2520,11 @@ window.APOS = {
    ],
    "logo": "logos/4700bc.png",
    "lw": 168,
-   "lh": 180
+   "lh": 180,
+   "sticker": "stickers/4700bc.png",
+   "sbg": "#030202",
+   "sw": 145,
+   "sh": 160
   },
   {
    "slug": "flow",
@@ -2499,7 +2617,11 @@ window.APOS = {
    ],
    "logo": "logos/flow.png",
    "lw": 226,
-   "lh": 180
+   "lh": 180,
+   "sticker": "stickers/flow.png",
+   "sbg": "#ffffff",
+   "sw": 206,
+   "sh": 164
   }
  ],
  "clientIndex": [
