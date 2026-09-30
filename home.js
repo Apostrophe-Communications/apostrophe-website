@@ -64,21 +64,6 @@ window.APOS_PAGE = () => {
     const P = { L: $(".p-left", sig), R: $(".p-right", sig), D: $(".p-dot", sig) };
     const hdr = $("#hdr");
 
-    // pointer glow (desktop) / ambient drift (touch)
-    const glow = $("#glow");
-    if (!RM) {
-      window.APOS_BREATHE && window.APOS_BREATHE(glow, $("#hero"));
-      if (FINE) {
-        const gx = gsap.quickTo(glow, "x", { duration: 0.55, ease: "power3" });
-        const gy = gsap.quickTo(glow, "y", { duration: 0.55, ease: "power3" });
-        gsap.set(glow, { x: W() / 2, y: H() / 2 });
-        $("#hero").addEventListener("pointermove", (e) => { gx(e.clientX); gy(e.clientY); });
-      } else {
-        gsap.set(glow, { x: W() * 0.3, y: H() * 0.35 });
-        gsap.to(glow, { x: W() * 0.7, y: H() * 0.6, duration: 9, ease: "sine.inOut", yoyo: true, repeat: -1 });
-      }
-    }
-
     if (RM) { signature(); return; }
 
     gsap.set(hdr, { autoAlpha: 0 });
@@ -220,6 +205,13 @@ window.APOS_PAGE = () => {
         onUpdate: (self) => setState(self.progress * (n - 1)),
       },
     });
+    // keep the cursor glow *behind* the text while this section is pinned
+    const svc = $("#services"), spacer = svc.parentElement;
+    if (spacer.classList.contains("pin-spacer")) {
+      spacer.style.background = "var(--ink)";
+      svc.style.background = "transparent";
+      svc.style.zIndex = 2;
+    }
   }
 
   /* ---------------- work carousel ---------------- */
@@ -245,11 +237,12 @@ window.APOS_PAGE = () => {
         });
       };
       measure();
+      $("#workPin").style.zIndex = 2;   // cards stay above the cursor glow while pinned
       gsap.to(track, {
         x: () => -dist(), ease: "none",
         scrollTrigger: { trigger: "#workPin", start: "top top", end: () => `+=${dist()}`, pin: true, scrub: 0.8, anticipatePin: 1, invalidateOnRefresh: true, onUpdate: fx, onRefreshInit: measure, onRefresh: fx },
       });
-      return () => cards.forEach((c) => { c.style.transform = ""; const m = c.querySelector(".wcard__media > *"); if (m) m.style.transform = ""; });
+      return () => { $("#workPin").style.zIndex = ""; cards.forEach((c) => { c.style.transform = ""; const m = c.querySelector(".wcard__media > *"); if (m) m.style.transform = ""; }); };
     });
     // mobile: native swipe, cards ease in as they arrive
     mm.add("(max-width: 899px) and (prefers-reduced-motion: no-preference)", () => {

@@ -782,3 +782,21 @@ html.rm .hdr { opacity: 1 !important; visibility: visible !important; }
 /* glow colour: dusty blue on espresso, espresso on dusty blue */
 :root { --glow: 200, 219, 252; }
 .t-stone { --glow: 56, 25, 5; }
+
+/* ---------- Cursor glow (one for the whole page) ---------- */
+.cglow {
+  position: fixed; z-index: 1; left: 0; top: 0;
+  width: 56vmax; height: 56vmax; margin: -28vmax 0 0 -28vmax;
+  pointer-events: none;
+  will-change: transform;
+}
+.cglow i {
+  position: absolute; inset: 0; border-radius: 50%;
+  opacity: 0; transition: opacity .6s var(--ease);
+  background: radial-gradient(closest-side, rgba(var(--c), var(--a1)), rgba(var(--c), var(--a2)) 30%, rgba(var(--c), var(--a3)) 56%, rgba(var(--c), 0) 74%);
+}
+.cglow i.on { opacity: 1; }
+.cglow--blue     { --c: 200, 219, 252; --a1: .40; --a2: .19; --a3: .06; }   /* on espresso   */
+.cglow--espresso { --c: 56, 25, 5;     --a1: .30; --a2: .14; --a3: .05; }   /* on dusty blue */
+.cglow--honey    { --c: 238, 187, 72;  --a1: .42; --a2: .2;  --a3: .07; }   /* on butter     */
+.cglow--butter   { --c: 253, 249, 204; --a1: .62; --a2: .3;  --a3: .1;  }   /* on honey      */

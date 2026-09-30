@@ -280,37 +280,51 @@
     });
   }
 
-  /* ---------- signature glow in every dark section ---------- */
-  // a slow swell in size and brightness, only while its section is on screen
-  function breathe(g, sec) {
-    const tw = gsap.fromTo(g, { scale: 0.9, opacity: 0.8 }, { scale: 1.12, opacity: 1, duration: 3.2, ease: "sine.inOut", yoyo: true, repeat: -1, paused: true });
-    ScrollTrigger.create({ trigger: sec, start: "top bottom", end: "bottom top", onToggle: (st) => (st.isActive ? tw.play() : tw.pause()) });
-  }
-  window.APOS_BREATHE = breathe;
-  function initGlows() {
-    const hosts = [...$$(".t-dark, .t-stone"), $("#menu")].filter((el) => el && !el.querySelector(".hero__glow, .glow"));
-    hosts.forEach((sec) => {
-      const g = document.createElement("div");
-      g.className = "glow";
-      g.setAttribute("aria-hidden", "true");
-      sec.prepend(g);
-      sec.classList.add("has-glow");
-      const place = () => gsap.set(g, { x: sec.clientWidth * 0.72, y: Math.min(sec.clientHeight, innerHeight) * 0.35 });
-      place();
-      if (RM) return;
-      breathe(g, sec);
-      if (FINE) {
-        const gx = gsap.quickTo(g, "x", { duration: 0.55, ease: "power3" });
-        const gy = gsap.quickTo(g, "y", { duration: 0.55, ease: "power3" });
-        sec.addEventListener("pointermove", (e) => {
-          const r = sec.getBoundingClientRect();
-          gx(e.clientX - r.left); gy(e.clientY - r.top);
-        });
-      } else {
-        const drift = gsap.to(g, { x: () => sec.clientWidth * 0.28, y: () => Math.min(sec.clientHeight, innerHeight) * 0.65, duration: 10, ease: "sine.inOut", yoyo: true, repeat: -1, paused: true });
-        ScrollTrigger.create({ trigger: sec, start: "top bottom", end: "bottom top", onToggle: (st) => (st.isActive ? drift.play() : drift.pause()) });
-      }
-    });
+  /* ---------- the glow: one soft orb that lives under the cursor ----------
+     It stays with the pointer across the whole page; only its colour changes
+     with the background underneath (crossfading between four layers).
+     Touch devices: it floats gently near the middle of the screen.        */
+  const GLOW_FOR = { dark: "blue", stone: "espresso", light: "honey", yellow: "butter" };
+  function initGlow() {
+    const g = document.createElement("div");
+    g.className = "cglow";
+    g.setAttribute("aria-hidden", "true");
+    g.innerHTML = Object.values(GLOW_FOR).map((c) => `<i class="cglow--${c}"></i>`).join("");
+    document.body.prepend(g);
+    const layers = Object.fromEntries(Object.values(GLOW_FOR).map((c) => [c, g.querySelector(`.cglow--${c}`)]));
+
+    let px = innerWidth * 0.5, py = innerHeight * 0.45, current = "";
+    const tone = () => {
+      g.style.visibility = "hidden";                       // look *through* the glow
+      const el = document.elementFromPoint(Math.min(Math.max(px, 1), innerWidth - 1), Math.min(Math.max(py, 1), innerHeight - 1));
+      g.style.visibility = "";
+      const host = el && el.closest(".menu, .t-dark, .t-stone, .t-yellow, .t-light");
+      const key = !host ? "light" : host.matches(".menu, .t-dark") ? "dark" : host.matches(".t-stone") ? "stone" : host.matches(".t-yellow") ? "yellow" : "light";
+      const c = GLOW_FOR[key];
+      if (c !== current) { current = c; for (const k in layers) layers[k].classList.toggle("on", k === c); }
+    };
+    let queued = false;
+    const retone = () => { if (!queued) { queued = true; requestAnimationFrame(() => { queued = false; tone(); }); } };
+
+    gsap.set(g, { x: px, y: py });
+    if (!RM) gsap.fromTo(g, { scale: 0.92 }, { scale: 1.1, duration: 3.2, ease: "sine.inOut", yoyo: true, repeat: -1 });
+
+    if (FINE && !RM) {
+      const gx = gsap.quickTo(g, "x", { duration: 0.5, ease: "power3" });
+      const gy = gsap.quickTo(g, "y", { duration: 0.5, ease: "power3" });
+      addEventListener("pointermove", (e) => { px = e.clientX; py = e.clientY; gx(px); gy(py); retone(); }, { passive: true });
+    } else if (!RM) {
+      const o = { t: 0 };
+      gsap.to(o, { t: 1, duration: 10, ease: "sine.inOut", yoyo: true, repeat: -1, onUpdate: () => {
+        px = innerWidth * (0.3 + 0.4 * o.t); py = innerHeight * (0.35 + 0.25 * o.t);
+        gsap.set(g, { x: px, y: py });
+      } });
+    }
+    addEventListener("scroll", retone, { passive: true });
+    lenis?.on("scroll", retone);
+    document.addEventListener("click", () => setTimeout(retone, 50));     // e.g. menu opening
+    setInterval(retone, 700);                                              // cheap safety for menu/page changes
+    tone();
   }
 
   /* ---------- boot ---------- */
@@ -327,7 +341,7 @@
   Promise.race([ready, new Promise((r) => setTimeout(r, 1500))]).then(() => {
     window.APOS_PAGE && window.APOS_PAGE();
     document.documentElement.classList.add("motion-ok");
-    initGlows();
+    initGlow();
     initReveals();
     initHeader();
     ScrollTrigger.sort();
