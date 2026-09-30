@@ -215,7 +215,10 @@
       "afterbegin",
       `<a class="skip" href="#main">Skip to content</a>
       <header class="hdr" id="hdr">
-        <a class="hdr__logo" href="index.html" aria-label="Apostrophe Communications home page">${MARK()}</a>
+        <div class="hdr__left">
+          <a class="hdr__logo" href="index.html" aria-label="Apostrophe Communications home page">${MARK()}</a>
+          ${page === "home" ? "" : `<button class="hdr__back" id="backBtn" aria-label="Go back"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M14 8H2M7 3 2 8l5 5"/></svg><em>Back</em></button>`}
+        </div>
         <a class="hdr__name" href="index.html">Apostrophe Communications</a>
         <button class="hdr__toggle" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><em class="hdr__label" aria-hidden="true">Menu</em><span aria-hidden="true">’</span></button>
       </header>
@@ -252,6 +255,14 @@
         </div>
       </footer>`;
     }
+
+    // Back: return to the page the visitor came from on this site; if they landed here directly, go up a level
+    $("#backBtn")?.addEventListener("click", () => {
+      let fromHere = false;
+      try { fromHere = !!document.referrer && new URL(document.referrer).origin === location.origin; } catch (e) {}
+      if (fromHere && history.length > 1) history.back();
+      else location.href = page === "project" ? "projects.html" : "index.html";
+    });
   }
 
   /* ---------- smooth scroll ---------- */

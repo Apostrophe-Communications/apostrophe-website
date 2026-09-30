@@ -963,3 +963,17 @@ body.menu-open .hdr .hdr__label { color: var(--yellow); }
 .sticker__disc > * { transform: rotate(var(--r, 0deg)); transition: transform .7s var(--ease); }
 .sticker.is-near .sticker__disc > * { transform: rotate(0deg); }
 .sticker { will-change: transform; }
+
+/* ---------- Back button (every page but Home) ---------- */
+.hdr__left { justify-self: start; display: flex; align-items: center; gap: clamp(14px, 1.6vw, 22px); }
+.hdr__back {
+  display: inline-flex; align-items: center; gap: 9px; height: 36px; padding: 0 16px 0 13px;
+  border: 1px solid currentColor; border-radius: 999px; background: transparent; color: inherit; cursor: pointer;
+  font-family: var(--display); font-size: var(--fs-label); letter-spacing: .2em; text-transform: uppercase;
+  opacity: .8; transition: opacity .4s var(--ease), background .4s var(--ease), color .4s var(--ease), border-color .4s var(--ease);
+}
+.hdr__back em { font-style: normal; }
+.hdr__back svg { width: 14px; height: 14px; transition: transform .5s var(--ease); }
+.hdr__back:hover { opacity: 1; background: var(--dot); border-color: var(--dot); color: var(--ink); }
+.hdr__back:hover svg { transform: translateX(-3px); }
+@media (max-width: 760px) { .hdr__back { width: 36px; padding: 0; justify-content: center; } .hdr__back em { display: none; } }
