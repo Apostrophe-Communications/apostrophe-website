@@ -500,7 +500,7 @@ html.js .recog__row::after { transform: scaleX(var(--line, 0)); }
    ========================================================================== */
 .testi { padding: clamp(100px, 16svh, 180px) 0; overflow: hidden; }
 .testi__head { text-align: center; margin-bottom: clamp(50px, 8svh, 90px); }
-.testi__head small { display: block; font-family: var(--display); font-size: var(--fs-lead); color: var(--graphite); }
+.testi__head small { display: block; font-family: var(--display); font-size: var(--fs-lead); color: var(--mist); }
 .testi__head h2 { font-size: var(--fs-h2); }
 .testi__head h2 em { font-style: normal; color: var(--dot); }
 .slider { position: relative; }
