@@ -26,11 +26,15 @@ window.APOS_PAGE = () => {
   const bandSet = `<div class="band__set">${(D.topBrands || []).map((b) => `<span>${logo(b)}</span><i></i>`).join("")}</div>`;
   $("#bandTrack").innerHTML = bandSet + bandSet.replace('class="band__set"', 'class="band__set" aria-hidden="true"');
 
+  // every award logo together in one strip under the title, the list below stays text only
+  const awardLogos = D.awards.flatMap((g) => g.items).filter((a) => a.logo);
+  $("#recogList").insertAdjacentHTML("beforebegin", `<div class="recog__logos">${awardLogos.map((a) =>
+    `<figure class="recog__plate" title="${esc(a.title)}, ${esc(a.org)}" data-reveal><img src="${esc(a.logo)}" alt="${esc(a.org)}" loading="lazy" decoding="async"></figure>`).join("")}</div>`);
   $("#recogList").innerHTML = D.awards.map((g) => `
     <div class="recog__grid recog__group">
       <div class="recog__gname">${esc(g.group)}</div>
       <div>${g.items.map((a) => `
-        <div class="recog__row"><span class="recog__logo">${a.logo ? `<img src="${esc(a.logo)}" alt="" loading="lazy" decoding="async">` : ""}</span><div><h3>${esc(a.title)}</h3><p>${esc(a.org)}</p></div><span class="yr">${esc(a.year)}</span></div>`).join("")}
+        <div class="recog__row"><div><h3>${esc(a.title)}</h3><p>${esc(a.org)}</p></div><span class="yr">${esc(a.year)}</span></div>`).join("")}
       </div>
     </div>`).join("");
 
