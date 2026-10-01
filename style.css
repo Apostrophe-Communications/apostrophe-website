@@ -784,14 +784,13 @@ html.rm .hdr { opacity: 1 !important; visibility: visible !important; }
 .cursor.on-yellow.is-link { background: var(--ink); }
 .cursor.has-label { background: var(--dot); }
 
-/* ---------- Testimonial cards: navy tiles, bone + honey type ---------- */
-.tcard { background: var(--ink); color: var(--ivory); }
-.tcard blockquote { color: var(--ivory); }
-.tcard__who b { color: var(--yellow); }
-.tcard__who small { color: rgba(228, 217, 191, .62); }
-.tcard__av { background: var(--stone); color: var(--ivory); }
-.t-stone .tcard { border: 1px solid rgba(228, 217, 191, .14); }
-.tcard.is-active { box-shadow: 0 34px 70px -32px rgba(31, 40, 56, .55); }
+/* ---------- Testimonial cards: bone tiles on Forest Ink, navy type ---------- */
+.tcard { background: var(--ivory); color: var(--ink); }
+.tcard blockquote { color: var(--ink); }
+.tcard__who b { color: var(--ink); }
+.tcard__who small { color: var(--graphite); }
+.tcard__av { background: var(--ink); color: var(--ivory); }
+.tcard.is-active { box-shadow: 0 34px 70px -32px rgba(0, 0, 0, .6); }
 .tcard { opacity: 1; }
 .tcard > * { transition: opacity .8s var(--ease); }
 .tcard:not(.is-active) > * { opacity: .45; }
