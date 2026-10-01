@@ -101,71 +101,45 @@ window.APOS_PAGE = () => {
       clearTimeout(safety);
       lock(false);
       signature();
-      // hero content lifts away as you scroll
-      gsap.to("#heroBrand", { yPercent: -30, opacity: 0, ease: "none", scrollTrigger: { trigger: "#hero", start: "top top", end: "bottom 20%", scrub: true } });
-      gsap.to(".hero__scroll", { opacity: 0, ease: "none", scrollTrigger: { trigger: "#hero", start: "top top", end: "20% top", scrub: true } });
     }
   }
 
-  /* ---------------- signature choreography ----------------
-     The three pieces of the A leave the hero and frame the About section
-     like figures (the dot stays large so it never reads as the cursor),
-     then all three drift off before Services.                            */
+  /* ---------------- zoom through the dot ----------------
+     Scrolling past the opening holds the hero while the whole A pushes
+     towards the camera, centred on its dot. The strokes sweep off screen,
+     the dot fills it and warms from honey to butter, and the About section
+     (also butter) rises straight out of it. Fully scrubbed, so it reverses. */
   function signature() {
     if (RM) return;
     const sig = $("#sig");
-    const L = $(".p-left", sig), R = $(".p-right", sig), Dt = $(".p-dot", sig);
-    const stone = "#c8dbfc", ivory = "#fdf9cc"; // dusty blue framing, butter logo
-    let master;
+    const pieces = [$(".p-left", sig), $(".p-right", sig), $(".p-dot", sig)];
+    const dot = $(".p-dot circle", sig);
+    const ORIGIN = "59.7% 50.3%";               // the dot's centre inside the mark's box
 
-    // One scrubbed timeline for the whole journey. Every stage goes from an
-    // explicit state to an explicit state, so fast flicks, jumps or resizes
-    // can never leave the pieces stranded between stages.
-    // Timeline time = scroll pixels, rebuilt whenever the layout is measured.
-    const build = () => {
-      const keep = master ? master.scrollTrigger.progress : 0;
-      if (master) { master.scrollTrigger.kill(); master.kill(); }
-      const w = innerWidth, h = innerHeight, m = w < 900;
-      const k = m ? 1.55 : 2.3;
-
-      const intro = $("#intro");
-      const svcST = ScrollTrigger.getById("services-pin");
-      const introTop = intro.offsetTop, introBottom = introTop + intro.offsetHeight;
-      const svcTop = svcST ? svcST.start : $("#services").offsetTop;
-
-      const S = {
-        logo:   { L: { x: 0, y: 0, rotation: 0, scale: 1, opacity: 1 }, R: { x: 0, y: 0, rotation: 0, scale: 1, opacity: 1 }, D: { x: 0, y: 0, scale: 1, opacity: 1 } },
-        frame:  { L: { x: -w * (m ? 0.42 : 0.4), y: h * 0.12, rotation: -6, scale: k, opacity: 1 }, R: { x: w * (m ? 0.4 : 0.39), y: h * 0.2, rotation: 9, scale: k, opacity: 1 }, D: { x: w * (m ? 0.36 : 0.33), y: -h * 0.24, scale: 1.3, opacity: 1 } },
-        drift:  { L: { x: -w * (m ? 0.42 : 0.4), y: -h * 0.14, rotation: 5, scale: k, opacity: 1 }, R: { x: w * (m ? 0.4 : 0.39), y: -h * 0.24, rotation: -5, scale: k, opacity: 1 }, D: { x: w * (m ? 0.36 : 0.33), y: h * 0.06, scale: 1.5, opacity: 1 } },
-        svc:    { L: { x: -w * 0.95, y: -h * 0.14, rotation: -24, scale: k, opacity: 0 }, R: { x: w * 0.95, y: -h * 0.24, rotation: 24, scale: k, opacity: 0 }, D: { x: w * 0.75, y: -h * 0.3, scale: 1.6, opacity: 0 } },
-      };
-
-      const a = Math.max(0, introTop - h), b = Math.max(a + 1, introTop - h * 0.15);
-      const c = Math.max(b + 1, introBottom);
-      const d0 = Math.max(c, svcTop - h), d1 = Math.max(d0 + 1, svcTop);
-
-      const tl = gsap.timeline({ paused: true, defaults: { immediateRender: false, ease: "none" } });
-      const stage = (from, to, t0, t1, ease) => {
-        const dur = t1 - t0;
-        ["L", "R", "D"].forEach((key) => {
-          if (!to[key]) return;
-          const el = { L, R, D: Dt }[key];
-          tl.fromTo(el, { ...from[key] }, { ...to[key], duration: dur, ease }, t0);
-        });
-      };
-      stage(S.logo, S.frame, a, b, "power2.inOut");
-      tl.fromTo(sig, { color: ivory }, { color: stone, duration: b - a }, a);
-      stage(S.frame, S.drift, b, c, "none");
-      stage(S.drift, S.svc, d0, d1, "power3.inOut");
-      tl.set({}, {}, d1);
-
-      master = tl;
-      ScrollTrigger.create({ id: "signature", animation: tl, start: 0, end: d1, scrub: 1 });
-      tl.progress(keep || ScrollTrigger.getById("signature").progress);
+    // how far to move and how much to grow so the dot covers the whole viewport
+    const zoom = () => {
+      const r = sig.getBoundingClientRect();
+      const cx = r.left + r.width * 0.597, cy = r.top + r.height * 0.503;
+      const radius = r.width * 0.175;
+      return { x: innerWidth / 2 - cx, y: innerHeight / 2 - cy, scale: (Math.hypot(innerWidth, innerHeight) / 2 / radius) * 1.08 };
     };
 
-    build();
-    ScrollTrigger.addEventListener("refresh", build);
+    gsap.set(pieces, { transformOrigin: ORIGIN });
+    const tl = gsap.timeline({
+      defaults: { ease: "none" },
+      scrollTrigger: { trigger: "#hero", start: "top top", end: () => `+=${H() * 1.3}`, pin: true, scrub: 0.6, invalidateOnRefresh: true },
+    });
+    tl.to("#heroBrand", { yPercent: -18, opacity: 0, duration: 0.28 }, 0)
+      .to(".hero__scroll", { opacity: 0, duration: 0.12 }, 0)
+      .fromTo(pieces, { x: 0, y: 0, scale: 1 }, { x: () => zoom().x, y: () => zoom().y, scale: () => zoom().scale, duration: 1, ease: "power2.in" }, 0)
+      .fromTo(dot, { fill: "#E4A524" }, { fill: "#fdf9cc", duration: 0.25 }, 0.75);
+
+    // once About has risen into place the giant dot is invisible behind it, so retire it
+    ScrollTrigger.create({
+      trigger: "#intro", start: "top 5%",
+      onEnter: () => gsap.set(sig, { autoAlpha: 0 }),
+      onLeaveBack: () => gsap.set(sig, { autoAlpha: 1 }),
+    });
   }
 
   /* ---------------- statement reading reveal ---------------- */
