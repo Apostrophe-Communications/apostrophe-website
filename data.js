@@ -3210,22 +3210,26 @@ window.APOS = {
     {
      "title": "Gold, Best Campaign in Fashion & Lifestyle",
      "org": "AFAQs Communicon, for TASVA × Aditya Birla Group",
-     "year": "2025"
+     "year": "2025",
+     "logo": "awards/communicon.png"
     },
     {
      "title": "Rising PR Consultancy of the Year",
      "org": "BW Excel Awards",
-     "year": "2025"
+     "year": "2025",
+     "logo": "awards/bw-excel.png"
     },
     {
      "title": "Silver, Best Fashion, Beauty & Lifestyle Campaign",
      "org": "ET Kaleido",
-     "year": "2024"
+     "year": "2024",
+     "logo": "awards/kaleido.png"
     },
     {
      "title": "Incubated at IIM Bangalore",
      "org": "NSRCEL, IIM Bangalore",
-     "year": ""
+     "year": "",
+     "logo": "awards/iimb-nsrcel.png"
     }
    ]
   },
@@ -3235,17 +3239,20 @@ window.APOS = {
     {
      "title": "Emerging Entrepreneur of the Year",
      "org": "E4M Women Achievers & Summit Awards",
-     "year": "2025"
+     "year": "2025",
+     "logo": "awards/e4m-women-achievers.png"
     },
     {
      "title": "PR 40 Under 40",
      "org": "BW Businessworld",
-     "year": "2024"
+     "year": "2024",
+     "logo": "awards/bw-pr-40u40.png"
     },
     {
      "title": "PR & Corp Comm 40 Under 40",
      "org": "E4M",
-     "year": "2023"
+     "year": "2023",
+     "logo": "awards/e4m-40u40.png"
     }
    ]
   },

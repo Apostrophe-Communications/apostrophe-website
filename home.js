@@ -30,7 +30,7 @@ window.APOS_PAGE = () => {
     <div class="recog__grid recog__group">
       <div class="recog__gname">${esc(g.group)}</div>
       <div>${g.items.map((a) => `
-        <div class="recog__row"><div><h3>${esc(a.title)}</h3><p>${esc(a.org)}</p></div><span class="yr">${esc(a.year)}</span></div>`).join("")}
+        <div class="recog__row"><span class="recog__logo">${a.logo ? `<img src="${esc(a.logo)}" alt="" loading="lazy" decoding="async">` : ""}</span><div><h3>${esc(a.title)}</h3><p>${esc(a.org)}</p></div><span class="yr">${esc(a.year)}</span></div>`).join("")}
       </div>
     </div>`).join("");
 
