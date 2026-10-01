@@ -270,7 +270,7 @@
       <footer class="s t-dark foot-bar" data-theme="dark">
         <div class="wrap">
           <div class="foot-bar__top">
-            <div><img class="foot-bar__logo" src="logo-full-white-v3.png?v=20260930150635" alt="Apostrophe Communications" width="150" height="102" loading="lazy"></div>
+            <div><img class="foot-bar__logo" src="logo-full-white-v4.png?v=20260930150635" alt="Apostrophe Communications" width="150" height="102" loading="lazy"></div>
             <div><h4>Explore</h4><ul>${NAV.map(([t, h]) => `<li><a class="link-u" href="${h}">${t}</a></li>`).join("")}</ul></div>
             <div><h4>Say hello</h4><ul><li><a class="link-u" href="mailto:${c.email}">${c.email}</a></li><li>${c.phone}</li><li>${c.address}</li></ul></div>
             <div><h4>Follow</h4><ul><li><a class="link-u" href="${c.instagram}">Instagram</a></li><li><a class="link-u" href="${c.linkedin}">LinkedIn</a></li></ul></div>
