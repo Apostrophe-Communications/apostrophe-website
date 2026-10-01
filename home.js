@@ -137,6 +137,8 @@ window.APOS_PAGE = () => {
     tl.to("#heroBrand", { yPercent: -18, opacity: 0, duration: 0.28 }, 0)
       .to(".hero__scroll", { opacity: 0, duration: 0.12 }, 0)
       .fromTo(pieces, { x: 0, y: 0, scale: 1 }, { x: () => zoom().x, y: () => zoom().y, scale: () => zoom().scale, duration: 1, ease: "power2.in" }, 0)
+      // the strokes soften as they rush past, like a lens focusing on the dot
+      .fromTo(pieces.slice(0, 2), { filter: "blur(0px)" }, { filter: "blur(10px)", duration: 0.7, ease: "power1.in" }, 0.3)
       .fromTo(dot, { fill: "#E4A524" }, { fill: "#e4d9bf", duration: 0.25 }, 0.75);
 
     // once About has risen into place the giant dot is invisible behind it, so retire it

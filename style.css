@@ -276,7 +276,7 @@ body.menu-open .hdr__toggle span { transform: rotate(180deg); }
   pointer-events: none;
   color: var(--ivory);
 }
-.sig svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; will-change: transform; }
+.sig svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }  /* no will-change: the browser must redraw the vector sharp at every zoom level */
 .sig .p-left { transform-origin: 33% 50%; }
 .sig .p-right { transform-origin: 78% 72%; }
 .sig .p-dot { transform-origin: 59.7% 50.3%; }
