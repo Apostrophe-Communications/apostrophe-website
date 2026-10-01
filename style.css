@@ -983,3 +983,6 @@ body.menu-open .hdr .hdr__label { color: var(--yellow); }
 .hive__centre .work__title { margin: 0; line-height: 1; white-space: nowrap; }
 #homeHive { margin-top: 0; }
 .work { padding-top: clamp(80px, 12svh, 130px); }
+/* stickers: round focus ring instead of the browser's square box */
+.sticker:focus { outline: none; }
+.sticker:focus-visible .sticker__disc { outline: 2px solid var(--dot); outline-offset: 4px; }

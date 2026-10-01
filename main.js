@@ -101,28 +101,42 @@
       const pts = [];
       for (let r = -2 * R; r <= 2 * R; r++) for (let c = -2 * R; c <= 2 * R; c++)
         pts.push({ x: (c + (Math.abs(r) % 2) * 0.5) * step, y: r * rowH });
-      // an optional centrepiece (e.g. the section title) leaves a hole the stickers ring around
+      // an optional centrepiece (e.g. the section title): the stickers sit evenly spaced on one circle around it
       const cw = centre ? centre.offsetWidth : 0, ch = centre ? centre.offsetHeight : 0;
-      const hole = !!centre && W >= cw + step * 3.2;
-      const hw = cw / 2 + D0 * 0.5 + gap, hh = ch / 2 + D0 * 0.5 + gap;
+      const ringR = Math.max(Math.hypot(cw / 2, ch / 2) + D0 / 2 + gap, (vis.length * step) / (2 * Math.PI));
+      if (centre && W >= 2 * ringR + D0 + gap) {
+        const top = D0 * 0.3, cx0 = W / 2, cy0 = top + ringR + D0 / 2;
+        items = vis.map((v, i) => {
+          const a = -Math.PI / 2 + (i / vis.length) * Math.PI * 2;
+          return { el: v, idx: +v.dataset.i, bx: cx0 + Math.cos(a) * ringR - D0 / 2, by: cy0 + Math.sin(a) * ringR - D0 / 2 };
+        });
+        gsap.set(centre, { x: cx0, y: cy0, xPercent: -50, yPercent: -50 });
+        el.style.setProperty("--d", D0 + "px");
+        el.style.height = Math.ceil(top + 2 * ringR + D0 * 1.9) + "px";
+        place(animate);
+        return;
+      }
+      // otherwise: a round honeycomb cluster (centrepiece, if any, sits above it)
       let aspect = 1, pick = [];
       for (let tries = 0; tries < 30; tries++) {
-        pick = pts
-          .filter((q) => !hole || Math.abs(q.x) >= hw || Math.abs(q.y) >= hh)
-          .map((q) => ({ ...q, m: (hole ? Math.hypot(q.x / (hw + step), q.y / (hh + step)) : Math.hypot(q.x, q.y / aspect)) + Math.atan2(q.y, q.x) * 1e-3 }))
+        pick = pts.map((q) => ({ ...q, m: Math.hypot(q.x, q.y / aspect) + Math.atan2(q.y, q.x) * 1e-3 }))
           .sort((u, v) => u.m - v.m).slice(0, N);
         const xs = pick.map((q) => q.x);
-        if (hole || N < 2 || Math.max(...xs) - Math.min(...xs) + D0 <= W) break;
+        if (N < 2 || Math.max(...xs) - Math.min(...xs) + D0 <= W) break;
         aspect *= 1.12;
       }
       const xs = pick.map((q) => q.x), ys = pick.map((q) => q.y);
       const minX = Math.min(...xs), maxX = Math.max(...xs), minY = Math.min(...ys), maxY = Math.max(...ys);
-      const top = D0 * 0.3 + (centre && !hole ? ch + D0 * 0.5 : 0);
-      const cx0 = hole ? W / 2 : W / 2 - (minX + maxX) / 2, cy0 = top - (minY - D0 / 2);
+      const top = D0 * 0.3 + (centre ? ch + D0 * 0.5 : 0);
+      const cx0 = W / 2 - (minX + maxX) / 2, cy0 = top - (minY - D0 / 2);
       items = vis.map((v, i) => ({ el: v, idx: +v.dataset.i, bx: pick[i].x + cx0 - D0 / 2, by: pick[i].y + cy0 - D0 / 2 }));
-      if (centre) gsap.set(centre, hole ? { x: cx0, y: cy0, xPercent: -50, yPercent: -50 } : { x: W / 2, y: D0 * 0.3, xPercent: -50, yPercent: 0 });
+      if (centre) gsap.set(centre, { x: W / 2, y: D0 * 0.3, xPercent: -50, yPercent: 0 });
       el.style.setProperty("--d", D0 + "px");
       el.style.height = Math.ceil(N ? top + maxY - minY + D0 * 1.9 : 0) + "px";
+      place(animate);
+    }
+
+    function place(animate) {
       items.forEach((it) => {
         const v = st[it.idx];
         if (!animate || RM) { v.x = v.tx = it.bx; v.y = v.ty = it.by; }
