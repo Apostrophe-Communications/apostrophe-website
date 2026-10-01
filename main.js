@@ -270,7 +270,7 @@
       <footer class="s t-dark foot-bar" data-theme="dark">
         <div class="wrap">
           <div class="foot-bar__top">
-            <div><img class="foot-bar__logo" src="logo-full-white-v5.png?v=20260930150635" alt="Apostrophe Communications" width="150" height="102" loading="lazy"></div>
+            <div><img class="foot-bar__logo" src="logo-full-white-v6.png?v=20260930150635" alt="Apostrophe Communications" width="150" height="102" loading="lazy"></div>
             <div><h4>Explore</h4><ul>${NAV.map(([t, h]) => `<li><a class="link-u" href="${h}">${t}</a></li>`).join("")}</ul></div>
             <div><h4>Say hello</h4><ul><li><a class="link-u" href="mailto:${c.email}">${c.email}</a></li><li>${c.phone}</li><li>${c.address}</li></ul></div>
             <div><h4>Follow</h4><ul><li><a class="link-u" href="${c.instagram}">Instagram</a></li><li><a class="link-u" href="${c.linkedin}">LinkedIn</a></li></ul></div>
@@ -371,7 +371,7 @@
     $$("a", menu).forEach((a) => a.addEventListener("click", () => open && a.classList.contains("is-current") && toggle(false)));
   }
 
-  /* ---------- cursor: the olive dot ---------- */
+  /* ---------- cursor: the apostrophe ---------- */
   function initCursor() {
     if (!FINE || RM) return;
     const cur = $("#cursor");
@@ -379,6 +379,7 @@
     const xTo = gsap.quickTo(cur, "x", { duration: 0.12, ease: "power2" });
     const yTo = gsap.quickTo(cur, "y", { duration: 0.12, ease: "power2" });
     document.documentElement.classList.add("dot-cursor");
+    gsap.set(cur, { scale: 1 });
     let shown = false;
     addEventListener("pointermove", (e) => {
       if (!shown) { gsap.set(cur, { x: e.clientX, y: e.clientY }); gsap.to(cur, { opacity: 1, duration: 0.3 }); shown = true; }
@@ -395,9 +396,9 @@
       // on yellow backgrounds the dot turns ink so it never disappears
       cur.classList.toggle("on-yellow", !!t.closest(".t-yellow, .btn--yellow, .hero__cta"));
       cur.classList.toggle("is-link", !!(link || view));
-      if (link || view) { cur.classList.remove("has-label"); state(0.26); }
-      else if (field) { cur.classList.remove("has-label"); state(0.09); }
-      else { cur.classList.remove("has-label"); state(0.14); }
+      if (link || view) { cur.classList.remove("has-label"); state(1.3); }
+      else if (field) { cur.classList.remove("has-label"); state(0.7); }
+      else { cur.classList.remove("has-label"); state(1); }
     });
   }
 
