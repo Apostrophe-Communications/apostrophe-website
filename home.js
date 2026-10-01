@@ -127,7 +127,8 @@ window.APOS_PAGE = () => {
     gsap.set(pieces, { transformOrigin: ORIGIN });
     const tl = gsap.timeline({
       defaults: { ease: "none" },
-      scrollTrigger: { trigger: "#hero", start: "top top", end: () => `+=${H() * 1.3}`, pin: true, scrub: 0.6, invalidateOnRefresh: true },
+      // refreshPriority: this pin sits above everything else, so it must be measured first
+      scrollTrigger: { id: "zoom", trigger: "#hero", start: "top top", end: () => `+=${H() * 1.3}`, pin: true, scrub: 0.6, invalidateOnRefresh: true, refreshPriority: 1 },
     });
     tl.to("#heroBrand", { yPercent: -18, opacity: 0, duration: 0.28 }, 0)
       .to(".hero__scroll", { opacity: 0, duration: 0.12 }, 0)
@@ -140,6 +141,11 @@ window.APOS_PAGE = () => {
       onEnter: () => gsap.set(sig, { autoAlpha: 0 }),
       onLeaveBack: () => gsap.set(sig, { autoAlpha: 1 }),
     });
+
+    // This pin is created after the opening plays, i.e. after every section below it
+    // was already measured. Re-sort and re-measure so they all account for the space it adds.
+    ScrollTrigger.sort();
+    ScrollTrigger.refresh();
   }
 
   /* ---------------- statement reading reveal ---------------- */
