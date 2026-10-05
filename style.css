@@ -1002,9 +1002,9 @@ body.menu-open .hdr .hdr__label { color: var(--yellow); }
 .cursor, .cursor.is-link, .cursor.on-yellow, .cursor.has-label { background: none; }
 .cursor { width: 30px; height: 44px; margin: 0; border-radius: 0; place-items: start; }
 .cursor::before {
-  content: "\2019"; position: absolute; left: -9px; top: -6px;   /* puts the glyph's round head on the hotspot */
-  font-family: var(--body); font-size: 66px; line-height: 1; color: var(--dot);
-  transform-origin: 9px 6px; transition: color .3s var(--ease), transform .5s var(--ease);
+  content: "\2019"; position: absolute; left: -7px; top: -5px;   /* puts the glyph's round head on the hotspot */
+  font-family: var(--body); font-size: 52px; line-height: 1; color: var(--dot); opacity: .75;
+  transform-origin: 7px 5px; transition: color .3s var(--ease), transform .5s var(--ease);
 }
 .cursor.is-link::before { transform: rotate(-16deg); }
 .cursor.on-yellow::before { color: var(--ink); }
