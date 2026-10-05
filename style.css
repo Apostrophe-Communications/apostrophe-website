@@ -276,7 +276,7 @@ body.menu-open .hdr__toggle span { transform: rotate(180deg); }
   pointer-events: none;
   color: var(--ivory);
 }
-.sig svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }  /* no will-change: the browser must redraw the vector sharp at every zoom level */
+.sig svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; will-change: transform, opacity; }
 .sig .p-left { transform-origin: 33% 50%; }
 .sig .p-right { transform-origin: 78% 72%; }
 .sig .p-dot { transform-origin: 59.7% 50.3%; }
@@ -1009,3 +1009,8 @@ body.menu-open .hdr .hdr__label { color: var(--yellow); }
 .cursor.is-link::before { transform: rotate(-16deg); }
 .cursor.on-yellow::before { color: var(--ink); }
 .cursor span { display: none; }
+
+/* the dot that grows to fill the screen on scroll: a flat circle, cheap for the GPU to scale */
+.zoomdot { position: fixed; left: 0; top: 0; z-index: 1; border-radius: 50%; background: var(--dot); pointer-events: none; transform-origin: 50% 50%; will-change: transform; }
+.zoomdot i { position: absolute; inset: 0; border-radius: 50%; background: var(--ivory); opacity: 0; will-change: opacity; }
+html.rm .zoomdot { display: none; }

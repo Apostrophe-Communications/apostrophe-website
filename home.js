@@ -107,44 +107,54 @@ window.APOS_PAGE = () => {
     }
   }
 
-  /* ---------------- zoom through the dot ----------------
-     Scrolling past the opening holds the hero while the whole A pushes
-     towards the camera, centred on its dot. The strokes sweep off screen,
-     the dot fills it and warms from honey to butter, and the About section
-     (also butter) rises straight out of it. Fully scrubbed, so it reverses. */
+  /* ---------------- through the dot ----------------
+     Scrolling past the opening holds the hero briefly: the two strokes drift
+     apart and fade, while the dot grows to fill the screen and turns white, so
+     the About section (also white) rises straight out of it.
+     Performance: the growing dot is a plain circle element scaled on the GPU
+     (drawn once at full size, so it stays crisp), never a giant redrawn SVG. */
   function signature() {
     if (RM) return;
     const sig = $("#sig");
-    const pieces = [$(".p-left", sig), $(".p-right", sig), $(".p-dot", sig)];
-    const dot = $(".p-dot circle", sig);
-    const ORIGIN = "59.7% 50.3%";               // the dot's centre inside the mark's box
+    const L = $(".p-left", sig), R = $(".p-right", sig), pdot = $(".p-dot", sig);
+    const circle = $(".p-dot circle", sig);
 
-    // how far to move and how much to grow so the dot covers the whole viewport
-    const zoom = () => {
-      const r = sig.getBoundingClientRect();
-      const cx = r.left + r.width * 0.597, cy = r.top + r.height * 0.503;
-      const radius = r.width * 0.175;
-      return { x: innerWidth / 2 - cx, y: innerHeight / 2 - cy, scale: (Math.hypot(innerWidth, innerHeight) / 2 / radius) * 1.08 };
+    const z = document.createElement("div");
+    z.className = "zoomdot";
+    z.innerHTML = "<i></i>";
+    document.body.appendChild(z);
+
+    // geometry: the logo dot's position/size now, and the radius that covers the viewport
+    const geo = () => {
+      const r = circle.getBoundingClientRect();
+      return { cx: r.left + r.width / 2, cy: r.top + r.height / 2, r: r.width / 2, R: Math.hypot(innerWidth, innerHeight) / 2 + 4 };
     };
+    const size = () => { const g = geo(); z.style.width = z.style.height = `${g.R * 2}px`; };
+    size();
+    ScrollTrigger.addEventListener("refreshInit", size);
 
-    gsap.set(pieces, { transformOrigin: ORIGIN });
+    // hand the dot over to the circle (it sits exactly on top of it)
+    gsap.set(pdot, { opacity: 0 });
+
     const tl = gsap.timeline({
       defaults: { ease: "none" },
       // refreshPriority: this pin sits above everything else, so it must be measured first
-      scrollTrigger: { id: "zoom", trigger: "#hero", start: "top top", end: () => `+=${H() * 1.3}`, pin: true, scrub: 0.6, invalidateOnRefresh: true, refreshPriority: 1 },
+      scrollTrigger: { id: "zoom", trigger: "#hero", start: "top top", end: () => `+=${H() * 0.9}`, pin: true, scrub: 1, invalidateOnRefresh: true, refreshPriority: 1 },
     });
-    tl.to("#heroBrand", { yPercent: -18, opacity: 0, duration: 0.28 }, 0)
-      .to(".hero__scroll", { opacity: 0, duration: 0.12 }, 0)
-      .fromTo(pieces, { x: 0, y: 0, scale: 1 }, { x: () => zoom().x, y: () => zoom().y, scale: () => zoom().scale, duration: 1, ease: "power2.in" }, 0)
-      // the strokes soften as they rush past, like a lens focusing on the dot
-      .fromTo(pieces.slice(0, 2), { filter: "blur(0px)" }, { filter: "blur(10px)", duration: 0.7, ease: "power1.in" }, 0.3)
-      .fromTo(dot, { fill: "#E4A524" }, { fill: "#ffffff", duration: 0.25 }, 0.75);
+    tl.to("#heroBrand", { y: -30, opacity: 0, duration: 0.3 }, 0)
+      .to(".hero__scroll", { opacity: 0, duration: 0.1 }, 0)
+      .fromTo(L, { x: 0, y: 0, opacity: 1 }, { x: () => -W() * 0.14, y: () => H() * 0.05, opacity: 0, duration: 0.55, ease: "power2.in" }, 0.05)
+      .fromTo(R, { x: 0, y: 0, opacity: 1 }, { x: () => W() * 0.14, y: () => H() * 0.05, opacity: 0, duration: 0.55, ease: "power2.in" }, 0.05)
+      .fromTo(z,
+        { x: () => { const g = geo(); return g.cx - g.R; }, y: () => { const g = geo(); return g.cy - g.R; }, scale: () => { const g = geo(); return g.r / g.R; } },
+        { x: () => W() / 2 - geo().R, y: () => H() / 2 - geo().R, scale: 1, duration: 1, ease: "power2.inOut" }, 0)
+      .fromTo(z.firstChild, { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.68);
 
-    // once About has risen into place the giant dot is invisible behind it, so retire it
+    // once About has risen into place the full-screen dot is invisible behind it, so retire it
     ScrollTrigger.create({
       trigger: "#intro", start: "top 5%",
-      onEnter: () => gsap.set(sig, { autoAlpha: 0 }),
-      onLeaveBack: () => gsap.set(sig, { autoAlpha: 1 }),
+      onEnter: () => gsap.set([sig, z], { autoAlpha: 0 }),
+      onLeaveBack: () => gsap.set([sig, z], { autoAlpha: 1 }),
     });
 
     // This pin is created after the opening plays, i.e. after every section below it
