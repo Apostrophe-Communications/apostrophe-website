@@ -1027,3 +1027,6 @@ a.mail { overflow-wrap: normal; word-break: normal; }
 }
 .sticker.is-near .sticker__disc::before { transform: scale(1); }
 .sticker:focus-visible .sticker__disc { outline-offset: 2px; border-radius: 12px; }
+
+/* bare logos sit perfectly level (no sticker tilt) */
+.sticker__disc > *, .sticker.is-near .sticker__disc > * { transform: none; }
