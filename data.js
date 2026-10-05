@@ -365,7 +365,7 @@ window.APOS = {
    "slug": "tasva",
    "title": "TASVA by Tarun Tahiliani",
    "subtitle": "Baraat, Hyderabad & Lakmé Fashion Week",
-   "category": "luxury",
+   "category": "fashion",
    "tags": [
     "Celebrity Relations",
     "Experiences & Activations"
@@ -3554,6 +3554,24 @@ window.APOS = {
    "title": "Rare Rabbit",
    "subtitle": "Fashion & Lifestyle",
    "category": "fashion"
+  },
+  {
+   "title": "Tiffany & Co.",
+   "subtitle": "Luxury Retail",
+   "category": "luxury",
+   "sticker": "stickers/tiffany.png",
+   "sw": 520,
+   "sh": 67,
+   "badge": false
+  },
+  {
+   "title": "Ferragamo",
+   "subtitle": "Luxury Retail",
+   "category": "luxury",
+   "sticker": "stickers/ferragamo.png",
+   "sw": 520,
+   "sh": 62,
+   "badge": false
   }
  ]
 };
