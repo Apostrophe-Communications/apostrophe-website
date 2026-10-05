@@ -12,7 +12,6 @@ window.APOS_PAGE = () => {
     `<div data-reveal data-delay="${i * 0.08}"><span class="stat__n" data-count="${s.value}"><span data-num>${s.value}</span><sup>${s.suffix}</sup></span><span class="stat__l">${s.label}</span></div>`).join("");
 
   $("#wheelList").innerHTML = D.services.map((s) => `<li class="wheel__item">${esc(s)}</li>`).join("");
-  $(".services__count em").textContent = `/ ${String(D.services.length).padStart(2, "0")}`;
 
   const featured = D.featured.map((slug) => D.projects.find((p) => p.slug === slug)).filter(Boolean);
   // the showcase projects first, then more from every category to fill out the honeycomb
@@ -164,7 +163,6 @@ window.APOS_PAGE = () => {
   function services() {
     const items = $$(".wheel__item");
     const n = items.length;
-    const num = $("#svcNum");
     const setState = (f) => {
       items.forEach((it, i) => {
         const d = Math.abs(i - f);
@@ -172,7 +170,6 @@ window.APOS_PAGE = () => {
         it.style.transform = `scale(${1 - Math.min(d, 1.5) * 0.1})`;
         it.classList.toggle("is-on", Math.round(f) === i);
       });
-      num.textContent = String(Math.round(f) + 1).padStart(2, "0");
     };
     if (RM) { setState(0); items.forEach((it) => { it.style.opacity = 1; it.style.transform = "none"; }); return; }
     const h = () => items[0].offsetHeight;
