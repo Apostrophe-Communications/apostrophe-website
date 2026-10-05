@@ -31,12 +31,19 @@ window.APOS = {
   }
  ],
  "services": [
-  "New Age Public Relations",
-  "Influencer Marketing",
-  "Campaign Tracking & Analysis",
-  "Event-Led Partnerships",
-  "Sourcing & Gifting",
-  "Brand Collaborations"
+  "Brand Strategy",
+  "New Age PR",
+  "Traditional PR",
+  "Influencer & Creator Partnerships",
+  "UGC Creator Partnerships",
+  "Brand Collaborations",
+  "Event Curation & Management",
+  "Sponsorship Opportunities",
+  "PR Seeding Campaigns",
+  "IP Curation",
+  "Celebrity Associations",
+  "Crisis Management",
+  "Reputation Management"
  ],
  "categories": [
   {

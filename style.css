@@ -389,15 +389,15 @@ html.rm .statement .sw { opacity: 1; }
 .services__count em { font-style: normal; color: var(--graphite); font-size: 0.55em; margin-left: 0.3em; }
 .services__note { max-width: 260px; font-size: 13px; color: var(--mist); margin: 0; }
 .wheel { position: relative; height: 100%; overflow: hidden;
-  -webkit-mask-image: linear-gradient(transparent, #000 28%, #000 72%, transparent);
-          mask-image: linear-gradient(transparent, #000 28%, #000 72%, transparent);
+  -webkit-mask-image: linear-gradient(transparent, #000 14%, #000 86%, transparent);
+          mask-image: linear-gradient(transparent, #000 14%, #000 86%, transparent);
 }
 .wheel__list { list-style: none; margin: 0; padding: 0; position: absolute; left: 0; right: 0; top: 50%; }
 .wheel__item {
-  --h: clamp(4.2rem, 9.5vw, 8.6rem);
+  --h: clamp(2.4rem, 4.6vw, 4.3rem);              /* tight rows so many services show at once */
   height: var(--h); display: flex; align-items: center; gap: 0.35em;
   font-family: var(--display);
-  font-size: clamp(1.9rem, 4.6vw, 4.6rem);
+  font-size: clamp(1.5rem, 3.2vw, 3.1rem);
   line-height: 1; white-space: nowrap;
   transform-origin: left center;
   will-change: transform, opacity;
@@ -719,7 +719,7 @@ html.js .recog__row::after { transform: scaleX(var(--line, 0)); }
   .hdr__name { letter-spacing: 0.2em; }
   .form { grid-template-columns: 1fr; }
   .logos { grid-template-columns: repeat(2, 1fr); }
-  .wheel__item { font-size: clamp(1.45rem, 7.2vw, 2.4rem); --h: clamp(3.4rem, 15vw, 5rem); }
+  .wheel__item { font-size: clamp(1.05rem, 4.9vw, 1.7rem); --h: clamp(2.1rem, 9vw, 3rem); }
   .btn { height: 50px; font-size: 12px; }
 }
 

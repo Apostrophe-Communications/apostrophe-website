@@ -166,8 +166,8 @@ window.APOS_PAGE = () => {
     const setState = (f) => {
       items.forEach((it, i) => {
         const d = Math.abs(i - f);
-        it.style.opacity = Math.max(0.12, 1 - d * 0.62);
-        it.style.transform = `scale(${1 - Math.min(d, 1.5) * 0.1})`;
+        it.style.opacity = Math.max(0.16, 1 - d * 0.22);
+        it.style.transform = `scale(${1 - Math.min(d, 3) * 0.035})`;
         it.classList.toggle("is-on", Math.round(f) === i);
       });
     };
@@ -179,7 +179,7 @@ window.APOS_PAGE = () => {
       y: () => -(n - 0.5) * h(),
       ease: "none",
       scrollTrigger: {
-        id: "services-pin", trigger: "#services", start: "top top", end: () => `+=${(n - 1) * H() * 0.26}`,
+        id: "services-pin", trigger: "#services", start: "top top", end: () => `+=${(n - 1) * H() * 0.12}`,
         pin: true, scrub: 0.35, anticipatePin: 1, invalidateOnRefresh: true,
         onUpdate: (self) => setState(self.progress * (n - 1)),
       },
