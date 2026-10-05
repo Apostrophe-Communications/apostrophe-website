@@ -26,7 +26,7 @@ window.APOS_PAGE = () => {
   const fit = (p) => {
     const ar = p.sw / p.sh, max = wide(p) ? 1.9 : 0.98;
     const weight = Math.min(1.35, Math.max(0.72, Math.sqrt(0.3 / (p.sd || 0.3))));
-    const area = (p.badge ? 0.26 : 0.17) * weight * (wide(p) ? 2 : 1);
+    const area = (p.badge ? 0.26 : 0.17) * weight * (wide(p) ? 2 : 1) * (p.boost || 1);   // boost: hand-tuned for very fine-line logos
     let w = Math.sqrt(area * ar), h = w / ar;
     if (w > max) { w = max; h = w / ar; }                // long wordmarks may use the full cell width
     if (h > 0.46) { h = 0.46; w = h * ar; }
