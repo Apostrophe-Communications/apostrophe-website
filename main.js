@@ -479,23 +479,29 @@
 
     let px = innerWidth * 0.5, py = innerHeight * 0.45, current = "";
     const tone = () => {
-      g.style.visibility = "hidden";                       // look *through* the glow
+      // the glow and cursor have pointer-events: none, so hit-testing already looks through them
       const el = document.elementFromPoint(Math.min(Math.max(px, 1), innerWidth - 1), Math.min(Math.max(py, 1), innerHeight - 1));
-      g.style.visibility = "";
       const host = el && el.closest(".menu, .t-dark, .t-stone, .t-yellow, .t-light");
       const key = !host ? "light" : host.matches(".menu, .t-dark") ? "dark" : host.matches(".t-stone") ? "stone" : host.matches(".t-yellow") ? "yellow" : "light";
       const c = GLOW_FOR[key];
       if (c !== current) { current = c; for (const k in layers) layers[k].classList.toggle("on", k === c); }
     };
-    let queued = false;
-    const retone = () => { if (!queued) { queued = true; requestAnimationFrame(() => { queued = false; tone(); }); } };
+    // the background under the pointer changes rarely, so check it at most ~8 times a second
+    let queued = false, last = 0;
+    const retone = () => {
+      if (queued) return;
+      queued = true;
+      const wait = Math.max(0, 120 - (performance.now() - last));
+      setTimeout(() => requestAnimationFrame(() => { queued = false; last = performance.now(); tone(); }), wait);
+    };
 
     gsap.set(g, { x: px, y: py });
     if (!RM) gsap.fromTo(g, { scale: 0.92 }, { scale: 1.1, duration: 3.2, ease: "sine.inOut", yoyo: true, repeat: -1 });
 
     if (FINE && !RM) {
-      const gx = gsap.quickTo(g, "x", { duration: 0.5, ease: "power3" });
-      const gy = gsap.quickTo(g, "y", { duration: 0.5, ease: "power3" });
+      // follows as tightly as the cursor itself
+      const gx = gsap.quickTo(g, "x", { duration: 0.14, ease: "power2" });
+      const gy = gsap.quickTo(g, "y", { duration: 0.14, ease: "power2" });
       addEventListener("pointermove", (e) => { px = e.clientX; py = e.clientY; gx(px); gy(py); retone(); }, { passive: true });
     } else if (!RM) {
       const o = { t: 0 };
