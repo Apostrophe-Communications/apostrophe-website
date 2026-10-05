@@ -1649,6 +1649,55 @@ window.APOS = {
    "badge": false
   },
   {
+   "slug": "superdry",
+   "title": "Superdry",
+   "subtitle": "Case study coming soon",
+   "category": "fashion",
+   "tags": [
+    "Influencer Relations",
+    "Media & Storytelling"
+   ],
+   "featured": false,
+   "image": "",
+   "tone": 3,
+   "highlights": [],
+   "placeholder": true,
+   "sections": {
+    "background": [
+     {
+      "t": "p",
+      "v": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus, posuere velit aliquet. Nullam quis risus eget urna mollis ornare vel eu leo."
+     }
+    ],
+    "objective": [
+     {
+      "t": "p",
+      "v": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus, posuere velit aliquet. Nullam quis risus eget urna mollis ornare vel eu leo."
+     }
+    ],
+    "solution": [
+     {
+      "t": "p",
+      "v": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus, posuere velit aliquet. Nullam quis risus eget urna mollis ornare vel eu leo."
+     }
+    ],
+    "impact": [
+     {
+      "t": "p",
+      "v": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus, posuere velit aliquet. Nullam quis risus eget urna mollis ornare vel eu leo."
+     }
+    ]
+   },
+   "gallery": [],
+   "logo": "logos/superdry.png",
+   "lw": 671,
+   "lh": 180,
+   "sticker": "stickers/superdry.png",
+   "sw": 515,
+   "sh": 115,
+   "badge": false
+  },
+  {
    "slug": "envisage",
    "title": "Envisage",
    "subtitle": "Founder profiling & design collaborations",
@@ -2846,7 +2895,8 @@ window.APOS = {
      "name": "Superdry",
      "logo": "logos/superdry.png",
      "w": 671,
-     "h": 180
+     "h": 180,
+     "slug": "superdry"
     },
     {
      "name": "Diesel",
