@@ -1033,3 +1033,9 @@ a.mail { overflow-wrap: normal; word-break: normal; }
 
 /* "What we do" as a proper section heading, like Recognitions */
 .services__title { margin: 0; font-size: var(--fs-h2); line-height: 1; letter-spacing: -0.03em; color: var(--ivory); }
+
+/* services list sits flush with the "What we do" heading (no reserved dot space),
+   and on narrow screens the longest name still fits the width */
+.wheel__item { gap: 0; }
+.wheel__item::before { display: none; }
+@media (max-width: 900px) { .wheel__item { font-size: min(1.7rem, calc((100vw - 2 * var(--gutter)) / 18)); } }
