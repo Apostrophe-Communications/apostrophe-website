@@ -1039,3 +1039,24 @@ a.mail { overflow-wrap: normal; word-break: normal; }
 .wheel__item { gap: 0; }
 .wheel__item::before { display: none; }
 @media (max-width: 900px) { .wheel__item { font-size: min(1.7rem, calc((100vw - 2 * var(--gutter)) / 18)); } }
+
+/* ---------- Marquee Projects (home): heading, then logos in even rows by niche ---------- */
+.mq { --cell: clamp(118px, 12.5vw, 176px); margin-top: clamp(30px, 5svh, 56px); padding-bottom: clamp(90px, 14svh, 150px); }
+.mq__group { display: grid; grid-template-columns: minmax(160px, 1fr) 4fr; gap: 24px; align-items: center; padding: clamp(22px, 3svh, 34px) 0; border-top: 1px solid rgba(0, 0, 0, .12); }
+.mq__group:last-child { border-bottom: 1px solid rgba(0, 0, 0, .12); }
+.mq__label { margin: 0; font-family: var(--display); font-weight: 400; font-size: var(--fs-label); letter-spacing: .24em; text-transform: uppercase; color: var(--graphite); }
+.mq__logos { display: grid; grid-template-columns: repeat(auto-fill, minmax(var(--cell), 1fr)); gap: 8px 12px; }
+.mq__item { position: relative; height: calc(var(--cell) * .58); display: grid; place-items: center; color: var(--ink); }
+.mq__item img { width: calc(var(--cell) * var(--fw, .7)); height: calc(var(--cell) * var(--fh, .3)); object-fit: contain; transition: transform .6s var(--ease); }
+.mq__txt { font-family: var(--display); font-size: clamp(15px, 1.3vw, 19px); letter-spacing: .02em; transition: transform .6s var(--ease); }
+.mq__item::after { content: ""; position: absolute; left: 50%; bottom: 4px; width: 6px; height: 6px; margin-left: -3px; border-radius: 50%; background: var(--dot); transform: scale(0); transition: transform .45s var(--ease); }
+a.mq__item:hover img, a.mq__item:hover .mq__txt, a.mq__item:focus-visible img { transform: scale(1.12); }
+a.mq__item:hover::after, a.mq__item:focus-visible::after { transform: scale(1); }
+a.mq__item:focus { outline: none; }
+a.mq__item:focus-visible { outline: 2px solid var(--dot); outline-offset: 2px; border-radius: 8px; }
+@media (max-width: 760px) {
+  .mq { --cell: clamp(96px, 29vw, 140px); }
+  .mq__group { grid-template-columns: 1fr; gap: 10px; }
+  .mq__logos { grid-template-columns: repeat(3, 1fr); }
+}
+.work__head .btn { white-space: nowrap; flex: none; }

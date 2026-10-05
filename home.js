@@ -2,7 +2,7 @@
    Home page
    ========================================================================== */
 window.APOS_PAGE = () => {
-  const { $, $$, RM, FINE, esc, media, split, ARROW, logo, hive } = window.APOS_UI;
+  const { $, $$, RM, FINE, esc, media, split, ARROW, logo } = window.APOS_UI;
   const D = window.APOS;
   const W = () => innerWidth, H = () => innerHeight;
   const mobile = () => innerWidth < 900;
@@ -14,19 +14,33 @@ window.APOS_PAGE = () => {
   $("#wheelList").innerHTML = D.services.map((s) => `<li class="wheel__item">${esc(s)}</li>`).join("");
 
   const featured = D.featured.map((slug) => D.projects.find((p) => p.slug === slug)).filter(Boolean);
-  // the showcase projects first, then more from every category to fill out the honeycomb
+  // the showcase projects plus more from every category
   const more = ["omega-ethos", "abraham-thakore", "chopard-jwc", "saundh", "copper-chimney", "mrunalini-rao", "tag-heuer", "stonex", "sameer-madan", "truebrowns"]
     .map((slug) => D.projects.find((p) => p.slug === slug)).filter(Boolean);
-  // clubbed by niche so each category sits together around the ring
-  const NICHE = D.categories.map((c) => c.id);
-  const ring = [...featured, ...more, ...(D.homeBrands || [])]
-    .map((p, i) => ({ p, i }))
-    .sort((a, b) => NICHE.indexOf(a.p.category) - NICHE.indexOf(b.p.category) || a.i - b.i)
-    .map((x) => x.p);
-  hive($("#homeHive"), ring, {
-    max: 112, per: 9.5,
-    centre: `<h2 class="work__title">Marquee Projects</h2><a class="btn btn--ghost" href="projects.html">View all projects</a>`,
-  });
+  // Marquee Projects: free-standing logos in even rows, clubbed under their niche
+  const all = [...featured, ...more, ...(D.homeBrands || [])];
+  // each logo gets a box sized by area, so long wordmarks and compact marks weigh the same
+  const fit = (p) => {
+    const ar = p.sw / p.sh, area = p.badge ? 0.32 : 0.22;
+    let w = Math.sqrt(area * ar), h = w / ar;
+    if (w > 0.9) { w = 0.9; h = w / ar; }
+    if (h > 0.5) { h = 0.5; w = h * ar; }
+    return `--fw:${w.toFixed(3)};--fh:${h.toFixed(3)}`;
+  };
+  const tile = (p) => {
+    const inner = p.sticker ? `<img src="${esc(p.sticker)}" alt="" style="${fit(p)}" loading="lazy" decoding="async">` : `<span class="mq__txt">${esc(p.title)}</span>`;
+    return p.slug
+      ? `<a class="mq__item" href="project.html?p=${p.slug}" aria-label="${esc(p.title)}" title="${esc(p.title)}">${inner}</a>`
+      : `<div class="mq__item mq__item--brand" role="img" aria-label="${esc(p.title)}" title="${esc(p.title)}">${inner}</div>`;
+  };
+  $("#marquee").innerHTML = D.categories.map((c) => {
+    const items = all.filter((p) => p.category === c.id);
+    return items.length ? `
+      <div class="mq__group">
+        <h3 class="mq__label" data-reveal>${esc(c.name)}</h3>
+        <div class="mq__logos">${items.map(tile).join("")}</div>
+      </div>` : "";
+  }).join("");
 
   const bandSet = `<div class="band__set">${(D.topBrands || []).map((b) => `<span>${logo(b)}</span><i></i>`).join("")}</div>`;
   $("#bandTrack").innerHTML = bandSet + bandSet.replace('class="band__set"', 'class="band__set" aria-hidden="true"');
