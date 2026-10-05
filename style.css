@@ -1018,3 +1018,12 @@ html.rm .zoomdot { display: none; }
 /* email addresses only break after the "@", never mid-word */
 a.mail { overflow-wrap: normal; word-break: normal; }
 .foot-bar a.mail { overflow-wrap: normal; }
+
+/* stickers without frames: just the logo, larger; on hover it grows and a yellow dot appears beneath */
+.sticker__disc, .sticker.is-near .sticker__disc { border: 0; background: none; }
+.sticker__disc::before {
+  content: ""; position: absolute; left: 50%; bottom: 2%; width: 7px; height: 7px; margin-left: -3.5px;
+  border-radius: 50%; background: var(--dot); transform: scale(0); transition: transform .45s var(--ease);
+}
+.sticker.is-near .sticker__disc::before { transform: scale(1); }
+.sticker:focus-visible .sticker__disc { outline-offset: 2px; border-radius: 12px; }

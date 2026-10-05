@@ -53,11 +53,14 @@
   function hive(el, projects, { max = 132, per = 8.2, centre: centreHTML = "" } = {}) {
     const catName = Object.fromEntries(window.APOS.categories.map((c) => [c.id, c.name]));
     // fit each logo inside the circle: an inscribed rectangle, then evened out by area
+    // no frame around the logos, so each gets a wide box (in units of the cell size),
+    // evened out by area so long wordmarks and compact marks carry the same weight
     const fit = (p) => {
-      const ar = p.sw / p.sh, rho = 0.36, k = Math.sqrt(1 + ar * ar);
-      let w = (2 * rho * ar) / k, h = (2 * rho) / k;
-      const s = Math.min(1, Math.sqrt((p.badge ? 0.2 : 0.14) / (w * h)));
-      return `--fw:${(w * s).toFixed(3)};--fh:${(h * s).toFixed(3)}`;
+      const ar = p.sw / p.sh, area = p.badge ? 0.34 : 0.26;
+      let w = Math.sqrt(area * ar), h = w / ar;
+      if (w > 1.08) { w = 1.08; h = w / ar; }
+      if (h > 0.62) { h = 0.62; w = h * ar; }
+      return `--fw:${w.toFixed(3)};--fh:${h.toFixed(3)}`;
     };
     el.classList.add("hive");
     el.innerHTML = projects.map((p, i) => `
