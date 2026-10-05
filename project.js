@@ -2,7 +2,7 @@
    Project detail: built from APOS.projects using ?p=<slug>
    ========================================================================== */
 window.APOS_PAGE = () => {
-  const { $, esc, media } = window.APOS_UI;
+  const { $, esc, media, srcset } = window.APOS_UI;
   const D = window.APOS;
   const slug = new URLSearchParams(location.search).get("p");
   const i = Math.max(0, D.projects.findIndex((p) => p.slug === slug));
@@ -26,7 +26,7 @@ window.APOS_PAGE = () => {
         <h1 data-split>${esc(p.title)}</h1>
         <p class="cs-hero__sub" data-reveal>${esc(p.subtitle)}</p>
       </div>
-      <div class="cs-hero__media"><div data-parallax="8" style="position:absolute;inset:-10% 0;">${media(p, "Project image placeholder")}</div></div>
+      <div class="cs-hero__media"><div data-parallax="8" style="position:absolute;inset:-10% 0;">${media(p, "Project image placeholder", true)}</div></div>
     </section>
 
     ${p.highlights.length ? `
@@ -51,7 +51,7 @@ window.APOS_PAGE = () => {
     ${(p.gallery || []).length ? `
     <section class="s t-light cs-gallery" data-theme="light">
       <div class="wrap cs-gallery__grid">
-        ${p.gallery.map((src, n) => `<figure class="cs-gallery__item" data-reveal><img src="${esc(src)}" alt="${esc(p.title)}, image ${n + 2}" loading="lazy" decoding="async"></figure>`).join("")}
+        ${p.gallery.map((src, n) => `<figure class="cs-gallery__item" data-reveal><img src="${esc(src)}" srcset="${srcset(src)}" sizes="(max-width: 760px) 100vw, 33vw" alt="${esc(p.title)}, image ${n + 2}" loading="lazy" decoding="async"></figure>`).join("")}
       </div>
     </section>` : ""}`;
 };

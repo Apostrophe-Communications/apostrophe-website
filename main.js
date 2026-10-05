@@ -33,8 +33,10 @@
   function initials(t) {
     return t.split(/\s+/).filter((w) => /^\p{L}/u.test(w)).slice(0, 2).map((w) => w[0].toUpperCase()).join("");
   }
-  function media(p, label = "Image placeholder") {
-    if (p.image) return `<div class="media"><img src="${esc(p.image)}" alt="${esc(p.title)}" loading="lazy" decoding="async"></div>`;
+  // project photos ship as WebP with a phone-sized "-sm" twin; the browser picks the right one
+  const srcset = (src) => /\.webp$/.test(src) ? `${src.replace(/\.webp$/, "-sm.webp")} 800w, ${src} 1600w` : "";
+  function media(p, label = "Image placeholder", eager = false) {
+    if (p.image) return `<div class="media"><img src="${esc(p.image)}" srcset="${srcset(p.image)}" sizes="(max-width: 760px) 100vw, 60vw" alt="${esc(p.title)}" ${eager ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async"></div>`;
     return `<div class="ph tone-${p.tone ?? 0}" aria-hidden="true"><span class="ph__mono">${esc(initials(p.title))}</span><span class="ph__tag">${label}</span></div>`;
   }
 
@@ -274,9 +276,9 @@
         <div class="wrap">
           <div class="foot-bar__top">
             <div><img class="foot-bar__logo" src="logo-full-white-v6.png?v=20260930150635" alt="Apostrophe Communications" width="150" height="102" loading="lazy"></div>
-            <div><h4>Explore</h4><ul>${NAV.map(([t, h]) => `<li><a class="link-u" href="${h}">${t}</a></li>`).join("")}</ul></div>
-            <div><h4>Say hello</h4><ul><li><a class="link-u mail" href="mailto:${c.email}">${esc(c.email).replace("@", "@<wbr>")}</a></li><li>${c.phone}</li><li>${c.address}</li></ul></div>
-            <div><h4>Follow</h4><ul><li><a class="link-u" href="${c.instagram}">Instagram</a></li><li><a class="link-u" href="${c.linkedin}">LinkedIn</a></li></ul></div>
+            <div><h3>Explore</h3><ul>${NAV.map(([t, h]) => `<li><a class="link-u" href="${h}">${t}</a></li>`).join("")}</ul></div>
+            <div class="foot-bar__hello"><h3>Say hello</h3><ul><li><a class="link-u mail" href="mailto:${c.email}">${esc(c.email).replace("@", "@<wbr>")}</a></li><li>${c.phone}</li><li>${c.address}</li></ul></div>
+            <div><h3>Follow</h3><ul><li><a class="link-u" href="${c.instagram}">Instagram</a></li><li><a class="link-u" href="${c.linkedin}">LinkedIn</a></li></ul></div>
           </div>
           <div class="foot-bar__bottom"><span>© ${new Date().getFullYear()} Apostrophe Communications</span><span>Partner offices: ${D.offices.join(" · ")}</span></div>
         </div>
@@ -526,7 +528,7 @@
   initCursor();
   initTransitions();
 
-  window.APOS_UI = { $, $$, RM, FINE, esc, media, logo, hive, split, initReveals, countUp, ARROW, MARK, get lenis() { return lenis; } };
+  window.APOS_UI = { $, $$, RM, FINE, esc, media, srcset, logo, hive, split, initReveals, countUp, ARROW, MARK, get lenis() { return lenis; } };
 
   // Page scripts register themselves on APOS_PAGE; run once fonts are ready so splits measure correctly.
   const ready = document.fonts ? document.fonts.ready : Promise.resolve();

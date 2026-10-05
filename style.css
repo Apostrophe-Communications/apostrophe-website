@@ -523,7 +523,7 @@ html.rm .statement .sw { opacity: 1; }
 .foot-bar { padding: 56px 0 30px; }
 .foot-bar__top { display: grid; grid-template-columns: 1.2fr 1fr 1fr 1fr; gap: 40px; padding-bottom: 56px; border-bottom: 1px solid rgba(255, 255, 255,.14); }
 .foot-bar__logo { width: 150px; }
-.foot-bar h4 { font-family: var(--display); font-size: var(--fs-label); letter-spacing: .24em; text-transform: uppercase; color: var(--mist); margin-bottom: 18px; }
+.foot-bar h3 { font-family: var(--display); font-size: var(--fs-label); letter-spacing: .24em; text-transform: uppercase; color: var(--mist); margin-bottom: 18px; }
 .foot-bar ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; font-size: var(--fs-small); }
 .foot-bar__bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; padding-top: 26px; font-size: var(--fs-small); color: var(--mist); }
 
@@ -1018,3 +1018,25 @@ a.mq__item:focus-visible { outline: 2px solid var(--dot); outline-offset: 2px; b
 .recog__plate, .mq__item img, .mq__txt, .hdr__back, .hdr__back svg, .index__b { transition-duration: .25s; }
 .team__photo img, .cs-gallery__item img { transition: filter .4s var(--ease), transform .5s var(--ease); }
 .slider__nav button, .filters button, .logos div, .field label { transition-duration: .25s; }
+
+/* ---------- UX fixes (audit) ---------- */
+/* never allow the page to be dragged sideways on phones */
+html, body { overflow-x: clip; }
+@media (max-width: 760px) { .foot-bar__top > .foot-bar__hello { grid-column: 1 / -1; } }
+
+/* comfortable tap areas (44x44) without changing how anything looks */
+.hdr__toggle, .hdr__back, .hdr__logo, .foot-bar a.link-u, .filters button, .slider__nav button { position: relative; }
+.hdr__toggle { min-width: 44px; min-height: 44px; justify-content: flex-end; }
+.hdr__logo::after, .hdr__back::after, .foot-bar a.link-u::before, .filters button::after {
+  content: ""; position: absolute; left: 50%; top: 50%; width: max(100%, 44px); height: max(100%, 44px); transform: translate(-50%, -50%);
+}
+.foot-bar li { padding: 4px 0; }
+
+/* the apostrophe cursor stays, but typing shows the normal text cursor */
+html.dot-cursor input, html.dot-cursor textarea, html.dot-cursor select { cursor: text !important; }
+
+/* legible small text */
+@media (max-width: 560px) { .hdr__name { font-size: 11px; letter-spacing: .14em; } }
+@media (max-width: 380px) { .hdr__name { display: none; } }
+.filters sup { font-size: 11px; }
+.pill { font-size: 12px; }

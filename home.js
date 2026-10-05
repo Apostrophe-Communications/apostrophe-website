@@ -244,17 +244,24 @@ window.APOS_PAGE = () => {
   function marquee(trackSel, sectionSel, duration) {
     if (RM) return;
     const loop = gsap.to(trackSel, { xPercent: -50, duration, ease: "none", repeat: -1 });
-    let dir = 1, target = 1, active = false;
+    let dir = 1, target = 1, active = false, held = false;
+    // moving content must be pausable: it rests while hovered or focused
+    const band = $(sectionSel);
+    const hold = (on) => { held = on; on ? loop.pause() : active && loop.play(); };
+    band.addEventListener("pointerenter", (e) => e.pointerType === "mouse" && hold(true));
+    band.addEventListener("pointerleave", () => hold(false));
+    band.addEventListener("focusin", () => hold(true));
+    band.addEventListener("focusout", () => hold(false));
     ScrollTrigger.create({
       trigger: sectionSel, start: "top bottom", end: "bottom top",
-      onToggle: (self) => { active = self.isActive; active ? loop.play() : loop.pause(); },
+      onToggle: (self) => { active = self.isActive; active && !held ? loop.play() : loop.pause(); },
       onUpdate: (self) => {
         dir = self.direction;
         target = dir * (1 + Math.min(Math.abs(self.getVelocity()) / 250, 6));
       },
     });
     gsap.ticker.add(() => {
-      if (!active) return;
+      if (!active || held) return;
       target += (dir - target) * 0.04;            // settle back to cruising speed
       const ts = loop.timeScale();
       loop.timeScale(ts + (target - ts) * 0.12);  // ease towards the target
@@ -305,6 +312,9 @@ window.APOS_PAGE = () => {
     dots.forEach((d, i) => d.addEventListener("click", () => { go(n + i); play(); }));
     wrap.addEventListener("pointerenter", (e) => { if (e.pointerType === "mouse") { hover = true; clearInterval(timer); } });
     wrap.addEventListener("pointerleave", () => { hover = false; play(); });
+    // keyboard users get the same pause while they're inside the testimonials
+    wrap.addEventListener("focusin", () => { hover = true; clearInterval(timer); });
+    wrap.addEventListener("focusout", (e) => { if (!wrap.contains(e.relatedTarget)) { hover = false; play(); } });
     ScrollTrigger.create({ trigger: wrap, start: "top bottom", end: "bottom top", onToggle: (s) => { inView = s.isActive; play(); } });
     document.addEventListener("visibilitychange", () => (document.hidden ? clearInterval(timer) : play()));
     addEventListener("resize", () => gsap.set(track, { x: xFor(idx) }));

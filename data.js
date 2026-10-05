@@ -240,7 +240,7 @@ window.APOS = {
     "Media & Storytelling"
    ],
    "featured": true,
-   "image": "work/bvlgari-jwc-1.jpg",
+   "image": "work/bvlgari-jwc-1.webp",
    "tone": 0,
    "highlights": [],
    "placeholder": false,
@@ -275,7 +275,7 @@ window.APOS = {
     ]
    },
    "gallery": [
-    "work/bvlgari-jwc-2.jpg"
+    "work/bvlgari-jwc-2.webp"
    ],
    "logo": "logos/bvlgari.png",
    "lw": 720,
@@ -296,7 +296,7 @@ window.APOS = {
     "Digital Influence"
    ],
    "featured": true,
-   "image": "work/rado-1.jpg",
+   "image": "work/rado-1.webp",
    "tone": 1,
    "highlights": [
     {
@@ -350,9 +350,9 @@ window.APOS = {
     ]
    },
    "gallery": [
-    "work/rado-2.jpg",
-    "work/rado-3.jpg",
-    "work/rado-4.jpg"
+    "work/rado-2.webp",
+    "work/rado-3.webp",
+    "work/rado-4.webp"
    ],
    "logo": "logos/rado.png",
    "lw": 569,
@@ -373,7 +373,7 @@ window.APOS = {
     "Experiences & Activations"
    ],
    "featured": true,
-   "image": "work/tasva-1.jpg",
+   "image": "work/tasva-1.webp",
    "tone": 2,
    "highlights": [
     {
@@ -489,13 +489,13 @@ window.APOS = {
     ]
    },
    "gallery": [
-    "work/tasva-2.jpg",
-    "work/tasva-3.jpg",
-    "work/tasva-4.jpg",
-    "work/tasva-5.jpg",
-    "work/tasva-6.jpg",
-    "work/tasva-7.jpg",
-    "work/tasva-8.jpg"
+    "work/tasva-2.webp",
+    "work/tasva-3.webp",
+    "work/tasva-4.webp",
+    "work/tasva-5.webp",
+    "work/tasva-6.webp",
+    "work/tasva-7.webp",
+    "work/tasva-8.webp"
    ],
    "logo": "logos/tasva.png",
    "lw": 720,
@@ -516,7 +516,7 @@ window.APOS = {
     "Fashion & Design Culture"
    ],
    "featured": true,
-   "image": "work/tarun-tahiliani-1.jpg",
+   "image": "work/tarun-tahiliani-1.webp",
    "tone": 3,
    "highlights": [
     {
@@ -574,11 +574,11 @@ window.APOS = {
     ]
    },
    "gallery": [
-    "work/tarun-tahiliani-2.jpg",
-    "work/tarun-tahiliani-3.jpg",
-    "work/tarun-tahiliani-4.jpg",
-    "work/tarun-tahiliani-5.jpg",
-    "work/tarun-tahiliani-6.jpg"
+    "work/tarun-tahiliani-2.webp",
+    "work/tarun-tahiliani-3.webp",
+    "work/tarun-tahiliani-4.webp",
+    "work/tarun-tahiliani-5.webp",
+    "work/tarun-tahiliani-6.webp"
    ],
    "logo": "logos/tarun-tahiliani-v2.png",
    "lw": 720,
@@ -599,7 +599,7 @@ window.APOS = {
     "Strategic Collaborations"
    ],
    "featured": true,
-   "image": "work/lladro-1.jpg",
+   "image": "work/lladro-1.webp",
    "tone": 4,
    "highlights": [],
    "placeholder": false,
@@ -650,13 +650,13 @@ window.APOS = {
     ]
    },
    "gallery": [
-    "work/lladro-2.jpg",
-    "work/lladro-3.jpg",
-    "work/lladro-4.jpg",
-    "work/lladro-5.jpg",
-    "work/lladro-6.jpg",
-    "work/lladro-7.jpg",
-    "work/lladro-8.jpg"
+    "work/lladro-2.webp",
+    "work/lladro-3.webp",
+    "work/lladro-4.webp",
+    "work/lladro-5.webp",
+    "work/lladro-6.webp",
+    "work/lladro-7.webp",
+    "work/lladro-8.webp"
    ],
    "logo": "logos/lladro.png",
    "lw": 635,
@@ -677,7 +677,7 @@ window.APOS = {
     "Media & Storytelling"
    ],
    "featured": true,
-   "image": "work/bath-body-works-1.jpg",
+   "image": "work/bath-body-works-1.webp",
    "tone": 5,
    "highlights": [],
    "placeholder": true,
@@ -712,12 +712,12 @@ window.APOS = {
     ]
    },
    "gallery": [
-    "work/bath-body-works-2.jpg",
-    "work/bath-body-works-3.jpg",
-    "work/bath-body-works-4.jpg",
-    "work/bath-body-works-5.jpg",
-    "work/bath-body-works-6.jpg",
-    "work/bath-body-works-7.jpg"
+    "work/bath-body-works-2.webp",
+    "work/bath-body-works-3.webp",
+    "work/bath-body-works-4.webp",
+    "work/bath-body-works-5.webp",
+    "work/bath-body-works-6.webp",
+    "work/bath-body-works-7.webp"
    ],
    "logo": "logos/bath-and-body-works.png",
    "lw": 215,
@@ -738,7 +738,7 @@ window.APOS = {
     "Influencer Relations"
    ],
    "featured": true,
-   "image": "work/apala-1.jpg",
+   "image": "work/apala-1.webp",
    "tone": 0,
    "highlights": [],
    "placeholder": true,
@@ -773,11 +773,11 @@ window.APOS = {
     ]
    },
    "gallery": [
-    "work/apala-2.jpg",
-    "work/apala-3.jpg",
-    "work/apala-4.jpg",
-    "work/apala-5.jpg",
-    "work/apala-6.jpg"
+    "work/apala-2.webp",
+    "work/apala-3.webp",
+    "work/apala-4.webp",
+    "work/apala-5.webp",
+    "work/apala-6.webp"
    ],
    "logo": "logos/apala-v2.png",
    "lw": 371,
@@ -798,7 +798,7 @@ window.APOS = {
     "Strategic Collaborations"
    ],
    "featured": false,
-   "image": "work/chopard-jwc-1.jpg",
+   "image": "work/chopard-jwc-1.webp",
    "tone": 1,
    "highlights": [],
    "placeholder": false,
@@ -976,7 +976,7 @@ window.APOS = {
     "Celebrity Relations"
    ],
    "featured": false,
-   "image": "work/mrunalini-rao-1.jpg",
+   "image": "work/mrunalini-rao-1.webp",
    "tone": 4,
    "highlights": [
     {
@@ -1036,12 +1036,12 @@ window.APOS = {
     ]
    },
    "gallery": [
-    "work/mrunalini-rao-2.jpg",
-    "work/mrunalini-rao-3.jpg",
-    "work/mrunalini-rao-4.jpg",
-    "work/mrunalini-rao-5.jpg",
-    "work/mrunalini-rao-6.jpg",
-    "work/mrunalini-rao-7.jpg"
+    "work/mrunalini-rao-2.webp",
+    "work/mrunalini-rao-3.webp",
+    "work/mrunalini-rao-4.webp",
+    "work/mrunalini-rao-5.webp",
+    "work/mrunalini-rao-6.webp",
+    "work/mrunalini-rao-7.webp"
    ],
    "logo": "logos/mrunalini-rao.png",
    "lw": 720,
@@ -1062,7 +1062,7 @@ window.APOS = {
     "Fashion & Design Culture"
    ],
    "featured": false,
-   "image": "work/abraham-thakore-1.jpg",
+   "image": "work/abraham-thakore-1.webp",
    "tone": 5,
    "highlights": [
     {
@@ -1122,12 +1122,12 @@ window.APOS = {
     ]
    },
    "gallery": [
-    "work/abraham-thakore-2.jpg",
-    "work/abraham-thakore-3.jpg",
-    "work/abraham-thakore-4.jpg",
-    "work/abraham-thakore-5.jpg",
-    "work/abraham-thakore-6.jpg",
-    "work/abraham-thakore-7.jpg"
+    "work/abraham-thakore-2.webp",
+    "work/abraham-thakore-3.webp",
+    "work/abraham-thakore-4.webp",
+    "work/abraham-thakore-5.webp",
+    "work/abraham-thakore-6.webp",
+    "work/abraham-thakore-7.webp"
    ],
    "logo": "logos/abraham-and-thakore.png",
    "lw": 635,
@@ -1148,7 +1148,7 @@ window.APOS = {
     "Fashion & Design Culture"
    ],
    "featured": false,
-   "image": "work/sameer-madan-1.jpg",
+   "image": "work/sameer-madan-1.webp",
    "tone": 0,
    "highlights": [],
    "placeholder": false,
@@ -1183,12 +1183,12 @@ window.APOS = {
     ]
    },
    "gallery": [
-    "work/sameer-madan-2.jpg",
-    "work/sameer-madan-3.jpg",
-    "work/sameer-madan-4.jpg",
-    "work/sameer-madan-5.jpg",
-    "work/sameer-madan-6.jpg",
-    "work/sameer-madan-7.jpg"
+    "work/sameer-madan-2.webp",
+    "work/sameer-madan-3.webp",
+    "work/sameer-madan-4.webp",
+    "work/sameer-madan-5.webp",
+    "work/sameer-madan-6.webp",
+    "work/sameer-madan-7.webp"
    ],
    "logo": "logos/sameer-madan.png",
    "lw": 720,
@@ -1209,7 +1209,7 @@ window.APOS = {
     "Strategic Collaborations"
    ],
    "featured": false,
-   "image": "work/bally-1.jpg",
+   "image": "work/bally-1.webp",
    "tone": 1,
    "highlights": [],
    "placeholder": false,
@@ -1252,10 +1252,10 @@ window.APOS = {
     ]
    },
    "gallery": [
-    "work/bally-2.jpg",
-    "work/bally-3.jpg",
-    "work/bally-4.jpg",
-    "work/bally-5.jpg"
+    "work/bally-2.webp",
+    "work/bally-3.webp",
+    "work/bally-4.webp",
+    "work/bally-5.webp"
    ],
    "logo": "logos/bally.png",
    "lw": 269,
@@ -1276,7 +1276,7 @@ window.APOS = {
     "Retail & Store Launches"
    ],
    "featured": false,
-   "image": "work/paul-smith-1.jpg",
+   "image": "work/paul-smith-1.webp",
    "tone": 2,
    "highlights": [
     {
@@ -1332,11 +1332,11 @@ window.APOS = {
     ]
    },
    "gallery": [
-    "work/paul-smith-2.jpg",
-    "work/paul-smith-3.jpg",
-    "work/paul-smith-4.jpg",
-    "work/paul-smith-5.jpg",
-    "work/paul-smith-6.jpg"
+    "work/paul-smith-2.webp",
+    "work/paul-smith-3.webp",
+    "work/paul-smith-4.webp",
+    "work/paul-smith-5.webp",
+    "work/paul-smith-6.webp"
    ],
    "logo": "logos/paul-smith.png",
    "lw": 720,
@@ -1357,7 +1357,7 @@ window.APOS = {
     "Influencer Relations"
    ],
    "featured": false,
-   "image": "work/saundh-1.jpg",
+   "image": "work/saundh-1.webp",
    "tone": 3,
    "highlights": [
     {
@@ -1429,12 +1429,12 @@ window.APOS = {
     ]
    },
    "gallery": [
-    "work/saundh-2.jpg",
-    "work/saundh-3.jpg",
-    "work/saundh-4.jpg",
-    "work/saundh-5.jpg",
-    "work/saundh-6.jpg",
-    "work/saundh-7.jpg"
+    "work/saundh-2.webp",
+    "work/saundh-3.webp",
+    "work/saundh-4.webp",
+    "work/saundh-5.webp",
+    "work/saundh-6.webp",
+    "work/saundh-7.webp"
    ],
    "logo": "logos/saundh.png",
    "lw": 489,
@@ -1455,7 +1455,7 @@ window.APOS = {
     "Influencer Relations"
    ],
    "featured": false,
-   "image": "work/truebrowns-1.jpg",
+   "image": "work/truebrowns-1.webp",
    "tone": 4,
    "highlights": [
     {
@@ -1539,11 +1539,11 @@ window.APOS = {
     ]
    },
    "gallery": [
-    "work/truebrowns-2.jpg",
-    "work/truebrowns-3.jpg",
-    "work/truebrowns-4.jpg",
-    "work/truebrowns-5.jpg",
-    "work/truebrowns-6.jpg"
+    "work/truebrowns-2.webp",
+    "work/truebrowns-3.webp",
+    "work/truebrowns-4.webp",
+    "work/truebrowns-5.webp",
+    "work/truebrowns-6.webp"
    ],
    "logo": "logos/truebrowns.png",
    "lw": 720,
@@ -1564,7 +1564,7 @@ window.APOS = {
     "Media & Storytelling"
    ],
    "featured": false,
-   "image": "work/cover-story-1.jpg",
+   "image": "work/cover-story-1.webp",
    "tone": 5,
    "highlights": [],
    "placeholder": true,
@@ -1599,7 +1599,7 @@ window.APOS = {
     ]
    },
    "gallery": [
-    "work/cover-story-2.jpg"
+    "work/cover-story-2.webp"
    ],
    "logo": "logos/cover-story.png",
    "lw": 720,
@@ -1620,7 +1620,7 @@ window.APOS = {
     "Media & Storytelling"
    ],
    "featured": false,
-   "image": "work/forever-new-1.jpg",
+   "image": "work/forever-new-1.webp",
    "tone": 0,
    "highlights": [],
    "placeholder": true,
@@ -1655,8 +1655,8 @@ window.APOS = {
     ]
    },
    "gallery": [
-    "work/forever-new-2.jpg",
-    "work/forever-new-3.jpg"
+    "work/forever-new-2.webp",
+    "work/forever-new-3.webp"
    ],
    "logo": "logos/forever-new.png",
    "lw": 720,
@@ -1808,7 +1808,7 @@ window.APOS = {
     "Media & Storytelling"
    ],
    "featured": false,
-   "image": "work/stonex-1.jpg",
+   "image": "work/stonex-1.webp",
    "tone": 2,
    "highlights": [],
    "placeholder": false,
@@ -1882,7 +1882,7 @@ window.APOS = {
     "Influencer Relations"
    ],
    "featured": false,
-   "image": "work/fcml-1.jpg",
+   "image": "work/fcml-1.webp",
    "tone": 3,
    "highlights": [],
    "placeholder": false,
@@ -1937,9 +1937,9 @@ window.APOS = {
     ]
    },
    "gallery": [
-    "work/fcml-2.jpg",
-    "work/fcml-3.jpg",
-    "work/fcml-4.jpg"
+    "work/fcml-2.webp",
+    "work/fcml-3.webp",
+    "work/fcml-4.webp"
    ],
    "sticker": "stickers/fcml.png",
    "sw": 199,
@@ -1960,7 +1960,7 @@ window.APOS = {
     "Fashion & Design Culture"
    ],
    "featured": false,
-   "image": "work/at-home-1.jpg",
+   "image": "work/at-home-1.webp",
    "tone": 4,
    "highlights": [
     {
@@ -2014,9 +2014,9 @@ window.APOS = {
     ]
    },
    "gallery": [
-    "work/at-home-2.jpg",
-    "work/at-home-3.jpg",
-    "work/at-home-4.jpg"
+    "work/at-home-2.webp",
+    "work/at-home-3.webp",
+    "work/at-home-4.webp"
    ],
    "logo": "logos/abraham-and-thakore-home.png",
    "lw": 616,
@@ -2037,7 +2037,7 @@ window.APOS = {
     "Experiences & Activations"
    ],
    "featured": false,
-   "image": "work/glass-sutra-1.jpg",
+   "image": "work/glass-sutra-1.webp",
    "tone": 5,
    "highlights": [
     {
@@ -2121,10 +2121,10 @@ window.APOS = {
     ]
    },
    "gallery": [
-    "work/glass-sutra-2.jpg",
-    "work/glass-sutra-3.jpg",
-    "work/glass-sutra-4.jpg",
-    "work/glass-sutra-5.jpg"
+    "work/glass-sutra-2.webp",
+    "work/glass-sutra-3.webp",
+    "work/glass-sutra-4.webp",
+    "work/glass-sutra-5.webp"
    ],
    "logo": "logos/glass-sutra.png",
    "lw": 290,
@@ -2145,7 +2145,7 @@ window.APOS = {
     "Media & Storytelling"
    ],
    "featured": false,
-   "image": "work/governor-house-1.jpg",
+   "image": "work/governor-house-1.webp",
    "tone": 0,
    "highlights": [
     {
@@ -2203,11 +2203,11 @@ window.APOS = {
     ]
    },
    "gallery": [
-    "work/governor-house-2.jpg",
-    "work/governor-house-3.jpg",
-    "work/governor-house-4.jpg",
-    "work/governor-house-5.jpg",
-    "work/governor-house-6.jpg"
+    "work/governor-house-2.webp",
+    "work/governor-house-3.webp",
+    "work/governor-house-4.webp",
+    "work/governor-house-5.webp",
+    "work/governor-house-6.webp"
    ],
    "logo": "logos/governor-house.png",
    "lw": 237,
@@ -2282,7 +2282,7 @@ window.APOS = {
     "Influencer Relations"
    ],
    "featured": false,
-   "image": "work/copper-chimney-1.jpg",
+   "image": "work/copper-chimney-1.webp",
    "tone": 2,
    "highlights": [],
    "placeholder": false,
@@ -2352,7 +2352,7 @@ window.APOS = {
     "Influencer Relations"
    ],
    "featured": false,
-   "image": "work/lopera-1.jpg",
+   "image": "work/lopera-1.webp",
    "tone": 3,
    "highlights": [],
    "placeholder": false,
@@ -2403,10 +2403,10 @@ window.APOS = {
     ]
    },
    "gallery": [
-    "work/lopera-2.jpg",
-    "work/lopera-3.jpg",
-    "work/lopera-4.jpg",
-    "work/lopera-5.jpg"
+    "work/lopera-2.webp",
+    "work/lopera-3.webp",
+    "work/lopera-4.webp",
+    "work/lopera-5.webp"
    ],
    "logo": "logos/l-opera.png",
    "lw": 283,
@@ -2427,7 +2427,7 @@ window.APOS = {
     "Strategic Collaborations"
    ],
    "featured": false,
-   "image": "work/beeyoung-1.jpg",
+   "image": "work/beeyoung-1.webp",
    "tone": 4,
    "highlights": [
     {
@@ -2528,10 +2528,10 @@ window.APOS = {
     ]
    },
    "gallery": [
-    "work/beeyoung-2.jpg",
-    "work/beeyoung-3.jpg",
-    "work/beeyoung-4.jpg",
-    "work/beeyoung-5.jpg"
+    "work/beeyoung-2.webp",
+    "work/beeyoung-3.webp",
+    "work/beeyoung-4.webp",
+    "work/beeyoung-5.webp"
    ],
    "logo": "logos/beeyoung.png",
    "lw": 480,
@@ -2552,7 +2552,7 @@ window.APOS = {
     "Influencer Relations"
    ],
    "featured": false,
-   "image": "work/4700bc-1.jpg",
+   "image": "work/4700bc-1.webp",
    "tone": 5,
    "highlights": [],
    "placeholder": false,
@@ -2607,7 +2607,7 @@ window.APOS = {
     ]
    },
    "gallery": [
-    "work/4700bc-2.jpg"
+    "work/4700bc-2.webp"
    ],
    "logo": "logos/4700bc.png",
    "lw": 168,
@@ -2628,7 +2628,7 @@ window.APOS = {
     "Strategic Collaborations"
    ],
    "featured": false,
-   "image": "work/flow-1.jpg",
+   "image": "work/flow-1.webp",
    "tone": 0,
    "highlights": [
     {
@@ -2704,8 +2704,8 @@ window.APOS = {
     ]
    },
    "gallery": [
-    "work/flow-2.jpg",
-    "work/flow-3.jpg"
+    "work/flow-2.webp",
+    "work/flow-3.webp"
    ],
    "logo": "logos/flow.png",
    "lw": 226,
