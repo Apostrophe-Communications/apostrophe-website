@@ -15,7 +15,7 @@ window.APOS_PAGE = () => {
 
   const featured = D.featured.map((slug) => D.projects.find((p) => p.slug === slug)).filter(Boolean);
   // the showcase projects first, then more from every category to fill out the honeycomb
-  const more = ["omega-ethos", "governor-house", "abraham-thakore", "glass-sutra", "chopard-jwc", "saundh", "copper-chimney", "mrunalini-rao", "tag-heuer", "stonex"]
+  const more = ["omega-ethos", "abraham-thakore", "chopard-jwc", "saundh", "copper-chimney", "mrunalini-rao", "tag-heuer", "stonex"]
     .map((slug) => D.projects.find((p) => p.slug === slug)).filter(Boolean);
   hive($("#homeHive"), [...featured, ...more], {
     max: 112, per: 9.5,
