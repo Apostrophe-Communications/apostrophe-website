@@ -2920,6 +2920,9 @@ window.APOS = {
      "w": 371,
      "h": 180,
      "slug": "apala"
+    },
+    {
+     "name": "Rare Rabbit"
     }
    ]
   },
@@ -3476,6 +3479,31 @@ window.APOS = {
    "name": "Sapna Gaur",
    "role": "Associate Director",
    "photo": "team/sapna-gaur.jpg"
+  }
+ ],
+ "homeBrands": [
+  {
+   "title": "Tahiliani Homes",
+   "subtitle": "Interiors & Living",
+   "category": "interiors",
+   "sticker": "stickers/tahiliani-homes.png",
+   "sw": 244,
+   "sh": 201,
+   "badge": false
+  },
+  {
+   "title": "Valaya Home",
+   "subtitle": "Interiors & Living",
+   "category": "interiors",
+   "sticker": "stickers/valaya-home.png",
+   "sw": 299,
+   "sh": 76,
+   "badge": false
+  },
+  {
+   "title": "Rare Rabbit",
+   "subtitle": "Fashion & Lifestyle",
+   "category": "fashion"
   }
  ]
 };

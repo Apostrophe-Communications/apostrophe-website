@@ -15,9 +15,15 @@ window.APOS_PAGE = () => {
 
   const featured = D.featured.map((slug) => D.projects.find((p) => p.slug === slug)).filter(Boolean);
   // the showcase projects first, then more from every category to fill out the honeycomb
-  const more = ["omega-ethos", "abraham-thakore", "chopard-jwc", "saundh", "copper-chimney", "mrunalini-rao", "tag-heuer", "stonex"]
+  const more = ["omega-ethos", "abraham-thakore", "chopard-jwc", "saundh", "copper-chimney", "mrunalini-rao", "tag-heuer", "stonex", "sameer-madan", "truebrowns"]
     .map((slug) => D.projects.find((p) => p.slug === slug)).filter(Boolean);
-  hive($("#homeHive"), [...featured, ...more], {
+  // clubbed by niche so each category sits together around the ring
+  const NICHE = D.categories.map((c) => c.id);
+  const ring = [...featured, ...more, ...(D.homeBrands || [])]
+    .map((p, i) => ({ p, i }))
+    .sort((a, b) => NICHE.indexOf(a.p.category) - NICHE.indexOf(b.p.category) || a.i - b.i)
+    .map((x) => x.p);
+  hive($("#homeHive"), ring, {
     max: 112, per: 9.5,
     centre: `<h2 class="work__title">Marquee Projects</h2><a class="btn btn--ghost" href="projects.html">View all projects</a>`,
   });

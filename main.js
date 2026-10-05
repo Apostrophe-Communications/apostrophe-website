@@ -64,11 +64,11 @@
     };
     el.classList.add("hive");
     el.innerHTML = projects.map((p, i) => `
-      <a class="sticker" href="project.html?p=${p.slug}" data-cat="${p.category}" data-i="${i}" aria-label="${esc(p.title)}: ${esc(p.subtitle)}">
+      <${p.slug ? "a" : "div"} class="sticker${p.slug ? "" : " sticker--brand"}" ${p.slug ? `href="project.html?p=${p.slug}"` : 'role="img"'} data-cat="${p.category}" data-i="${i}" aria-label="${esc(p.title)}${p.subtitle ? `: ${esc(p.subtitle)}` : ""}">
         <span class="sticker__disc" style="--r:${((i * 37) % 9) - 4}deg">${p.sticker
           ? `<img src="${esc(p.sticker)}" alt="" style="${fit(p)}" decoding="async">`
           : `<span class="sticker__txt">${esc(p.title)}</span>`}</span>
-      </a>`).join("") + `<div class="hive__label" aria-hidden="true"><b></b><em></em></div>`
+      </${p.slug ? "a" : "div"}>`).join("") + `<div class="hive__label" aria-hidden="true"><b></b><em></em></div>`
       + (centreHTML ? `<div class="hive__centre">${centreHTML}</div>` : "");
 
     const centre = $(".hive__centre", el);
