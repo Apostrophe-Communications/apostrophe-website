@@ -1030,3 +1030,6 @@ a.mail { overflow-wrap: normal; word-break: normal; }
 
 /* bare logos sit perfectly level (no sticker tilt) */
 .sticker__disc > *, .sticker.is-near .sticker__disc > * { transform: none; }
+
+/* "What we do" as a proper section heading, like Recognitions */
+.services__title { margin: 0; font-size: var(--fs-h2); line-height: 1; letter-spacing: -0.03em; color: var(--ivory); }
