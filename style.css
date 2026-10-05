@@ -537,8 +537,8 @@ html.rm .statement .sw { opacity: 1; }
 .t-dark .pbanner__sub { color: var(--mist); }
 .pbanner__sub span { display: inline-flex; align-items: center; gap: 18px; }
 .pbanner__sub span + span::before { content: ""; width: 4px; height: 4px; border-radius: 50%; background: var(--dot); }
-.halfdot { width: 34px; height: 17px; margin: 44px auto 0; overflow: hidden; }
-.halfdot i { display: block; width: 34px; height: 34px; border-radius: 50%; background: var(--dot); }
+/* the brand apostrophe (same glyph as the menu button) under the page title */
+.apos-mark { margin: 40px auto 0; font-family: var(--body); font-size: clamp(110px, 11vw, 160px); line-height: .6; height: .5em; color: var(--dot); text-align: center; }
 
 /* ==========================================================================
    Projects page
