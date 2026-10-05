@@ -15,7 +15,7 @@ window.APOS_PAGE = () => {
 
   const featured = D.featured.map((slug) => D.projects.find((p) => p.slug === slug)).filter(Boolean);
   // the showcase projects plus more from every category
-  const more = ["omega-ethos", "abraham-thakore", "chopard-jwc", "saundh", "copper-chimney", "mrunalini-rao", "tag-heuer", "stonex", "sameer-madan", "truebrowns"]
+  const more = ["omega-ethos", "abraham-thakore", "chopard-jwc", "saundh", "copper-chimney", "mrunalini-rao", "stonex", "sameer-madan", "truebrowns"]
     .map((slug) => D.projects.find((p) => p.slug === slug)).filter(Boolean);
   // Marquee Projects: free-standing logos in even rows, clubbed under their niche
   const all = [...featured, ...more, ...(D.homeBrands || [])];
