@@ -3568,6 +3568,17 @@ window.APOS = {
  ],
  "homeBrands": [
   {
+   "title": "The House of Rare",
+   "subtitle": "Fashion & Lifestyle",
+   "category": "fashion",
+   "sticker": "stickers/house-of-rare.png",
+   "sw": 900,
+   "sh": 103,
+   "badge": false,
+   "sd": 0.098,
+   "wide": true
+  },
+  {
    "title": "Tahiliani Homes",
    "subtitle": "Interiors & Living",
    "category": "interiors",

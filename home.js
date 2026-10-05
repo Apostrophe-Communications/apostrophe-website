@@ -22,18 +22,19 @@ window.APOS_PAGE = () => {
   // each logo gets a box sized by area, so long wordmarks and compact marks weigh the same
   // ...and by ink density (sd = share of the logo's box that is ink), so a heavy
   // block wordmark and a fine-line mark read as equally strong
+  const wide = (p) => !!p.wide;                            // very long strips (House of Rare) take two cells
   const fit = (p) => {
-    const ar = p.sw / p.sh;
+    const ar = p.sw / p.sh, max = wide(p) ? 1.9 : 0.98;
     const weight = Math.min(1.35, Math.max(0.72, Math.sqrt(0.3 / (p.sd || 0.3))));
-    const area = (p.badge ? 0.26 : 0.17) * weight;
+    const area = (p.badge ? 0.26 : 0.17) * weight * (wide(p) ? 2 : 1);
     let w = Math.sqrt(area * ar), h = w / ar;
-    if (w > 0.98) { w = 0.98; h = w / ar; }              // long wordmarks may use the full cell width
+    if (w > max) { w = max; h = w / ar; }                // long wordmarks may use the full cell width
     if (h > 0.46) { h = 0.46; w = h * ar; }
     return `--fw:${w.toFixed(3)};--fh:${h.toFixed(3)}`;
   };
   const tile = (p) => {
     const inner = p.sticker ? `<img src="${esc(p.sticker)}" alt="" style="${fit(p)}" loading="lazy" decoding="async">` : `<span class="mq__txt">${esc(p.title)}</span>`;
-    const cls = `mq__item${p.slug ? "" : " mq__item--brand"}`;
+    const cls = `mq__item${p.slug ? "" : " mq__item--brand"}${wide(p) ? " mq__item--wide" : ""}`;
     return p.slug
       ? `<a class="${cls}" href="project.html?p=${p.slug}" aria-label="${esc(p.title)}" title="${esc(p.title)}">${inner}</a>`
       : `<div class="${cls}" role="img" aria-label="${esc(p.title)}" title="${esc(p.title)}">${inner}</div>`;
