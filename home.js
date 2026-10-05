@@ -58,7 +58,7 @@ window.APOS_PAGE = () => {
     <div class="recog__grid recog__group">
       <div class="recog__gname">${esc(g.group)}</div>
       <div>${g.items.map((a) => `
-        <div class="recog__row"><div><h3>${esc(a.title)}</h3><p>${esc(a.org)}</p></div><span class="yr">${esc(a.year)}</span></div>`).join("")}
+        <div class="recog__row"><div><h3>${esc(a.title)}</h3><p>${esc(a.org)}</p></div><span class="yr">${esc(a.year)}</span><i class="recog__line" aria-hidden="true"></i></div>`).join("")}
       </div>
     </div>`).join("");
 
@@ -96,7 +96,7 @@ window.APOS_PAGE = () => {
     // The logo builds itself: the dot drops in, the two strokes swing
     // around it, then the name and the call to action follow.
     const tl = gsap.timeline({ delay: document.documentElement.classList.contains("arrived") ? 0.6 : 0.2, onComplete: done });
-    tl.fromTo(P.D, { opacity: 1, y: () => -H() * 0.18, scale: 0 }, { y: 0, scale: 1, duration: 1.1, ease: "back.out(2.2)" })
+    tl.fromTo(P.D, { opacity: 0, y: () => -H() * 0.18, scale: 0.6 }, { opacity: 1, y: 0, scale: 1, duration: 1.1, ease: "back.out(1.2)" })
       .fromTo(P.L, { opacity: 0, x: () => -W() * 0.22, y: () => H() * 0.2, rotation: -24 }, { opacity: 1, x: 0, y: 0, rotation: 0, duration: 1.5, ease: "expo.out" }, "-=0.45")
       .fromTo(P.R, { opacity: 0, x: () => W() * 0.22, y: () => H() * 0.26, rotation: 30 }, { opacity: 1, x: 0, y: 0, rotation: 0, duration: 1.5, ease: "expo.out" }, "<0.08")
       .to(".hero__wordmark", { clipPath: "inset(0 0% 0 0)", duration: 1.3, ease: "expo.inOut" }, "-=1.1")
@@ -117,11 +117,23 @@ window.APOS_PAGE = () => {
       else removeEventListener("touchmove", noSwipe);
       if (lenis) on ? lenis.stop() : lenis.start();
     };
-    scrollTo(0, 0);
-    lock(true);
-    const safety = setTimeout(() => tl.progress(1), 9000);
     const skip = () => { tl.timeScale(6); off(); };
     const off = () => ["wheel", "touchstart", "touchmove", "keydown", "pointerdown"].forEach((e) => removeEventListener(e, skip));
+    let safety;
+
+    // The full opening plays once per visit; coming back to Home later in the
+    // same session just fades the finished logo in, with no scroll lock.
+    let seen = false;
+    try { seen = !!sessionStorage.getItem("apos-intro"); sessionStorage.setItem("apos-intro", 1); } catch (e) {}
+    if (seen) {
+      tl.progress(1);
+      gsap.from(["#sig", "#heroBrand"], { opacity: 0, y: 12, duration: 0.6, ease: "power3.out" });
+      return;
+    }
+
+    scrollTo(0, 0);
+    lock(true);
+    safety = setTimeout(() => tl.progress(1), 9000);
     ["wheel", "touchstart", "touchmove", "keydown", "pointerdown"].forEach((e) => addEventListener(e, skip, { passive: true }));
 
     function done() {
@@ -168,8 +180,8 @@ window.APOS_PAGE = () => {
     });
     tl.to("#heroBrand", { y: -30, opacity: 0, duration: 0.3 }, 0)
       .to(".hero__scroll", { opacity: 0, duration: 0.1 }, 0)
-      .fromTo(L, { x: 0, y: 0, opacity: 1 }, { x: () => -W() * 0.14, y: () => H() * 0.05, opacity: 0, duration: 0.55, ease: "power2.in" }, 0.05)
-      .fromTo(R, { x: 0, y: 0, opacity: 1 }, { x: () => W() * 0.14, y: () => H() * 0.05, opacity: 0, duration: 0.55, ease: "power2.in" }, 0.05)
+      .fromTo(L, { x: 0, y: 0, opacity: 1 }, { x: () => -W() * 0.14, y: () => H() * 0.05, opacity: 0, duration: 0.55, ease: "sine.inOut" }, 0.05)
+      .fromTo(R, { x: 0, y: 0, opacity: 1 }, { x: () => W() * 0.14, y: () => H() * 0.05, opacity: 0, duration: 0.55, ease: "sine.inOut" }, 0.05)
       .fromTo(z,
         { x: () => { const g = geo(); return g.cx - g.R; }, y: () => { const g = geo(); return g.cy - g.R; }, scale: () => { const g = geo(); return g.r / g.R; } },
         { x: () => W() / 2 - geo().R, y: () => H() / 2 - geo().R, scale: 1, duration: 1, ease: "power2.inOut" }, 0)
@@ -252,9 +264,10 @@ window.APOS_PAGE = () => {
   /* ---------------- recognitions ---------------- */
   function recognitions() {
     $$(".recog__row").forEach((row, i) => {
-      if (RM) { row.style.setProperty("--line", 1); return; }
-      gsap.fromTo(row, { "--line": 0 }, { "--line": 1, duration: 1.4, ease: "expo.inOut", scrollTrigger: { trigger: row, start: "top 90%", once: true } });
-      gsap.from(row.children, { y: 30, opacity: 0, duration: 1.1, ease: "expo.out", stagger: 0.08, scrollTrigger: { trigger: row, start: "top 90%", once: true } });
+      if (RM) return;
+      // the divider draws itself: a real element scaled on the GPU (no CSS-variable recalc)
+      gsap.from(row.querySelector(".recog__line"), { scaleX: 0, duration: 1.2, ease: "expo.out", scrollTrigger: { trigger: row, start: "top 90%", once: true } });
+      gsap.from([...row.children].filter((c) => !c.matches(".recog__line")), { y: 30, opacity: 0, duration: 1.1, ease: "expo.out", stagger: 0.08, scrollTrigger: { trigger: row, start: "top 90%", once: true } });
     });
   }
 
@@ -281,7 +294,7 @@ window.APOS_PAGE = () => {
     };
     const go = (i) => {
       idx = i; mark();
-      gsap.to(track, { x: xFor(idx), duration: RM ? 0 : 1.1, ease: "expo.inOut", overwrite: true, onComplete: normalize });
+      gsap.to(track, { x: xFor(idx), duration: RM ? 0 : 0.6, ease: "power4.inOut", overwrite: true, onComplete: normalize });
     };
     const play = () => { clearInterval(timer); if (inView && !hover && !RM) timer = setInterval(() => go(idx + 1), 4800); };
 

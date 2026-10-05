@@ -189,14 +189,14 @@
       el.addEventListener("pointermove", (e) => { const r = el.getBoundingClientRect(); magnify(e.clientX - r.left, e.clientY - r.top); });
       el.addEventListener("pointerleave", rest);
     }
-    // stickers pop on as the section arrives
+    // stickers fade up in reading order as the section arrives
     // (the pop-in animates the inner disc so it never fights the hover loop on the outer sticker)
     if (!RM) {
       const discs = stickers.map((s) => s.firstElementChild);
-      gsap.set(discs, { scale: 0 });
+      gsap.set(discs, { scale: 0.92, opacity: 0 });
       ScrollTrigger.create({
         trigger: el, start: "top 85%", once: true,
-        onEnter: () => gsap.to(discs, { scale: 1, duration: 0.9, ease: "back.out(2.2)", stagger: { each: 0.035, from: "random" } }),
+        onEnter: () => gsap.to(discs, { scale: 1, opacity: 1, duration: 0.5, ease: "power3.out", stagger: 0.035 }),
       });
     }
     return {
@@ -298,9 +298,6 @@
     if (RM || typeof Lenis === "undefined") return;
     lenis = new Lenis({
       lerp: 0.1, wheelMultiplier: 1, smoothWheel: true, syncTouch: false,
-      // sideways swipes over a horizontal gallery belong to the gallery, not the page
-      virtualScroll: ({ event, deltaX, deltaY }) =>
-        !(event.target.closest && event.target.closest(".work__track") && Math.abs(deltaX) > Math.abs(deltaY)),
     });
     lenis.on("scroll", ScrollTrigger.update);
     gsap.ticker.add((t) => lenis.raf(t * 1000));
@@ -355,17 +352,18 @@
       const k = RM ? 0.01 : 1;
       if (open) {
         lenis?.stop();
-        tl = gsap.timeline({ defaults: { ease: "expo.inOut" } })
+        // open: deliberate (drawer curve); close below snaps back faster
+        tl = gsap.timeline({ defaults: { ease: "power4.out" } })
           .set(menu, { visibility: "visible" })
-          .fromTo(menu, { clipPath: `circle(0px at ${o})` }, { clipPath: `circle(${R}px at ${o})`, duration: 1.1 * k })
-          .fromTo(links, { yPercent: 110 }, { yPercent: 0, duration: 0.9 * k, stagger: 0.06 * k, ease: "expo.out" }, 0.45 * k)
-          .fromTo(foot, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.8 * k, ease: "power3.out" }, 0.7 * k);
+          .fromTo(menu, { clipPath: `circle(0px at ${o})` }, { clipPath: `circle(${R}px at ${o})`, duration: 0.6 * k })
+          .fromTo(links, { yPercent: 110, opacity: 1 }, { yPercent: 0, duration: 0.6 * k, stagger: 0.05 * k, ease: "expo.out" }, 0.18 * k)
+          .fromTo(foot, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.5 * k, ease: "power3.out" }, 0.32 * k);
       } else {
         lenis?.start();
-        tl = gsap.timeline({ defaults: { ease: "expo.inOut" } })
-          .to(links, { yPercent: -110, duration: 0.5 * k, stagger: 0.03 * k, ease: "power3.in" })
-          .to(foot, { opacity: 0, duration: 0.3 * k }, 0)
-          .to(menu, { clipPath: `circle(0px at ${o})`, duration: 0.8 * k }, 0.15 * k)
+        tl = gsap.timeline({ defaults: { ease: "power3.out" } })
+          .to(links, { yPercent: -110, opacity: 0, duration: 0.22 * k, stagger: 0.02 * k })
+          .to(foot, { opacity: 0, duration: 0.2 * k }, 0)
+          .to(menu, { clipPath: `circle(0px at ${o})`, duration: 0.35 * k, ease: "power4.inOut" }, 0.05 * k)
           .set(menu, { visibility: "hidden" });
       }
     };
@@ -412,7 +410,7 @@
     if (sessionStorage.getItem("apos-pt")) {
       sessionStorage.removeItem("apos-pt");
       pt.classList.add("is-cover");
-      gsap.to(pt, { yPercent: -101, duration: 1, ease: "expo.inOut", delay: 0.1, onComplete: () => { pt.classList.remove("is-cover"); gsap.set(pt, { yPercent: 101 }); } });
+      gsap.to(pt, { yPercent: -101, duration: 0.5, ease: "expo.out", onComplete: () => { pt.classList.remove("is-cover"); gsap.set(pt, { yPercent: 101 }); } });
       document.documentElement.classList.add("arrived");
     } else gsap.set(pt, { yPercent: 101 });
 
@@ -425,7 +423,8 @@
       if (url.pathname === location.pathname && url.search === location.search) { e.preventDefault(); return; }
       e.preventDefault();
       sessionStorage.setItem("apos-pt", 1);
-      gsap.fromTo(pt, { yPercent: 101 }, { yPercent: 0, duration: 0.8, ease: "expo.inOut", onComplete: () => (location.href = url.href) });
+      // a quick cover: navigation should never wait on decoration
+      gsap.fromTo(pt, { yPercent: 101 }, { yPercent: 0, duration: 0.35, ease: "power3.out", onComplete: () => (location.href = url.href) });
     });
     // Back/forward cache: never show a stuck curtain.
     addEventListener("pageshow", (e) => e.persisted && gsap.set(pt, { yPercent: 101 }));
