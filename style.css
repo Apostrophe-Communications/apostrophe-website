@@ -1040,3 +1040,16 @@ html.dot-cursor input, html.dot-cursor textarea, html.dot-cursor select { cursor
 @media (max-width: 380px) { .hdr__name { display: none; } }
 .filters sup { font-size: 11px; }
 .pill { font-size: 12px; }
+
+/* soft yellow glow behind the banner apostrophe */
+.apos-mark { position: relative; isolation: isolate; }
+.apos-mark::before {
+  /* centred on the glyph as drawn: the comma renders just above the top of its (short) box */
+  content: ""; position: absolute; z-index: -1; left: 50%; top: -0.06em;
+  width: clamp(220px, 26vw, 360px); aspect-ratio: 1; transform: translate(-50%, -50%);
+  border-radius: 50%; pointer-events: none;
+  background: radial-gradient(closest-side, rgba(228, 165, 36, .42), rgba(228, 165, 36, .18) 45%, rgba(228, 165, 36, 0) 100%);
+  animation: aposGlow 6s ease-in-out infinite alternate;
+}
+@keyframes aposGlow { from { opacity: .75; transform: translate(-50%, -50%) scale(.94); } to { opacity: 1; transform: translate(-50%, -50%) scale(1.06); } }
+@media (prefers-reduced-motion: reduce) { .apos-mark::before { animation: none; } }
