@@ -19,7 +19,7 @@ window.APOS_PAGE = () => {
     .map((slug) => D.projects.find((p) => p.slug === slug)).filter(Boolean);
   hive($("#homeHive"), [...featured, ...more], {
     max: 112, per: 9.5,
-    centre: `<h2 class="work__title">Marquee projects</h2><a class="btn btn--ghost" href="projects.html">View all projects</a>`,
+    centre: `<h2 class="work__title">Marquee Projects</h2><a class="btn btn--ghost" href="projects.html">View all projects</a>`,
   });
 
   const bandSet = `<div class="band__set">${(D.topBrands || []).map((b) => `<span>${logo(b)}</span><i></i>`).join("")}</div>`;
