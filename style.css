@@ -1014,3 +1014,7 @@ body.menu-open .hdr .hdr__label { color: var(--yellow); }
 .zoomdot { position: fixed; left: 0; top: 0; z-index: 1; border-radius: 50%; background: var(--dot); pointer-events: none; transform-origin: 50% 50%; will-change: transform; }
 .zoomdot i { position: absolute; inset: 0; border-radius: 50%; background: var(--ivory); opacity: 0; will-change: opacity; }
 html.rm .zoomdot { display: none; }
+
+/* email addresses only break after the "@", never mid-word */
+a.mail { overflow-wrap: normal; word-break: normal; }
+.foot-bar a.mail { overflow-wrap: normal; }
