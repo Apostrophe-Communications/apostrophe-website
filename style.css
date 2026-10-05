@@ -1060,3 +1060,8 @@ a.mq__item:focus-visible { outline: 2px solid var(--dot); outline-offset: 2px; b
   .mq__logos { grid-template-columns: repeat(3, 1fr); }
 }
 .work__head .btn { white-space: nowrap; flex: none; }
+
+/* Marquee Projects spacing: roomier cells, wide marks span two */
+.mq { --cell: clamp(124px, 12vw, 170px); }
+.mq__logos { gap: clamp(14px, 1.6vw, 22px) clamp(18px, 2.4vw, 34px); grid-auto-flow: row dense; }
+.mq__item { height: calc(var(--cell) * .54); }

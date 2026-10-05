@@ -283,7 +283,8 @@ window.APOS = {
    "sticker": "stickers/bvlgari-jwc.png",
    "sw": 359,
    "sh": 39,
-   "badge": false
+   "badge": false,
+   "sd": 0.184
   },
   {
    "slug": "rado",
@@ -359,7 +360,8 @@ window.APOS = {
    "sticker": "stickers/rado.png",
    "sw": 520,
    "sh": 165,
-   "badge": false
+   "badge": false,
+   "sd": 0.384
   },
   {
    "slug": "tasva",
@@ -501,7 +503,8 @@ window.APOS = {
    "sticker": "stickers/tasva.png",
    "sw": 491,
    "sh": 94,
-   "badge": false
+   "badge": false,
+   "sd": 0.299
   },
   {
    "slug": "tarun-tahiliani",
@@ -583,7 +586,8 @@ window.APOS = {
    "sticker": "stickers/tarun-tahiliani-v2.png",
    "sw": 520,
    "sh": 197,
-   "badge": false
+   "badge": false,
+   "sd": 0.127
   },
   {
    "slug": "lladro",
@@ -660,7 +664,8 @@ window.APOS = {
    "sticker": "stickers/lladro.png",
    "sw": 201,
    "sh": 57,
-   "badge": false
+   "badge": false,
+   "sd": 0.257
   },
   {
    "slug": "bath-body-works",
@@ -720,13 +725,14 @@ window.APOS = {
    "sticker": "stickers/bath-body-works.png",
    "sw": 482,
    "sh": 404,
-   "badge": false
+   "badge": false,
+   "sd": 0.255
   },
   {
    "slug": "apala",
    "title": "Apala",
    "subtitle": "Store launch",
-   "category": "fashion",
+   "category": "luxury",
    "tags": [
     "Experiences & Activations",
     "Influencer Relations"
@@ -779,7 +785,8 @@ window.APOS = {
    "sticker": "stickers/apala-v2.png",
    "sw": 441,
    "sh": 214,
-   "badge": false
+   "badge": false,
+   "sd": 0.171
   },
   {
    "slug": "chopard-jwc",
@@ -840,7 +847,8 @@ window.APOS = {
    "sticker": "stickers/chopard-jwc.png",
    "sw": 520,
    "sh": 186,
-   "badge": false
+   "badge": false,
+   "sd": 0.138
   },
   {
    "slug": "omega-ethos",
@@ -901,7 +909,8 @@ window.APOS = {
    "sticker": "stickers/omega-ethos.png",
    "sw": 499,
    "sh": 243,
-   "badge": false
+   "badge": false,
+   "sd": 0.187
   },
   {
    "slug": "tag-heuer",
@@ -954,7 +963,8 @@ window.APOS = {
    "sticker": "stickers/tag-heuer.png",
    "sw": 520,
    "sh": 315,
-   "badge": false
+   "badge": false,
+   "sd": 0.26
   },
   {
    "slug": "mrunalini-rao",
@@ -1039,7 +1049,8 @@ window.APOS = {
    "sticker": "stickers/mrunalini-rao.png",
    "sw": 348,
    "sh": 46,
-   "badge": false
+   "badge": false,
+   "sd": 0.228
   },
   {
    "slug": "abraham-thakore",
@@ -1124,7 +1135,8 @@ window.APOS = {
    "sticker": "stickers/abraham-thakore.png",
    "sw": 520,
    "sh": 147,
-   "badge": false
+   "badge": false,
+   "sd": 0.627
   },
   {
    "slug": "sameer-madan",
@@ -1184,7 +1196,8 @@ window.APOS = {
    "sticker": "stickers/sameer-madan.png",
    "sw": 491,
    "sh": 61,
-   "badge": false
+   "badge": false,
+   "sd": 0.492
   },
   {
    "slug": "bally",
@@ -1250,7 +1263,8 @@ window.APOS = {
    "sticker": "stickers/bally.png",
    "sw": 361,
    "sh": 242,
-   "badge": false
+   "badge": false,
+   "sd": 0.146
   },
   {
    "slug": "paul-smith",
@@ -1330,7 +1344,8 @@ window.APOS = {
    "sticker": "stickers/paul-smith.png",
    "sw": 290,
    "sh": 58,
-   "badge": false
+   "badge": false,
+   "sd": 0.18
   },
   {
    "slug": "saundh",
@@ -1427,7 +1442,8 @@ window.APOS = {
    "sticker": "stickers/saundh.png",
    "sw": 220,
    "sh": 81,
-   "badge": false
+   "badge": false,
+   "sd": 0.159
   },
   {
    "slug": "truebrowns",
@@ -1535,7 +1551,8 @@ window.APOS = {
    "sticker": "stickers/truebrowns.png",
    "sw": 510,
    "sh": 76,
-   "badge": false
+   "badge": false,
+   "sd": 0.241
   },
   {
    "slug": "cover-story",
@@ -1590,7 +1607,8 @@ window.APOS = {
    "sticker": "stickers/cover-story.png",
    "sw": 520,
    "sh": 112,
-   "badge": false
+   "badge": false,
+   "sd": 0.16
   },
   {
    "slug": "forever-new",
@@ -1646,7 +1664,8 @@ window.APOS = {
    "sticker": "stickers/forever-new.png",
    "sw": 446,
    "sh": 42,
-   "badge": false
+   "badge": false,
+   "sd": 0.326
   },
   {
    "slug": "superdry",
@@ -1695,7 +1714,8 @@ window.APOS = {
    "sticker": "stickers/superdry.png",
    "sw": 515,
    "sh": 115,
-   "badge": false
+   "badge": false,
+   "sd": 0.406
   },
   {
    "slug": "envisage",
@@ -1775,7 +1795,8 @@ window.APOS = {
    "sticker": "stickers/envisage.png",
    "sw": 148,
    "sh": 32,
-   "badge": false
+   "badge": false,
+   "sd": 0.305
   },
   {
    "slug": "stonex",
@@ -1848,7 +1869,8 @@ window.APOS = {
    "sticker": "stickers/stonex.png",
    "sw": 169,
    "sh": 60,
-   "badge": false
+   "badge": false,
+   "sd": 0.131
   },
   {
    "slug": "fcml",
@@ -1925,7 +1947,8 @@ window.APOS = {
    "badge": false,
    "logo": "logos/fcml.png",
    "lw": 640,
-   "lh": 180
+   "lh": 180,
+   "sd": 0.218
   },
   {
    "slug": "at-home",
@@ -2001,7 +2024,8 @@ window.APOS = {
    "sticker": "stickers/at-home.png",
    "sw": 520,
    "sh": 147,
-   "badge": false
+   "badge": false,
+   "sd": 0.627
   },
   {
    "slug": "glass-sutra",
@@ -2108,7 +2132,8 @@ window.APOS = {
    "sticker": "stickers/glass-sutra.png",
    "sw": 161,
    "sh": 100,
-   "badge": false
+   "badge": false,
+   "sd": 0.283
   },
   {
    "slug": "governor-house",
@@ -2190,7 +2215,8 @@ window.APOS = {
    "sticker": "stickers/governor-house.png",
    "sw": 480,
    "sh": 365,
-   "badge": true
+   "badge": true,
+   "sd": 0.963
   },
   {
    "slug": "tres",
@@ -2243,7 +2269,8 @@ window.APOS = {
    "sticker": "stickers/tres.png",
    "sw": 160,
    "sh": 108,
-   "badge": false
+   "badge": false,
+   "sd": 0.158
   },
   {
    "slug": "copper-chimney",
@@ -2312,7 +2339,8 @@ window.APOS = {
    "sticker": "stickers/copper-chimney.png",
    "sw": 479,
    "sh": 78,
-   "badge": false
+   "badge": false,
+   "sd": 0.16
   },
   {
    "slug": "lopera",
@@ -2386,7 +2414,8 @@ window.APOS = {
    "sticker": "stickers/lopera.png",
    "sw": 211,
    "sh": 134,
-   "badge": false
+   "badge": false,
+   "sd": 0.109
   },
   {
    "slug": "beeyoung",
@@ -2510,7 +2539,8 @@ window.APOS = {
    "sticker": "stickers/beeyoung.png",
    "sw": 136,
    "sh": 51,
-   "badge": false
+   "badge": false,
+   "sd": 0.355
   },
   {
    "slug": "4700bc",
@@ -2585,7 +2615,8 @@ window.APOS = {
    "sticker": "stickers/4700bc.png",
    "sw": 151,
    "sh": 162,
-   "badge": true
+   "badge": true,
+   "sd": 0.73
   },
   {
    "slug": "flow",
@@ -2682,7 +2713,8 @@ window.APOS = {
    "sticker": "stickers/flow.png",
    "sw": 206,
    "sh": 164,
-   "badge": false
+   "badge": false,
+   "sd": 0.21
   }
  ],
  "clientIndex": [
@@ -2972,7 +3004,10 @@ window.APOS = {
      "slug": "apala"
     },
     {
-     "name": "Rare Rabbit"
+     "name": "The House of Rare",
+     "logo": "logos/house-of-rare.png",
+     "w": 720,
+     "h": 82
     }
    ]
   },
@@ -3539,7 +3574,8 @@ window.APOS = {
    "sticker": "stickers/tahiliani-homes.png",
    "sw": 244,
    "sh": 201,
-   "badge": false
+   "badge": false,
+   "sd": 0.069
   },
   {
    "title": "Valaya Home",
@@ -3548,12 +3584,8 @@ window.APOS = {
    "sticker": "stickers/valaya-home.png",
    "sw": 299,
    "sh": 76,
-   "badge": false
-  },
-  {
-   "title": "Rare Rabbit",
-   "subtitle": "Fashion & Lifestyle",
-   "category": "fashion"
+   "badge": false,
+   "sd": 0.156
   },
   {
    "title": "Tiffany & Co.",
@@ -3562,7 +3594,8 @@ window.APOS = {
    "sticker": "stickers/tiffany.png",
    "sw": 520,
    "sh": 67,
-   "badge": false
+   "badge": false,
+   "sd": 0.202
   },
   {
    "title": "Ferragamo",
@@ -3571,7 +3604,28 @@ window.APOS = {
    "sticker": "stickers/ferragamo.png",
    "sw": 520,
    "sh": 62,
-   "badge": false
+   "badge": false,
+   "sd": 0.394
+  },
+  {
+   "title": "DIVA",
+   "subtitle": "Dining & Hospitality",
+   "category": "dining",
+   "sticker": "stickers/diva.png",
+   "sw": 238,
+   "sh": 102,
+   "badge": false,
+   "sd": 0.309
+  },
+  {
+   "title": "Araya Bagh",
+   "subtitle": "Dining & Hospitality",
+   "category": "dining",
+   "sticker": "stickers/araya-bagh.png",
+   "sw": 342,
+   "sh": 114,
+   "badge": false,
+   "sd": 0.383
   }
  ]
 };

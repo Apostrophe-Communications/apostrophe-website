@@ -15,23 +15,28 @@ window.APOS_PAGE = () => {
 
   const featured = D.featured.map((slug) => D.projects.find((p) => p.slug === slug)).filter(Boolean);
   // the showcase projects plus more from every category
-  const more = ["omega-ethos", "abraham-thakore", "chopard-jwc", "saundh", "copper-chimney", "mrunalini-rao", "stonex", "fcml", "sameer-madan", "bally", "paul-smith", "truebrowns", "forever-new", "superdry"]
+  const more = ["omega-ethos", "abraham-thakore", "chopard-jwc", "saundh", "copper-chimney", "mrunalini-rao", "stonex", "fcml", "sameer-madan", "bally", "paul-smith", "truebrowns", "forever-new", "superdry", "beeyoung", "tres", "lopera"]
     .map((slug) => D.projects.find((p) => p.slug === slug)).filter(Boolean);
   // Marquee Projects: free-standing logos in even rows, clubbed under their niche
   const all = [...featured, ...more, ...(D.homeBrands || [])];
   // each logo gets a box sized by area, so long wordmarks and compact marks weigh the same
+  // ...and by ink density (sd = share of the logo's box that is ink), so a heavy
+  // block wordmark and a fine-line mark read as equally strong
   const fit = (p) => {
-    const ar = p.sw / p.sh, area = p.badge ? 0.32 : 0.22;
+    const ar = p.sw / p.sh;
+    const weight = Math.min(1.35, Math.max(0.72, Math.sqrt(0.3 / (p.sd || 0.3))));
+    const area = (p.badge ? 0.26 : 0.17) * weight;
     let w = Math.sqrt(area * ar), h = w / ar;
-    if (w > 0.9) { w = 0.9; h = w / ar; }
-    if (h > 0.5) { h = 0.5; w = h * ar; }
+    if (w > 0.98) { w = 0.98; h = w / ar; }              // long wordmarks may use the full cell width
+    if (h > 0.46) { h = 0.46; w = h * ar; }
     return `--fw:${w.toFixed(3)};--fh:${h.toFixed(3)}`;
   };
   const tile = (p) => {
     const inner = p.sticker ? `<img src="${esc(p.sticker)}" alt="" style="${fit(p)}" loading="lazy" decoding="async">` : `<span class="mq__txt">${esc(p.title)}</span>`;
+    const cls = `mq__item${p.slug ? "" : " mq__item--brand"}`;
     return p.slug
-      ? `<a class="mq__item" href="project.html?p=${p.slug}" aria-label="${esc(p.title)}" title="${esc(p.title)}">${inner}</a>`
-      : `<div class="mq__item mq__item--brand" role="img" aria-label="${esc(p.title)}" title="${esc(p.title)}">${inner}</div>`;
+      ? `<a class="${cls}" href="project.html?p=${p.slug}" aria-label="${esc(p.title)}" title="${esc(p.title)}">${inner}</a>`
+      : `<div class="${cls}" role="img" aria-label="${esc(p.title)}" title="${esc(p.title)}">${inner}</div>`;
   };
   $("#marquee").innerHTML = D.categories.map((c) => {
     const items = all.filter((p) => p.category === c.id);
