@@ -789,10 +789,10 @@ html.rm .hdr { opacity: 1 !important; visibility: visible !important; }
   background: radial-gradient(closest-side, rgba(var(--c), var(--a1)), rgba(var(--c), var(--a2)) 30%, rgba(var(--c), var(--a3)) 56%, rgba(var(--c), 0) 74%);
 }
 .cglow i.on { opacity: 1; }
-.cglow--blue     { --c: 255, 255, 255; --a1: .22; --a2: .1; --a3: .03; }   /* on navy  */
-.cglow--espresso { --c: 228, 165, 36;  --a1: .26; --a2: .12; --a3: .04; }   /* on forest ink */
-.cglow--honey    { --c: 228, 165, 36;  --a1: .42; --a2: .2;  --a3: .07; }   /* on bone */
-.cglow--butter   { --c: 255, 255, 255; --a1: .62; --a2: .3;  --a3: .1;  }   /* on honey */
+.cglow--blue     { --c: 255, 255, 255; --a1: .13; --a2: .06; --a3: .02; }   /* on navy  */
+.cglow--espresso { --c: 228, 165, 36;  --a1: .16; --a2: .07; --a3: .025; }   /* on forest ink */
+.cglow--honey    { --c: 228, 165, 36;  --a1: .25; --a2: .12; --a3: .04; }   /* on bone */
+.cglow--butter   { --c: 255, 255, 255; --a1: .37; --a2: .18; --a3: .06; }   /* on honey */
 
 /* ---------- Work gallery edge arrows ---------- */
 
