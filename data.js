@@ -10,7 +10,7 @@
 window.APOS = {
  "stats": [
   {
-   "value": 8,
+   "value": 9,
    "suffix": "+",
    "label": "Years of experience"
   },
@@ -3554,11 +3554,6 @@ window.APOS = {
    "name": "Nidhi Gupta",
    "role": "Director of Operations & Growth",
    "photo": "team/nidhi-gupta.jpg"
-  },
-  {
-   "name": "Aditi Khachi",
-   "role": "Director, Strategy & Business",
-   "photo": "team/aditi-khachi.jpg"
   },
   {
    "name": "Sapna Gaur",

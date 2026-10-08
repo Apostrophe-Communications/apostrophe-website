@@ -167,7 +167,10 @@ window.APOS_PAGE = () => {
       const r = circle.getBoundingClientRect();
       return { cx: r.left + r.width / 2, cy: r.top + r.height / 2, r: r.width / 2, R: Math.hypot(innerWidth, innerHeight) / 2 + 4 };
     };
-    const size = () => { const g = geo(); z.style.width = z.style.height = `${g.R * 2}px`; };
+    // About starts rising over the last part of the pin, right as the screen turns white,
+    // so there's no full screen of blank white between the zoom and the text
+    const intro = $("#intro");
+    const size = () => { const g = geo(); z.style.width = z.style.height = `${g.R * 2}px`; intro.style.marginTop = `${-H() * 0.78}px`; };
     size();
     ScrollTrigger.addEventListener("refreshInit", size);
 
@@ -177,7 +180,7 @@ window.APOS_PAGE = () => {
     const tl = gsap.timeline({
       defaults: { ease: "none" },
       // refreshPriority: this pin sits above everything else, so it must be measured first
-      scrollTrigger: { id: "zoom", trigger: "#hero", start: "top top", end: () => `+=${H() * 0.9}`, pin: true, scrub: 1, invalidateOnRefresh: true, refreshPriority: 1 },
+      scrollTrigger: { id: "zoom", trigger: "#hero", start: "top top", end: () => `+=${H() * 1.32}`, pin: true, scrub: 1, invalidateOnRefresh: true, refreshPriority: 1 },
     });
     tl.to("#heroBrand", { y: -30, opacity: 0, duration: 0.3 }, 0)
       .to(".hero__scroll", { opacity: 0, duration: 0.1 }, 0)
@@ -186,7 +189,8 @@ window.APOS_PAGE = () => {
       .fromTo(z,
         { x: () => { const g = geo(); return g.cx - g.R; }, y: () => { const g = geo(); return g.cy - g.R; }, scale: () => { const g = geo(); return g.r / g.R; } },
         { x: () => W() / 2 - geo().R, y: () => H() / 2 - geo().R, scale: 1, duration: 1, ease: "power2.inOut" }, 0)
-      .fromTo(z.firstChild, { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.68);
+      .fromTo(z.firstChild, { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.5)
+      .to({}, { duration: 0.76 });   // tail: the zoom fills the first 0.75 screens of the pin and is white by ~0.6, About rises from there
 
     // once About has risen into place the full-screen dot is invisible behind it, so retire it
     ScrollTrigger.create({
