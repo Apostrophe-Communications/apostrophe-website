@@ -17,3 +17,5 @@ then open http://localhost:8080
 
 ## Moving to the company domain
 In the repo's Settings → Pages, add `apostrophecommunications.com` as the custom domain and update the DNS records at the domain registrar. All links are relative, so nothing in the code needs to change.
+
+chore:1 
