@@ -24,7 +24,7 @@ npx wrangler@4.149.0 deploy
 ## Updating content
 Everything that changes lives in **`data.js`**:
 - **Projects**: copy an entry in `projects`, change the text. `featured` projects appear on the home page carousel (order set by the `featured` list).
-- **Real photos**: put images in `images/` and set `image: "images/name.jpg"` on the project.
+- **Real photos**: put images in `work/` as `.webp` (plus an 800px `-sm.webp` copy for phones) and set `image: "work/name.webp"` on the project.
 - **Testimonials, awards, partners, offices, contact details**: edit the matching lists.
 - **Enquiry form** (Brand name, Email, Phone, Brand Instagram): set `contact.googleForm` to the Google Form's `formResponse` URL and each question's `entry.NNN` id; responses land in the Google Sheet linked to that form. Empty = the form opens the visitor's email app.
 

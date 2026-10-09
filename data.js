@@ -3,7 +3,8 @@
    Everything on the site that changes (projects, awards,
    testimonials, partners, contact) lives in this one file.
    - To add a project: copy one object in `projects` and edit it.
-   - To use a real photo: set `image: "images/<file>.jpg"`.
+   - To use a real photo: put it in work/ as .webp (plus a -sm.webp
+     800px copy) and set `image: "work/<file>.webp"`.
    - `contact.googleForm`: the Google Form that collects enquiries
      (`action` = its formResponse URL, `fields` = each question's
      entry.NNN id). Empty = the form opens the visitor's email app.
@@ -278,9 +279,6 @@ window.APOS = {
    "gallery": [
     "work/bvlgari-jwc-2.webp"
    ],
-   "logo": "logos/bvlgari.png",
-   "lw": 720,
-   "lh": 78,
    "sticker": "stickers/bvlgari-jwc.png",
    "sw": 359,
    "sh": 39,
@@ -355,9 +353,6 @@ window.APOS = {
     "work/rado-3.webp",
     "work/rado-4.webp"
    ],
-   "logo": "logos/rado.png",
-   "lw": 569,
-   "lh": 180,
    "sticker": "stickers/rado.png",
    "sw": 520,
    "sh": 165,
@@ -498,9 +493,6 @@ window.APOS = {
     "work/tasva-7.webp",
     "work/tasva-8.webp"
    ],
-   "logo": "logos/tasva.png",
-   "lw": 720,
-   "lh": 138,
    "sticker": "stickers/tasva.png",
    "sw": 491,
    "sh": 94,
@@ -581,9 +573,6 @@ window.APOS = {
     "work/tarun-tahiliani-5.webp",
     "work/tarun-tahiliani-6.webp"
    ],
-   "logo": "logos/tarun-tahiliani-v2.png",
-   "lw": 720,
-   "lh": 68,
    "sticker": "stickers/tarun-tahiliani-v2.png",
    "sw": 520,
    "sh": 197,
@@ -659,9 +648,6 @@ window.APOS = {
     "work/lladro-7.webp",
     "work/lladro-8.webp"
    ],
-   "logo": "logos/lladro.png",
-   "lw": 635,
-   "lh": 180,
    "sticker": "stickers/lladro.png",
    "sw": 201,
    "sh": 57,
@@ -720,9 +706,6 @@ window.APOS = {
     "work/bath-body-works-6.webp",
     "work/bath-body-works-7.webp"
    ],
-   "logo": "logos/bath-and-body-works.png",
-   "lw": 215,
-   "lh": 180,
    "sticker": "stickers/bath-body-works.png",
    "sw": 482,
    "sh": 404,
@@ -780,9 +763,6 @@ window.APOS = {
     "work/apala-5.webp",
     "work/apala-6.webp"
    ],
-   "logo": "logos/apala-v2.png",
-   "lw": 371,
-   "lh": 180,
    "sticker": "stickers/apala-v2.png",
    "sw": 441,
    "sh": 214,
@@ -842,9 +822,6 @@ window.APOS = {
     ]
    },
    "gallery": [],
-   "logo": "logos/chopard.png",
-   "lw": 503,
-   "lh": 180,
    "sticker": "stickers/chopard-jwc.png",
    "sw": 520,
    "sh": 186,
@@ -904,9 +881,6 @@ window.APOS = {
     ]
    },
    "gallery": [],
-   "logo": "logos/omega.png",
-   "lw": 370,
-   "lh": 180,
    "sticker": "stickers/omega-ethos.png",
    "sw": 499,
    "sh": 243,
@@ -958,9 +932,6 @@ window.APOS = {
     ]
    },
    "gallery": [],
-   "logo": "logos/tag-heuer.png",
-   "lw": 297,
-   "lh": 180,
    "sticker": "stickers/tag-heuer.png",
    "sw": 520,
    "sh": 315,
@@ -1044,9 +1015,6 @@ window.APOS = {
     "work/mrunalini-rao-6.webp",
     "work/mrunalini-rao-7.webp"
    ],
-   "logo": "logos/mrunalini-rao.png",
-   "lw": 720,
-   "lh": 95,
    "sticker": "stickers/mrunalini-rao.png",
    "sw": 348,
    "sh": 46,
@@ -1130,9 +1098,6 @@ window.APOS = {
     "work/abraham-thakore-6.webp",
     "work/abraham-thakore-7.webp"
    ],
-   "logo": "logos/abraham-and-thakore.png",
-   "lw": 635,
-   "lh": 180,
    "sticker": "stickers/abraham-thakore.png",
    "sw": 520,
    "sh": 147,
@@ -1191,9 +1156,6 @@ window.APOS = {
     "work/sameer-madan-6.webp",
     "work/sameer-madan-7.webp"
    ],
-   "logo": "logos/sameer-madan.png",
-   "lw": 720,
-   "lh": 89,
    "sticker": "stickers/sameer-madan.png",
    "sw": 491,
    "sh": 61,
@@ -1258,9 +1220,6 @@ window.APOS = {
     "work/bally-4.webp",
     "work/bally-5.webp"
    ],
-   "logo": "logos/bally.png",
-   "lw": 269,
-   "lh": 180,
    "sticker": "stickers/bally.png",
    "sw": 361,
    "sh": 242,
@@ -1339,9 +1298,6 @@ window.APOS = {
     "work/paul-smith-5.webp",
     "work/paul-smith-6.webp"
    ],
-   "logo": "logos/paul-smith.png",
-   "lw": 720,
-   "lh": 144,
    "sticker": "stickers/paul-smith.png",
    "sw": 290,
    "sh": 58,
@@ -1437,9 +1393,6 @@ window.APOS = {
     "work/saundh-6.webp",
     "work/saundh-7.webp"
    ],
-   "logo": "logos/saundh.png",
-   "lw": 489,
-   "lh": 180,
    "sticker": "stickers/saundh.png",
    "sw": 220,
    "sh": 81,
@@ -1546,9 +1499,6 @@ window.APOS = {
     "work/truebrowns-5.webp",
     "work/truebrowns-6.webp"
    ],
-   "logo": "logos/truebrowns.png",
-   "lw": 720,
-   "lh": 107,
    "sticker": "stickers/truebrowns.png",
    "sw": 510,
    "sh": 76,
@@ -1602,9 +1552,6 @@ window.APOS = {
    "gallery": [
     "work/cover-story-2.webp"
    ],
-   "logo": "logos/cover-story.png",
-   "lw": 720,
-   "lh": 155,
    "sticker": "stickers/cover-story.png",
    "sw": 520,
    "sh": 112,
@@ -1659,9 +1606,6 @@ window.APOS = {
     "work/forever-new-2.webp",
     "work/forever-new-3.webp"
    ],
-   "logo": "logos/forever-new.png",
-   "lw": 720,
-   "lh": 68,
    "sticker": "stickers/forever-new.png",
    "sw": 446,
    "sh": 42,
@@ -1709,9 +1653,6 @@ window.APOS = {
     ]
    },
    "gallery": [],
-   "logo": "logos/superdry.png",
-   "lw": 671,
-   "lh": 180,
    "sticker": "stickers/superdry.png",
    "sw": 515,
    "sh": 115,
@@ -1790,9 +1731,6 @@ window.APOS = {
     ]
    },
    "gallery": [],
-   "logo": "logos/envisage.png",
-   "lw": 592,
-   "lh": 128,
    "sticker": "stickers/envisage.png",
    "sw": 148,
    "sh": 32,
@@ -1864,9 +1802,6 @@ window.APOS = {
     ]
    },
    "gallery": [],
-   "logo": "logos/stonex.png",
-   "lw": 507,
-   "lh": 180,
    "sticker": "stickers/stonex.png",
    "sw": 169,
    "sh": 60,
@@ -1946,9 +1881,6 @@ window.APOS = {
    "sw": 199,
    "sh": 56,
    "badge": false,
-   "logo": "logos/fcml.png",
-   "lw": 640,
-   "lh": 180,
    "sd": 0.218
   },
   {
@@ -2019,9 +1951,6 @@ window.APOS = {
     "work/at-home-3.webp",
     "work/at-home-4.webp"
    ],
-   "logo": "logos/abraham-and-thakore-home.png",
-   "lw": 616,
-   "lh": 180,
    "sticker": "stickers/at-home.png",
    "sw": 520,
    "sh": 147,
@@ -2127,9 +2056,6 @@ window.APOS = {
     "work/glass-sutra-4.webp",
     "work/glass-sutra-5.webp"
    ],
-   "logo": "logos/glass-sutra.png",
-   "lw": 290,
-   "lh": 180,
    "sticker": "stickers/glass-sutra.png",
    "sw": 161,
    "sh": 100,
@@ -2210,9 +2136,6 @@ window.APOS = {
     "work/governor-house-5.webp",
     "work/governor-house-6.webp"
    ],
-   "logo": "logos/governor-house.png",
-   "lw": 237,
-   "lh": 180,
    "sticker": "stickers/governor-house.png",
    "sw": 480,
    "sh": 365,
@@ -2264,9 +2187,6 @@ window.APOS = {
     ]
    },
    "gallery": [],
-   "logo": "logos/tres.png",
-   "lw": 267,
-   "lh": 180,
    "sticker": "stickers/tres.png",
    "sw": 160,
    "sh": 108,
@@ -2334,9 +2254,6 @@ window.APOS = {
     ]
    },
    "gallery": [],
-   "logo": "logos/copper-chimney.png",
-   "lw": 720,
-   "lh": 117,
    "sticker": "stickers/copper-chimney.png",
    "sw": 479,
    "sh": 78,
@@ -2409,9 +2326,6 @@ window.APOS = {
     "work/lopera-4.webp",
     "work/lopera-5.webp"
    ],
-   "logo": "logos/l-opera.png",
-   "lw": 283,
-   "lh": 180,
    "sticker": "stickers/lopera.png",
    "sw": 211,
    "sh": 134,
@@ -2534,9 +2448,6 @@ window.APOS = {
     "work/beeyoung-4.webp",
     "work/beeyoung-5.webp"
    ],
-   "logo": "logos/beeyoung.png",
-   "lw": 480,
-   "lh": 180,
    "sticker": "stickers/beeyoung.png",
    "sw": 136,
    "sh": 51,
@@ -2610,9 +2521,6 @@ window.APOS = {
    "gallery": [
     "work/4700bc-2.webp"
    ],
-   "logo": "logos/4700bc.png",
-   "lw": 168,
-   "lh": 180,
    "sticker": "stickers/4700bc.png",
    "sw": 151,
    "sh": 162,
@@ -2708,9 +2616,6 @@ window.APOS = {
     "work/flow-2.webp",
     "work/flow-3.webp"
    ],
-   "logo": "logos/flow.png",
-   "lw": 226,
-   "lh": 180,
    "sticker": "stickers/flow.png",
    "sw": 206,
    "sh": 164,
@@ -3370,24 +3275,29 @@ window.APOS = {
    "role": "Abraham & Thakore"
   },
   {
+   "quote": "It has been a pleasure to work with Apostrophe Communications, grateful for the exceptional PR activations and experiential events curated by team. Apostrophe Communications consistently delivers outstanding results, making them an invaluable partner for Stonex. Kritika’s dedication to excellence and creativity truly sets the team apart in the industry.",
+   "name": "Gaurav & Saurabh Aggarwal",
+   "role": "Managing Directors, Stonex"
+  },
+  {
    "quote": "We have been working with Apostrophe Communications for the past few years and have experienced exceptional services. Starting from their work on Tahiliani Homes to TT couture and even Tasva now, their result-oriented approach has consistently exceeded our expectations, making them a valuable team for our brands.",
    "name": "Tarun Tahiliani",
    "role": "Tarun Tahiliani · TASVA"
   },
   {
-   "quote": "It has been an utmost pleasure to be working with Apostrophe Communications. Their expertise has helped us elevate the brand image and build awareness. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-   "name": "Client Name",
-   "role": "Brand, Designation"
+   "quote": "Congratulations to Apostrophe on its impressive six-year journey. May the coming years be filled with even greater success and memorable celebrations. Working alongside you has been a delight, we look forward to many more years of fruitful collaboration.",
+   "name": "Mrunalini Rao",
+   "role": "Founder and Creative Head, Mrunalini Rao"
   },
   {
-   "quote": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus, posuere velit aliquet.",
-   "name": "Client Name",
-   "role": "Brand, Designation"
+   "quote": "It has been an utmost pleasure to be working with Apostrophe Communications. Their expertise has helped us elevate the brand image and build awareness, notably increasing our sales and revenue. Kritika’s leadership and contributions have been invaluable, and I highly recommend the agency.",
+   "name": "Udita Bansal",
+   "role": "Founder & CEO, trueBrowns"
   },
   {
-   "quote": "Cras mattis consectetur purus sit amet fermentum. Donec ullamcorper nulla non metus auctor fringilla, vestibulum id ligula porta.",
-   "name": "Client Name",
-   "role": "Brand, Designation"
+   "quote": "Throughout our partnership, we have been consistently impressed by your professionalism, strategic thinking, and innovative approaches. Have always been a fan of your impeccable writing. Your ability to deliver impactful campaigns and secure influential media coverage are indeed impressive. Kudos to Kritika and her amazing team! Here’s to many more years of success and collaboration!",
+   "name": "Meena Murthy Kakkar",
+   "role": "Co-founder and Principal Designer, Envisage Architects"
   }
  ],
  "offices": [

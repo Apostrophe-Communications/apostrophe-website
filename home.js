@@ -2,10 +2,9 @@
    Home page
    ========================================================================== */
 window.APOS_PAGE = () => {
-  const { $, $$, RM, FINE, esc, media, split, ARROW, logo } = window.APOS_UI;
+  const { $, $$, RM, esc, logo } = window.APOS_UI;
   const D = window.APOS;
   const W = () => innerWidth, H = () => innerHeight;
-  const mobile = () => innerWidth < 900;
 
   /* ---------------- render ---------------- */
   $("#stats").innerHTML = D.stats.map((s, i) =>
@@ -66,7 +65,7 @@ window.APOS_PAGE = () => {
   const tcard = (t) => `
     <article class="tcard">
       <div><div class="tcard__q">“</div><blockquote>${esc(t.quote)}</blockquote></div>
-      <div class="tcard__who"><span class="tcard__av">${esc(t.name.split(" ").map((w) => w[0]).join("").slice(0, 2))}</span><div><b>${esc(t.name)}</b><small>${esc(t.role)}</small></div></div>
+      <div class="tcard__who"><span class="tcard__av">${esc(t.name.split(" ").filter((w) => /^\p{L}/u.test(w)).map((w) => w[0]).join("").slice(0, 2))}</span><div><b>${esc(t.name)}</b><small>${esc(t.role)}</small></div></div>
     </article>`;
   const tHTML = D.testimonials.map(tcard).join("");
   $("#sliderTrack").innerHTML = tHTML + tHTML + tHTML;

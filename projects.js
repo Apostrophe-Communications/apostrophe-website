@@ -4,7 +4,6 @@
 window.APOS_PAGE = () => {
   const { $, $$, esc, logo, hive } = window.APOS_UI;
   const D = window.APOS;
-  const catName = Object.fromEntries(D.categories.map((c) => [c.id, c.name]));
 
   // filters
   const count = (id) => D.projects.filter((p) => id === "all" || p.category === id).length;

@@ -17,8 +17,6 @@
 
   const ARROW = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 13 13 3M5 3h8v8"/></svg>';
   const MARK = (cls = "") => `<svg class="${cls}" viewBox="350 380 800 768" aria-hidden="true"><path fill="currentColor" d="M728 387H878C852 397 826 427 807 460L563 1040C541 1092 500 1141 418 1141H357L643 460C662 416 690 388 728 387Z"/><path fill="currentColor" d="M808 728H962L1143 1141H1083C1003 1141 962 1094 940 1044L808 728Z"/><circle fill="#E4A524" cx="827.5" cy="766" r="140"/></svg>`;
-  const IG = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg>';
-  const LI = '<svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9.75h4v11H3v-11Zm6.5 0h3.8v1.5h.06c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.77 2.65 4.77 6.1v5.46h-4v-4.84c0-1.16-.02-2.64-1.61-2.64-1.61 0-1.86 1.26-1.86 2.56v4.92h-4v-11Z"/></svg>';
 
   const NAV = [
     ["Home", "index.html", "home"],
@@ -258,7 +256,7 @@
           <div class="menu__offices"><em>Partner offices</em>${D.offices.map((o) => `<span>${o}</span>`).join("")}</div>
         </div>
       </nav>
-      <div class="cursor" id="cursor"><span>View</span></div>
+      <div class="cursor" id="cursor"></div>
       <div class="pt" id="pt"><div class="pt__dot"></div></div>`
     );
 
@@ -399,9 +397,7 @@
       // on yellow backgrounds the dot turns ink so it never disappears
       cur.classList.toggle("on-yellow", !!t.closest(".t-yellow, .btn--yellow, .hero__cta"));
       cur.classList.toggle("is-link", !!(link || view));
-      if (link || view) { cur.classList.remove("has-label"); state(1.3); }
-      else if (field) { cur.classList.remove("has-label"); state(0.7); }
-      else { cur.classList.remove("has-label"); state(1); }
+      state(link || view ? 1.3 : field ? 0.7 : 1);
     });
   }
 
@@ -528,7 +524,7 @@
   initCursor();
   initTransitions();
 
-  window.APOS_UI = { $, $$, RM, FINE, esc, media, srcset, logo, hive, split, initReveals, countUp, ARROW, MARK, get lenis() { return lenis; } };
+  window.APOS_UI = { $, $$, RM, esc, media, srcset, logo, hive, MARK, get lenis() { return lenis; } };
 
   // Page scripts register themselves on APOS_PAGE; run once fonts are ready so splits measure correctly.
   const ready = document.fonts ? document.fonts.ready : Promise.resolve();
