@@ -514,6 +514,11 @@ html.rm .statement .sw { opacity: 1; }
 .filters button.on { background: var(--ink); color: var(--yellow); border-color: var(--ink); }
 .filters sup { font-size: 9px; margin-left: 4px; opacity: .6; }
 .pgrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(40px, 6svh, 70px) clamp(16px, 2vw, 28px); }
+.pgrid[hidden], .pwall[hidden] { display: none !important; }
+/* a category's full logo wall, on the light section */
+.pwall { padding: clamp(10px, 2svh, 24px) 0 clamp(20px, 4svh, 40px); }
+.pwall .index__logos { color: var(--ink); justify-content: center; gap: clamp(28px, 3.4vw, 46px) clamp(36px, 4.4vw, 64px); }
+@media (hover: hover) and (pointer: fine) { .pwall .index__b.has-page:hover { color: var(--yellow); } }
 
 
 .pill { border: 1px solid rgba(0, 0, 0,.25); border-radius: 999px; padding: 3px 10px; font-size: 11px; letter-spacing: .12em; white-space: nowrap; }

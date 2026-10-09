@@ -2795,11 +2795,11 @@ window.APOS = {
      "slug": "tarun-tahiliani"
     },
     {
-     "name": "TASVA",
-     "logo": "logos/tasva.png",
-     "w": 720,
-     "h": 138,
-     "slug": "tasva"
+     "name": "Apala",
+     "logo": "logos/apala-v2.png",
+     "w": 371,
+     "h": 180,
+     "slug": "apala"
     }
    ]
   },
@@ -2915,17 +2915,17 @@ window.APOS = {
      "h": 104
     },
     {
-     "name": "Apala",
-     "logo": "logos/apala-v2.png",
-     "w": 371,
-     "h": 180,
-     "slug": "apala"
-    },
-    {
      "name": "The House of Rare",
      "logo": "logos/house-of-rare.png",
      "w": 720,
      "h": 82
+    },
+    {
+     "name": "TASVA",
+     "logo": "logos/tasva.png",
+     "w": 720,
+     "h": 138,
+     "slug": "tasva"
     }
    ]
   },
