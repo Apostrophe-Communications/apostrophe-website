@@ -869,6 +869,18 @@ a.mq__item:focus-visible { outline: 2px solid var(--dot); outline-offset: 2px; b
 /* Marquee Projects spacing: roomier cells, wide marks span two */
 .mq { --cell: clamp(124px, 12vw, 170px); }
 .mq__logos { gap: clamp(14px, 1.6vw, 22px) clamp(18px, 2.4vw, 34px); grid-auto-flow: row dense; }
+
+/* Projects page: the same rows, compact enough that every category fits in one screen */
+.mq.mq--compact { --cell: clamp(80px, 7.4vw, 116px); margin-top: 0; padding-bottom: 0; }
+.mq--compact .mq__group { grid-template-columns: minmax(170px, 0.9fr) 5fr; gap: 16px; padding: clamp(8px, 1.4svh, 16px) 0; }
+.mq--compact .mq__logos { gap: 4px clamp(10px, 1.4vw, 22px); }
+.mq--compact .mq__item { height: calc(var(--cell) * .52); }
+@media (max-width: 760px) {
+  .mq.mq--compact { --cell: clamp(60px, 20vw, 90px); }
+  .mq--compact .mq__group { grid-template-columns: 1fr; gap: 4px; }
+  .mq--compact .mq__logos { grid-template-columns: repeat(4, 1fr); }
+}
+.plist__bar { padding-bottom: clamp(16px, 2.6svh, 28px); }
 .mq__item { height: calc(var(--cell) * .54); }
 .mq__item--wide { grid-column: span 2; }
 

@@ -25,6 +25,7 @@ window.APOS_PAGE = () => {
     .map((c, i) => `<button class="${i ? "" : "on"}" data-f="${c.id}" aria-pressed="${!i}">${esc(c.name)}<sup>${c.n}</sup></button>`).join("");
 
   marquee($("#pgrid"), D.projects);
+  $("#pgrid").classList.add("mq--compact");
   const pgrid = $("#pgrid"), wall = $("#pwall");
 
   // client index
