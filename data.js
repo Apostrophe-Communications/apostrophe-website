@@ -369,7 +369,7 @@ window.APOS = {
     "Experiences & Activations"
    ],
    "featured": true,
-   "image": "work/tasva-1.webp",
+   "image": "work/tasva-e1.webp",
    "tone": 2,
    "highlights": [
     {
@@ -485,13 +485,12 @@ window.APOS = {
     ]
    },
    "gallery": [
-    "work/tasva-2.webp",
     "work/tasva-3.webp",
-    "work/tasva-4.webp",
-    "work/tasva-5.webp",
-    "work/tasva-6.webp",
-    "work/tasva-7.webp",
-    "work/tasva-8.webp"
+    "work/tasva-e2.webp",
+    "work/tasva-e3.webp",
+    "work/tasva-e4.webp",
+    "work/tasva-e5.webp",
+    "work/tasva-e6.webp"
    ],
    "sticker": "stickers/tasva.png",
    "sw": 491,
@@ -589,7 +588,7 @@ window.APOS = {
     "Strategic Collaborations"
    ],
    "featured": true,
-   "image": "work/lladro-1.webp",
+   "image": "work/lladro-e1.webp",
    "tone": 4,
    "highlights": [],
    "placeholder": false,
@@ -640,13 +639,12 @@ window.APOS = {
     ]
    },
    "gallery": [
-    "work/lladro-2.webp",
     "work/lladro-3.webp",
     "work/lladro-4.webp",
     "work/lladro-5.webp",
-    "work/lladro-6.webp",
-    "work/lladro-7.webp",
-    "work/lladro-8.webp"
+    "work/lladro-e2.webp",
+    "work/lladro-e3.webp",
+    "work/lladro-e4.webp"
    ],
    "sticker": "stickers/lladro.png",
    "sw": 201,
@@ -664,7 +662,7 @@ window.APOS = {
     "Media & Storytelling"
    ],
    "featured": true,
-   "image": "work/bath-body-works-1.webp",
+   "image": "work/bath-body-works-e1.webp",
    "tone": 5,
    "highlights": [],
    "placeholder": true,
@@ -699,7 +697,6 @@ window.APOS = {
     ]
    },
    "gallery": [
-    "work/bath-body-works-2.webp",
     "work/bath-body-works-3.webp",
     "work/bath-body-works-4.webp",
     "work/bath-body-works-5.webp",
@@ -722,7 +719,7 @@ window.APOS = {
     "Influencer Relations"
    ],
    "featured": true,
-   "image": "work/apala-1.webp",
+   "image": "work/apala-2.webp",
    "tone": 0,
    "highlights": [],
    "placeholder": true,
@@ -757,11 +754,15 @@ window.APOS = {
     ]
    },
    "gallery": [
-    "work/apala-2.webp",
-    "work/apala-3.webp",
     "work/apala-4.webp",
     "work/apala-5.webp",
-    "work/apala-6.webp"
+    "work/apala-6.webp",
+    "work/apala-e1.webp",
+    "work/apala-e2.webp",
+    "work/apala-e3.webp",
+    "work/apala-e4.webp",
+    "work/apala-e5.webp",
+    "work/apala-e6.webp"
    ],
    "sticker": "stickers/apala-v2.png",
    "sw": 441,
@@ -821,7 +822,9 @@ window.APOS = {
      }
     ]
    },
-   "gallery": [],
+   "gallery": [
+    "work/chopard-jwc-e1.webp"
+   ],
    "sticker": "stickers/chopard-jwc.png",
    "sw": 520,
    "sh": 186,
@@ -838,7 +841,7 @@ window.APOS = {
     "Media & Storytelling"
    ],
    "featured": false,
-   "image": "",
+   "image": "work/omega-ethos-e1.webp",
    "tone": 2,
    "highlights": [],
    "placeholder": false,
@@ -948,7 +951,7 @@ window.APOS = {
     "Celebrity Relations"
    ],
    "featured": false,
-   "image": "work/mrunalini-rao-1.webp",
+   "image": "work/mrunalini-rao-2.webp",
    "tone": 4,
    "highlights": [
     {
@@ -1008,12 +1011,10 @@ window.APOS = {
     ]
    },
    "gallery": [
-    "work/mrunalini-rao-2.webp",
-    "work/mrunalini-rao-3.webp",
-    "work/mrunalini-rao-4.webp",
     "work/mrunalini-rao-5.webp",
     "work/mrunalini-rao-6.webp",
-    "work/mrunalini-rao-7.webp"
+    "work/mrunalini-rao-7.webp",
+    "work/mrunalini-rao-e1.webp"
    ],
    "sticker": "stickers/mrunalini-rao.png",
    "sw": 348,
@@ -1031,7 +1032,7 @@ window.APOS = {
     "Fashion & Design Culture"
    ],
    "featured": false,
-   "image": "work/abraham-thakore-1.webp",
+   "image": "work/abraham-thakore-e1.webp",
    "tone": 5,
    "highlights": [
     {
@@ -1091,6 +1092,7 @@ window.APOS = {
     ]
    },
    "gallery": [
+    "work/abraham-thakore-1.webp",
     "work/abraham-thakore-2.webp",
     "work/abraham-thakore-3.webp",
     "work/abraham-thakore-4.webp",
@@ -1295,8 +1297,12 @@ window.APOS = {
     "work/paul-smith-2.webp",
     "work/paul-smith-3.webp",
     "work/paul-smith-4.webp",
-    "work/paul-smith-5.webp",
-    "work/paul-smith-6.webp"
+    "work/paul-smith-6.webp",
+    "work/paul-smith-e1.webp",
+    "work/paul-smith-e2.webp",
+    "work/paul-smith-e3.webp",
+    "work/paul-smith-e4.webp",
+    "work/paul-smith-e5.webp"
    ],
    "sticker": "stickers/paul-smith.png",
    "sw": 290,
@@ -1387,11 +1393,14 @@ window.APOS = {
    },
    "gallery": [
     "work/saundh-2.webp",
-    "work/saundh-3.webp",
-    "work/saundh-4.webp",
-    "work/saundh-5.webp",
     "work/saundh-6.webp",
-    "work/saundh-7.webp"
+    "work/saundh-7.webp",
+    "work/saundh-e1.webp",
+    "work/saundh-e2.webp",
+    "work/saundh-e3.webp",
+    "work/saundh-e4.webp",
+    "work/saundh-e5.webp",
+    "work/saundh-e6.webp"
    ],
    "sticker": "stickers/saundh.png",
    "sw": 220,
