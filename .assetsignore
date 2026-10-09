@@ -1,0 +1,18 @@
+# Publish the website, excluding repository and deployment metadata.
+.git/
+.github/
+.claude/
+.wrangler/
+node_modules/
+scripts/
+.gitignore
+.assetsignore
+.nojekyll
+.DS_Store
+.env*
+AGENTS.md
+README.md
+wrangler.toml
+wrangler.json*
+package*.json
+*.log

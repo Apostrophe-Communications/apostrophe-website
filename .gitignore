@@ -13,3 +13,6 @@
 Website portfolio pages/
 .DS_Store
 WhatsApp*
+
+# Local Cloudflare development state
+.wrangler/

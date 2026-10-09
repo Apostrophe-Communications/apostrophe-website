@@ -1,18 +1,9 @@
 name = "apostrophe-website"
-type = "javascript"
-compatibility_date = "2024-01-01"
-pages_build_caching_enabled = true
+compatibility_date = "2026-10-09"
+workers_dev = true
 
-[build]
-command = "echo 'No build step'"
-cwd = "/"
-
-[env.production]
-name = "apostrophe-website"
-routes = [
-  { pattern = "apostrophecommunications.com", zone_name = "apostrophecommunications.com" }
-]
-
-[[env.production.routes]]
-pattern = "*"
-zone_name = "apostrophecommunications.com"
+[assets]
+directory = "."
+# Keep existing .html links and query strings unchanged.
+html_handling = "none"
+not_found_handling = "none"
