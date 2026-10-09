@@ -347,7 +347,7 @@ html.rm .statement .sw { opacity: 1; }
 .services { height: 100svh; overflow: hidden; }
 .services__inner {
   height: 100%;
-  display: grid; grid-template-columns: minmax(180px, 0.8fr) 2.2fr; align-items: center; gap: 24px;
+  display: grid; grid-template-columns: minmax(max-content, 0.8fr) 2.2fr; align-items: center; gap: 24px;
 }
 .services__side { align-self: stretch; display: flex; flex-direction: column; justify-content: space-between; padding: calc(var(--header-h) + 40px) 0 48px; }
 .services__side .eyebrow { color: var(--mist); }
@@ -835,7 +835,7 @@ a.mail { overflow-wrap: normal; word-break: normal; }
 .foot-bar a.mail { overflow-wrap: normal; }
 
 /* "What we do" as a proper section heading, like Recognitions */
-.services__title { margin: 0; font-size: var(--fs-h2); line-height: 1; letter-spacing: -0.03em; color: var(--ivory); }
+.services__title { margin: 0; font-size: var(--fs-h2); line-height: 1; letter-spacing: -0.03em; color: var(--ivory); white-space: nowrap; }
 
 /* services list sits flush with the "What we do" heading (no reserved dot space),
    and on narrow screens the longest name still fits the width */
