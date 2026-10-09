@@ -3317,7 +3317,6 @@ window.APOS = {
  ],
  "contact": {
   "email": "connect@apostrophecommunications.com",
-  "phone": "+91 98183 09622",
   "address": "67, Lower Ground Floor, Hemkunt Colony, Greater Kailash 1, New Delhi 110048",
   "instagram": "https://www.instagram.com/apostrophe.communications/",
   "linkedin": "#",

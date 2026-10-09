@@ -14,7 +14,6 @@ window.APOS_PAGE = () => {
 
   $("#contactInfo").innerHTML = `
     <div data-reveal><h2>Let’s connect</h2><a class="link-u mail" href="mailto:${esc(c.email)}">${esc(c.email).replace("@", "@<wbr>")}</a></div>
-    <div data-reveal><h2>Call</h2><p>${esc(c.phone)}</p></div>
     <div data-reveal><h2>Studio</h2><p>${esc(c.address)}</p></div>
     <div data-reveal><h2>Partner offices</h2><p class="small">${offices.map(esc).join(" · ")}</p></div>
     <div data-reveal><h2>Follow</h2><p><a class="link-u" href="${esc(c.instagram)}">Instagram</a> &nbsp; <a class="link-u" href="${esc(c.linkedin)}">LinkedIn</a></p></div>`;
