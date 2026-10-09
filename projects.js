@@ -2,7 +2,7 @@
    Projects page: filterable grid + client index
    ========================================================================== */
 window.APOS_PAGE = () => {
-  const { $, $$, esc, logo, hive } = window.APOS_UI;
+  const { $, $$, esc, logo, marquee } = window.APOS_UI;
   const D = window.APOS;
 
   // every brand in a category: its projects first (their logo links to the case study),
@@ -24,7 +24,7 @@ window.APOS_PAGE = () => {
   $("#filters").innerHTML = tabs
     .map((c, i) => `<button class="${i ? "" : "on"}" data-f="${c.id}" aria-pressed="${!i}">${esc(c.name)}<sup>${c.n}</sup></button>`).join("");
 
-  const grid = hive($("#pgrid"), D.projects);
+  marquee($("#pgrid"), D.projects);
   const pgrid = $("#pgrid"), wall = $("#pwall");
 
   // client index
@@ -43,7 +43,6 @@ window.APOS_PAGE = () => {
     const f = b.dataset.f;
     if (f === "all") {
       wall.hidden = true; pgrid.hidden = false;
-      grid.filter(() => true);
       gsap.fromTo(pgrid, { opacity: 0 }, { opacity: 1, duration: 0.4, ease: "power2.out" });
     } else {
       pgrid.hidden = true; wall.hidden = false;

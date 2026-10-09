@@ -317,7 +317,7 @@ html.rm .hero__cta, html.rm .hero__scroll { opacity: 1; }
    Intro statement + stats
    ========================================================================== */
 .intro { padding: clamp(110px, 20svh, 220px) 0 clamp(90px, 14svh, 160px); overflow: hidden; }
-html:not(.rm) .intro { z-index: 2; padding-top: clamp(70px, 12svh, 130px); }
+html:not(.rm) .intro { z-index: 2; padding-top: clamp(70px, 12svh, 130px); background: transparent; }
 .intro__inner { max-width: 1040px; margin: 0 auto; text-align: center; }
 .intro .eyebrow { margin-bottom: 36px; color: var(--graphite); }
 .statement {
@@ -513,7 +513,6 @@ html.rm .statement .sw { opacity: 1; }
 @media (hover: hover) and (pointer: fine) { .filters button:hover { border-color: var(--ink); } }
 .filters button.on { background: var(--ink); color: var(--yellow); border-color: var(--ink); }
 .filters sup { font-size: 9px; margin-left: 4px; opacity: .6; }
-.pgrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(40px, 6svh, 70px) clamp(16px, 2vw, 28px); }
 .pgrid[hidden], .pwall[hidden] { display: none !important; }
 /* a category's full logo wall, on the light section */
 .pwall { padding: clamp(10px, 2svh, 24px) 0 clamp(20px, 4svh, 40px); }
@@ -632,7 +631,6 @@ html.rm .statement .sw { opacity: 1; }
   .cs-sec__label { position: static; }
   .foot-bar__top { grid-template-columns: 1fr 1fr; }
   .foot-bar__top > :first-child { grid-column: 1 / -1; }
-  .pgrid { grid-template-columns: 1fr; }
   .founder__card { grid-template-columns: 1fr; }
   .founder__photo { max-width: 300px; }
   .founder__mark { width: 110vw; right: -30%; top: 30%; }
@@ -793,37 +791,6 @@ body.menu-open .hdr .hdr__label { color: var(--yellow); }
 .foot-bar * { min-width: 0; } .foot-bar li, .foot-bar a, .foot-bar p { overflow-wrap: anywhere; }
 .plist__title { font-size: var(--fs-h2); line-height: 1; }
 
-/* ---------- Selected work: sticker honeycomb ---------- */
-.hive { position: relative; display: block !important; margin: 0 calc(var(--d, 100px) * -0.1); }
-.sticker { position: absolute; left: 0; top: 0; width: var(--d, 100px); height: var(--d, 100px); transform-origin: 50% 50%; will-change: transform; }
-.sticker__disc {
-  position: absolute; inset: 0; display: grid; place-items: center; border-radius: 50%;
-  background: var(--bg, #fff);
-  border: max(3px, calc(var(--d) * .035)) solid #fff;
-  box-shadow: 0 1px 1px rgba(0, 0, 0,.08), 0 6px 14px rgba(0, 0, 0,.12), 0 18px 34px -12px rgba(0, 0, 0,.22);
-  transform: rotate(var(--r, 0deg)); transition: transform .7s var(--ease), box-shadow .6s var(--ease);
-  overflow: hidden;
-}
-.sticker__disc::after { content: ""; position: absolute; inset: 0; border-radius: 50%; background: linear-gradient(145deg, rgba(255,255,255,.35), rgba(255,255,255,0) 45%); pointer-events: none; }
-.sticker__disc img { width: min(68%, calc(64% * var(--ar) / 1.4 + 30%)); max-height: 56%; object-fit: contain; }
-.sticker__txt { font-family: var(--display); font-size: calc(var(--d) * .12); line-height: 1.15; text-align: center; padding: 0 14%; color: var(--ink); }
-.sticker.is-near .sticker__disc { transform: rotate(0deg); box-shadow: 0 2px 2px rgba(0, 0, 0,.08), 0 14px 28px rgba(0, 0, 0,.18), 0 30px 60px -18px rgba(0, 0, 0,.3); }
-.hive__label { position: absolute; left: 0; top: 0; z-index: 200; pointer-events: none; text-align: center; white-space: nowrap; background: var(--ink); color: var(--ivory); padding: 8px 16px 9px; border-radius: 999px; display: flex; flex-direction: column; gap: 1px; }
-.hive__label b { font-family: var(--display); font-weight: 400; font-size: var(--fs-small); }
-.hive__label em { font-style: normal; font-family: var(--display); font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--yellow); }
-
-/* stickers: outlined on butter, logos in their own colours */
-.sticker__disc { background: transparent; border: 1.5px solid var(--ink); box-shadow: none; overflow: visible; }
-.sticker__disc::after { display: none; }
-.sticker__disc img { width: calc(var(--d) * var(--fw, .6)); height: calc(var(--d) * var(--fh, .3)); max-height: none; object-fit: contain; }
-.sticker.is-near .sticker__disc { box-shadow: none; background: rgba(0, 0, 0,.03); }
-#homeHive { margin-top: clamp(10px, 3svh, 40px); }
-/* the tilt lives on the logo (a circle looks the same rotated), leaving the disc free for the pop-in */
-.sticker__disc, .sticker.is-near .sticker__disc { transform: none; transition: background .5s var(--ease), border-color .5s var(--ease); }
-.sticker__disc > * { transform: rotate(var(--r, 0deg)); transition: transform .7s var(--ease); }
-.sticker.is-near .sticker__disc > * { transform: rotate(0deg); }
-.sticker { will-change: transform; }
-
 /* ---------- Back button (every page but Home) ---------- */
 .hdr__left { justify-self: start; display: flex; align-items: center; gap: clamp(14px, 1.6vw, 22px); }
 .hdr__back {
@@ -838,15 +805,7 @@ body.menu-open .hdr .hdr__label { color: var(--yellow); }
 @media (hover: hover) and (pointer: fine) { .hdr__back:hover svg { transform: translateX(-3px); } }
 @media (max-width: 760px) { .hdr__back { width: 36px; padding: 0; justify-content: center; } .hdr__back em { display: none; } }
 
-/* title + button sit in the middle of the home sticker ring */
-.hive__centre { position: absolute; left: 0; top: 0; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: clamp(18px, 2.4vw, 28px); text-align: center; width: max-content; max-width: 100%; }
-.hive__centre .work__title { margin: 0; line-height: 1; white-space: nowrap; }
-#homeHive { margin-top: 0; }
 .work { padding-top: clamp(80px, 12svh, 130px); }
-/* stickers: round focus ring instead of the browser's square box */
-.sticker:focus { outline: none; }
-.sticker:focus-visible .sticker__disc { outline: 2px solid var(--dot); outline-offset: 4px; }
-
 /* award logos: one strip of bone plates under the title, keeping their own colours on the dark section */
 .recog__logos { display: flex; flex-wrap: wrap; gap: clamp(10px, 1.2vw, 16px); margin: calc(clamp(50px, 9svh, 100px) * -0.45) 0 clamp(56px, 9svh, 96px); }
 .recog__plate { margin: 0; flex: none; width: clamp(104px, 11vw, 150px); aspect-ratio: 16 / 10; border-radius: 8px; background: var(--ivory); display: block; overflow: hidden; padding: 10px 12px; box-shadow: 0 12px 28px -16px rgba(0, 0, 0, .7); transition: transform .6s var(--ease); }
@@ -874,18 +833,6 @@ html.rm .zoomdot { display: none; }
 /* email addresses only break after the "@", never mid-word */
 a.mail { overflow-wrap: normal; word-break: normal; }
 .foot-bar a.mail { overflow-wrap: normal; }
-
-/* stickers without frames: just the logo, larger; on hover it grows and a yellow dot appears beneath */
-.sticker__disc, .sticker.is-near .sticker__disc { border: 0; background: none; }
-.sticker__disc::before {
-  content: ""; position: absolute; left: 50%; bottom: 2%; width: 7px; height: 7px; margin-left: -3.5px;
-  border-radius: 50%; background: var(--dot); transform: scale(0); transition: transform .45s var(--ease);
-}
-.sticker.is-near .sticker__disc::before { transform: scale(1); }
-.sticker:focus-visible .sticker__disc { outline-offset: 2px; border-radius: 12px; }
-
-/* bare logos sit perfectly level (no sticker tilt) */
-.sticker__disc > *, .sticker.is-near .sticker__disc > * { transform: none; }
 
 /* "What we do" as a proper section heading, like Recognitions */
 .services__title { margin: 0; font-size: var(--fs-h2); line-height: 1; letter-spacing: -0.03em; color: var(--ivory); }
@@ -930,7 +877,7 @@ a.mq__item:focus-visible { outline: 2px solid var(--dot); outline-offset: 2px; b
 .hdr__toggle span { transition: transform .25s var(--ease), color .5s var(--ease); }
 .menu__nav a { transition-duration: .25s; }
 .recog__row h3 { transition: transform .25s var(--ease), color .2s; }
-.recog__row h3::before, .mq__item::after, .sticker__disc::before { transition-duration: .2s; }
+.recog__row h3::before, .mq__item::after { transition-duration: .2s; }
 .recog__plate, .mq__item img, .mq__txt, .hdr__back, .hdr__back svg, .index__b { transition-duration: .25s; }
 .team__photo img, .cs-gallery__item img { transition: filter .4s var(--ease), transform .5s var(--ease); }
 .slider__nav button, .filters button, .logos div, .field label { transition-duration: .25s; }

@@ -655,7 +655,7 @@ window.APOS = {
   {
    "slug": "bath-body-works",
    "title": "Bath & Body Works",
-   "subtitle": "Beauty & retail",
+   "subtitle": "Beauty & Retail",
    "category": "fashion",
    "tags": [
     "Influencer Relations",
@@ -1059,7 +1059,7 @@ window.APOS = {
     "background": [
      {
       "t": "h",
-      "v": "The label"
+      "v": "The Label"
      },
      {
       "t": "p",
@@ -1077,7 +1077,7 @@ window.APOS = {
     "objective": [
      {
       "t": "h",
-      "v": "The label"
+      "v": "The Label"
      },
      {
       "t": "p",
@@ -1095,7 +1095,7 @@ window.APOS = {
     "solution": [
      {
       "t": "h",
-      "v": "The label"
+      "v": "The Label"
      },
      {
       "t": "p",
@@ -1137,7 +1137,7 @@ window.APOS = {
     "impact": [
      {
       "t": "h",
-      "v": "The label"
+      "v": "The Label"
      },
      {
       "t": "p",
@@ -1594,7 +1594,7 @@ window.APOS = {
   {
    "slug": "cover-story",
    "title": "Cover Story",
-   "subtitle": "Fashion & lifestyle",
+   "subtitle": "Fashion & Lifestyle",
    "category": "fashion",
    "tags": [
     "Influencer Relations",
@@ -1647,7 +1647,7 @@ window.APOS = {
   {
    "slug": "forever-new",
    "title": "Forever New",
-   "subtitle": "Fashion & lifestyle",
+   "subtitle": "Fashion & Lifestyle",
    "category": "fashion",
    "tags": [
     "Influencer Relations",
@@ -1744,84 +1744,6 @@ window.APOS = {
    "sh": 115,
    "badge": false,
    "sd": 0.406
-  },
-  {
-   "slug": "envisage",
-   "title": "Envisage",
-   "subtitle": "Founder profiling & design collaborations",
-   "category": "interiors",
-   "tags": [
-    "Media & Storytelling",
-    "Strategic Collaborations"
-   ],
-   "featured": false,
-   "image": "",
-   "tone": 1,
-   "highlights": [
-    {
-     "value": "45",
-     "label": "Media placements",
-     "prefix": "",
-     "suffix": "+"
-    }
-   ],
-   "placeholder": false,
-   "sections": {
-    "background": [
-     {
-      "t": "p",
-      "v": "Apostrophe partnered with Envisage, the boutique interior and architectural practice led by Meena Murthy Kakkar, to build a stronger luxury positioning for the studio and establish its leadership within India's architecture and design ecosystem."
-     }
-    ],
-    "objective": [
-     {
-      "t": "p",
-      "v": "To elevate Envisage's visibility through strategic media relations and founder profiling, while building long-term relationships with leading architecture, interiors and lifestyle publications and positioning Meena Murthy Kakkar as a distinctive voice within the industry."
-     }
-    ],
-    "solution": [
-     {
-      "t": "p",
-      "v": "Apostrophe led a focused traditional PR programme centred on architecture and design media, project features, founder profiling and leadership associations."
-     },
-     {
-      "t": "p",
-      "v": "The strategy prioritised credible editorial storytelling across leading publications including Architectural Digest, ELLE Decor, India Today Home, Hello! India, GoodHomes, India Today, House Thorne, Archallery, Architecture + Design and Buildofy."
-     },
-     {
-      "t": "p",
-      "v": "The agency secured coverage across 45+ news platforms across digital and print, spanning architecture project features, founder profiling and industry-led stories. The approach focused on building sustained editorial relationships rather than one-off visibility, ensuring Envisage's work and point of view remained relevant within the design media ecosystem."
-     },
-     {
-      "t": "p",
-      "v": "Apostrophe also facilitated strategic brand collaborations for Envisage."
-     },
-     {
-      "t": "p",
-      "v": "Envisage × Sarita Handa brought together Meena Murthy Kakkar's longstanding appreciation for the brand with her own design philosophy, highlighting how Sarita Handa pieces have been incorporated into her projects over the years. The collaboration created a natural intersection between two distinct design perspectives and generated social visibility."
-     },
-     {
-      "t": "p",
-      "v": "Envisage × Bharat Floorings was conceptualised as a design collaboration bringing together Meena Murthy Kakkar's creative direction and Bharat Floorings' craftsmanship to reinterpret art on tiles. The resulting concept combined traditional artistry with contemporary design, creating a distinct expression of both brands."
-     }
-    ],
-    "impact": [
-     {
-      "t": "p",
-      "v": "Apostrophe helped strengthen Envisage's position within India's architecture and interiors landscape through 45+ media placements, sustained founder visibility and strategic design collaborations."
-     },
-     {
-      "t": "p",
-      "v": "The programme established a stronger editorial footprint for both the studio and its founder, while the collaborations with Sarita Handa and Bharat Floorings extended Envisage's influence beyond traditional architectural practice into the broader design and luxury ecosystem."
-     }
-    ]
-   },
-   "gallery": [],
-   "sticker": "stickers/envisage.png",
-   "sw": 148,
-   "sh": 32,
-   "badge": false,
-   "sd": 0.305
   },
   {
    "slug": "stonex",
@@ -1970,111 +1892,6 @@ window.APOS = {
    "sd": 0.218
   },
   {
-   "slug": "glass-sutra",
-   "title": "Glass Sutra",
-   "subtitle": "Glass as art, experience & collaboration",
-   "category": "interiors",
-   "tags": [
-    "Strategic Collaborations",
-    "Experiences & Activations"
-   ],
-   "featured": false,
-   "image": "work/glass-sutra-1.webp",
-   "tone": 5,
-   "highlights": [
-    {
-     "value": "40",
-     "label": "Media features",
-     "prefix": "",
-     "suffix": "+"
-    },
-    {
-     "value": "6",
-     "label": "Month Maruti workshop contract",
-     "prefix": "",
-     "suffix": ""
-    }
-   ],
-   "placeholder": false,
-   "sections": {
-    "background": [
-     {
-      "t": "p",
-      "v": "Apostrophe partnered with Glass Sutra, India's first comprehensive public-access glass art studio, to build awareness around its distinctive approach to glass as an artistic and experiential medium. The mandate focused on establishing the brand and its founder within India's design and interiors ecosystem while creating opportunities for Glass Sutra to collaborate with culturally relevant brands and institutions."
-     }
-    ],
-    "objective": [
-     {
-      "t": "p",
-      "v": "To build Glass Sutra's recognition across the design, interiors, art and lifestyle landscape, establish its founder as a prominent voice in the industry, and create strategic collaborations that demonstrated the versatility of glass beyond conventional applications."
-     }
-    ],
-    "solution": [
-     {
-      "t": "p",
-      "v": "Apostrophe led an integrated communications programme spanning brand awareness, spokesperson profiling, strategic alliances, brand collaborations and participation in key design events."
-     },
-     {
-      "t": "p",
-      "v": "A focused media strategy secured 40+ print and digital stories across publications including The Entrepreneur, Mint Lounge, The Indian Express, The Hindu, The Ideal Home and Garden, India Today Home, The Neptune, Glitz, Realty Plus and The New Indian Express. Apostrophe also facilitated relationship-building meetings with leading media houses, strengthening the brand's editorial presence and establishing its founder as a prominent name in India's interiors industry and one of the country's first female glass-blown artists."
-     },
-     {
-      "t": "p",
-      "v": "The brand's positioning was further strengthened through a series of experiential and strategic collaborations:"
-     },
-     {
-      "t": "h",
-      "v": "Glass Sutra × DSSC: The Thali Tradition"
-     },
-     {
-      "t": "p",
-      "v": "Glass Sutra collaborated with DSSC's Thali Tradition for an art installation at DSSC Bhawan, bringing its glass artistry into a cultural and experiential setting."
-     },
-     {
-      "t": "h",
-      "v": "Glass Sutra × Absolut"
-     },
-     {
-      "t": "p",
-      "v": "Apostrophe facilitated a collaboration with Absolut to launch India's first Air Bar. The launch took place at Dey's Studio, Glass Sutra, New Delhi, with a striking glass structure created using empty vodka bottles, demonstrating the creative and transformative potential of glass as a material."
-     },
-     {
-      "t": "h",
-      "v": "Glass Sutra × NEXA: S-Cross"
-     },
-     {
-      "t": "p",
-      "v": "For the NEXA S-Cross, Glass Sutra created an immersive glass-making experience in Udaipur, drawing a connection between the vehicle's design language and the versatility of glass. Guests were encouraged to engage directly with the material, experiment creatively and experience the craft first-hand."
-     },
-     {
-      "t": "p",
-      "v": "The collaboration created such strong engagement that Maruti signed a six-month contract for fortnightly Glass Sutra workshops for its employees, designed around team-building and experiential learning."
-     }
-    ],
-    "impact": [
-     {
-      "t": "p",
-      "v": "The integrated programme established Glass Sutra as a credible and distinctive voice within India's design, interiors, art and experiential landscape."
-     },
-     {
-      "t": "p",
-      "v": "The combination of sustained editorial visibility and high-value brand collaborations generated 40+ media features, strengthened founder recognition, increased sales enquiries and drove positive word-of-mouth. More importantly, the strategic partnerships demonstrated Glass Sutra's ability to translate its craft into immersive experiences, cultural installations and brand collaborations, creating new commercial and creative avenues for the studio."
-     }
-    ]
-   },
-   "gallery": [
-    "work/glass-sutra-2.webp",
-    "work/glass-sutra-3.webp",
-    "work/glass-sutra-4.webp",
-    "work/glass-sutra-5.webp"
-   ],
-   "sticker": "stickers/glass-sutra.png",
-   "sw": 161,
-   "sh": 100,
-   "badge": false,
-   "sd": 0.283
-  },
-  {
    "slug": "governor-house",
    "title": "Governor House",
    "subtitle": "Two preview weekends",
@@ -2157,7 +1974,7 @@ window.APOS = {
   {
    "slug": "tres",
    "title": "Tres",
-   "subtitle": "Dining & hospitality",
+   "subtitle": "Dining & Hospitality",
    "category": "dining",
    "tags": [
     "Media & Storytelling",
@@ -2204,73 +2021,6 @@ window.APOS = {
    "sh": 108,
    "badge": false,
    "sd": 0.158
-  },
-  {
-   "slug": "copper-chimney",
-   "title": "Copper Chimney",
-   "subtitle": "Staying in Delhi’s food conversation",
-   "category": "dining",
-   "tags": [
-    "Media & Storytelling",
-    "Influencer Relations"
-   ],
-   "featured": false,
-   "image": "work/copper-chimney-1.webp",
-   "tone": 2,
-   "highlights": [],
-   "placeholder": false,
-   "sections": {
-    "background": [
-     {
-      "t": "p",
-      "v": "Apostrophe partnered with Copper Chimney to strengthen its visibility across Delhi's food, lifestyle and hospitality ecosystem. The mandate combined media relations, influencer marketing, digital collaborations and targeted gifting to build sustained awareness around the brand and its offerings."
-     }
-    ],
-    "objective": [
-     {
-      "t": "p",
-      "v": "To increase Copper Chimney's visibility among relevant food, lifestyle and hospitality audiences, strengthen relationships with influential media and creators, and create consistent digital conversations through editorial coverage, collaborations and product experiences."
-     }
-    ],
-    "solution": [
-     {
-      "t": "p",
-      "v": "Apostrophe led an integrated communications programme spanning media relations, influencer marketing, digital collaborations and gifting."
-     },
-     {
-      "t": "p",
-      "v": "The media programme involved coordinating queries and editorial opportunities with publications including The Hindu, Travel + Leisure and Mint Lounge, alongside facilitating reviews and interactions with senior food and lifestyle voices including Pawan Soni / Indian Food Freak, Amin Ali, Anoothi Vishal, and Rocky & Mayur."
-     },
-     {
-      "t": "p",
-      "v": "To extend the brand's digital presence, Apostrophe coordinated collaborations with So Delhi, DforDelhi, Fever 104 FM and Food Talk India, creating additional touchpoints across food, lifestyle and city-focused audiences."
-     },
-     {
-      "t": "p",
-      "v": "The influencer programme brought together relevant food and lifestyle creators including Tea Clap, Critter Tank, The Tasting Fork and Karan Tripathi, helping drive product discovery and organic advocacy."
-     },
-     {
-      "t": "p",
-      "v": "A targeted gifting programme was also conceptualised and coordinated across Delhi, with gifting extended to media, influencers and tastemakers including Parul Pratap, Spiceitupwithsam, Rinku Madan, Nirja Dutt, Rupali Dean and Amin Ali."
-     }
-    ],
-    "impact": [
-     {
-      "t": "p",
-      "v": "The integrated programme strengthened Copper Chimney's presence across food, hospitality and lifestyle media, while building an extended network of creators, tastemakers and digital platforms around the brand."
-     },
-     {
-      "t": "p",
-      "v": "Through the combination of editorial outreach, creator engagement, digital collaborations and strategic gifting, Apostrophe created multiple avenues for Copper Chimney to remain part of relevant food and lifestyle conversations beyond traditional media coverage."
-     }
-    ]
-   },
-   "gallery": [],
-   "sticker": "stickers/copper-chimney.png",
-   "sw": 479,
-   "sh": 78,
-   "badge": false,
-   "sd": 0.16
   },
   {
    "slug": "lopera",
@@ -2465,79 +2215,6 @@ window.APOS = {
    "sh": 51,
    "badge": false,
    "sd": 0.355
-  },
-  {
-   "slug": "4700bc",
-   "title": "4700BC",
-   "subtitle": "Say No to Clichés",
-   "category": "dining",
-   "tags": [
-    "Gifting & Seeding",
-    "Influencer Relations"
-   ],
-   "featured": false,
-   "image": "work/4700bc-1.webp",
-   "tone": 5,
-   "highlights": [],
-   "placeholder": false,
-   "sections": {
-    "background": [
-     {
-      "t": "p",
-      "v": "Apostrophe partnered with 4700 BC to launch its festive gifting hampers as a distinctive alternative to conventional gifting. Built around the brand's “Say No to Clichés” campaign, the initiative positioned gourmet popcorn as a contemporary expression of gifting while using celebrity and influencer advocacy to generate awareness and social conversation."
-     }
-    ],
-    "objective": [
-     {
-      "t": "p",
-      "v": "To create awareness around 4700 BC's festive hampers, establish gourmet popcorn as a new gifting proposition, strengthen relationships with existing and prospective customers, and introduce the brand to new audiences and markets through high-impact social amplification."
-     }
-    ],
-    "solution": [
-     {
-      "t": "p",
-      "v": "Apostrophe developed and executed a celebrity and influencer-led festive gifting campaign, using curated gifting, social media shout-outs and online outreach to create visibility around the festive launch."
-     },
-     {
-      "t": "p",
-      "v": "The campaign brought together a mix of celebrities, influencers and tastemakers, ensuring the hampers reached audiences across fashion, entertainment, lifestyle and culture."
-     },
-     {
-      "t": "label",
-      "v": "Diwali gifting recipients and collaborators included"
-     },
-     {
-      "t": "p",
-      "v": "Sakshi, Eshna Kutty, Shibani Bedi, Shobhaa De, Huma Qureshi, Mandira Bedi, Masaba Gupta, Sayani Gupta, Bhumi Pednekar and Ira Dubey."
-     },
-     {
-      "t": "p",
-      "v": "The campaign was further strengthened through product-led reviews and organic advocacy, with personalities including Neha Dhupia, Palak Shah, Mandira Bedi and Bhumi Pednekar sharing their experiences with the gourmet popcorn range."
-     },
-     {
-      "t": "p",
-      "v": "The content focused on making the product feel like an unexpected, enjoyable and contemporary gifting choice, moving the conversation away from traditional festive gifting clichés while keeping the product at the centre of the communication."
-     }
-    ],
-    "impact": [
-     {
-      "t": "p",
-      "v": "The campaign created a strong social-led introduction for 4700 BC's festive hampers, helping establish gourmet popcorn as a fresh and contemporary gifting proposition during the Diwali season."
-     },
-     {
-      "t": "p",
-      "v": "Through a combination of celebrity advocacy, influencer gifting and product-led social content, the campaign expanded the brand's reach across relevant consumer communities while strengthening awareness of its festive product range."
-     }
-    ]
-   },
-   "gallery": [
-    "work/4700bc-2.webp"
-   ],
-   "sticker": "stickers/4700bc.png",
-   "sw": 151,
-   "sh": 162,
-   "badge": true,
-   "sd": 0.73
   },
   {
    "slug": "flow",
@@ -2936,8 +2613,7 @@ window.APOS = {
      "name": "Envisage",
      "logo": "logos/envisage.png",
      "w": 592,
-     "h": 128,
-     "slug": "envisage"
+     "h": 128
     },
     {
      "name": "Stonex",
@@ -2971,8 +2647,7 @@ window.APOS = {
      "name": "Glass Sutra",
      "logo": "logos/glass-sutra.png",
      "w": 290,
-     "h": 180,
-     "slug": "glass-sutra"
+     "h": 180
     },
     {
      "name": "Pottery Barn Kids",
@@ -3036,8 +2711,7 @@ window.APOS = {
      "name": "Copper Chimney",
      "logo": "logos/copper-chimney.png",
      "w": 720,
-     "h": 117,
-     "slug": "copper-chimney"
+     "h": 117
     },
     {
      "name": "L’Opéra",
@@ -3057,8 +2731,7 @@ window.APOS = {
      "name": "4700BC",
      "logo": "logos/4700bc.png",
      "w": 168,
-     "h": 180,
-     "slug": "4700bc"
+     "h": 180
     },
     {
      "name": "FLOW",
@@ -3309,7 +2982,7 @@ window.APOS = {
   {
    "quote": "Throughout our partnership, we have been consistently impressed by your professionalism, strategic thinking, and innovative approaches. Have always been a fan of your impeccable writing. Your ability to deliver impactful campaigns and secure influential media coverage are indeed impressive. Kudos to Kritika and her amazing team! Here’s to many more years of success and collaboration!",
    "name": "Meena Murthy Kakkar",
-   "role": "Co-founder and Principal Designer, Envisage Architects"
+   "role": "Co-Founder and Principal Designer, Envisage Architects"
   }
  ],
  "offices": [

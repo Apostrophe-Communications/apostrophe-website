@@ -2,7 +2,7 @@
    Home page
    ========================================================================== */
 window.APOS_PAGE = () => {
-  const { $, $$, RM, esc, logo } = window.APOS_UI;
+  const { $, $$, RM, esc, logo, marquee: logoRows } = window.APOS_UI;
   const D = window.APOS;
   const W = () => innerWidth, H = () => innerHeight;
 
@@ -14,38 +14,11 @@ window.APOS_PAGE = () => {
 
   const featured = D.featured.map((slug) => D.projects.find((p) => p.slug === slug)).filter(Boolean);
   // the showcase projects plus more from every category
-  const more = ["omega-ethos", "abraham-thakore", "chopard-jwc", "saundh", "copper-chimney", "mrunalini-rao", "stonex", "fcml", "sameer-madan", "bally", "paul-smith", "truebrowns", "forever-new", "superdry", "beeyoung", "tres", "lopera"]
+  const more = ["omega-ethos", "abraham-thakore", "chopard-jwc", "saundh", "mrunalini-rao", "stonex", "fcml", "sameer-madan", "bally", "paul-smith", "truebrowns", "forever-new", "superdry", "beeyoung", "tres", "lopera"]
     .map((slug) => D.projects.find((p) => p.slug === slug)).filter(Boolean);
   // Marquee Projects: free-standing logos in even rows, clubbed under their niche
   const all = [...featured, ...more, ...(D.homeBrands || [])];
-  // each logo gets a box sized by area, so long wordmarks and compact marks weigh the same
-  // ...and by ink density (sd = share of the logo's box that is ink), so a heavy
-  // block wordmark and a fine-line mark read as equally strong
-  const wide = (p) => !!p.wide;                            // very long strips (House of Rare) take two cells
-  const fit = (p) => {
-    const ar = p.sw / p.sh, max = wide(p) ? 1.9 : 0.98;
-    const weight = Math.min(1.35, Math.max(0.72, Math.sqrt(0.3 / (p.sd || 0.3))));
-    const area = (p.badge ? 0.26 : 0.17) * weight * (wide(p) ? 2 : 1) * (p.boost || 1);   // boost: hand-tuned for very fine-line logos
-    let w = Math.sqrt(area * ar), h = w / ar;
-    if (w > max) { w = max; h = w / ar; }                // long wordmarks may use the full cell width
-    if (h > 0.46) { h = 0.46; w = h * ar; }
-    return `--fw:${w.toFixed(3)};--fh:${h.toFixed(3)}`;
-  };
-  const tile = (p) => {
-    const inner = p.sticker ? `<img src="${esc(p.sticker)}" alt="" style="${fit(p)}" loading="lazy" decoding="async">` : `<span class="mq__txt">${esc(p.title)}</span>`;
-    const cls = `mq__item${p.slug ? "" : " mq__item--brand"}${wide(p) ? " mq__item--wide" : ""}`;
-    return p.slug
-      ? `<a class="${cls}" href="project.html?p=${p.slug}" aria-label="${esc(p.title)}" title="${esc(p.title)}">${inner}</a>`
-      : `<div class="${cls}" role="img" aria-label="${esc(p.title)}" title="${esc(p.title)}">${inner}</div>`;
-  };
-  $("#marquee").innerHTML = D.categories.map((c) => {
-    const items = all.filter((p) => p.category === c.id);
-    return items.length ? `
-      <div class="mq__group">
-        <h3 class="mq__label" data-reveal>${esc(c.name)}</h3>
-        <div class="mq__logos">${items.map(tile).join("")}</div>
-      </div>` : "";
-  }).join("");
+  logoRows($("#marquee"), all);
 
   const bandSet = `<div class="band__set">${(D.topBrands || []).map((b) => `<span>${logo(b)}</span><i></i>`).join("")}</div>`;
   $("#bandTrack").innerHTML = bandSet + bandSet.replace('class="band__set"', 'class="band__set" aria-hidden="true"');
@@ -166,10 +139,11 @@ window.APOS_PAGE = () => {
       const r = circle.getBoundingClientRect();
       return { cx: r.left + r.width / 2, cy: r.top + r.height / 2, r: r.width / 2, R: Math.hypot(innerWidth, innerHeight) / 2 + 4 };
     };
-    // About starts rising over the last part of the pin, right as the screen turns white,
-    // so there's no full screen of blank white between the zoom and the text
+    // About rises over the pinned hero: its text starts to appear once the dot fills ~80% of the
+    // screen. About has no background of its own here, so the text sits on the dot as it turns white.
+    const OVER = 1.07;                                       // how far (in screens) About overlaps the pin
     const intro = $("#intro");
-    const size = () => { const g = geo(); z.style.width = z.style.height = `${g.R * 2}px`; intro.style.marginTop = `${-H() * 0.78}px`; };
+    const size = () => { const g = geo(); z.style.width = z.style.height = `${g.R * 2}px`; intro.style.marginTop = `${-H() * OVER}px`; };
     size();
     ScrollTrigger.addEventListener("refreshInit", size);
 
@@ -191,9 +165,9 @@ window.APOS_PAGE = () => {
       .fromTo(z.firstChild, { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.5)
       .to({}, { duration: 0.76 });   // tail: the zoom fills the first 0.75 screens of the pin and is white by ~0.6, About rises from there
 
-    // once About has risen into place the full-screen dot is invisible behind it, so retire it
+    // the white dot is About's backdrop until the hero has scrolled fully away, then it retires
     ScrollTrigger.create({
-      trigger: "#intro", start: "top 5%",
+      trigger: "#intro", start: () => `top -${(OVER + 0.03) * 100}%`,
       onEnter: () => gsap.set([sig, z], { autoAlpha: 0 }),
       onLeaveBack: () => gsap.set([sig, z], { autoAlpha: 1 }),
     });

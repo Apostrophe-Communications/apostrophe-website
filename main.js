@@ -47,165 +47,37 @@
     return `<span class="lg" role="img" aria-label="${esc(b.name)}" style="--lw:${w.toFixed(3)};--lh:${h.toFixed(3)};--src:url('${esc(b.logo)}')"></span>`;
   }
 
-  /* ---------- Sticker honeycomb (Selected work) ----------
-     Project logos as outlined stickers in a hex grid that magnifies under the
-     cursor, like the Apple Watch app grid. Used on Home (featured) and Projects (all). */
-  function hive(el, projects, { max = 132, per = 8.2, centre: centreHTML = "" } = {}) {
-    const catName = Object.fromEntries(window.APOS.categories.map((c) => [c.id, c.name]));
-    // fit each logo inside the circle: an inscribed rectangle, then evened out by area
-    // no frame around the logos, so each gets a wide box (in units of the cell size),
-    // evened out by area so long wordmarks and compact marks carry the same weight
+  /* ---------- Marquee rows: project logos clubbed under their category ----------
+     Each logo gets a box sized by area, so long wordmarks and compact marks weigh the same,
+     and by ink density (sd = share of the logo's box that is ink), so a heavy block wordmark
+     and a fine-line mark read as equally strong. Used on Home and on Projects. */
+  function marquee(el, items) {
+    const wide = (p) => !!p.wide;                            // very long strips take two cells
     const fit = (p) => {
-      const ar = p.sw / p.sh, area = p.badge ? 0.34 : 0.26;
+      const ar = p.sw / p.sh, max = wide(p) ? 1.9 : 0.98;
+      const weight = Math.min(1.35, Math.max(0.72, Math.sqrt(0.3 / (p.sd || 0.3))));
+      const area = (p.badge ? 0.26 : 0.17) * weight * (wide(p) ? 2 : 1) * (p.boost || 1);   // boost: hand-tuned for very fine-line logos
       let w = Math.sqrt(area * ar), h = w / ar;
-      if (w > 1.08) { w = 1.08; h = w / ar; }
-      if (h > 0.62) { h = 0.62; w = h * ar; }
+      if (w > max) { w = max; h = w / ar; }                // long wordmarks may use the full cell width
+      if (h > 0.46) { h = 0.46; w = h * ar; }
       return `--fw:${w.toFixed(3)};--fh:${h.toFixed(3)}`;
     };
-    el.classList.add("hive");
-    el.innerHTML = projects.map((p, i) => `
-      <${p.slug ? "a" : "div"} class="sticker${p.slug ? "" : " sticker--brand"}" ${p.slug ? `href="project.html?p=${p.slug}"` : 'role="img"'} data-cat="${p.category}" data-i="${i}" aria-label="${esc(p.title)}${p.subtitle ? `: ${esc(p.subtitle)}` : ""}">
-        <span class="sticker__disc" style="--r:${((i * 37) % 9) - 4}deg">${p.sticker
-          ? `<img src="${esc(p.sticker)}" alt="" style="${fit(p)}" decoding="async">`
-          : `<span class="sticker__txt">${esc(p.title)}</span>`}</span>
-      </${p.slug ? "a" : "div"}>`).join("") + `<div class="hive__label" aria-hidden="true"><b></b><em></em></div>`
-      + (centreHTML ? `<div class="hive__centre">${centreHTML}</div>` : "");
-
-    const centre = $(".hive__centre", el);
-    const stickers = $$(".sticker", el);
-    const label = $(".hive__label", el);
-    let items = [], D0 = 100, step = 120;
-    // one eased loop moves and scales every sticker together, and sleeps once they settle
-    const st = stickers.map(() => ({ x: 0, y: 0, s: 1, tx: 0, ty: 0, ts: 1 }));
-    let running = false;
-    const tick = (time, dt) => {
-      const k = 1 - Math.exp(-dt / 110);
-      let moving = false;
-      st.forEach((v, i) => {
-        v.x += (v.tx - v.x) * k; v.y += (v.ty - v.y) * k; v.s += (v.ts - v.s) * k;
-        if (Math.abs(v.tx - v.x) > 0.05 || Math.abs(v.ty - v.y) > 0.05 || Math.abs(v.ts - v.s) > 0.001) moving = true;
-        stickers[i].style.transform = `translate3d(${v.x}px,${v.y}px,0) scale(${v.s})`;
-      });
-      if (!moving) { gsap.ticker.remove(tick); running = false; }
+    const tile = (p) => {
+      const inner = p.sticker ? `<img src="${esc(p.sticker)}" alt="" style="${fit(p)}" loading="lazy" decoding="async">` : `<span class="mq__txt">${esc(p.title)}</span>`;
+      const cls = `mq__item${p.slug ? "" : " mq__item--brand"}${wide(p) ? " mq__item--wide" : ""}`;
+      return p.slug
+        ? `<a class="${cls}" href="project.html?p=${p.slug}" aria-label="${esc(p.title)}" title="${esc(p.title)}">${inner}</a>`
+        : `<div class="${cls}" role="img" aria-label="${esc(p.title)}" title="${esc(p.title)}">${inner}</div>`;
     };
-    const wake = () => { if (!running) { running = true; gsap.ticker.add(tick); } };
-    const aim = (i, x, y, s) => { const v = st[i]; v.tx = x; v.ty = y; v.ts = s; wake(); };
-
-    // fill a hex lattice from the centre outwards so the set forms one round cluster
-    // (the first projects sit in the middle); on narrow screens the circle stretches into an upright oval
-    function layout(animate) {
-      const W = el.clientWidth;
-      D0 = Math.round(Math.min(max, Math.max(76, W / per)));
-      const gap = Math.round(D0 * 0.2);
-      step = D0 + gap;
-      const rowH = step * 0.87;
-      const vis = stickers.filter((s) => !s.classList.contains("is-hidden"));
-      const N = vis.length, R = Math.ceil(Math.sqrt(N)) + 3;
-      const pts = [];
-      for (let r = -2 * R; r <= 2 * R; r++) for (let c = -2 * R; c <= 2 * R; c++)
-        pts.push({ x: (c + (Math.abs(r) % 2) * 0.5) * step, y: r * rowH });
-      // an optional centrepiece (e.g. the section title): the stickers sit evenly spaced on one circle around it
-      const cw = centre ? centre.offsetWidth : 0, ch = centre ? centre.offsetHeight : 0;
-      const ringR = Math.max(Math.hypot(cw / 2, ch / 2) + D0 / 2 + gap, (vis.length * step) / (2 * Math.PI));
-      if (centre && W >= 2 * ringR + D0 + gap) {
-        const top = D0 * 0.3, cx0 = W / 2, cy0 = top + ringR + D0 / 2;
-        items = vis.map((v, i) => {
-          const a = -Math.PI / 2 + (i / vis.length) * Math.PI * 2;
-          return { el: v, idx: +v.dataset.i, bx: cx0 + Math.cos(a) * ringR - D0 / 2, by: cy0 + Math.sin(a) * ringR - D0 / 2 };
-        });
-        gsap.set(centre, { x: cx0, y: cy0, xPercent: -50, yPercent: -50 });
-        el.style.setProperty("--d", D0 + "px");
-        el.style.height = Math.ceil(top + 2 * ringR + D0 * 1.9) + "px";
-        place(animate);
-        return;
-      }
-      // otherwise: a round honeycomb cluster (centrepiece, if any, sits above it)
-      let aspect = 1, pick = [];
-      for (let tries = 0; tries < 30; tries++) {
-        pick = pts.map((q) => ({ ...q, m: Math.hypot(q.x, q.y / aspect) + Math.atan2(q.y, q.x) * 1e-3 }))
-          .sort((u, v) => u.m - v.m).slice(0, N);
-        const xs = pick.map((q) => q.x);
-        if (N < 2 || Math.max(...xs) - Math.min(...xs) + D0 <= W) break;
-        aspect *= 1.12;
-      }
-      const xs = pick.map((q) => q.x), ys = pick.map((q) => q.y);
-      const minX = Math.min(...xs), maxX = Math.max(...xs), minY = Math.min(...ys), maxY = Math.max(...ys);
-      const top = D0 * 0.3 + (centre ? ch + D0 * 0.5 : 0);
-      const cx0 = W / 2 - (minX + maxX) / 2, cy0 = top - (minY - D0 / 2);
-      items = vis.map((v, i) => ({ el: v, idx: +v.dataset.i, bx: pick[i].x + cx0 - D0 / 2, by: pick[i].y + cy0 - D0 / 2 }));
-      if (centre) gsap.set(centre, { x: W / 2, y: D0 * 0.3, xPercent: -50, yPercent: 0 });
-      el.style.setProperty("--d", D0 + "px");
-      el.style.height = Math.ceil(N ? top + maxY - minY + D0 * 1.9 : 0) + "px";
-      place(animate);
-    }
-
-    function place(animate) {
-      items.forEach((it) => {
-        const v = st[it.idx];
-        if (!animate || RM) { v.x = v.tx = it.bx; v.y = v.ty = it.by; }
-        aim(it.idx, it.bx, it.by, 1);
-        it.el.style.visibility = "";
-        gsap.to(it.el.firstElementChild, { opacity: 1, duration: 0.5 });
-      });
-      stickers.forEach((s, i) => {
-        if (!s.classList.contains("is-hidden")) return;
-        aim(i, st[i].tx, st[i].ty, 0.001);
-        gsap.to(s.firstElementChild, { opacity: 0, duration: 0.3, onComplete: () => { s.style.visibility = "hidden"; } });
-      });
-    }
-
-    function magnify(px, py) {
-      const R = step * 2.1;
-      let near = null, nd = Infinity;
-      items.forEach((it) => {
-        const dx = it.bx + D0 / 2 - px, dy = it.by + D0 / 2 - py, d = Math.hypot(dx, dy) || 1;
-        const t = Math.max(0, 1 - d / R);
-        const e = t * t * (3 - 2 * t);                 // smoothstep falloff
-        const push = e * (1 - e) * step * 0.5;           // neighbours ease aside, the centre stays put
-        aim(it.idx, it.bx + (dx / d) * push, it.by + (dy / d) * push, 1 + 0.6 * e * e);
-        it.el.style.zIndex = Math.round(t * 100);
-        if (d < nd) { nd = d; near = it; }
-      });
-      const on = near && nd < D0 * 0.62;
-      stickers.forEach((s) => s.classList.toggle("is-near", on && s === near.el));
-      if (on) {
-        const p = projects[near.idx];
-        label.querySelector("b").textContent = p.title;
-        label.querySelector("em").textContent = catName[p.category];
-        gsap.to(label, { x: near.bx + D0 / 2, y: near.by + D0 * 1.42, autoAlpha: 1, duration: 0.45, ease: "power3" });
-      } else gsap.to(label, { autoAlpha: 0, duration: 0.3 });
-    }
-    function rest() {
-      items.forEach((it) => { aim(it.idx, it.bx, it.by, 1); it.el.style.zIndex = ""; });
-      stickers.forEach((s) => s.classList.remove("is-near"));
-      gsap.to(label, { autoAlpha: 0, duration: 0.3 });
-    }
-
-    layout(false);
-    gsap.set(label, { autoAlpha: 0, xPercent: -50 });
-    let rw = el.clientWidth;
-    addEventListener("resize", () => { if (el.clientWidth !== rw) { rw = el.clientWidth; layout(false); ScrollTrigger.refresh(); } });
-    if (FINE && !RM) {
-      el.addEventListener("pointermove", (e) => { const r = el.getBoundingClientRect(); magnify(e.clientX - r.left, e.clientY - r.top); });
-      el.addEventListener("pointerleave", rest);
-    }
-    // stickers fade up in reading order as the section arrives
-    // (the pop-in animates the inner disc so it never fights the hover loop on the outer sticker)
-    if (!RM) {
-      const discs = stickers.map((s) => s.firstElementChild);
-      gsap.set(discs, { scale: 0.92, opacity: 0 });
-      ScrollTrigger.create({
-        trigger: el, start: "top 85%", once: true,
-        onEnter: () => gsap.to(discs, { scale: 1, opacity: 1, duration: 0.5, ease: "power3.out", stagger: 0.035 }),
-      });
-    }
-    return {
-      filter(test) {
-        stickers.forEach((s) => s.classList.toggle("is-hidden", !test(s.dataset.cat)));
-        rest(); layout(true);
-        setTimeout(() => ScrollTrigger.refresh(), 950);
-      },
-    };
+    el.classList.add("mq");
+    el.innerHTML = window.APOS.categories.map((c) => {
+      const list = items.filter((p) => p.category === c.id);
+      return list.length ? `
+        <div class="mq__group">
+          <h3 class="mq__label" data-reveal>${esc(c.name)}</h3>
+          <div class="mq__logos">${list.map(tile).join("")}</div>
+        </div>` : "";
+    }).join("");
   }
 
   /* Split an element's text into masked words (and optionally chars). */
@@ -253,7 +125,7 @@
         <div class="menu__nav"><ul>${NAV.map(([t, h, id]) => `<li><a href="${h}" class="${id === page ? "is-current" : ""}"><span>${t}</span></a></li>`).join("")}</ul></div>
         <div class="menu__foot">
           <div class="menu__social"><a class="link-u" href="${c.instagram}">Instagram</a><a class="link-u" href="${c.linkedin}">LinkedIn</a></div>
-          <div class="menu__offices"><em>Partner offices</em>${D.offices.map((o) => `<span>${o}</span>`).join("")}</div>
+          <div class="menu__offices"><em>Partner Offices</em>${D.offices.map((o) => `<span>${o}</span>`).join("")}</div>
         </div>
       </nav>
       <div class="cursor" id="cursor"></div>
@@ -265,9 +137,9 @@
       foot.innerHTML = `
       <section class="s t-stone foot-cta" data-theme="dark">
         <div class="wrap">
-          <small data-reveal>Have a project in mind?</small>
-          <h2 data-split>Let’s work together</h2>
-          <a class="btn" href="contact.html" data-reveal>Get in touch <span class="arr">${ARROW}</span></a>
+          <small data-reveal>Have a Project in Mind?</small>
+          <h2 data-split>Let’s Work Together</h2>
+          <a class="btn" href="contact.html" data-reveal>Get in Touch <span class="arr">${ARROW}</span></a>
         </div>
       </section>
       <footer class="s t-dark foot-bar" data-theme="dark">
@@ -275,7 +147,7 @@
           <div class="foot-bar__top">
             <div><img class="foot-bar__logo" src="logo-full-white-v6.png?v=20260930150635" alt="Apostrophe Communications" width="150" height="102" loading="lazy"></div>
             <div><h3>Explore</h3><ul>${NAV.map(([t, h]) => `<li><a class="link-u" href="${h}">${t}</a></li>`).join("")}</ul></div>
-            <div class="foot-bar__hello"><h3>Say hello</h3><ul><li><a class="link-u mail" href="mailto:${c.email}">${esc(c.email).replace("@", "@<wbr>")}</a></li><li>${c.address}</li></ul></div>
+            <div class="foot-bar__hello"><h3>Say Hello</h3><ul><li><a class="link-u mail" href="mailto:${c.email}">${esc(c.email).replace("@", "@<wbr>")}</a></li><li>${c.address}</li></ul></div>
             <div><h3>Follow</h3><ul><li><a class="link-u" href="${c.instagram}">Instagram</a></li><li><a class="link-u" href="${c.linkedin}">LinkedIn</a></li></ul></div>
           </div>
           <div class="foot-bar__bottom"><span>© ${new Date().getFullYear()} Apostrophe Communications</span><span>Partner offices: ${D.offices.join(" · ")}</span></div>
@@ -524,7 +396,7 @@
   initCursor();
   initTransitions();
 
-  window.APOS_UI = { $, $$, RM, esc, media, srcset, logo, hive, MARK, get lenis() { return lenis; } };
+  window.APOS_UI = { $, $$, RM, esc, media, srcset, logo, marquee, MARK, get lenis() { return lenis; } };
 
   // Page scripts register themselves on APOS_PAGE; run once fonts are ready so splits measure correctly.
   const ready = document.fonts ? document.fonts.ready : Promise.resolve();
