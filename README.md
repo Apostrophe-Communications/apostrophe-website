@@ -19,3 +19,6 @@ then open http://localhost:8080
 In the repo's Settings → Pages, add `apostrophecommunications.com` as the custom domain and update the DNS records at the domain registrar. All links are relative, so nothing in the code needs to change.
 
 chore:2
+
+## Saved versions
+Earlier versions of the site are kept as git tags (`v1-2026-10-01`, `v2-2026-10-01`), not as folders on the live site. To look at one locally: `git worktree add ../apostrophe-v1 v1-2026-10-01`.
