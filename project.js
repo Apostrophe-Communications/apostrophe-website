@@ -5,7 +5,7 @@ window.APOS_PAGE = () => {
   const { $, esc, media, srcset } = window.APOS_UI;
   const D = window.APOS;
   const slug = new URLSearchParams(location.search).get("p");
-  const i = Math.max(0, D.projects.findIndex((p) => p.slug === slug));
+  const i = Math.max(0, D.projects.findIndex((p) => p.slug === slug || (p.aliases || []).includes(slug)));
   const p = D.projects[i];
   const cat = D.categories.find((c) => c.id === p.category)?.name || "";
   document.title = `${p.title} | Apostrophe Communications`;

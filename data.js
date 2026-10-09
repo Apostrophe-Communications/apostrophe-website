@@ -1025,7 +1025,7 @@ window.APOS = {
   {
    "slug": "abraham-thakore",
    "title": "Abraham & Thakore",
-   "subtitle": "Flagships, founders & Fashion Week",
+   "subtitle": "Flagships, Fashion Week & Abraham & Thakore Home",
    "category": "luxury",
    "tags": [
     "Media & Storytelling",
@@ -1046,23 +1046,57 @@ window.APOS = {
      "label": "PR value",
      "prefix": "₹",
      "suffix": "M+"
+    },
+    {
+     "value": "20",
+     "label": "Pieces of Home coverage",
+     "prefix": "",
+     "suffix": "+"
     }
    ],
    "placeholder": false,
    "sections": {
     "background": [
      {
+      "t": "h",
+      "v": "The label"
+     },
+     {
       "t": "p",
       "v": "Abraham & Thakore occupies a distinctive space in Indian fashion, bringing together traditional Indian craft, contemporary design and a strong point of view on modern luxury. Apostrophe has supported the brand across key retail milestones, collection launches, founder profiling and Fashion Week communications."
+     },
+     {
+      "t": "h",
+      "v": "Abraham & Thakore Home"
+     },
+     {
+      "t": "p",
+      "v": "Apostrophe partnered with Abraham & Thakore Home to establish the home offering as a natural extension of the designers' established fashion identity, bringing their distinctive design language into the luxury interiors and lifestyle space."
      }
     ],
     "objective": [
      {
+      "t": "h",
+      "v": "The label"
+     },
+     {
       "t": "p",
       "v": "To strengthen Abraham & Thakore’s visibility and reinforce its position as one of India’s leading contemporary designer labels, while creating high-impact moments around its flagship launches and translating the brand’s design legacy into broader fashion and cultural conversations."
+     },
+     {
+      "t": "h",
+      "v": "Abraham & Thakore Home"
+     },
+     {
+      "t": "p",
+      "v": "To build a strong luxury positioning for Abraham & Thakore Home, leverage the equity of the existing fashion brand, and introduce the new offering to influential architecture, interiors, lifestyle and luxury audiences through credible editorial storytelling."
      }
     ],
     "solution": [
+     {
+      "t": "h",
+      "v": "The label"
+     },
      {
       "t": "p",
       "v": "Apostrophe developed an integrated communications programme spanning media relations, influencer engagement, founder profiling, retail launches and Fashion Week amplification."
@@ -1078,9 +1112,33 @@ window.APOS = {
      {
       "t": "p",
       "v": "Alongside launches, we maintained a consistent media programme around collection launches, founder stories and the brand’s participation at FDCI x Lakmé Fashion Week, securing visibility across Elle India, Vogue India, Hello! India and The Voice of Fashion."
+     },
+     {
+      "t": "h",
+      "v": "Abraham & Thakore Home"
+     },
+     {
+      "t": "p",
+      "v": "Apostrophe developed a focused traditional PR programme centred on editorial outreach, designer interactions and strategic media relationship building."
+     },
+     {
+      "t": "p",
+      "v": "The campaign prioritised leading magazines, newspapers and digital platforms relevant to luxury, design and lifestyle, while creating opportunities for the designers to speak directly to media about the brand's evolution into home."
+     },
+     {
+      "t": "p",
+      "v": "Media outreach targeted publications and platforms including Architectural Digest, India Today Home, ELLE Decor, The Telegraph, Times Now, Luxury Facts, Indulge (TNIE), India Today Lifestyle, GQ India, The Week and GoodHomes India."
+     },
+     {
+      "t": "p",
+      "v": "Beyond coverage generation, Apostrophe facilitated 20+ media opportunities across print, online and electronic platforms, along with relationship-building meetings with top media houses. The programme was designed not simply to secure individual stories, but to establish long-term relationships with key publications and create a credible editorial foundation for the category."
      }
     ],
     "impact": [
+     {
+      "t": "h",
+      "v": "The label"
+     },
      {
       "t": "p",
       "v": "The sustained communications programme delivered 19.2M+ reach and ₹14.6M+ in PR value."
@@ -1088,6 +1146,18 @@ window.APOS = {
      {
       "t": "p",
       "v": "Beyond individual launches, the work strengthened Abraham & Thakore’s visibility across fashion, luxury and design media, reinforcing its position as a leading voice in contemporary Indian design and creating sustained industry relevance across retail, collections and Fashion Week."
+     },
+     {
+      "t": "h",
+      "v": "Abraham & Thakore Home"
+     },
+     {
+      "t": "p",
+      "v": "The campaign successfully introduced Abraham & Thakore Home to the luxury design and interiors ecosystem, generating 20+ pieces of coverage across print, digital and electronic media."
+     },
+     {
+      "t": "p",
+      "v": "The sustained editorial approach helped establish the brand through factual, balanced and credible storytelling, while strengthening relationships with leading publications and creating a strong foundation for Abraham & Thakore's continued presence within the luxury home and design landscape."
      }
     ]
    },
@@ -1098,13 +1168,20 @@ window.APOS = {
     "work/abraham-thakore-4.webp",
     "work/abraham-thakore-5.webp",
     "work/abraham-thakore-6.webp",
-    "work/abraham-thakore-7.webp"
+    "work/abraham-thakore-7.webp",
+    "work/at-home-1.webp",
+    "work/at-home-2.webp",
+    "work/at-home-3.webp",
+    "work/at-home-4.webp"
    ],
    "sticker": "stickers/abraham-thakore.png",
    "sw": 520,
    "sh": 147,
    "badge": false,
-   "sd": 0.627
+   "sd": 0.627,
+   "aliases": [
+    "at-home"
+   ]
   },
   {
    "slug": "sameer-madan",
@@ -1891,80 +1968,6 @@ window.APOS = {
    "sh": 56,
    "badge": false,
    "sd": 0.218
-  },
-  {
-   "slug": "at-home",
-   "title": "Abraham & Thakore Home",
-   "subtitle": "From fashion into living",
-   "category": "interiors",
-   "tags": [
-    "Media & Storytelling",
-    "Fashion & Design Culture"
-   ],
-   "featured": false,
-   "image": "work/at-home-1.webp",
-   "tone": 4,
-   "highlights": [
-    {
-     "value": "20",
-     "label": "Pieces of coverage",
-     "prefix": "",
-     "suffix": "+"
-    }
-   ],
-   "placeholder": false,
-   "sections": {
-    "background": [
-     {
-      "t": "p",
-      "v": "Apostrophe partnered with Abraham & Thakore Home to establish the home offering as a natural extension of the designers' established fashion identity, bringing their distinctive design language into the luxury interiors and lifestyle space."
-     }
-    ],
-    "objective": [
-     {
-      "t": "p",
-      "v": "To build a strong luxury positioning for Abraham & Thakore Home, leverage the equity of the existing fashion brand, and introduce the new offering to influential architecture, interiors, lifestyle and luxury audiences through credible editorial storytelling."
-     }
-    ],
-    "solution": [
-     {
-      "t": "p",
-      "v": "Apostrophe developed a focused traditional PR programme centred on editorial outreach, designer interactions and strategic media relationship building."
-     },
-     {
-      "t": "p",
-      "v": "The campaign prioritised leading magazines, newspapers and digital platforms relevant to luxury, design and lifestyle, while creating opportunities for the designers to speak directly to media about the brand's evolution into home."
-     },
-     {
-      "t": "p",
-      "v": "Media outreach targeted publications and platforms including Architectural Digest, India Today Home, ELLE Decor, The Telegraph, Times Now, Luxury Facts, Indulge (TNIE), India Today Lifestyle, GQ India, The Week and GoodHomes India."
-     },
-     {
-      "t": "p",
-      "v": "Beyond coverage generation, Apostrophe facilitated 20+ media opportunities across print, online and electronic platforms, along with relationship-building meetings with top media houses. The programme was designed not simply to secure individual stories, but to establish long-term relationships with key publications and create a credible editorial foundation for the category."
-     }
-    ],
-    "impact": [
-     {
-      "t": "p",
-      "v": "The campaign successfully introduced Abraham & Thakore Home to the luxury design and interiors ecosystem, generating 20+ pieces of coverage across print, digital and electronic media."
-     },
-     {
-      "t": "p",
-      "v": "The sustained editorial approach helped establish the brand through factual, balanced and credible storytelling, while strengthening relationships with leading publications and creating a strong foundation for Abraham & Thakore's continued presence within the luxury home and design landscape."
-     }
-    ]
-   },
-   "gallery": [
-    "work/at-home-2.webp",
-    "work/at-home-3.webp",
-    "work/at-home-4.webp"
-   ],
-   "sticker": "stickers/at-home.png",
-   "sw": 520,
-   "sh": 147,
-   "badge": false,
-   "sd": 0.627
   },
   {
    "slug": "glass-sutra",
@@ -2955,7 +2958,7 @@ window.APOS = {
      "logo": "logos/abraham-and-thakore-home.png",
      "w": 616,
      "h": 180,
-     "slug": "at-home"
+     "slug": "abraham-thakore"
     },
     {
      "name": "Lladró",
