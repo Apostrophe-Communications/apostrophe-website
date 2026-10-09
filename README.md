@@ -7,7 +7,7 @@ Everything that changes lives in **`data.js`**:
 - **Projects**: copy an entry in `projects`, change the text. `featured` projects appear on the home page carousel (order set by the `featured` list).
 - **Real photos**: put images in `images/` and set `image: "images/name.jpg"` on the project.
 - **Testimonials, awards, partners, offices, contact details**: edit the matching lists.
-- **Contact form**: paste a Formspree / Web3Forms URL into `contact.formEndpoint` so messages arrive by email. Empty = the form opens the visitor's email app.
+- **Enquiry form** (Brand name, Email, Phone, Brand Instagram): set `contact.googleForm` to the Google Form's `formResponse` URL and each question's `entry.NNN` id; responses land in the Google Sheet linked to that form. Empty = the form opens the visitor's email app.
 
 ## Preview locally
 ```

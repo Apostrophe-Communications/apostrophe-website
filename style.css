@@ -658,6 +658,7 @@ html.rm .statement .sw { opacity: 1; }
 .form { display: grid; grid-template-columns: 1fr 1fr; gap: 34px 28px; }
 .field { position: relative; }
 .field--full { grid-column: 1 / -1; }
+.form__trap { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 .field input, .field textarea {
   width: 100%; border: 0; border-bottom: 1px solid rgba(0, 0, 0,.3); background: transparent;
   font: inherit; font-size: 16px; padding: 22px 0 10px; color: var(--ink); border-radius: 0; outline: none;

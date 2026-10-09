@@ -4,8 +4,9 @@
    testimonials, partners, contact) lives in this one file.
    - To add a project: copy one object in `projects` and edit it.
    - To use a real photo: set `image: "images/<file>.jpg"`.
-   - `formEndpoint`: paste a Formspree / Web3Forms URL to make the
-     contact form send directly (empty = opens the visitor's email app).
+   - `contact.googleForm`: the Google Form that collects enquiries
+     (`action` = its formResponse URL, `fields` = each question's
+     entry.NNN id). Empty = the form opens the visitor's email app.
    ============================================================ */
 window.APOS = {
  "stats": [
@@ -3399,9 +3400,17 @@ window.APOS = {
   "email": "connect@apostrophecommunications.com",
   "phone": "+91 98183 09622",
   "address": "67, Lower Ground Floor, Hemkunt Colony, Greater Kailash 1, New Delhi 110048",
-  "instagram": "https://instagram.com/apostrophe",
+  "instagram": "https://www.instagram.com/apostrophe.communications/",
   "linkedin": "#",
-  "formEndpoint": ""
+  "googleForm": {
+   "action": "https://docs.google.com/forms/d/e/1FAIpQLSfcmaJHYnobovQ7dwMbdfcwC1kNA50OtWyDrUFw9XfMAba7RQ/formResponse",
+   "fields": {
+    "brand": "entry.2052753024",
+    "email": "entry.169735977",
+    "phone": "entry.452672743",
+    "instagram": "entry.2029320662"
+   }
+  }
  },
  "press": [
   {
