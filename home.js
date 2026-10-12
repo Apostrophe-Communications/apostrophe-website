@@ -100,7 +100,9 @@ window.APOS_PAGE = () => {
     try { seen = !!sessionStorage.getItem("apos-intro"); sessionStorage.setItem("apos-intro", 1); } catch (e) {}
     if (seen) {
       tl.progress(1);
-      gsap.from(["#sig", "#heroBrand"], { opacity: 0, y: 12, duration: 0.6, ease: "power3.out" });
+      // the mark only fades: moving it here would shift the spot the zoom's dot is measured from
+      gsap.from(["#sig", ".zoomdot"], { opacity: 0, duration: 0.6, ease: "power3.out" });
+      gsap.from("#heroBrand", { opacity: 0, y: 12, duration: 0.6, ease: "power3.out" });
       return;
     }
 
@@ -125,7 +127,7 @@ window.APOS_PAGE = () => {
      (drawn once at full size, so it stays crisp), never a giant redrawn SVG. */
   function signature() {
     if (RM) return;
-    const sig = $("#sig");
+    const sig = $("#sig"), hdr = $("#hdr");
     const L = $(".p-left", sig), R = $(".p-right", sig), pdot = $(".p-dot", sig);
     const circle = $(".p-dot circle", sig);
 
@@ -159,6 +161,8 @@ window.APOS_PAGE = () => {
 
     const tl = gsap.timeline({
       defaults: { ease: "none" },
+      // the header follows the dot: dark while the hero shows, light once the dot has turned white
+      onUpdate() { hdr.classList.toggle("on-light", this.time() >= 0.78); },
       // refreshPriority: this pin sits above everything else, so it must be measured first
       scrollTrigger: { id: "zoom", trigger: "#hero", start: "top top", end: () => `+=${H() * 1.32}`, pin: true, scrub: 1, invalidateOnRefresh: true, refreshPriority: 1,
         onLeave: () => live(false), onEnterBack: () => live(true) },

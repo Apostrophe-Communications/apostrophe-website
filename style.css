@@ -521,6 +521,8 @@ html.rm .statement .sw { opacity: 1; }
 .pwall { padding: clamp(10px, 2svh, 24px) 0 clamp(20px, 4svh, 40px); }
 .pwall .index__logos { color: var(--ink); justify-content: center; gap: clamp(28px, 3.4vw, 46px) clamp(36px, 4.4vw, 64px); }
 @media (hover: hover) and (pointer: fine) { .pwall .index__b.has-page:hover { color: var(--yellow); } }
+/* comfortable tap area around each linked logo */
+.pwall a.index__b::before { content: ""; position: absolute; inset: -12px -10px; }
 
 
 .pill { border: 1px solid rgba(0, 0, 0,.25); border-radius: 999px; padding: 3px 10px; font-size: 11px; letter-spacing: .12em; white-space: nowrap; }
@@ -745,6 +747,12 @@ html.rm .hdr { opacity: 1 !important; visibility: visible !important; }
 .hdr.on-light::before { opacity: 0; }
 .hdr.on-light::after { opacity: 1; }
 body.menu-open .hdr::before, body.menu-open .hdr::after { opacity: 0; }
+/* when the header slides away its fade must go with it, or a strip of it stays on screen */
+.hdr.is-hidden::before, .hdr.is-hidden::after { opacity: 0; }
+/* each header item keeps its own column, so the menu stays on the right even when the name is hidden on small phones */
+.hdr__left { grid-column: 1; }
+.hdr__name { grid-column: 2; }
+.hdr__toggle { grid-column: 3; }
 .hdr__toggle { width: auto; display: inline-flex; align-items: center; gap: 12px; padding-left: 8px; }
 .hdr__label {
   font-style: normal; font-family: var(--display); font-size: var(--fs-label);
@@ -954,6 +962,8 @@ html.dot-cursor input, html.dot-cursor textarea, html.dot-cursor select { cursor
 /* legible small text */
 @media (max-width: 560px) { .hdr__name { font-size: 11px; letter-spacing: .14em; } }
 @media (max-width: 380px) { .hdr__name { display: none; } }
+/* inner pages carry a back button: on phones there is no room for the name beside it */
+@media (max-width: 480px) { .hdr__left:has(.hdr__back) ~ .hdr__name { display: none; } }
 .filters sup { font-size: 11px; }
 .pill { font-size: 12px; }
 
