@@ -1227,7 +1227,40 @@ window.APOS = {
    "sw": 491,
    "sh": 61,
    "badge": false,
-   "sd": 0.492
+   "sd": 0.492,
+   "slider": {
+    "title": "Celebrity Features",
+    "items": [
+     {
+      "src": "work/sameer-madan-c1.webp",
+      "alt": "Madhuri Dixit in Sameer Madan"
+     },
+     {
+      "src": "work/sameer-madan-c2.webp",
+      "alt": "Rakulpreet Singh in Sameer Madan"
+     },
+     {
+      "src": "work/sameer-madan-c3.webp",
+      "alt": "Honey Singh in Sameer Madan"
+     },
+     {
+      "src": "work/sameer-madan-c4.webp",
+      "alt": "Nimrit Kaur in Sameer Madan"
+     },
+     {
+      "src": "work/sameer-madan-c5.webp",
+      "alt": "Kritika Khurana in Sameer Madan"
+     },
+     {
+      "src": "work/sameer-madan-c6.webp",
+      "alt": "Manushi Chhillar in Sameer Madan"
+     },
+     {
+      "src": "work/sameer-madan-c7.webp",
+      "alt": "Neeru Bajwa in Sameer Madan"
+     }
+    ]
+   }
   },
   {
    "slug": "bally",
