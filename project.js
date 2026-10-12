@@ -17,6 +17,9 @@ window.APOS_PAGE = () => {
     return `<p>${esc(b.v)}</p>`;
   }).join("");
 
+  // phone-shaped slider photos (stories, reels) get narrower cards so they don't tower over the page
+  const tall = p.slider && (() => { const [a, b] = String(p.slider.ratio || "4 / 5").split("/").map(Number); return a / b < 0.65; })();
+
   const SECS = [["background", "Background"], ["objective", "Objective"], ["solution", "Solution"], ["impact", "Impact"]];
 
   $("#cs").innerHTML = `
@@ -59,8 +62,8 @@ window.APOS_PAGE = () => {
           <button id="reelNext" aria-label="Next photos"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 8h12M9 3l5 5-5 5"/></svg></button>
         </div>
       </div>
-      <div class="cs-reel__track" id="reel" tabindex="0" role="group" aria-label="${esc(p.slider.title)}: scroll sideways for more">
-        ${p.slider.items.map((it) => `<figure class="cs-reel__item"><img src="${esc(it.src)}" srcset="${esc(it.src.replace(/\.webp$/, "-sm.webp"))} 640w, ${esc(it.src)} 1080w" sizes="(max-width: 760px) 72vw, 26vw" alt="${esc(it.alt)}" width="1080" height="1350" loading="lazy" decoding="async" draggable="false"></figure>`).join("")}
+      <div class="cs-reel__track${tall ? " cs-reel__track--tall" : ""}" id="reel" tabindex="0" role="group" aria-label="${esc(p.slider.title)}: scroll sideways for more" style="--ratio:${esc(p.slider.ratio || "4 / 5")}">
+        ${p.slider.items.map((it) => `<figure class="cs-reel__item"><img src="${esc(it.src)}" srcset="${esc(it.src.replace(/\.webp$/, "-sm.webp"))} 640w, ${esc(it.src)} 1080w" sizes="(max-width: 760px) 72vw, 26vw" alt="${esc(it.alt)}" loading="lazy" decoding="async" draggable="false"></figure>`).join("")}
       </div>
     </section>` : ""}
 

@@ -656,44 +656,64 @@ window.APOS = {
   {
    "slug": "bath-body-works",
    "title": "Bath & Body Works",
-   "subtitle": "Beauty & Retail",
+   "subtitle": "Always-on influencer campaigns & collection launches",
    "category": "fashion",
    "tags": [
     "Influencer Relations",
-    "Media & Storytelling"
+    "Experiences & Activations",
+    "Media & Storytelling",
+    "Retail & Store Launches"
    ],
    "featured": true,
    "image": "work/bath-body-works-e1.webp",
    "tone": 5,
    "highlights": [],
-   "placeholder": true,
+   "placeholder": false,
    "sections": {
     "background": [
      {
       "t": "p",
-      "v": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus, posuere velit aliquet. Cras mattis consectetur purus sit amet fermentum."
+      "v": "Bath & Body Works is a retainer partner. Apostrophe owns the brand's influencer strategy in India end to end, alongside media relations, store launch events and campaign strategy."
      }
     ],
     "objective": [
      {
       "t": "p",
-      "v": "Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Maecenas faucibus mollis interdum, nullam quis risus eget urna mollis ornare vel eu leo."
+      "v": "To make influencer marketing a consistent, always-on growth lever for Bath & Body Works across India: building anticipation ahead of every major collection drop, amplifying launch events in real time and driving its key sale periods."
      }
     ],
     "solution": [
      {
       "t": "p",
-      "v": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus, posuere velit aliquet. Cras mattis consectetur purus sit amet fermentum."
+      "v": "Apostrophe builds nationwide creator campaigns around every major collection drop, including Touch of Gold, Closer and the ongoing Disney collection, driving pre-launch anticipation and real-time event amplification. The influencer engine spans multiple cities and runs alongside dedicated launch events."
      },
      {
       "t": "p",
-      "v": "Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Maecenas faucibus mollis interdum, nullam quis risus eget urna mollis ornare vel eu leo."
+      "v": "Creator activations were also extended to drive the Semi-Annual Sale and the Summer End of Season Sale."
+     },
+     {
+      "t": "h",
+      "v": "Collection Launch Event"
+     },
+     {
+      "t": "list",
+      "label": "Apostrophe's role included",
+      "v": [
+       "End-to-end launch execution, with two guestlisters onboarded and on-ground management",
+       "Experiential and décor: décor and F&B curation, a charm station experience and mall pop-up execution",
+       "Media and PR: aligned Global VP interactions, press release dissemination, media invites and gifting, and post-event coverage",
+       "Digital amplification: influencer campaign management, digital storytelling and visibility strategy"
+      ]
      }
     ],
     "impact": [
      {
       "t": "p",
-      "v": "Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Maecenas faucibus mollis interdum, nullam quis risus eget urna mollis ornare vel eu leo."
+      "v": "For the End of Season Sale, Apostrophe delivered massive-scale campaigns within short timelines and limited budgets, proving the efficiency and agility of the influencer engine."
+     },
+     {
+      "t": "p",
+      "v": "Influencer marketing is now a consistent, always-on growth lever for Bath & Body Works across India."
      }
     ]
    },
@@ -708,7 +728,53 @@ window.APOS = {
    "sw": 482,
    "sh": 404,
    "badge": false,
-   "sd": 0.255
+   "sd": 0.255,
+   "slider": {
+    "title": "Influencer Collaborations",
+    "ratio": "9 / 16",
+    "items": [
+     {
+      "src": "work/bath-body-works-c1.webp",
+      "alt": "Creator content for Bath & Body Works"
+     },
+     {
+      "src": "work/bath-body-works-c2.webp",
+      "alt": "Creator content for Bath & Body Works"
+     },
+     {
+      "src": "work/bath-body-works-c3.webp",
+      "alt": "Creator content for Bath & Body Works"
+     },
+     {
+      "src": "work/bath-body-works-c4.webp",
+      "alt": "Creator content for Bath & Body Works"
+     },
+     {
+      "src": "work/bath-body-works-c5.webp",
+      "alt": "Creator content for Bath & Body Works"
+     },
+     {
+      "src": "work/bath-body-works-c6.webp",
+      "alt": "Creator content for Bath & Body Works"
+     },
+     {
+      "src": "work/bath-body-works-c7.webp",
+      "alt": "Creator content for Bath & Body Works"
+     },
+     {
+      "src": "work/bath-body-works-c8.webp",
+      "alt": "Creator content for Bath & Body Works"
+     },
+     {
+      "src": "work/bath-body-works-c9.webp",
+      "alt": "Creator content for Bath & Body Works"
+     },
+     {
+      "src": "work/bath-body-works-c10.webp",
+      "alt": "Creator content for Bath & Body Works"
+     }
+    ]
+   }
   },
   {
    "slug": "apala",
@@ -801,7 +867,8 @@ window.APOS = {
       "src": "work/apala-c8.webp",
       "alt": "Sakshi Sindhwani in Apala"
      }
-    ]
+    ],
+    "ratio": "4 / 5"
    },
    "titleLogo": {
     "src": "logos/apala-hero.png",
@@ -1259,7 +1326,8 @@ window.APOS = {
       "src": "work/sameer-madan-c7.webp",
       "alt": "Neeru Bajwa in Sameer Madan"
      }
-    ]
+    ],
+    "ratio": "4 / 5"
    }
   },
   {
@@ -1722,49 +1790,138 @@ window.APOS = {
   {
    "slug": "superdry",
    "title": "Superdry",
-   "subtitle": "Case study coming soon",
+   "subtitle": "Influencers, celebrity dressing & #SDMYWAY",
    "category": "fashion",
    "tags": [
     "Influencer Relations",
-    "Media & Storytelling"
+    "Celebrity Relations",
+    "Media & Storytelling",
+    "Retail & Store Launches"
    ],
    "featured": false,
-   "image": "",
+   "image": "work/superdry-1.webp",
    "tone": 3,
-   "highlights": [],
-   "placeholder": true,
+   "highlights": [
+    {
+     "value": "60",
+     "label": "Reach",
+     "prefix": "",
+     "suffix": "M"
+    },
+    {
+     "value": "46",
+     "label": "PR value",
+     "prefix": "₹",
+     "suffix": "M"
+    },
+    {
+     "value": "27.7",
+     "label": "Audience reached by #SDMYWAY celebrity posts",
+     "prefix": "",
+     "suffix": "M"
+    }
+   ],
+   "placeholder": false,
    "sections": {
     "background": [
      {
       "t": "p",
-      "v": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus, posuere velit aliquet. Nullam quis risus eget urna mollis ornare vel eu leo."
+      "v": "Superdry's identity brings together vintage Americana, Japanese-inspired graphics and British style. Apostrophe partnered with Superdry India across media relations, influencer marketing and activations, celebrity dressing, store launch events and campaign strategy."
      }
     ],
     "objective": [
      {
       "t": "p",
-      "v": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus, posuere velit aliquet. Nullam quis risus eget urna mollis ornare vel eu leo."
+      "v": "To build awareness of Superdry in India and translate its vintage Americana, Japanese-graphic and British-style identity into culturally relevant content, engaging audiences through fashion and lifestyle creators, celebrity moments and store launches."
      }
     ],
     "solution": [
      {
       "t": "p",
-      "v": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus, posuere velit aliquet. Nullam quis risus eget urna mollis ornare vel eu leo."
+      "v": "Apostrophe drove Superdry's brand narrative through a strong influencer-led strategy, activating key fashion and lifestyle creators. Influencer collaborations worked hand in hand with celebrity dressing and store launch moments, amplified further through extensive press coverage and targeted media outreach."
+     },
+     {
+      "t": "list",
+      "label": "Celebrity dressing included",
+      "v": [
+       "Aditya Roy Kapur",
+       "Aditya Seal",
+       "Kartik Aaryan"
+      ]
+     },
+     {
+      "t": "h",
+      "v": "#SDMYWAY: Superdry India's First Campaign"
+     },
+     {
+      "t": "p",
+      "v": "In tandem with the brand team, Apostrophe curated #SDMYWAY, Superdry India's first campaign, in collaboration with Kubbra Sait, Jim Sarbh, Aparshakti Khurana, Tahira Kashyap and Guru Randhawa. Built on the tagline “Whoever You Are, Wear It Your Way”, its messaging centred on breaking norms, celebrating individuality and inspiring millennials."
+     },
+     {
+      "t": "p",
+      "v": "Our role was end to end: conceptualisation and ideation, building a narrative around the brand's key messaging, identifying the right faces and onboarding Man's World as media partner for wider reach."
      }
     ],
     "impact": [
      {
       "t": "p",
-      "v": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus, posuere velit aliquet. Nullam quis risus eget urna mollis ornare vel eu leo."
+      "v": "The influencer-led strategy translated into extensive press visibility, with coverage across leading fashion and lifestyle publications including GQ, Elle and Grazia, delivering a reach of 60M and a PR value of ₹46M."
+     },
+     {
+      "t": "p",
+      "v": "For #SDMYWAY, Man's World promoted the campaign across its platforms with a total reach of 1.5M, and all five celebrities shared it on their social media, exposing an audience of 27.7M to the brand's messaging. The campaign also produced personalised content for the Indian fashion market, which the brand ran on its social media handles, its website and across its stores."
+     },
+     {
+      "t": "p",
+      "v": "Celebrity dressing moments and store launch activations amplified this reach further, placing Superdry firmly within premium media and cultural conversation."
      }
     ]
    },
-   "gallery": [],
+   "gallery": [
+    "work/superdry-2.webp",
+    "work/superdry-3.webp",
+    "work/superdry-4.webp",
+    "work/superdry-5.webp"
+   ],
    "sticker": "stickers/superdry.png",
    "sw": 515,
    "sh": 115,
    "badge": false,
-   "sd": 0.406
+   "sd": 0.406,
+   "slider": {
+    "title": "Celebrities in Superdry",
+    "ratio": "3 / 4",
+    "items": [
+     {
+      "src": "work/superdry-c1.webp",
+      "alt": "Aditya Roy Kapur in Superdry"
+     },
+     {
+      "src": "work/superdry-c2.webp",
+      "alt": "Aditya Seal in Superdry"
+     },
+     {
+      "src": "work/superdry-c3.webp",
+      "alt": "Kartik Aaryan in Superdry"
+     },
+     {
+      "src": "work/superdry-c4.webp",
+      "alt": "Superdry India #SDMYWAY campaign"
+     },
+     {
+      "src": "work/superdry-c5.webp",
+      "alt": "Superdry India #SDMYWAY campaign"
+     },
+     {
+      "src": "work/superdry-c6.webp",
+      "alt": "Superdry India #SDMYWAY campaign"
+     },
+     {
+      "src": "work/superdry-c7.webp",
+      "alt": "Superdry India #SDMYWAY campaign"
+     }
+    ]
+   }
   },
   {
    "slug": "stonex",
