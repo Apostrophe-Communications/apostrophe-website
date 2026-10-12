@@ -93,8 +93,7 @@ window.APOS = {
    "name": "TAG Heuer",
    "logo": "logos/tag-heuer.png",
    "w": 297,
-   "h": 180,
-   "slug": "tag-heuer"
+   "h": 180
   },
   {
    "name": "Rado",
