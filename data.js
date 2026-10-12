@@ -5,6 +5,8 @@
    - To add a project: copy one object in `projects` and edit it.
    - To use a real photo: put it in work/ as .webp (plus a -sm.webp
      800px copy) and set `image: "work/<file>.webp"`.
+   - A project can carry a sideways photo slider: a `slider` with a `title`
+     and a list of `items`, each with `src` and `alt` (see Apala).
    - `contact.googleForm`: the Google Form that collects enquiries
      (`action` = its formResponse URL, `fields` = each question's
      entry.NNN id). Empty = the form opens the visitor's email app.
@@ -768,7 +770,49 @@ window.APOS = {
    "sw": 441,
    "sh": 214,
    "badge": false,
-   "sd": 0.171
+   "sd": 0.171,
+   "slider": {
+    "title": "Celebrity Features",
+    "items": [
+     {
+      "src": "work/apala-c1.webp",
+      "alt": "Spotted in Apala"
+     },
+     {
+      "src": "work/apala-c2.webp",
+      "alt": "Rashmika Mandanna in Apala"
+     },
+     {
+      "src": "work/apala-c3.webp",
+      "alt": "Diya Joukani in Apala"
+     },
+     {
+      "src": "work/apala-c4.webp",
+      "alt": "Ananya Pandey in Apala"
+     },
+     {
+      "src": "work/apala-c5.webp",
+      "alt": "Yuvraj Virasvat Pal in Apala"
+     },
+     {
+      "src": "work/apala-c6.webp",
+      "alt": "Mithali Raj in Apala"
+     },
+     {
+      "src": "work/apala-c7.webp",
+      "alt": "Tarini Manchanda in Apala"
+     },
+     {
+      "src": "work/apala-c8.webp",
+      "alt": "Sakshi Sindhwani in Apala"
+     }
+    ]
+   },
+   "titleLogo": {
+    "src": "logos/apala-hero.png",
+    "w": 882,
+    "h": 428
+   }
   },
   {
    "slug": "chopard-jwc",
