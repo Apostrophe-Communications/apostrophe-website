@@ -775,10 +775,6 @@ window.APOS = {
     "title": "Celebrity Features",
     "items": [
      {
-      "src": "work/apala-c1.webp",
-      "alt": "Spotted in Apala"
-     },
-     {
       "src": "work/apala-c2.webp",
       "alt": "Rashmika Mandanna in Apala"
      },
