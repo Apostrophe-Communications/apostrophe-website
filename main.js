@@ -342,6 +342,7 @@
      Touch devices: it floats gently near the middle of the screen.        */
   const GLOW_FOR = { dark: "blue", stone: "espresso", light: "honey", yellow: "butter" };
   function initGlow() {
+    if (!FINE) return;                                    // phones and tablets have no cursor, so no glow
     const g = document.createElement("div");
     g.className = "cglow";
     g.setAttribute("aria-hidden", "true");
@@ -370,17 +371,11 @@
     gsap.set(g, { x: px, y: py });
     if (!RM) gsap.fromTo(g, { scale: 0.92 }, { scale: 1.1, duration: 3.2, ease: "sine.inOut", yoyo: true, repeat: -1 });
 
-    if (FINE && !RM) {
+    if (!RM) {
       // follows as tightly as the cursor itself
       const gx = gsap.quickTo(g, "x", { duration: 0.14, ease: "power2" });
       const gy = gsap.quickTo(g, "y", { duration: 0.14, ease: "power2" });
       addEventListener("pointermove", (e) => { px = e.clientX; py = e.clientY; gx(px); gy(py); retone(); }, { passive: true });
-    } else if (!RM) {
-      const o = { t: 0 };
-      gsap.to(o, { t: 1, duration: 10, ease: "sine.inOut", yoyo: true, repeat: -1, onUpdate: () => {
-        px = innerWidth * (0.3 + 0.4 * o.t); py = innerHeight * (0.35 + 0.25 * o.t);
-        gsap.set(g, { x: px, y: py });
-      } });
     }
     addEventListener("scroll", retone, { passive: true });
     lenis?.on("scroll", retone);

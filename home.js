@@ -140,7 +140,14 @@ window.APOS_PAGE = () => {
       return { cx: r.left + r.width / 2, cy: r.top + r.height / 2, r: r.width / 2, R: Math.hypot(innerWidth, innerHeight) / 2 + 4 };
     };
     // About rises over the pinned hero: its text starts to appear once the dot fills ~80% of the
-    // screen. About has no background of its own here, so the text sits on the dot as it turns white.
+    // screen. While the hero is pinned About has no background of its own, so the text sits on the
+    // dot as it turns white. The moment the hero unpins it lies entirely under About, so the dot
+    // retires and About gets its own white background back.
+    const live = (on) => {
+      gsap.set([sig, z], { autoAlpha: on ? 1 : 0 });
+      intro.classList.toggle("is-solid", !on);
+      document.documentElement.classList.toggle("zoom-live", on);
+    };
     const OVER = 1.07;                                       // how far (in screens) About overlaps the pin
     const intro = $("#intro");
     const size = () => { const g = geo(); z.style.width = z.style.height = `${g.R * 2}px`; intro.style.marginTop = `${-H() * OVER}px`; };
@@ -153,7 +160,8 @@ window.APOS_PAGE = () => {
     const tl = gsap.timeline({
       defaults: { ease: "none" },
       // refreshPriority: this pin sits above everything else, so it must be measured first
-      scrollTrigger: { id: "zoom", trigger: "#hero", start: "top top", end: () => `+=${H() * 1.32}`, pin: true, scrub: 1, invalidateOnRefresh: true, refreshPriority: 1 },
+      scrollTrigger: { id: "zoom", trigger: "#hero", start: "top top", end: () => `+=${H() * 1.32}`, pin: true, scrub: 1, invalidateOnRefresh: true, refreshPriority: 1,
+        onLeave: () => live(false), onEnterBack: () => live(true) },
     });
     tl.to("#heroBrand", { y: -30, opacity: 0, duration: 0.3 }, 0)
       .to(".hero__scroll", { opacity: 0, duration: 0.1 }, 0)
@@ -165,12 +173,7 @@ window.APOS_PAGE = () => {
       .fromTo(z.firstChild, { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.5)
       .to({}, { duration: 0.76 });   // tail: the zoom fills the first 0.75 screens of the pin and is white by ~0.6, About rises from there
 
-    // the white dot is About's backdrop until the hero has scrolled fully away, then it retires
-    ScrollTrigger.create({
-      trigger: "#intro", start: () => `top -${(OVER + 0.03) * 100}%`,
-      onEnter: () => gsap.set([sig, z], { autoAlpha: 0 }),
-      onLeaveBack: () => gsap.set([sig, z], { autoAlpha: 1 }),
-    });
+    live(true);
 
     // This pin is created after the opening plays, i.e. after every section below it
     // was already measured. Re-sort and re-measure so they all account for the space it adds.

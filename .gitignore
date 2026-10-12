@@ -1,18 +1,43 @@
-# Private source material — keep out of the public repo
-*.pdf
-*.xlsx
-*.ai
-*.af
-*.af~lock~
-/apos logo full.png
-/black apos logo.png
-/white apos logo.png
-.claude/
-.DS_Store
+# ALLOWLIST. This folder also holds private working files (decks, notes, recordings,
+# source photos). Nothing is ever committed unless it is listed here.
+/*
 
-Website portfolio pages/
-.DS_Store
-WhatsApp*
+# site configuration
+!/.gitignore
+!/.assetsignore
+!/_headers
+!/_redirects
+!/wrangler.toml
+!/README.md
 
-# Local Cloudflare development state
-.wrangler/
+# the pages, scripts and styles
+!/index.html
+!/about.html
+!/contact.html
+!/projects.html
+!/project.html
+!/main.js
+!/home.js
+!/about.js
+!/contact.js
+!/projects.js
+!/project.js
+!/data.js
+!/style.css
+
+# brand files used by the pages
+!/mark.svg
+!/apple-touch-icon-v6.png
+!/logo-full-black-v6.png
+!/logo-full-white-v6.png
+!/wordmark-white-v6.png
+
+# image folders used by the pages
+!/awards/
+!/logos/
+!/press/
+!/stickers/
+!/team/
+!/work/
+
+.DS_Store
