@@ -931,57 +931,6 @@ window.APOS = {
    "sd": 0.187
   },
   {
-   "slug": "tag-heuer",
-   "title": "TAG Heuer",
-   "subtitle": "Luxury watchmaking",
-   "category": "luxury",
-   "tags": [
-    "Media & Storytelling",
-    "Experiences & Activations"
-   ],
-   "featured": false,
-   "image": "",
-   "tone": 3,
-   "highlights": [],
-   "placeholder": true,
-   "sections": {
-    "background": [
-     {
-      "t": "p",
-      "v": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus, posuere velit aliquet. Cras mattis consectetur purus sit amet fermentum."
-     }
-    ],
-    "objective": [
-     {
-      "t": "p",
-      "v": "Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Maecenas faucibus mollis interdum, nullam quis risus eget urna mollis ornare vel eu leo."
-     }
-    ],
-    "solution": [
-     {
-      "t": "p",
-      "v": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus, posuere velit aliquet. Cras mattis consectetur purus sit amet fermentum."
-     },
-     {
-      "t": "p",
-      "v": "Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Maecenas faucibus mollis interdum, nullam quis risus eget urna mollis ornare vel eu leo."
-     }
-    ],
-    "impact": [
-     {
-      "t": "p",
-      "v": "Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Maecenas faucibus mollis interdum, nullam quis risus eget urna mollis ornare vel eu leo."
-     }
-    ]
-   },
-   "gallery": [],
-   "sticker": "stickers/tag-heuer.png",
-   "sw": 520,
-   "sh": 315,
-   "badge": false,
-   "sd": 0.26
-  },
-  {
    "slug": "mrunalini-rao",
    "title": "Mrunalini Rao",
    "subtitle": "Hastakala: ten years of craft",
@@ -2387,8 +2336,7 @@ window.APOS = {
      "name": "TAG Heuer",
      "logo": "logos/tag-heuer.png",
      "w": 297,
-     "h": 180,
-     "slug": "tag-heuer"
+     "h": 180
     },
     {
      "name": "Rado",
