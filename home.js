@@ -23,15 +23,15 @@ window.APOS_PAGE = () => {
   const bandSet = `<div class="band__set">${(D.topBrands || []).map((b) => `<span>${logo(b)}</span><i></i>`).join("")}</div>`;
   $("#bandTrack").innerHTML = bandSet + bandSet.replace('class="band__set"', 'class="band__set" aria-hidden="true"');
 
-  // every award logo together in one strip under the title, the list below stays text only
-  const awardLogos = D.awards.flatMap((g) => g.items).filter((a) => a.logo);
-  $("#recogList").insertAdjacentHTML("beforebegin", `<div class="recog__logos">${awardLogos.map((a) =>
-    `<figure class="recog__plate" title="${esc(a.title)}, ${esc(a.org)}" data-reveal><img src="${esc(a.logo)}" alt="${esc(a.org)}" loading="lazy" decoding="async"></figure>`).join("")}</div>`);
+  // each award carries its own logo on a white plate; an award without one keeps an empty slot so the text stays aligned
+  const plate = (a) => a.logo
+    ? `<figure class="recog__plate"><img src="${esc(a.logo)}" alt="${esc(a.org)}" loading="lazy" decoding="async"></figure>`
+    : `<span class="recog__plate is-empty" aria-hidden="true"></span>`;
   $("#recogList").innerHTML = D.awards.map((g) => `
     <div class="recog__grid recog__group">
       <div class="recog__gname">${esc(g.group)}</div>
       <div>${g.items.map((a) => `
-        <div class="recog__row"><div><h3>${esc(a.title)}</h3><p>${esc(a.org)}</p></div><span class="yr">${esc(a.year)}</span><i class="recog__line" aria-hidden="true"></i></div>`).join("")}
+        <div class="recog__row">${plate(a)}<div><h3>${esc(a.title)}</h3><p>${esc(a.org)}</p></div><span class="yr">${esc(a.year)}</span><i class="recog__line" aria-hidden="true"></i></div>`).join("")}
       </div>
     </div>`).join("");
 
@@ -52,7 +52,6 @@ window.APOS_PAGE = () => {
   hero();
   statement();
   services();
-  marquee("#bandTrack", "#band", 60);
   recognitions();
   slider();
 
@@ -223,34 +222,6 @@ window.APOS_PAGE = () => {
       svc.style.background = "transparent";
       svc.style.zIndex = 2;
     }
-  }
-
-  /* ---------------- brand marquee (reacts to scroll speed) ---------------- */
-  function marquee(trackSel, sectionSel, duration) {
-    if (RM) return;
-    const loop = gsap.to(trackSel, { xPercent: -50, duration, ease: "none", repeat: -1 });
-    let dir = 1, target = 1, active = false, held = false;
-    // moving content must be pausable: it rests while hovered or focused
-    const band = $(sectionSel);
-    const hold = (on) => { held = on; on ? loop.pause() : active && loop.play(); };
-    band.addEventListener("pointerenter", (e) => e.pointerType === "mouse" && hold(true));
-    band.addEventListener("pointerleave", () => hold(false));
-    band.addEventListener("focusin", () => hold(true));
-    band.addEventListener("focusout", () => hold(false));
-    ScrollTrigger.create({
-      trigger: sectionSel, start: "top bottom", end: "bottom top",
-      onToggle: (self) => { active = self.isActive; active && !held ? loop.play() : loop.pause(); },
-      onUpdate: (self) => {
-        dir = self.direction;
-        target = dir * (1 + Math.min(Math.abs(self.getVelocity()) / 250, 6));
-      },
-    });
-    gsap.ticker.add(() => {
-      if (!active || held) return;
-      target += (dir - target) * 0.04;            // settle back to cruising speed
-      const ts = loop.timeScale();
-      loop.timeScale(ts + (target - ts) * 0.12);  // ease towards the target
-    });
   }
 
   /* ---------------- recognitions ---------------- */
