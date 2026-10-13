@@ -9,6 +9,8 @@
 !/_redirects
 !/wrangler.toml
 !/README.md
+!/robots.txt
+!/sitemap.xml
 
 # the pages, scripts and styles
 !/index.html
@@ -16,6 +18,7 @@
 !/contact.html
 !/projects.html
 !/project.html
+!/404.html
 !/main.js
 !/home.js
 !/about.js

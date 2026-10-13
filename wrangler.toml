@@ -6,4 +6,5 @@ workers_dev = true
 directory = "."
 # Keep existing .html links and query strings unchanged.
 html_handling = "none"
-not_found_handling = "none"
+# Unknown addresses show 404.html.
+not_found_handling = "404-page"

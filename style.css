@@ -493,6 +493,10 @@ html.rm .statement .sw { opacity: 1; }
 .t-dark .pbanner__sub { color: var(--mist); }
 .pbanner__sub span { display: inline-flex; align-items: center; gap: 18px; }
 .pbanner__sub span + span::before { content: ""; width: 4px; height: 4px; border-radius: 50%; background: var(--dot); }
+/* page not found */
+.nf { min-height: 100svh; display: grid; align-items: center; }
+.nf__text { margin: 28px auto 0; max-width: 460px; color: var(--mist); }
+.nf__btn { margin-top: 40px; }
 /* the brand apostrophe (same glyph as the menu button) under the page title */
 .apos-mark { margin: 40px auto 0; font-family: var(--body); font-size: clamp(110px, 11vw, 160px); line-height: .6; height: .5em; color: var(--dot); text-align: center; }
 
@@ -625,6 +629,7 @@ html.rm .statement .sw { opacity: 1; }
 .field:focus-within::after { transform: scaleX(1); }
 .form__foot { grid-column: 1 / -1; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 18px; }
 .form__status { font-size: var(--fs-small); color: var(--graphite); margin: 0; }
+.form__privacy { grid-column: 1 / -1; margin: -10px 0 0; font-size: 12px; line-height: 1.6; color: var(--graphite); }
 
 /* ==========================================================================
    Responsive
