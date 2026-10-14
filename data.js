@@ -656,7 +656,7 @@ window.APOS = {
   {
    "slug": "bath-body-works",
    "title": "Bath & Body Works",
-   "subtitle": "Always-on influencer campaigns & collection launches",
+   "subtitle": "Disney Collection launch & always-on creator campaigns",
    "category": "fashion",
    "tags": [
     "Influencer Relations",
@@ -667,19 +667,42 @@ window.APOS = {
    "featured": true,
    "image": "work/bath-body-works-e1.webp",
    "tone": 5,
-   "highlights": [],
+   "highlights": [
+    {
+     "value": "9",
+     "label": "Stores in the Disney Collection launch",
+     "prefix": "",
+     "suffix": "+"
+    },
+    {
+     "value": "4.7",
+     "label": "Combined following, Disney creator campaign",
+     "prefix": "",
+     "suffix": "M"
+    },
+    {
+     "value": "800",
+     "label": "Reel views, Disney creator campaign",
+     "prefix": "",
+     "suffix": "K+"
+    }
+   ],
    "placeholder": false,
    "sections": {
     "background": [
      {
       "t": "p",
-      "v": "Bath & Body Works is a retainer partner. Apostrophe owns the brand's influencer strategy in India end to end, alongside media relations, store launch events and campaign strategy."
+      "v": "Bath & Body Works is a retainer partner. Apostrophe owns the brand's influencer strategy in India end to end, alongside media relations, store launch events and campaign strategy, across collection drops from Touch of Gold and Closer to the Bath & Body Works × Disney Princess Collection."
      }
     ],
     "objective": [
      {
       "t": "p",
       "v": "To make influencer marketing a consistent, always-on growth lever for Bath & Body Works across India: building anticipation ahead of every major collection drop, amplifying launch events in real time and driving its key sale periods."
+     },
+     {
+      "t": "p",
+      "v": "For the Disney Princess Collection, the brief was a launch that felt playful yet premium, brought the right creators and editors into the stores, and turned launch-day buzz into sales."
      }
     ],
     "solution": [
@@ -690,6 +713,25 @@ window.APOS = {
      {
       "t": "p",
       "v": "Creator activations were also extended to drive the Semi-Annual Sale and the Summer End of Season Sale."
+     },
+     {
+      "t": "h",
+      "v": "Bath & Body Works × Disney Collection"
+     },
+     {
+      "t": "p",
+      "v": "Apostrophe led the India launch of the Disney Princess Collection across 9+ stores, including Delhi, Mumbai, Ahmedabad and Hyderabad. Each launch was built as a playful but premium in-store experience, with Disney-themed décor, product discovery zones and interactive moments made to be shared."
+     },
+     {
+      "t": "list",
+      "label": "The launch brought together",
+      "v": [
+       "Launch events at DLF Promenade, DLF Mall of India and Ambience Mall Gurgaon, each with a guestlister bringing in a curated circle of creators and tastemakers",
+       "160+ guests sharing the Delhi NCR launches on their stories, with editors from Cosmopolitan, HELLO! and India Today in attendance",
+       "City community pages including So Delhi, Noida Beyond and What's Up Gurgaon",
+       "A creator campaign with 9 influencers, including Smriti Khanna, Deeksha Mishra, Niki Mehra and Natasha Luthra, through store visits in Delhi, Mumbai, Hyderabad and Pune and home shoots",
+       "Media outreach that placed the collection in HELLO! India, ELLE India, Luxurious by MM and Local Samosa"
+      ]
      },
      {
       "t": "h",
@@ -709,6 +751,14 @@ window.APOS = {
     "impact": [
      {
       "t": "p",
+      "v": "The Disney Collection sold from day one. On launch day it made up 21% of sales at DLF Promenade, 19.8% at DLF Mall of India and 16% at Ambience Mall Gurgaon."
+     },
+     {
+      "t": "p",
+      "v": "The creator campaign reached a combined following of 4.7M, and its reels drew more than 800K views, with Deeksha Mishra's reel alone crossing 3 lakh. Features in HELLO! India, ELLE India, Luxurious by MM and Local Samosa added ₹1.5M in PR value within three weeks of launch."
+     },
+     {
+      "t": "p",
       "v": "For the End of Season Sale, Apostrophe delivered massive-scale campaigns within short timelines and limited budgets, proving the efficiency and agility of the influencer engine."
      },
      {
@@ -722,7 +772,14 @@ window.APOS = {
     "work/bath-body-works-4.webp",
     "work/bath-body-works-5.webp",
     "work/bath-body-works-6.webp",
-    "work/bath-body-works-7.webp"
+    "work/bath-body-works-7.webp",
+    "work/bath-body-works-8.webp",
+    "work/bath-body-works-9.webp",
+    "work/bath-body-works-10.webp",
+    "work/bath-body-works-11.webp",
+    "work/bath-body-works-12.webp",
+    "work/bath-body-works-13.webp",
+    "work/bath-body-works-14.webp"
    ],
    "sticker": "stickers/bath-body-works.png",
    "sw": 482,
