@@ -54,11 +54,13 @@ window.APOS_PAGE = () => {
     email: (v) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v),
     phone: (v) => /^\+?[\d\s()-]{6,20}$/.test(v) && v.replace(/\D/g, "").length >= 7,
     instagram: (v) => !v.trim() || !!handle(v),
+    age: (v) => /^\d{1,3}$/.test(v) && +v >= 13 && +v <= 100,
   };
   const MSG = {
     email: "Please enter a valid email address.",
     phone: "Please enter a valid phone number.",
     instagram: "Please enter the Instagram handle, like @yourname.",
+    age: "Please enter your age in years.",
   };
   const opened = Date.now();
   const COOLDOWN = 60 * 1000;
@@ -72,9 +74,9 @@ window.APOS_PAGE = () => {
     },
     creator: {
       cfg: c.creatorForm,
-      limits: { name: 100, instagram: 100, email: 254, phone: 20, followers: 40, category: 40, city: 60 },
+      limits: { name: 100, age: 3, gender: 40, instagram: 100, niche: 40, followers: 40 },
       thanks: "Thank you, you’re on our creator list. We’ll reach out when a brand fits.",
-      mail: (d) => [`Creator: ${d.name}`, `Name: ${d.name}\nInstagram: ${d.instagram}\nEmail: ${d.email}\nPhone: ${d.phone}\nFollowers: ${d.followers}\nCategory: ${d.category}\nCity: ${d.city}`],
+      mail: (d) => [`Creator: ${d.name}`, `Name: ${d.name}\nAge: ${d.age}\nGender: ${d.gender}\nInstagram: ${d.instagram}\nNiche: ${d.niche}\nFollowers: ${d.followers}`],
     },
   };
 
@@ -107,7 +109,7 @@ window.APOS_PAGE = () => {
 
       const bad = [...form.querySelectorAll("[required]")].find((f) => !f.value.trim());
       if (bad) return nudge(bad, "Please fill in the highlighted field.");
-      for (const k of ["email", "phone", "instagram"]) {
+      for (const k of ["email", "phone", "instagram", "age"]) {
         const f = form.elements[k];
         if (f && !valid[k](f.value.trim())) return nudge(f, MSG[k]);
       }
