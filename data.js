@@ -3190,6 +3190,11 @@ window.APOS = {
  ],
  "testimonials": [
   {
+   "quote": "We have been working with Apostrophe Communications for the past few years and have experienced exceptional services. Starting from their work on Tahiliani Homes to TT couture and even Tasva now, their result-oriented approach has consistently exceeded our expectations, making them a valuable team for our brands.",
+   "name": "Tarun Tahiliani",
+   "role": "Tarun Tahiliani · TASVA"
+  },
+  {
    "quote": "We’d like to congratulate Apostrophe Communications on its 6th anniversary. We’ve had a fruitful partnership and we wish you much success in the future.",
    "name": "David Abraham",
    "role": "Abraham & Thakore"
@@ -3198,11 +3203,6 @@ window.APOS = {
    "quote": "It has been a pleasure to work with Apostrophe Communications, grateful for the exceptional PR activations and experiential events curated by team. Apostrophe Communications consistently delivers outstanding results, making them an invaluable partner for Stonex. Kritika’s dedication to excellence and creativity truly sets the team apart in the industry.",
    "name": "Gaurav & Saurabh Aggarwal",
    "role": "Managing Directors, Stonex"
-  },
-  {
-   "quote": "We have been working with Apostrophe Communications for the past few years and have experienced exceptional services. Starting from their work on Tahiliani Homes to TT couture and even Tasva now, their result-oriented approach has consistently exceeded our expectations, making them a valuable team for our brands.",
-   "name": "Tarun Tahiliani",
-   "role": "Tarun Tahiliani · TASVA"
   },
   {
    "quote": "Congratulations to Apostrophe on its impressive six-year journey. May the coming years be filled with even greater success and memorable celebrations. Working alongside you has been a delight, we look forward to many more years of fruitful collaboration.",
