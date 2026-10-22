@@ -35,8 +35,19 @@ window.APOS_PAGE = () => {
     show(id);
     history.replaceState(null, "", id === "brands" ? location.pathname : `#${id}`);
   }));
-  const start = location.hash.slice(1);
-  if (["creators", "careers"].includes(start)) show(start);
+  const fromHash = () => {
+    const id = location.hash.slice(1) || "brands";
+    if (!["brands", "creators", "careers"].includes(id)) return false;
+    show(id);
+    return true;
+  };
+  if (location.hash) fromHash();
+  // the footer's Sign Up links change the hash while already on this page
+  addEventListener("hashchange", () => {
+    if (!fromHash()) return;
+    const el = $(".contact__forms"), lenis = window.APOS_UI.lenis;
+    lenis ? lenis.scrollTo(el, { offset: -120 }) : el.scrollIntoView({ block: "start" });
+  });
   if (D.careers && D.careers.form) {
     const a = $("#careersApply");
     a.href = D.careers.form;

@@ -991,11 +991,11 @@ html, body { overflow-x: clip; }
 @media (max-width: 760px) { .foot-bar__top { gap: 30px 24px; } }
 /* footer columns size to their content, so the email always sits on one line */
 @media (min-width: 761px) {
-  .foot-bar__top { grid-template-columns: 1fr auto auto auto; column-gap: clamp(40px, 6vw, 110px); }
+  .foot-bar__top { grid-template-columns: 1fr auto auto auto auto; column-gap: clamp(36px, 5vw, 96px); }
   .foot-bar a.mail { white-space: nowrap; }
   .foot-bar__hello li:last-child { max-width: 32ch; }
 }
-@media (min-width: 761px) and (max-width: 899px) { .foot-bar__top { grid-template-columns: auto 1fr auto; } }
+@media (min-width: 761px) and (max-width: 899px) { .foot-bar__top { grid-template-columns: auto auto 1fr auto; column-gap: 32px; } }
 
 /* the apostrophe cursor stays, but typing shows the normal text cursor */
 html.dot-cursor input, html.dot-cursor textarea, html.dot-cursor select { cursor: text !important; }

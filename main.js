@@ -148,6 +148,7 @@
           <div class="foot-bar__top">
             <div><img class="foot-bar__logo" src="logo-full-white-v6.png?v=20260930150635" alt="Apostrophe Communications" width="150" height="102" loading="lazy"></div>
             <div><h3>Explore</h3><ul>${NAV.map(([t, h]) => `<li><a class="link-u" href="${h}">${t}</a></li>`).join("")}</ul></div>
+            <div><h3>Sign Up</h3><ul><li><a class="link-u" href="contact.html">Brand Enquiries</a></li><li><a class="link-u" href="contact.html#creators">Creator Sign-Up</a></li><li><a class="link-u" href="${esc((D.careers && D.careers.form) || "careers.html")}" target="_blank" rel="noopener">Job Applications</a></li></ul></div>
             <div class="foot-bar__hello"><h3>Say Hello</h3><ul><li><a class="link-u mail" href="mailto:${c.email}">${esc(c.email).replace("@", "@<wbr>")}</a></li><li><a class="link-u" href="${esc(c.maps)}" target="_blank" rel="noopener">${esc(c.address)}</a></li></ul></div>
             <div><h3>Follow</h3><ul><li><a class="link-u" href="${c.instagram}">Instagram</a></li><li><a class="link-u" href="${c.linkedin}">LinkedIn</a></li></ul></div>
           </div>
@@ -291,7 +292,11 @@
       const href = a.getAttribute("href");
       if (!href || href.startsWith("#") || href.startsWith("mailto:") || href.startsWith("tel:") || /^https?:/.test(href)) return;
       const url = new URL(href, location.href);
-      if (url.pathname === location.pathname && url.search === location.search) { e.preventDefault(); return; }
+      if (url.pathname === location.pathname && url.search === location.search) {
+        if (url.hash && url.hash !== location.hash) return;   // same page, another section: let the hash change
+        e.preventDefault();
+        return;
+      }
       e.preventDefault();
       sessionStorage.setItem("apos-pt", 1);
       // a quick cover: navigation should never wait on decoration
