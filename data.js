@@ -3181,8 +3181,9 @@ window.APOS = {
    "items": [
     {
      "title": "30 Under 30: Sapna Gaur",
-     "org": "E4M",
-     "year": ""
+     "org": "E4M PR & Corp Comm",
+     "year": "2024",
+     "logo": "awards/e4m-30u30.png"
     }
    ]
   }
@@ -3248,7 +3249,10 @@ window.APOS = {
     "gender": "entry.571632348",
     "instagram": "entry.131377877",
     "niche": "entry.1152030472",
-    "followers": "entry.1768223525"
+    "followers": "entry.1768223525",
+    "email": "entry.1746827578",
+    "phone": "entry.1400122290",
+    "collabs": "entry.883639394"
    }
   }
  },

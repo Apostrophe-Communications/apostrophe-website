@@ -74,9 +74,9 @@ window.APOS_PAGE = () => {
     },
     creator: {
       cfg: c.creatorForm,
-      limits: { name: 100, age: 3, gender: 40, instagram: 100, niche: 40, followers: 40 },
+      limits: { name: 100, age: 3, gender: 40, instagram: 100, niche: 40, followers: 40, email: 254, phone: 20, collabs: 200 },
       thanks: "Thank you, you’re on our creator list. We’ll reach out when a brand fits.",
-      mail: (d) => [`Creator: ${d.name}`, `Name: ${d.name}\nAge: ${d.age}\nGender: ${d.gender}\nInstagram: ${d.instagram}\nNiche: ${d.niche}\nFollowers: ${d.followers}`],
+      mail: (d) => [`Creator: ${d.name}`, `Name: ${d.name}\nAge: ${d.age}\nGender: ${d.gender}\nInstagram: ${d.instagram}\nNiche: ${d.niche}\nFollowers: ${d.followers}\nEmail: ${d.email}\nPhone: ${d.phone}\nTop 3 brand collabs: ${d.collabs || "-"}`],
     },
   };
 

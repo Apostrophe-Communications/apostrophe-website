@@ -647,6 +647,7 @@ html.rm .statement .sw { opacity: 1; }
 /* contact: one tab each for brands, creators and careers */
 .contact__tabs { margin-bottom: clamp(28px, 4svh, 44px); }
 .form[hidden] { display: none !important; }
+.field--wide { grid-column: 1 / -1; }
 .form__intro { grid-column: 1 / -1; margin: 0; color: var(--graphite); max-width: 560px; }
 .field--select select {
   width: 100%; border: 0; border-bottom: 1px solid rgba(0, 0, 0,.3); background: transparent; border-radius: 0; outline: none;
