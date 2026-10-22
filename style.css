@@ -580,6 +580,20 @@ html.rm .statement .sw { opacity: 1; }
 .pillar h2 { font-size: var(--fs-h2); margin-bottom: 26px; }
 .pillar h2 .dotc { display: inline-block; width: .16em; height: .16em; border-radius: 50%; background: var(--dot); margin-left: .05em; }
 .pillar p { color: var(--graphite); }
+/* careers */
+.careers-why { padding-bottom: 0; }
+.careers-roles { padding: clamp(70px, 12svh, 130px) 0; }
+.careers-roles__grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: clamp(30px, 6vw, 100px); align-items: start; }
+.careers-roles__title { font-size: var(--fs-h2); margin: 18px 0 20px; }
+.careers-roles__note { color: var(--graphite); max-width: 420px; margin: 0; }
+.careers-roles__list { list-style: none; margin: 0; padding: 0; border-top: 1px solid rgba(0, 0, 0, .12); }
+.careers-roles__list li { font-family: var(--display); font-size: var(--fs-h4); padding: 20px 0 20px 22px; border-bottom: 1px solid rgba(0, 0, 0, .12); position: relative; }
+.careers-roles__list li::before { content: ""; position: absolute; left: 0; top: 50%; width: 7px; height: 7px; margin-top: -3px; border-radius: 50%; background: var(--dot); }
+.careers-apply { padding: clamp(90px, 15svh, 170px) 0; text-align: center; }
+.careers-apply h2 { font-size: var(--fs-display); line-height: 1; letter-spacing: -0.025em; margin: 22px 0 26px; }
+.careers-apply__text { color: var(--mist); max-width: 560px; margin: 0 auto 38px; }
+.careers-apply__small { color: var(--mist); font-size: 12px; max-width: 420px; margin: 22px auto 0; }
+@media (max-width: 899px) { .careers-roles__grid { grid-template-columns: 1fr; } }
 
 .founder { padding: clamp(100px, 16svh, 180px) 0; overflow: hidden; }
 .founder__card { position: relative; display: grid; grid-template-columns: minmax(220px, 0.9fr) 1.3fr; gap: clamp(30px, 6vw, 96px); align-items: center; max-width: 1180px; margin: 0 auto; }
@@ -630,6 +644,19 @@ html.rm .statement .sw { opacity: 1; }
 .form__foot { grid-column: 1 / -1; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 18px; }
 .form__status { font-size: var(--fs-small); color: var(--graphite); margin: 0; }
 .form__privacy { grid-column: 1 / -1; margin: -10px 0 0; font-size: 12px; line-height: 1.6; color: var(--graphite); }
+/* contact: one tab each for brands, creators and careers */
+.contact__tabs { margin-bottom: clamp(28px, 4svh, 44px); }
+.form[hidden] { display: none !important; }
+.form__intro { grid-column: 1 / -1; margin: 0; color: var(--graphite); max-width: 560px; }
+.field--select select {
+  width: 100%; border: 0; border-bottom: 1px solid rgba(0, 0, 0,.3); background: transparent; border-radius: 0; outline: none;
+  font: inherit; font-size: 16px; padding: 22px 24px 10px 0; color: var(--ink); appearance: none; -webkit-appearance: none; cursor: pointer;
+  background-image: linear-gradient(45deg, transparent 50%, currentColor 50%), linear-gradient(135deg, currentColor 50%, transparent 50%);
+  background-position: calc(100% - 12px) 60%, calc(100% - 7px) 60%; background-size: 5px 5px; background-repeat: no-repeat;
+}
+.field--select select:invalid { color: var(--graphite); }
+.field--select label { transform: translateY(-20px) scale(.82); }
+.contact__careers .form__foot { justify-content: flex-start; gap: 28px; }
 
 /* ==========================================================================
    Responsive
@@ -961,6 +988,13 @@ html, body { overflow-x: clip; }
 .foot-bar ul { gap: 2px; line-height: 1.5; }
 .foot-bar h3 { margin-bottom: 12px; }
 @media (max-width: 760px) { .foot-bar__top { gap: 30px 24px; } }
+/* footer columns size to their content, so the email always sits on one line */
+@media (min-width: 761px) {
+  .foot-bar__top { grid-template-columns: 1fr auto auto auto; column-gap: clamp(40px, 6vw, 110px); }
+  .foot-bar a.mail { white-space: nowrap; }
+  .foot-bar__hello li:last-child { max-width: 32ch; }
+}
+@media (min-width: 761px) and (max-width: 899px) { .foot-bar__top { grid-template-columns: auto 1fr auto; } }
 
 /* the apostrophe cursor stays, but typing shows the normal text cursor */
 html.dot-cursor input, html.dot-cursor textarea, html.dot-cursor select { cursor: text !important; }

@@ -3238,7 +3238,8 @@ window.APOS = {
     "phone": "entry.452672743",
     "instagram": "entry.2029320662"
    }
-  }
+  },
+  "maps": "https://www.google.com/maps/search/?api=1&query=67%2C%20Lower%20Ground%20Floor%2C%20Hemkunt%20Colony%2C%20Greater%20Kailash%201%2C%20New%20Delhi%20110048"
  },
  "press": [
   {
@@ -3470,5 +3471,18 @@ window.APOS = {
    "badge": false,
    "sd": 0.383
   }
- ]
+ ],
+ "careers": {
+  "form": "",
+  "roles": [
+   "Public Relations",
+   "Influencer Marketing",
+   "Social Media & Content",
+   "Events & Experiences",
+   "Client Servicing",
+   "Business Development",
+   "Graphic Design",
+   "Internships"
+  ]
+ }
 };

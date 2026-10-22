@@ -22,6 +22,7 @@
     ["Home", "index.html", "home"],
     ["Projects", "projects.html", "projects"],
     ["About", "about.html", "about"],
+    ["Careers", "careers.html", "careers"],
     ["Contact", "contact.html", "contact"],
   ];
 
@@ -147,7 +148,7 @@
           <div class="foot-bar__top">
             <div><img class="foot-bar__logo" src="logo-full-white-v6.png?v=20260930150635" alt="Apostrophe Communications" width="150" height="102" loading="lazy"></div>
             <div><h3>Explore</h3><ul>${NAV.map(([t, h]) => `<li><a class="link-u" href="${h}">${t}</a></li>`).join("")}</ul></div>
-            <div class="foot-bar__hello"><h3>Say Hello</h3><ul><li><a class="link-u mail" href="mailto:${c.email}">${esc(c.email).replace("@", "@<wbr>")}</a></li><li>${c.address}</li></ul></div>
+            <div class="foot-bar__hello"><h3>Say Hello</h3><ul><li><a class="link-u mail" href="mailto:${c.email}">${esc(c.email).replace("@", "@<wbr>")}</a></li><li><a class="link-u" href="${esc(c.maps)}" target="_blank" rel="noopener">${esc(c.address)}</a></li></ul></div>
             <div><h3>Follow</h3><ul><li><a class="link-u" href="${c.instagram}">Instagram</a></li><li><a class="link-u" href="${c.linkedin}">LinkedIn</a></li></ul></div>
           </div>
           <div class="foot-bar__bottom"><span>© ${new Date().getFullYear()} Apostrophe Communications</span><span>Partner offices: ${D.offices.join(" · ")}</span></div>
