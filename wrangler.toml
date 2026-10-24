@@ -3,7 +3,7 @@ compatibility_date = "2026-10-09"
 workers_dev = true
 
 [assets]
-directory = "."
+directory = "./Website"
 # Keep existing .html links and query strings unchanged.
 html_handling = "none"
 # Unknown addresses show 404.html.

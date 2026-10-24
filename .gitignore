@@ -2,47 +2,51 @@
 # source photos). Nothing is ever committed unless it is listed here.
 /*
 
-# site configuration
+# repository and deploy configuration
 !/.gitignore
-!/.assetsignore
-!/_headers
-!/_redirects
 !/wrangler.toml
 !/README.md
-!/robots.txt
-!/sitemap.xml
+
+# the live website (only the files listed below are published)
+!/Website/
+/Website/*
+!/Website/.assetsignore
+!/Website/_headers
+!/Website/_redirects
+!/Website/robots.txt
+!/Website/sitemap.xml
 
 # the pages, scripts and styles
-!/index.html
-!/about.html
-!/contact.html
-!/projects.html
-!/project.html
-!/careers.html
-!/404.html
-!/main.js
-!/home.js
-!/about.js
-!/contact.js
-!/projects.js
-!/project.js
-!/careers.js
-!/data.js
-!/style.css
+!/Website/index.html
+!/Website/about.html
+!/Website/contact.html
+!/Website/projects.html
+!/Website/project.html
+!/Website/careers.html
+!/Website/404.html
+!/Website/main.js
+!/Website/home.js
+!/Website/about.js
+!/Website/contact.js
+!/Website/projects.js
+!/Website/project.js
+!/Website/careers.js
+!/Website/data.js
+!/Website/style.css
 
 # brand files used by the pages
-!/mark.svg
-!/apple-touch-icon-v6.png
-!/logo-full-black-v6.png
-!/logo-full-white-v6.png
-!/wordmark-white-v6.png
+!/Website/mark.svg
+!/Website/apple-touch-icon-v6.png
+!/Website/logo-full-black-v6.png
+!/Website/logo-full-white-v6.png
+!/Website/wordmark-white-v6.png
 
 # image folders used by the pages
-!/awards/
-!/logos/
-!/press/
-!/stickers/
-!/team/
-!/work/
+!/Website/awards/
+!/Website/logos/
+!/Website/press/
+!/Website/stickers/
+!/Website/team/
+!/Website/work/
 
 .DS_Store

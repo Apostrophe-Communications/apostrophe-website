@@ -13,7 +13,7 @@ Cloudflare Workers Builds is connected to this GitHub repository. Every push to 
 - **Root directory**: repository root.
 - **Production branch**: `main`.
 
-`wrangler.toml` publishes the static files from the repository root and enables the `workers.dev` URL. `.assetsignore` excludes repository/deployment metadata. `_redirects` serves `index.html` at `/`. Existing `.html` links, query strings, CSS, JavaScript, and media are served as they are; missing files return a 404 instead of the home page.
+`wrangler.toml` publishes the static files in the `Website/` folder and enables the `workers.dev` URL. `.assetsignore` excludes repository/deployment metadata. `_redirects` serves `index.html` at `/`. Existing `.html` links, query strings, CSS, JavaScript, and media are served as they are; missing files return a 404 instead of the home page.
 
 For a manual deployment from an authenticated local checkout:
 
@@ -22,15 +22,15 @@ npx wrangler@4.149.0 deploy
 ```
 
 ## Updating content
-Everything that changes lives in **`data.js`**:
+Everything that changes lives in **`Website/data.js`**:
 - **Projects**: copy an entry in `projects`, change the text. `featured` projects appear on the home page carousel (order set by the `featured` list).
-- **Real photos**: put images in `work/` as `.webp` (plus an 800px `-sm.webp` copy for phones) and set `image: "work/name.webp"` on the project.
+- **Real photos**: put images in `Website/work/` as `.webp` (plus an 800px `-sm.webp` copy for phones) and set `image: "work/name.webp"` on the project.
 - **Testimonials, awards, partners, offices, contact details**: edit the matching lists.
 - **Enquiry form** (Brand name, Email, Phone, Brand Instagram): set `contact.googleForm` to the Google Form's `formResponse` URL and each question's `entry.NNN` id; responses land in the Google Sheet linked to that form. Empty = the form opens the visitor's email app.
 
 ## Preview locally
 ```
-python3 -m http.server 8080
+python3 -m http.server 8080 --directory Website
 ```
 then open http://localhost:8080
 
