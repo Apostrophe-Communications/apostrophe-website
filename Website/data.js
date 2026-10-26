@@ -3196,6 +3196,7 @@ window.APOS = {
     "name": "entry.1552801654",
     "age": "entry.596705923",
     "gender": "entry.571632348",
+    "city": "entry.203241394",
     "instagram": "entry.131377877",
     "niche": "entry.1152030472",
     "followers": "entry.1768223525",
