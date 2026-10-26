@@ -19,7 +19,7 @@
   const MARK = (cls = "") => `<svg class="${cls}" viewBox="350 380 800 768" aria-hidden="true"><path fill="currentColor" d="M728 387H878C852 397 826 427 807 460L563 1040C541 1092 500 1141 418 1141H357L643 460C662 416 690 388 728 387Z"/><path fill="currentColor" d="M808 728H962L1143 1141H1083C1003 1141 962 1094 940 1044L808 728Z"/><circle fill="#E4A524" cx="827.5" cy="766" r="140"/></svg>`;
 
   const NAV = [
-    ["Home", "index.html", "home"],
+    ["Home", "./", "home"],
     ["Projects", "projects.html", "projects"],
     ["About", "about.html", "about"],
     ["Careers", "careers.html", "careers"],
@@ -114,10 +114,10 @@
       `<a class="skip" href="#main">Skip to content</a>
       <header class="hdr" id="hdr">
         <div class="hdr__left">
-          <a class="hdr__logo" href="index.html" aria-label="Apostrophe Communications home page">${MARK()}</a>
+          <a class="hdr__logo" href="./" aria-label="Apostrophe Communications home page">${MARK()}</a>
           ${page === "home" ? "" : `<button class="hdr__back" id="backBtn" aria-label="Go back"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M14 8H2M7 3 2 8l5 5"/></svg><em>Back</em></button>`}
         </div>
-        <a class="hdr__name" href="index.html">Apostrophe Communications</a>
+        <a class="hdr__name" href="./">Apostrophe Communications</a>
         <button class="hdr__toggle" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><em class="hdr__label" aria-hidden="true">Menu</em><span aria-hidden="true">’</span></button>
       </header>
       <nav class="menu" id="menu" aria-label="Main">
@@ -160,7 +160,7 @@
       let fromHere = false;
       try { fromHere = !!document.referrer && new URL(document.referrer).origin === location.origin; } catch (e) {}
       if (fromHere && history.length > 1) history.back();
-      else location.href = page === "project" ? "projects.html" : "index.html";
+      else location.href = page === "project" ? "projects.html" : "./";
     });
   }
 

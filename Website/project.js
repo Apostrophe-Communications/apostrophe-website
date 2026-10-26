@@ -9,6 +9,8 @@ window.APOS_PAGE = () => {
   const p = D.projects[i];
   const cat = D.categories.find((c) => c.id === p.category)?.name || "";
   document.title = `${p.title} | Apostrophe Communications`;
+  // one address per project for Google: aliases and unknown slugs point at the real page; placeholders stay out of search
+  document.head.insertAdjacentHTML("beforeend", `<link rel="canonical" href="https://apostrophecommunications.com/project.html?p=${encodeURIComponent(p.slug)}">${p.placeholder ? '<meta name="robots" content="noindex">' : ""}`);
 
   const blocks = (list) => list.map((b) => {
     if (b.t === "h") return `<h3>${esc(b.v)}</h3>`;
