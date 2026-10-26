@@ -70,155 +70,155 @@ window.APOS = {
  "topBrands": [
   {
    "name": "BVLGARI",
-   "logo": "logos/bvlgari.png",
+   "logo": "logos/bvlgari.webp",
    "w": 720,
    "h": 78,
    "slug": "bvlgari-jwc"
   },
   {
    "name": "Chopard",
-   "logo": "logos/chopard.png",
+   "logo": "logos/chopard.webp",
    "w": 503,
    "h": 180,
    "slug": "chopard-jwc"
   },
   {
    "name": "Omega",
-   "logo": "logos/omega.png",
+   "logo": "logos/omega.webp",
    "w": 370,
    "h": 180,
    "slug": "omega-ethos"
   },
   {
    "name": "TAG Heuer",
-   "logo": "logos/tag-heuer.png",
+   "logo": "logos/tag-heuer.webp",
    "w": 297,
    "h": 180
   },
   {
    "name": "Rado",
-   "logo": "logos/rado.png",
+   "logo": "logos/rado.webp",
    "w": 569,
    "h": 180,
    "slug": "rado"
   },
   {
    "name": "Tiffany & Co.",
-   "logo": "logos/tiffany-and-co.png",
+   "logo": "logos/tiffany-and-co.webp",
    "w": 720,
    "h": 93
   },
   {
    "name": "Versace",
-   "logo": "logos/versace.png",
+   "logo": "logos/versace.webp",
    "w": 329,
    "h": 180
   },
   {
    "name": "Ferragamo",
-   "logo": "logos/ferragamo.png",
+   "logo": "logos/ferragamo.webp",
    "w": 720,
    "h": 86
   },
   {
    "name": "Bally",
-   "logo": "logos/bally.png",
+   "logo": "logos/bally.webp",
    "w": 269,
    "h": 180,
    "slug": "bally"
   },
   {
    "name": "Paul Smith",
-   "logo": "logos/paul-smith.png",
+   "logo": "logos/paul-smith.webp",
    "w": 720,
    "h": 144,
    "slug": "paul-smith"
   },
   {
    "name": "Brooks Brothers",
-   "logo": "logos/brooks-brothers.png",
+   "logo": "logos/brooks-brothers.webp",
    "w": 452,
    "h": 180
   },
   {
    "name": "Tarun Tahiliani",
-   "logo": "logos/tarun-tahiliani-v2.png",
+   "logo": "logos/tarun-tahiliani-v2.webp",
    "w": 720,
    "h": 68,
    "slug": "tarun-tahiliani"
   },
   {
    "name": "Abraham & Thakore",
-   "logo": "logos/abraham-and-thakore.png",
+   "logo": "logos/abraham-and-thakore.webp",
    "w": 635,
    "h": 180,
    "slug": "abraham-thakore"
   },
   {
    "name": "Bath & Body Works",
-   "logo": "logos/bath-and-body-works.png",
+   "logo": "logos/bath-and-body-works.webp",
    "w": 215,
    "h": 180,
    "slug": "bath-body-works"
   },
   {
    "name": "Benefit Cosmetics",
-   "logo": "logos/benefit-cosmetics.png",
+   "logo": "logos/benefit-cosmetics.webp",
    "w": 550,
    "h": 180
   },
   {
    "name": "Diesel",
-   "logo": "logos/diesel.png",
+   "logo": "logos/diesel.webp",
    "w": 472,
    "h": 180
   },
   {
    "name": "GANT",
-   "logo": "logos/gant.png",
+   "logo": "logos/gant.webp",
    "w": 352,
    "h": 180
   },
   {
    "name": "Superdry",
-   "logo": "logos/superdry.png",
+   "logo": "logos/superdry.webp",
    "w": 671,
    "h": 180
   },
   {
    "name": "Lladró",
-   "logo": "logos/lladro.png",
+   "logo": "logos/lladro.webp",
    "w": 635,
    "h": 180,
    "slug": "lladro"
   },
   {
    "name": "West Elm",
-   "logo": "logos/west-elm.png",
+   "logo": "logos/west-elm.webp",
    "w": 720,
    "h": 121
   },
   {
    "name": "Pottery Barn Kids",
-   "logo": "logos/pottery-barn-kids.png",
+   "logo": "logos/pottery-barn-kids.webp",
    "w": 471,
    "h": 180
   },
   {
    "name": "Farzi Café",
-   "logo": "logos/farzi-cafe.png",
+   "logo": "logos/farzi-cafe.webp",
    "w": 425,
    "h": 180
   },
   {
    "name": "Nando’s",
-   "logo": "logos/nando-s.png",
+   "logo": "logos/nando-s.webp",
    "w": 560,
    "h": 180
   },
   {
    "name": "Hamleys",
-   "logo": "logos/hamleys.png",
+   "logo": "logos/hamleys.webp",
    "w": 338,
    "h": 180
   }
@@ -242,9 +242,7 @@ window.APOS = {
     "Experiences & Activations",
     "Media & Storytelling"
    ],
-   "featured": true,
    "image": "work/bvlgari-jwc-1.webp",
-   "tone": 0,
    "highlights": [],
    "placeholder": false,
    "sections": {
@@ -280,7 +278,7 @@ window.APOS = {
    "gallery": [
     "work/bvlgari-jwc-2.webp"
    ],
-   "sticker": "stickers/bvlgari-jwc.png",
+   "sticker": "stickers/bvlgari-jwc.webp",
    "sw": 359,
    "sh": 39,
    "badge": false,
@@ -295,9 +293,7 @@ window.APOS = {
     "Media & Storytelling",
     "Digital Influence"
    ],
-   "featured": true,
    "image": "work/rado-1.webp",
-   "tone": 1,
    "highlights": [
     {
      "value": "40",
@@ -354,7 +350,7 @@ window.APOS = {
     "work/rado-3.webp",
     "work/rado-4.webp"
    ],
-   "sticker": "stickers/rado.png",
+   "sticker": "stickers/rado.webp",
    "sw": 520,
    "sh": 165,
    "badge": false,
@@ -369,9 +365,7 @@ window.APOS = {
     "Celebrity Relations",
     "Experiences & Activations"
    ],
-   "featured": true,
    "image": "work/tasva-e1.webp",
-   "tone": 2,
    "highlights": [
     {
      "value": "63.5",
@@ -493,7 +487,7 @@ window.APOS = {
     "work/tasva-e5.webp",
     "work/tasva-e6.webp"
    ],
-   "sticker": "stickers/tasva.png",
+   "sticker": "stickers/tasva.webp",
    "sw": 491,
    "sh": 94,
    "badge": false,
@@ -508,9 +502,7 @@ window.APOS = {
     "Celebrity Relations",
     "Fashion & Design Culture"
    ],
-   "featured": true,
    "image": "work/tarun-tahiliani-1.webp",
-   "tone": 3,
    "highlights": [
     {
      "value": "25",
@@ -573,7 +565,7 @@ window.APOS = {
     "work/tarun-tahiliani-5.webp",
     "work/tarun-tahiliani-6.webp"
    ],
-   "sticker": "stickers/tarun-tahiliani-v2.png",
+   "sticker": "stickers/tarun-tahiliani-v2.webp",
    "sw": 520,
    "sh": 197,
    "badge": false,
@@ -588,9 +580,7 @@ window.APOS = {
     "Fashion & Design Culture",
     "Strategic Collaborations"
    ],
-   "featured": true,
    "image": "work/lladro-e1.webp",
-   "tone": 4,
    "highlights": [],
    "placeholder": false,
    "sections": {
@@ -647,7 +637,7 @@ window.APOS = {
     "work/lladro-e3.webp",
     "work/lladro-e4.webp"
    ],
-   "sticker": "stickers/lladro.png",
+   "sticker": "stickers/lladro.webp",
    "sw": 201,
    "sh": 57,
    "badge": false,
@@ -664,9 +654,7 @@ window.APOS = {
     "Media & Storytelling",
     "Retail & Store Launches"
    ],
-   "featured": true,
    "image": "work/bath-body-works-e1.webp",
-   "tone": 5,
    "highlights": [
     {
      "value": "9",
@@ -781,7 +769,7 @@ window.APOS = {
     "work/bath-body-works-13.webp",
     "work/bath-body-works-14.webp"
    ],
-   "sticker": "stickers/bath-body-works.png",
+   "sticker": "stickers/bath-body-works.webp",
    "sw": 482,
    "sh": 404,
    "badge": false,
@@ -842,9 +830,7 @@ window.APOS = {
     "Experiences & Activations",
     "Influencer Relations"
    ],
-   "featured": true,
    "image": "work/apala-2.webp",
-   "tone": 0,
    "highlights": [],
    "placeholder": true,
    "sections": {
@@ -888,7 +874,7 @@ window.APOS = {
     "work/apala-e5.webp",
     "work/apala-e6.webp"
    ],
-   "sticker": "stickers/apala-v2.png",
+   "sticker": "stickers/apala-v2.webp",
    "sw": 441,
    "sh": 214,
    "badge": false,
@@ -928,7 +914,7 @@ window.APOS = {
     "ratio": "4 / 5"
    },
    "titleLogo": {
-    "src": "logos/apala-hero.png",
+    "src": "logos/apala-hero.webp",
     "w": 882,
     "h": 428
    }
@@ -942,9 +928,7 @@ window.APOS = {
     "Experiences & Activations",
     "Strategic Collaborations"
    ],
-   "featured": false,
    "image": "work/chopard-jwc-1.webp",
-   "tone": 1,
    "highlights": [],
    "placeholder": false,
    "sections": {
@@ -988,7 +972,7 @@ window.APOS = {
    "gallery": [
     "work/chopard-jwc-e1.webp"
    ],
-   "sticker": "stickers/chopard-jwc.png",
+   "sticker": "stickers/chopard-jwc.webp",
    "sw": 520,
    "sh": 186,
    "badge": false,
@@ -1003,9 +987,7 @@ window.APOS = {
     "Experiences & Activations",
     "Media & Storytelling"
    ],
-   "featured": false,
    "image": "work/omega-ethos-e1.webp",
-   "tone": 2,
    "highlights": [],
    "placeholder": false,
    "sections": {
@@ -1047,7 +1029,7 @@ window.APOS = {
     ]
    },
    "gallery": [],
-   "sticker": "stickers/omega-ethos.png",
+   "sticker": "stickers/omega-ethos.webp",
    "sw": 499,
    "sh": 243,
    "badge": false,
@@ -1062,9 +1044,7 @@ window.APOS = {
     "Media & Storytelling",
     "Celebrity Relations"
    ],
-   "featured": false,
    "image": "work/mrunalini-rao-2.webp",
-   "tone": 4,
    "highlights": [
     {
      "value": "13",
@@ -1128,7 +1108,7 @@ window.APOS = {
     "work/mrunalini-rao-7.webp",
     "work/mrunalini-rao-e1.webp"
    ],
-   "sticker": "stickers/mrunalini-rao.png",
+   "sticker": "stickers/mrunalini-rao.webp",
    "sw": 348,
    "sh": 46,
    "badge": false,
@@ -1143,9 +1123,7 @@ window.APOS = {
     "Media & Storytelling",
     "Fashion & Design Culture"
    ],
-   "featured": false,
    "image": "work/abraham-thakore-e1.webp",
-   "tone": 5,
    "highlights": [
     {
      "value": "19.2",
@@ -1286,7 +1264,7 @@ window.APOS = {
     "work/at-home-3.webp",
     "work/at-home-4.webp"
    ],
-   "sticker": "stickers/abraham-thakore.png",
+   "sticker": "stickers/abraham-thakore.webp",
    "sw": 520,
    "sh": 147,
    "badge": false,
@@ -1304,9 +1282,7 @@ window.APOS = {
     "Celebrity Relations",
     "Fashion & Design Culture"
    ],
-   "featured": false,
    "image": "work/sameer-madan-1.webp",
-   "tone": 0,
    "highlights": [],
    "placeholder": false,
    "sections": {
@@ -1347,7 +1323,7 @@ window.APOS = {
     "work/sameer-madan-6.webp",
     "work/sameer-madan-7.webp"
    ],
-   "sticker": "stickers/sameer-madan.png",
+   "sticker": "stickers/sameer-madan.webp",
    "sw": 491,
    "sh": 61,
    "badge": false,
@@ -1396,9 +1372,7 @@ window.APOS = {
     "Experiences & Activations",
     "Strategic Collaborations"
    ],
-   "featured": false,
    "image": "work/bally-1.webp",
-   "tone": 1,
    "highlights": [],
    "placeholder": false,
    "sections": {
@@ -1445,7 +1419,7 @@ window.APOS = {
     "work/bally-4.webp",
     "work/bally-5.webp"
    ],
-   "sticker": "stickers/bally.png",
+   "sticker": "stickers/bally.webp",
    "sw": 361,
    "sh": 242,
    "badge": false,
@@ -1460,9 +1434,7 @@ window.APOS = {
     "Experiences & Activations",
     "Retail & Store Launches"
    ],
-   "featured": false,
    "image": "work/paul-smith-1.webp",
-   "tone": 2,
    "highlights": [
     {
      "value": "68",
@@ -1527,7 +1499,7 @@ window.APOS = {
     "work/paul-smith-e4.webp",
     "work/paul-smith-e5.webp"
    ],
-   "sticker": "stickers/paul-smith.png",
+   "sticker": "stickers/paul-smith.webp",
    "sw": 290,
    "sh": 58,
    "badge": false,
@@ -1542,9 +1514,7 @@ window.APOS = {
     "Retail & Store Launches",
     "Influencer Relations"
    ],
-   "featured": false,
    "image": "work/saundh-1.webp",
-   "tone": 3,
    "highlights": [
     {
      "value": "2.3",
@@ -1625,7 +1595,7 @@ window.APOS = {
     "work/saundh-e5.webp",
     "work/saundh-e6.webp"
    ],
-   "sticker": "stickers/saundh.png",
+   "sticker": "stickers/saundh.webp",
    "sw": 220,
    "sh": 81,
    "badge": false,
@@ -1640,9 +1610,7 @@ window.APOS = {
     "Celebrity Relations",
     "Influencer Relations"
    ],
-   "featured": false,
    "image": "work/truebrowns-1.webp",
-   "tone": 4,
    "highlights": [
     {
      "value": "17",
@@ -1731,7 +1699,7 @@ window.APOS = {
     "work/truebrowns-5.webp",
     "work/truebrowns-6.webp"
    ],
-   "sticker": "stickers/truebrowns.png",
+   "sticker": "stickers/truebrowns.webp",
    "sw": 510,
    "sh": 76,
    "badge": false,
@@ -1746,9 +1714,7 @@ window.APOS = {
     "Influencer Relations",
     "Media & Storytelling"
    ],
-   "featured": false,
    "image": "work/cover-story-1.webp",
-   "tone": 5,
    "highlights": [],
    "placeholder": true,
    "sections": {
@@ -1784,7 +1750,7 @@ window.APOS = {
    "gallery": [
     "work/cover-story-2.webp"
    ],
-   "sticker": "stickers/cover-story.png",
+   "sticker": "stickers/cover-story.webp",
    "sw": 520,
    "sh": 112,
    "badge": false,
@@ -1799,9 +1765,7 @@ window.APOS = {
     "Influencer Relations",
     "Media & Storytelling"
    ],
-   "featured": false,
    "image": "work/forever-new-1.webp",
-   "tone": 0,
    "highlights": [],
    "placeholder": true,
    "sections": {
@@ -1838,7 +1802,7 @@ window.APOS = {
     "work/forever-new-2.webp",
     "work/forever-new-3.webp"
    ],
-   "sticker": "stickers/forever-new.png",
+   "sticker": "stickers/forever-new.webp",
    "sw": 446,
    "sh": 42,
    "badge": false,
@@ -1855,9 +1819,7 @@ window.APOS = {
     "Media & Storytelling",
     "Retail & Store Launches"
    ],
-   "featured": false,
    "image": "work/superdry-1.webp",
-   "tone": 3,
    "highlights": [
     {
      "value": "60",
@@ -1940,7 +1902,7 @@ window.APOS = {
     "work/superdry-4.webp",
     "work/superdry-5.webp"
    ],
-   "sticker": "stickers/superdry.png",
+   "sticker": "stickers/superdry.webp",
    "sw": 515,
    "sh": 115,
    "badge": false,
@@ -1989,9 +1951,7 @@ window.APOS = {
     "Strategic Collaborations",
     "Media & Storytelling"
    ],
-   "featured": false,
    "image": "work/stonex-1.webp",
-   "tone": 2,
    "highlights": [],
    "placeholder": false,
    "sections": {
@@ -2045,7 +2005,7 @@ window.APOS = {
     ]
    },
    "gallery": [],
-   "sticker": "stickers/stonex.png",
+   "sticker": "stickers/stonex.webp",
    "sw": 169,
    "sh": 60,
    "badge": false,
@@ -2060,9 +2020,7 @@ window.APOS = {
     "Media & Storytelling",
     "Influencer Relations"
    ],
-   "featured": false,
    "image": "work/fcml-1.webp",
-   "tone": 3,
    "highlights": [],
    "placeholder": false,
    "sections": {
@@ -2120,7 +2078,7 @@ window.APOS = {
     "work/fcml-3.webp",
     "work/fcml-4.webp"
    ],
-   "sticker": "stickers/fcml.png",
+   "sticker": "stickers/fcml.webp",
    "sw": 199,
    "sh": 56,
    "badge": false,
@@ -2135,9 +2093,7 @@ window.APOS = {
     "Experiences & Activations",
     "Media & Storytelling"
    ],
-   "featured": false,
    "image": "work/governor-house-1.webp",
-   "tone": 0,
    "highlights": [
     {
      "value": "2",
@@ -2200,7 +2156,7 @@ window.APOS = {
     "work/governor-house-5.webp",
     "work/governor-house-6.webp"
    ],
-   "sticker": "stickers/governor-house.png",
+   "sticker": "stickers/governor-house.webp",
    "sw": 480,
    "sh": 365,
    "badge": true,
@@ -2215,7 +2171,6 @@ window.APOS = {
     "Media & Storytelling",
     "Influencer Relations"
    ],
-   "featured": false,
    "image": "",
    "tone": 1,
    "highlights": [],
@@ -2251,7 +2206,7 @@ window.APOS = {
     ]
    },
    "gallery": [],
-   "sticker": "stickers/tres.png",
+   "sticker": "stickers/tres.webp",
    "sw": 160,
    "sh": 108,
    "badge": false,
@@ -2266,9 +2221,7 @@ window.APOS = {
     "Media & Storytelling",
     "Influencer Relations"
    ],
-   "featured": false,
    "image": "work/lopera-1.webp",
-   "tone": 3,
    "highlights": [],
    "placeholder": false,
    "sections": {
@@ -2323,7 +2276,7 @@ window.APOS = {
     "work/lopera-4.webp",
     "work/lopera-5.webp"
    ],
-   "sticker": "stickers/lopera.png",
+   "sticker": "stickers/lopera.webp",
    "sw": 211,
    "sh": 134,
    "badge": false,
@@ -2338,9 +2291,7 @@ window.APOS = {
     "Influencer Relations",
     "Strategic Collaborations"
    ],
-   "featured": false,
    "image": "work/beeyoung-1.webp",
-   "tone": 4,
    "highlights": [
     {
      "value": "1.8",
@@ -2445,7 +2396,7 @@ window.APOS = {
     "work/beeyoung-4.webp",
     "work/beeyoung-5.webp"
    ],
-   "sticker": "stickers/beeyoung.png",
+   "sticker": "stickers/beeyoung.webp",
    "sw": 136,
    "sh": 51,
    "badge": false,
@@ -2460,9 +2411,7 @@ window.APOS = {
     "Experiences & Activations",
     "Strategic Collaborations"
    ],
-   "featured": false,
    "image": "work/flow-1.webp",
-   "tone": 0,
    "highlights": [
     {
      "value": "700",
@@ -2540,7 +2489,7 @@ window.APOS = {
     "work/flow-2.webp",
     "work/flow-3.webp"
    ],
-   "sticker": "stickers/flow.png",
+   "sticker": "stickers/flow.webp",
    "sw": 206,
    "sh": 164,
    "badge": false,
@@ -2553,112 +2502,112 @@ window.APOS = {
    "brands": [
     {
      "name": "BVLGARI",
-     "logo": "logos/bvlgari.png",
+     "logo": "logos/bvlgari.webp",
      "w": 720,
      "h": 78,
      "slug": "bvlgari-jwc"
     },
     {
      "name": "Johnson Watch Co.",
-     "logo": "logos/johnson-watch-co.png",
+     "logo": "logos/johnson-watch-co.webp",
      "w": 607,
      "h": 180
     },
     {
      "name": "Chopard",
-     "logo": "logos/chopard.png",
+     "logo": "logos/chopard.webp",
      "w": 503,
      "h": 180,
      "slug": "chopard-jwc"
     },
     {
      "name": "Omega",
-     "logo": "logos/omega.png",
+     "logo": "logos/omega.webp",
      "w": 370,
      "h": 180,
      "slug": "omega-ethos"
     },
     {
      "name": "TAG Heuer",
-     "logo": "logos/tag-heuer.png",
+     "logo": "logos/tag-heuer.webp",
      "w": 297,
      "h": 180
     },
     {
      "name": "Rado",
-     "logo": "logos/rado.png",
+     "logo": "logos/rado.webp",
      "w": 569,
      "h": 180,
      "slug": "rado"
     },
     {
      "name": "Tiffany & Co.",
-     "logo": "logos/tiffany-and-co.png",
+     "logo": "logos/tiffany-and-co.webp",
      "w": 720,
      "h": 93
     },
     {
      "name": "Versace",
-     "logo": "logos/versace.png",
+     "logo": "logos/versace.webp",
      "w": 329,
      "h": 180
     },
     {
      "name": "Ferragamo",
-     "logo": "logos/ferragamo.png",
+     "logo": "logos/ferragamo.webp",
      "w": 720,
      "h": 86
     },
     {
      "name": "Bally",
-     "logo": "logos/bally.png",
+     "logo": "logos/bally.webp",
      "w": 269,
      "h": 180,
      "slug": "bally"
     },
     {
      "name": "Paul Smith",
-     "logo": "logos/paul-smith.png",
+     "logo": "logos/paul-smith.webp",
      "w": 720,
      "h": 144,
      "slug": "paul-smith"
     },
     {
      "name": "Brooks Brothers",
-     "logo": "logos/brooks-brothers.png",
+     "logo": "logos/brooks-brothers.webp",
      "w": 452,
      "h": 180
     },
     {
      "name": "Mrunalini Rao",
-     "logo": "logos/mrunalini-rao.png",
+     "logo": "logos/mrunalini-rao.webp",
      "w": 720,
      "h": 95,
      "slug": "mrunalini-rao"
     },
     {
      "name": "Abraham & Thakore",
-     "logo": "logos/abraham-and-thakore.png",
+     "logo": "logos/abraham-and-thakore.webp",
      "w": 635,
      "h": 180,
      "slug": "abraham-thakore"
     },
     {
      "name": "Sameer Madan",
-     "logo": "logos/sameer-madan.png",
+     "logo": "logos/sameer-madan.webp",
      "w": 720,
      "h": 89,
      "slug": "sameer-madan"
     },
     {
      "name": "Pankaj & Nidhi",
-     "logo": "logos/pankaj-and-nidhi.png",
+     "logo": "logos/pankaj-and-nidhi.webp",
      "w": 341,
      "h": 180
     },
     {
      "name": "Jorah",
-     "logo": "logos/jorah.png",
+     "logo": "logos/jorah.webp",
      "w": 510,
      "h": 180
     },
@@ -2670,44 +2619,44 @@ window.APOS = {
     },
     {
      "name": "Studio Medium",
-     "logo": "logos/studio-medium.png",
+     "logo": "logos/studio-medium.webp",
      "w": 720,
      "h": 60
     },
     {
      "name": "The Chanakya",
-     "logo": "logos/the-chanakya.png",
+     "logo": "logos/the-chanakya.webp",
      "w": 142,
      "h": 180
     },
     {
      "name": "JJ Valaya",
-     "logo": "logos/jj-valaya.png",
+     "logo": "logos/jj-valaya.webp",
      "w": 720,
      "h": 103
     },
     {
      "name": "Raghav Rathore",
-     "logo": "logos/raghavendra-rathore.png",
+     "logo": "logos/raghavendra-rathore.webp",
      "w": 231,
      "h": 180
     },
     {
      "name": "Elisha Wadhwani",
-     "logo": "logos/elisha-wadhwani.png",
+     "logo": "logos/elisha-wadhwani.webp",
      "w": 297,
      "h": 180
     },
     {
      "name": "Tarun Tahiliani",
-     "logo": "logos/tarun-tahiliani-v2.png",
+     "logo": "logos/tarun-tahiliani-v2.webp",
      "w": 720,
      "h": 68,
      "slug": "tarun-tahiliani"
     },
     {
      "name": "Apala",
-     "logo": "logos/apala-v2.png",
+     "logo": "logos/apala-v2.webp",
      "w": 371,
      "h": 180,
      "slug": "apala"
@@ -2719,49 +2668,49 @@ window.APOS = {
    "brands": [
     {
      "name": "Bath & Body Works",
-     "logo": "logos/bath-and-body-works.png",
+     "logo": "logos/bath-and-body-works.webp",
      "w": 215,
      "h": 180,
      "slug": "bath-body-works"
     },
     {
      "name": "Saundh",
-     "logo": "logos/saundh.png",
+     "logo": "logos/saundh.webp",
      "w": 489,
      "h": 180,
      "slug": "saundh"
     },
     {
      "name": "trueBrowns",
-     "logo": "logos/truebrowns.png",
+     "logo": "logos/truebrowns.webp",
      "w": 720,
      "h": 107,
      "slug": "truebrowns"
     },
     {
      "name": "Cover Story",
-     "logo": "logos/cover-story.png",
+     "logo": "logos/cover-story.webp",
      "w": 720,
      "h": 155,
      "slug": "cover-story"
     },
     {
      "name": "Forever New",
-     "logo": "logos/forever-new.png",
+     "logo": "logos/forever-new.webp",
      "w": 720,
      "h": 68,
      "slug": "forever-new"
     },
     {
      "name": "Superdry",
-     "logo": "logos/superdry.png",
+     "logo": "logos/superdry.webp",
      "w": 671,
      "h": 180,
      "slug": "superdry"
     },
     {
      "name": "Diesel",
-     "logo": "logos/diesel.png",
+     "logo": "logos/diesel.webp",
      "w": 472,
      "h": 180
     },
@@ -2773,67 +2722,67 @@ window.APOS = {
     },
     {
      "name": "Bunaai",
-     "logo": "logos/bunaai.png",
+     "logo": "logos/bunaai.webp",
      "w": 494,
      "h": 180
     },
     {
      "name": "Benefit Cosmetics",
-     "logo": "logos/benefit-cosmetics.png",
+     "logo": "logos/benefit-cosmetics.webp",
      "w": 550,
      "h": 180
     },
     {
      "name": "True Religion",
-     "logo": "logos/true-religion.png",
+     "logo": "logos/true-religion.webp",
      "w": 720,
      "h": 147
     },
     {
      "name": "GANT",
-     "logo": "logos/gant.png",
+     "logo": "logos/gant.webp",
      "w": 352,
      "h": 180
     },
     {
      "name": "G-Star RAW",
-     "logo": "logos/g-star-raw.png",
+     "logo": "logos/g-star-raw.webp",
      "w": 720,
      "h": 66
     },
     {
      "name": "Purearth",
-     "logo": "logos/purearth.png",
+     "logo": "logos/purearth.webp",
      "w": 720,
      "h": 90
     },
     {
      "name": "Hamleys",
-     "logo": "logos/hamleys.png",
+     "logo": "logos/hamleys.webp",
      "w": 338,
      "h": 180
     },
     {
      "name": "Replay",
-     "logo": "logos/replay.png",
+     "logo": "logos/replay.webp",
      "w": 720,
      "h": 151
     },
     {
      "name": "Coyu",
-     "logo": "logos/coyu.png",
+     "logo": "logos/coyu.webp",
      "w": 412,
      "h": 104
     },
     {
      "name": "The House of Rare",
-     "logo": "logos/house-of-rare.png",
+     "logo": "logos/house-of-rare.webp",
      "w": 720,
      "h": 82
     },
     {
      "name": "TASVA",
-     "logo": "logos/tasva.png",
+     "logo": "logos/tasva.webp",
      "w": 720,
      "h": 138,
      "slug": "tasva"
@@ -2845,13 +2794,13 @@ window.APOS = {
    "brands": [
     {
      "name": "Envisage",
-     "logo": "logos/envisage.png",
+     "logo": "logos/envisage.webp",
      "w": 592,
      "h": 128
     },
     {
      "name": "Stonex",
-     "logo": "logos/stonex.png",
+     "logo": "logos/stonex.webp",
      "w": 507,
      "h": 180,
      "slug": "stonex"
@@ -2859,45 +2808,45 @@ window.APOS = {
     {
      "name": "FCML",
      "slug": "fcml",
-     "logo": "logos/fcml.png",
+     "logo": "logos/fcml.webp",
      "w": 640,
      "h": 180
     },
     {
      "name": "Abraham & Thakore Home",
-     "logo": "logos/abraham-and-thakore-home.png",
+     "logo": "logos/abraham-and-thakore-home.webp",
      "w": 616,
      "h": 180,
      "slug": "abraham-thakore"
     },
     {
      "name": "Lladró",
-     "logo": "logos/lladro.png",
+     "logo": "logos/lladro.webp",
      "w": 635,
      "h": 180,
      "slug": "lladro"
     },
     {
      "name": "Glass Sutra",
-     "logo": "logos/glass-sutra.png",
+     "logo": "logos/glass-sutra.webp",
      "w": 290,
      "h": 180
     },
     {
      "name": "Pottery Barn Kids",
-     "logo": "logos/pottery-barn-kids.png",
+     "logo": "logos/pottery-barn-kids.webp",
      "w": 471,
      "h": 180
     },
     {
      "name": "West Elm",
-     "logo": "logos/west-elm.png",
+     "logo": "logos/west-elm.webp",
      "w": 720,
      "h": 121
     },
     {
      "name": "Ikkis",
-     "logo": "logos/ikkis.png",
+     "logo": "logos/ikkis.webp",
      "w": 497,
      "h": 180
     },
@@ -2906,19 +2855,19 @@ window.APOS = {
     },
     {
      "name": "Tahiliani Homes",
-     "logo": "logos/tahiliani-homes.png",
+     "logo": "logos/tahiliani-homes.webp",
      "w": 219,
      "h": 180
     },
     {
      "name": "Valaya Homes",
-     "logo": "logos/valaya-home.png",
+     "logo": "logos/valaya-home.webp",
      "w": 708,
      "h": 180
     },
     {
      "name": "Sogani by Vibhore Sogani",
-     "logo": "logos/sogani.png",
+     "logo": "logos/sogani.webp",
      "w": 469,
      "h": 180
     }
@@ -2929,180 +2878,180 @@ window.APOS = {
    "brands": [
     {
      "name": "Governor House",
-     "logo": "logos/governor-house.png",
+     "logo": "logos/governor-house.webp",
      "w": 237,
      "h": 180,
      "slug": "governor-house"
     },
     {
      "name": "Tres",
-     "logo": "logos/tres.png",
+     "logo": "logos/tres.webp",
      "w": 267,
      "h": 180,
      "slug": "tres"
     },
     {
      "name": "Copper Chimney",
-     "logo": "logos/copper-chimney.png",
+     "logo": "logos/copper-chimney.webp",
      "w": 720,
      "h": 117
     },
     {
      "name": "L’Opéra",
-     "logo": "logos/l-opera.png",
+     "logo": "logos/l-opera.webp",
      "w": 283,
      "h": 180,
      "slug": "lopera"
     },
     {
      "name": "BeeYoung",
-     "logo": "logos/beeyoung.png",
+     "logo": "logos/beeyoung.webp",
      "w": 480,
      "h": 180,
      "slug": "beeyoung"
     },
     {
      "name": "4700BC",
-     "logo": "logos/4700bc.png",
+     "logo": "logos/4700bc.webp",
      "w": 168,
      "h": 180
     },
     {
      "name": "FLOW",
-     "logo": "logos/flow.png",
+     "logo": "logos/flow.webp",
      "w": 226,
      "h": 180,
      "slug": "flow"
     },
     {
      "name": "Cosy Box",
-     "logo": "logos/cosy-box.png",
+     "logo": "logos/cosy-box.webp",
      "w": 102,
      "h": 180
     },
     {
      "name": "Younion",
-     "logo": "logos/younion.png",
+     "logo": "logos/younion.webp",
      "w": 168,
      "h": 180
     },
     {
      "name": "Araya Bagh",
-     "logo": "logos/araya-bagh.png",
+     "logo": "logos/araya-bagh.webp",
      "w": 540,
      "h": 180
     },
     {
      "name": "Punjab Grill",
-     "logo": "logos/punjab-grill.png",
+     "logo": "logos/punjab-grill.webp",
      "w": 468,
      "h": 180
     },
     {
      "name": "YouMee",
-     "logo": "logos/youmee.png",
+     "logo": "logos/youmee.webp",
      "w": 173,
      "h": 180
     },
     {
      "name": "Zambar",
-     "logo": "logos/zambar.png",
+     "logo": "logos/zambar.webp",
      "w": 333,
      "h": 180
     },
     {
      "name": "The Artful Baker",
-     "logo": "logos/the-artful-baker.png",
+     "logo": "logos/the-artful-baker.webp",
      "w": 220,
      "h": 180
     },
     {
      "name": "The Chatter House",
-     "logo": "logos/the-chatter-house.png",
+     "logo": "logos/the-chatter-house.webp",
      "w": 151,
      "h": 180
     },
     {
      "name": "Louis Burger",
-     "logo": "logos/louis-burger.png",
+     "logo": "logos/louis-burger.webp",
      "w": 306,
      "h": 180
     },
     {
      "name": "San San",
-     "logo": "logos/san-san.png",
+     "logo": "logos/san-san.webp",
      "w": 215,
      "h": 180
     },
     {
      "name": "Indy by Q’la",
-     "logo": "logos/indy-by-q-la.png",
+     "logo": "logos/indy-by-q-la.webp",
      "w": 263,
      "h": 180
     },
     {
      "name": "Farzi Café",
-     "logo": "logos/farzi-cafe.png",
+     "logo": "logos/farzi-cafe.webp",
      "w": 425,
      "h": 180
     },
     {
      "name": "Nando’s",
-     "logo": "logos/nando-s.png",
+     "logo": "logos/nando-s.webp",
      "w": 560,
      "h": 180
     },
     {
      "name": "Diva",
-     "logo": "logos/diva.png",
+     "logo": "logos/diva.webp",
      "w": 420,
      "h": 180
     },
     {
      "name": "Townhall",
-     "logo": "logos/townhall.png",
+     "logo": "logos/townhall.webp",
      "w": 720,
      "h": 113
     },
     {
      "name": "Papaya",
-     "logo": "logos/papaya.png",
+     "logo": "logos/papaya.webp",
      "w": 278,
      "h": 180
     },
     {
      "name": "Cashmir Vodka",
-     "logo": "logos/cashmir-vodka.png",
+     "logo": "logos/cashmir-vodka.webp",
      "w": 491,
      "h": 180
     },
     {
      "name": "The Irish House",
-     "logo": "logos/the-irish-house.png",
+     "logo": "logos/the-irish-house.webp",
      "w": 226,
      "h": 180
     },
     {
      "name": "Bombay Brasserie",
-     "logo": "logos/bombay-brasserie.png",
+     "logo": "logos/bombay-brasserie.webp",
      "w": 231,
      "h": 180
     },
     {
      "name": "Uncafe",
-     "logo": "logos/uncafe.png",
+     "logo": "logos/uncafe.webp",
      "w": 418,
      "h": 180
     },
     {
      "name": "Pope’s",
-     "logo": "logos/pope-s.png",
+     "logo": "logos/pope-s.webp",
      "w": 387,
      "h": 180
     },
     {
      "name": "Marieta",
-     "logo": "logos/marieta.png",
+     "logo": "logos/marieta.webp",
      "w": 583,
      "h": 180
     }
@@ -3131,25 +3080,25 @@ window.APOS = {
      "title": "Gold, Best Campaign in Fashion & Lifestyle",
      "org": "AFAQs Communicon, for TASVA × Aditya Birla Group",
      "year": "2025",
-     "logo": "awards/communicon.png"
+     "logo": "awards/communicon.webp"
     },
     {
      "title": "Rising PR Consultancy of the Year",
      "org": "BW Excel Awards",
      "year": "2025",
-     "logo": "awards/bw-excel.png"
+     "logo": "awards/bw-excel.webp"
     },
     {
      "title": "Silver, Best Fashion, Beauty & Lifestyle Campaign",
      "org": "ET Kaleido",
      "year": "2024",
-     "logo": "awards/kaleido.png"
+     "logo": "awards/kaleido.webp"
     },
     {
      "title": "Incubated at IIM Bangalore",
      "org": "NSRCEL, IIM Bangalore",
      "year": "",
-     "logo": "awards/iimb-nsrcel.png"
+     "logo": "awards/iimb-nsrcel.webp"
     }
    ]
   },
@@ -3160,19 +3109,19 @@ window.APOS = {
      "title": "Emerging Entrepreneur of the Year",
      "org": "E4M Women Achievers & Summit Awards",
      "year": "2025",
-     "logo": "awards/e4m-women-achievers.png"
+     "logo": "awards/e4m-women-achievers.webp"
     },
     {
      "title": "PR 40 Under 40",
      "org": "BW Businessworld",
      "year": "2024",
-     "logo": "awards/bw-pr-40u40.png"
+     "logo": "awards/bw-pr-40u40.webp"
     },
     {
      "title": "PR & Corp Comm 40 Under 40",
      "org": "E4M",
      "year": "2023",
-     "logo": "awards/e4m-40u40.png"
+     "logo": "awards/e4m-40u40.webp"
     }
    ]
   },
@@ -3183,7 +3132,7 @@ window.APOS = {
      "title": "30 Under 30: Sapna Gaur",
      "org": "E4M PR & Corp Comm",
      "year": "2024",
-     "logo": "awards/e4m-30u30.png"
+     "logo": "awards/e4m-30u30.webp"
     }
    ]
   }
@@ -3259,145 +3208,145 @@ window.APOS = {
  "press": [
   {
    "name": "Vogue India",
-   "logo": "press/vogue-india.png",
+   "logo": "press/vogue-india.webp",
    "w": 414,
    "h": 180
   },
   {
    "name": "Harper's Bazaar India",
-   "logo": "press/harper-s-bazaar-india.png",
+   "logo": "press/harper-s-bazaar-india.webp",
    "w": 542,
    "h": 180
   },
   {
    "name": "Elle",
-   "logo": "press/elle.png",
+   "logo": "press/elle.webp",
    "w": 364,
    "h": 132
   },
   {
    "name": "GQ India",
-   "logo": "press/gq-india.png",
+   "logo": "press/gq-india.webp",
    "w": 242,
    "h": 180
   },
   {
    "name": "Grazia",
-   "logo": "press/grazia.png",
+   "logo": "press/grazia.webp",
    "w": 572,
    "h": 180
   },
   {
    "name": "Architectural Digest",
-   "logo": "press/architectural-digest.png",
+   "logo": "press/architectural-digest.webp",
    "w": 239,
    "h": 180
   },
   {
    "name": "Forbes India",
-   "logo": "press/forbes-india.png",
+   "logo": "press/forbes-india.webp",
    "w": 643,
    "h": 180
   },
   {
    "name": "Hello! India",
-   "logo": "press/hello-india.png",
+   "logo": "press/hello-india.webp",
    "w": 423,
    "h": 180
   },
   {
    "name": "Femina",
-   "logo": "press/femina.png",
+   "logo": "press/femina.webp",
    "w": 448,
    "h": 96
   },
   {
    "name": "Cosmopolitan",
-   "logo": "press/cosmopolitan.png",
+   "logo": "press/cosmopolitan.webp",
    "w": 720,
    "h": 122
   },
   {
    "name": "Brides Today",
-   "logo": "press/brides-today.png",
+   "logo": "press/brides-today.webp",
    "w": 575,
    "h": 180
   },
   {
    "name": "Mint",
-   "logo": "press/mint.png",
+   "logo": "press/mint.webp",
    "w": 511,
    "h": 180
   },
   {
    "name": "Manifest",
-   "logo": "press/manifest.png",
+   "logo": "press/manifest.webp",
    "w": 544,
    "h": 132
   },
   {
    "name": "The Nod",
-   "logo": "press/the-nod.png",
+   "logo": "press/the-nod.webp",
    "w": 272,
    "h": 180
   },
   {
    "name": "Lifestyle Asia",
-   "logo": "press/lifestyle-asia.png",
+   "logo": "press/lifestyle-asia.webp",
    "w": 720,
    "h": 117
   },
   {
    "name": "The Hindu",
-   "logo": "press/the-hindu.png",
+   "logo": "press/the-hindu.webp",
    "w": 427,
    "h": 180
   },
   {
    "name": "The Economic Times",
-   "logo": "press/the-economic-times.png",
+   "logo": "press/the-economic-times.webp",
    "w": 720,
    "h": 86
   },
   {
    "name": "India Today",
-   "logo": "press/india-today.png",
+   "logo": "press/india-today.webp",
    "w": 368,
    "h": 156
   },
   {
    "name": "Elle Decor",
-   "logo": "press/elle-decor.png",
+   "logo": "press/elle-decor.webp",
    "w": 720,
    "h": 170
   },
   {
    "name": "Livingetc",
-   "logo": "press/livingetc.png",
+   "logo": "press/livingetc.webp",
    "w": 713,
    "h": 180
   },
   {
    "name": "Luxebook",
-   "logo": "press/luxebook.png",
+   "logo": "press/luxebook.webp",
    "w": 720,
    "h": 92
   },
   {
    "name": "Mansworld",
-   "logo": "press/mansworld.png",
+   "logo": "press/mansworld.webp",
    "w": 124,
    "h": 180
   },
   {
    "name": "Indulge",
-   "logo": "press/indulge.png",
+   "logo": "press/indulge.webp",
    "w": 544,
    "h": 152
   },
   {
    "name": "BW Businessworld",
-   "logo": "press/bw-businessworld.png",
+   "logo": "press/bw-businessworld.webp",
    "w": 720,
    "h": 109
   }
@@ -3419,7 +3368,7 @@ window.APOS = {
    "title": "The House of Rare",
    "subtitle": "Fashion & Lifestyle",
    "category": "fashion",
-   "sticker": "stickers/house-of-rare-v2.png",
+   "sticker": "stickers/house-of-rare-v2.webp",
    "sw": 598,
    "sh": 240,
    "badge": false,
@@ -3430,7 +3379,7 @@ window.APOS = {
    "title": "Tahiliani Homes",
    "subtitle": "Interiors & Living",
    "category": "interiors",
-   "sticker": "stickers/tahiliani-homes.png",
+   "sticker": "stickers/tahiliani-homes.webp",
    "sw": 244,
    "sh": 201,
    "badge": false,
@@ -3440,7 +3389,7 @@ window.APOS = {
    "title": "Valaya Home",
    "subtitle": "Interiors & Living",
    "category": "interiors",
-   "sticker": "stickers/valaya-home.png",
+   "sticker": "stickers/valaya-home.webp",
    "sw": 299,
    "sh": 76,
    "badge": false,
@@ -3450,7 +3399,7 @@ window.APOS = {
    "title": "Tiffany & Co.",
    "subtitle": "Luxury Retail",
    "category": "luxury",
-   "sticker": "stickers/tiffany.png",
+   "sticker": "stickers/tiffany.webp",
    "sw": 520,
    "sh": 67,
    "badge": false,
@@ -3460,7 +3409,7 @@ window.APOS = {
    "title": "Ferragamo",
    "subtitle": "Luxury Retail",
    "category": "luxury",
-   "sticker": "stickers/ferragamo.png",
+   "sticker": "stickers/ferragamo.webp",
    "sw": 520,
    "sh": 62,
    "badge": false,
@@ -3470,7 +3419,7 @@ window.APOS = {
    "title": "DIVA",
    "subtitle": "Dining & Hospitality",
    "category": "dining",
-   "sticker": "stickers/diva.png",
+   "sticker": "stickers/diva.webp",
    "sw": 238,
    "sh": 102,
    "badge": false,
@@ -3480,7 +3429,7 @@ window.APOS = {
    "title": "Araya Bagh",
    "subtitle": "Dining & Hospitality",
    "category": "dining",
-   "sticker": "stickers/araya-bagh.png",
+   "sticker": "stickers/araya-bagh.webp",
    "sw": 342,
    "sh": 114,
    "badge": false,

@@ -53,11 +53,10 @@
      and by ink density (sd = share of the logo's box that is ink), so a heavy block wordmark
      and a fine-line mark read as equally strong. Used on Home and on Projects. */
   function marquee(el, items) {
-    const wide = (p) => !!p.wide;                            // very long strips take two cells
     const fit = (p) => {
-      const ar = p.sw / p.sh, max = wide(p) ? 1.9 : 0.98;
+      const ar = p.sw / p.sh, max = 0.98;
       const weight = Math.min(1.35, Math.max(0.72, Math.sqrt(0.3 / (p.sd || 0.3))));
-      const area = (p.badge ? 0.26 : 0.17) * weight * (wide(p) ? 2 : 1) * (p.boost || 1);   // boost: hand-tuned for very fine-line logos
+      const area = (p.badge ? 0.26 : 0.17) * weight * (p.boost || 1);   // boost: hand-tuned for very fine-line logos
       let w = Math.sqrt(area * ar), h = w / ar;
       if (w > max) { w = max; h = w / ar; }                // long wordmarks may use the full cell width
       if (h > 0.46) { h = 0.46; w = h * ar; }
@@ -65,7 +64,7 @@
     };
     const tile = (p) => {
       const inner = p.sticker ? `<img src="${esc(p.sticker)}" alt="" style="${fit(p)}" loading="lazy" decoding="async">` : `<span class="mq__txt">${esc(p.title)}</span>`;
-      const cls = `mq__item${p.slug ? "" : " mq__item--brand"}${wide(p) ? " mq__item--wide" : ""}`;
+      const cls = `mq__item${p.slug ? "" : " mq__item--brand"}`;
       return p.slug
         ? `<a class="${cls}" href="project.html?p=${p.slug}" aria-label="${esc(p.title)}" title="${esc(p.title)}">${inner}</a>`
         : `<div class="${cls}" role="img" aria-label="${esc(p.title)}" title="${esc(p.title)}">${inner}</div>`;
@@ -81,9 +80,9 @@
     }).join("");
   }
 
-  /* Split an element's text into masked words (and optionally chars). */
-  function split(el, chars = false) {
-    if (el.dataset.splitDone) return $$(chars ? ".c" : ".w > span", el);
+  /* Split an element's text into masked words. */
+  function split(el) {
+    if (el.dataset.splitDone) return $$(".w > span", el);
     const walk = (node) => {
       [...node.childNodes].forEach((n) => {
         if (n.nodeType === 3) {
@@ -94,8 +93,7 @@
             const w = document.createElement("span");
             w.className = "w";
             const inner = document.createElement("span");
-            if (chars) inner.innerHTML = [...part].map((c) => `<span class="c">${c}</span>`).join("");
-            else inner.textContent = part;
+            inner.textContent = part;
             w.appendChild(inner);
             frag.appendChild(w);
           });
@@ -105,7 +103,7 @@
     };
     walk(el);
     el.dataset.splitDone = 1;
-    return $$(chars ? ".c" : ".w > span", el);
+    return $$(".w > span", el);
   }
 
   /* ---------- shared chrome ---------- */
@@ -267,9 +265,9 @@
       const t = e.target;
       const view = t.closest("[data-cursor]");
       const link = t.closest("a, button, label, [role=button]");
-      const field = t.closest("input, textarea, select");
+      const field = t.closest("input, select");
       // on yellow backgrounds the dot turns ink so it never disappears
-      cur.classList.toggle("on-yellow", !!t.closest(".t-yellow, .btn--yellow, .hero__cta"));
+      cur.classList.toggle("on-yellow", !!t.closest(".btn--yellow, .hero__cta"));
       cur.classList.toggle("is-link", !!(link || view));
       state(link || view ? 1.3 : field ? 0.7 : 1);
     });
@@ -281,10 +279,28 @@
     // Arriving from another page: lift the curtain.
     if (sessionStorage.getItem("apos-pt")) {
       sessionStorage.removeItem("apos-pt");
-      pt.classList.add("is-cover");
-      gsap.to(pt, { yPercent: -101, duration: 0.5, ease: "expo.out", onComplete: () => { pt.classList.remove("is-cover"); gsap.set(pt, { yPercent: 101 }); } });
+      document.documentElement.classList.remove("pt-in");
+      gsap.fromTo(pt, { yPercent: 0 }, { yPercent: -101, duration: 0.5, ease: "expo.out", onComplete: () => gsap.set(pt, { yPercent: 101 }) });
       document.documentElement.classList.add("arrived");
     } else gsap.set(pt, { yPercent: 101 });
+
+    // Fetch the next page as soon as a link is hovered or touched, so it is ready by the time the curtain closes.
+    const fetched = new Set([location.href]);
+    const prefetch = (e) => {
+      const a = e.target.closest && e.target.closest("a[href]");
+      if (!a || a.target === "_blank") return;
+      const url = new URL(a.href, location.href);
+      url.hash = "";
+      if (url.origin !== location.origin || fetched.has(url.href)) return;
+      fetched.add(url.href);
+      const l = document.createElement("link");
+      l.rel = "prefetch";
+      l.href = url.href;
+      document.head.appendChild(l);
+    };
+    document.addEventListener("pointerover", prefetch, { passive: true });
+    document.addEventListener("touchstart", prefetch, { passive: true });
+    document.addEventListener("focusin", prefetch);
 
     document.addEventListener("click", (e) => {
       const a = e.target.closest("a");
@@ -346,7 +362,7 @@
      It stays with the pointer across the whole page; only its colour changes
      with the background underneath (crossfading between four layers).
      Touch devices: it floats gently near the middle of the screen.        */
-  const GLOW_FOR = { dark: "blue", stone: "espresso", light: "honey", yellow: "butter" };
+  const GLOW_FOR = { dark: "blue", stone: "espresso", light: "honey" };
   function initGlow() {
     if (!FINE) return;                                    // phones and tablets have no cursor, so no glow
     const g = document.createElement("div");
@@ -360,8 +376,8 @@
     const tone = () => {
       // the glow and cursor have pointer-events: none, so hit-testing already looks through them
       const el = document.elementFromPoint(Math.min(Math.max(px, 1), innerWidth - 1), Math.min(Math.max(py, 1), innerHeight - 1));
-      const host = el && el.closest(".menu, .t-dark, .t-stone, .t-yellow, .t-light");
-      const key = !host ? "light" : host.matches(".menu, .t-dark") ? "dark" : host.matches(".t-stone") ? "stone" : host.matches(".t-yellow") ? "yellow" : "light";
+      const host = el && el.closest(".menu, .t-dark, .t-stone, .t-light");
+      const key = !host ? "light" : host.matches(".menu, .t-dark") ? "dark" : host.matches(".t-stone") ? "stone" : "light";
       const c = GLOW_FOR[key];
       if (c !== current) { current = c; for (const k in layers) layers[k].classList.toggle("on", k === c); }
     };

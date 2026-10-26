@@ -6,7 +6,6 @@
 
 :root {
   --ink: #000000;          /* pitch black */
-  --ink-2: #000000;        /* pitch black */
   --ivory: #ffffff;        /* white */
   --stone: #1a1e18;        /* forest ink */
   --graphite: #555555;     /* grey for secondary text on white */
@@ -62,7 +61,7 @@ a { color: inherit; text-decoration: none; }
 button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
 ::selection { background: var(--yellow); color: var(--ink); }
 
-h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; margin: 0; line-height: 1.04; letter-spacing: -0.01em; }
+h1, h2, h3 { font-family: var(--display); font-weight: 400; margin: 0; line-height: 1.04; letter-spacing: -0.01em; }
 p { margin: 0 0 1.1em; }
 
 .wrap { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 var(--gutter); }
@@ -95,12 +94,10 @@ p { margin: 0 0 1.1em; }
 .t-dark { background: var(--ink); color: var(--ivory); }
 .t-light { background: var(--ivory); color: var(--ink); }
 .t-stone { background: var(--stone); color: var(--ivory); }
-.t-yellow { background: var(--yellow); color: var(--ink); }
 
 /* ---------- Split text ---------- */
 .w { display: inline-block; overflow: hidden; vertical-align: top; padding: 0.08em 0 0.14em; margin: -0.08em 0 -0.14em; }
 .w > span { display: inline-block; }
-.c { display: inline-block; }
 html.js [data-split] .w > span { transform: translateY(110%); }
 html.js [data-reveal] { opacity: 0; transform: translateY(28px); }
 html.rm [data-split] .w > span,
@@ -254,9 +251,10 @@ body.menu-open .hdr__toggle span { transform: rotate(180deg); }
   background: var(--ink);
   display: grid; place-items: center;
   pointer-events: none;
-  transform: translateY(101%);
 }
-.pt.is-cover { transform: none; }
+/* arriving from another page: the head script sets .pt-in, so the page is covered from its very first frame
+   until main.js puts the real curtain up and lifts it */
+html.pt-in body::after { content: ""; position: fixed; inset: 0; z-index: 100; background: var(--ink); }
 .pt__dot { width: 14px; height: 14px; border-radius: 50%; background: var(--dot); }
 
 /* ==========================================================================
@@ -353,8 +351,6 @@ html.rm .statement .sw { opacity: 1; }
   display: grid; grid-template-columns: minmax(max-content, 0.8fr) 2.2fr; align-items: center; gap: 24px;
 }
 .services__side { align-self: stretch; display: flex; flex-direction: column; justify-content: space-between; padding: calc(var(--header-h) + 40px) 0 48px; }
-.services__side .eyebrow { color: var(--mist); }
-.services__side .eyebrow::before { display: none; }
 .wheel { position: relative; height: 100%; overflow: hidden;
   -webkit-mask-image: linear-gradient(transparent, #000 14%, #000 86%, transparent);
           mask-image: linear-gradient(transparent, #000 14%, #000 86%, transparent);
@@ -411,7 +407,6 @@ html.rm .statement .sw { opacity: 1; }
 /* ==========================================================================
    Marquee
    ========================================================================== */
-.marquee { padding: clamp(28px, 5svh, 48px) 0; overflow: hidden; border-top: 1px solid rgba(0, 0, 0,.12); border-bottom: 1px solid rgba(0, 0, 0,.12); }
 
 /* ==========================================================================
    Recognitions
@@ -440,7 +435,6 @@ html.rm .statement .sw { opacity: 1; }
 .testi__head { text-align: center; margin-bottom: clamp(50px, 8svh, 90px); }
 .testi__head small { display: block; font-family: var(--display); font-size: var(--fs-lead); color: var(--mist); }
 .testi__head h2 { font-size: var(--fs-h2); }
-.testi__head h2 em { font-style: normal; color: var(--dot); }
 .slider { position: relative; }
 .slider__track { display: flex; gap: clamp(14px, 2vw, 28px); will-change: transform; touch-action: pan-y; cursor: grab; }
 .slider__track:active { cursor: grabbing; }
@@ -509,7 +503,6 @@ html.rm .statement .sw { opacity: 1; }
   display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px;
   padding: 16px 0 44px;
 }
-.plist__bar .eyebrow { color: var(--graphite); }
 .filters { display: flex; flex-wrap: wrap; gap: 8px; }
 .filters button {
   height: 36px; padding: 0 16px; border-radius: 999px;
@@ -630,15 +623,13 @@ html.rm .statement .sw { opacity: 1; }
 .form { display: grid; grid-template-columns: 1fr 1fr; gap: 34px 28px; }
 .field { position: relative; }
 .form__trap { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
-.field input, .field textarea {
+.field input {
   width: 100%; border: 0; border-bottom: 1px solid rgba(0, 0, 0,.3); background: transparent;
   font: inherit; font-size: 16px; padding: 22px 0 10px; color: var(--ink); border-radius: 0; outline: none;
   transition: border-color .4s;
 }
-.field textarea { resize: vertical; min-height: 130px; }
 .field label { position: absolute; left: 0; top: 22px; font-family: var(--display); font-size: var(--fs-label); letter-spacing: .16em; text-transform: uppercase; color: var(--graphite); pointer-events: none; transform-origin: left top; transition: transform .5s var(--ease), color .4s; }
-.field input:focus ~ label, .field input:not(:placeholder-shown) ~ label,
-.field textarea:focus ~ label, .field textarea:not(:placeholder-shown) ~ label { transform: translateY(-20px) scale(.82); color: var(--ink); }
+.field input:focus ~ label, .field input:not(:placeholder-shown) ~ label { transform: translateY(-20px) scale(.82); color: var(--ink); }
 .field::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: var(--ink); transform: scaleX(0); transform-origin: left; transition: transform .7s var(--ease); }
 .field:focus-within::after { transform: scaleX(1); }
 .form__foot { grid-column: 1 / -1; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 18px; }
@@ -697,16 +688,7 @@ html.rm .services { height: auto; padding: 120px 0; }
 .cs-hero__media [data-parallax] > *, .founder__photo > .ph { position: absolute; inset: 0; width: 100%; height: 100%; }
 .founder__mark circle { opacity: .16; }
 
-/* ---------- Signature glow: the soft yellow orb that lives in every dark section ---------- */
-.s > .glow, .menu > .glow {
-  position: absolute; z-index: 0; left: 0; top: 0;
-  width: 60vmax; height: 60vmax; margin: -30vmax 0 0 -30vmax;
-  border-radius: 50%;
-  background: radial-gradient(closest-side, rgba(var(--glow), 0.42), rgba(var(--glow), 0.2) 30%, rgba(var(--glow), 0.07) 56%, rgba(var(--glow), 0) 74%);
-  pointer-events: none;
-  will-change: transform;
-}
-.menu > :not(.glow) { position: relative; z-index: 1; }
+.menu > * { position: relative; z-index: 1; }
 html.rm .hdr { opacity: 1 !important; visibility: visible !important; }
 
 /* ---------- Brands band (under the stats) ---------- */
@@ -750,10 +732,6 @@ html.rm .hdr { opacity: 1 !important; visibility: visible !important; }
 .tcard > * { transition: opacity .4s var(--ease); }
 .tcard:not(.is-active) > * { opacity: .45; }
 
-/* glow colour: bone on navy, honey on forest ink */
-:root { --glow: 255, 255, 255; }
-.t-stone { --glow: 228, 165, 36; }
-
 /* ---------- Cursor glow (one for the whole page) ---------- */
 .cglow {
   position: fixed; z-index: 1; left: 0; top: 0;
@@ -770,7 +748,6 @@ html.rm .hdr { opacity: 1 !important; visibility: visible !important; }
 .cglow--blue     { --c: 255, 255, 255; --a1: .13; --a2: .06; --a3: .02; }   /* on navy  */
 .cglow--espresso { --c: 228, 165, 36;  --a1: .16; --a2: .07; --a3: .025; }   /* on forest ink */
 .cglow--honey    { --c: 228, 165, 36;  --a1: .25; --a2: .12; --a3: .04; }   /* on bone */
-.cglow--butter   { --c: 255, 255, 255; --a1: .37; --a2: .18; --a3: .06; }   /* on honey */
 
 /* ---------- Work gallery edge arrows ---------- */
 
@@ -868,7 +845,7 @@ body.menu-open .hdr .hdr__label { color: var(--yellow); }
 
 
 
-.foot-bar * { min-width: 0; } .foot-bar li, .foot-bar a, .foot-bar p { overflow-wrap: anywhere; }
+.foot-bar * { min-width: 0; } .foot-bar li, .foot-bar a { overflow-wrap: anywhere; }
 .plist__title { font-size: var(--fs-h2); line-height: 1; }
 
 /* ---------- Back button (every page but Home) ---------- */
@@ -962,7 +939,6 @@ a.mq__item:focus-visible { outline: 2px solid var(--dot); outline-offset: 2px; b
 }
 .plist__bar { padding-bottom: clamp(16px, 2.6svh, 28px); }
 .mq__item { height: calc(var(--cell) * .54); }
-.mq__item--wide { grid-column: span 2; }
 
 /* ---------- Hover timing: feedback follows the pointer (UI budget under 300ms) ---------- */
 .btn, .btn::before, .btn .arr, .link-u::after { transition-duration: .22s; }
@@ -998,7 +974,7 @@ html, body { overflow-x: clip; }
 @media (min-width: 761px) and (max-width: 899px) { .foot-bar__top { grid-template-columns: auto auto 1fr auto; column-gap: 32px; } }
 
 /* the apostrophe cursor stays, but typing shows the normal text cursor */
-html.dot-cursor input, html.dot-cursor textarea, html.dot-cursor select { cursor: text !important; }
+html.dot-cursor input, html.dot-cursor select { cursor: text !important; }
 
 /* legible small text */
 @media (max-width: 560px) { .hdr__name { font-size: 11px; letter-spacing: .14em; } }
