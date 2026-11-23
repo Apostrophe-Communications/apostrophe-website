@@ -93,7 +93,7 @@ ARROW = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width
 
 EXPERTISE = "".join(f'<li><a class="link-u" href="{h}">{t}</a></li>' for t, h in [
     ("Luxury PR", "luxury-pr-agency-india.html"), ("Luxury Retail PR", "luxury-retail-pr-agency-india.html"),
-    ("Fashion PR", "fashion-pr-agency-india.html"), ("Hospitality PR", "hospitality-pr-agency-delhi.html"),
+    ("Fashion PR", "fashion-pr-agency-india.html"), ("Interiors PR", "interiors-pr-agency-india.html"), ("Hospitality PR", "hospitality-pr-agency-delhi.html"),
     ("Alcobev PR", "alcobev-pr-agency-india.html")])
 
 
@@ -326,6 +326,23 @@ SECTORS = {
             ("How do I start working with Apostrophe?", CONTACT_A),
         ],
     },
+    "interiors-pr-agency-india.html": {
+        "name": "Interiors & Design PR Agency in India", "crumb": "Interiors & Design PR",
+        "service": "Public relations for interiors, furniture, home decor, materials and architecture and design brands",
+        "work": ["lladro", "stonex", "fcml", "abraham-thakore"],
+        "clients": [("Interiors & Living", [b["name"] for c in D["clientIndex"] if c["name"] == "Interiors & Living" for b in c["brands"]])],
+        "faq": [
+            ("What does an interiors PR agency do?",
+             "An interiors PR agency builds a design brand's standing with architects, interior designers, design media and discerning homeowners. At Apostrophe that means launches and showroom openings, design week moments, coverage in titles such as Architectural Digest, conversations with leading architecture and design voices, creator programmes and collaborations."),
+            ("Which interiors and design brands has Apostrophe worked with?",
+             "Our interiors clients include " + ", ".join(b["name"] for c in D["clientIndex"] if c["name"] == "Interiors & Living" for b in c["brands"]) + "."),
+            ("Who does interiors PR need to reach?",
+             "Two audiences at once: the architects and designers who specify products, and the homeowners who buy them. We plan programmes that earn trust in the design community while building desirability with consumers."),
+            ("What kind of interiors work has Apostrophe done?",
+             "We brought Lladró to India Design with India Uncovered, created Imprint on Time for Stonex, hosted conversations on materiality for DETAILS B.E. by FCML with India's leading architecture and design voices, and supported the launch of Abraham & Thakore Home."),
+            ("How do I start working with Apostrophe?", CONTACT_A),
+        ],
+    },
 }
 
 
@@ -507,6 +524,7 @@ lines = [
     "",
     f"Website: {BASE}",
     f"Contact: {C['email']}",
+    *[f"{k}: {C[k.lower()]}" for k in ("Instagram", "LinkedIn") if C.get(k.lower(), "").startswith("http")],
     f"Studio: {C['address']}",
     "",
     "## Services",

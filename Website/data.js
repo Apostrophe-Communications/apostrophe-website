@@ -3197,7 +3197,7 @@ window.APOS = {
   "email": "connect@apostrophecommunications.com",
   "address": "67, Lower Ground Floor, Hemkunt Colony, Greater Kailash 1, New Delhi 110048",
   "instagram": "https://www.instagram.com/apostrophe.communications/",
-  "linkedin": "#",
+  "linkedin": "https://www.linkedin.com/company/apostrophe-communications/",
   "googleForm": {
    "action": "https://docs.google.com/forms/d/e/1FAIpQLSfcmaJHYnobovQ7dwMbdfcwC1kNA50OtWyDrUFw9XfMAba7RQ/formResponse",
    "fields": {
