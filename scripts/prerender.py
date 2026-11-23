@@ -92,7 +92,7 @@ ARROW = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width
 
 
 def footer():
-    nav = "".join(f'<li><a class="link-u" href="{h}">{t}</a></li>' for t, h in NAV) + '<li><a class="link-u" href="hospitality-pr-agency-delhi.html">Hospitality PR</a></li>'
+    nav = "".join(f'<li><a class="link-u" href="{h}">{t}</a></li>' for t, h in NAV) + '<li><a class="link-u" href="luxury-pr-agency-india.html">Luxury PR</a></li><li><a class="link-u" href="hospitality-pr-agency-delhi.html">Hospitality PR</a></li>'
     careers = esc((D.get("careers") or {}).get("form") or "careers.html")
     return f"""
       <section class="s t-stone foot-cta" data-theme="dark">
@@ -225,6 +225,37 @@ def hospitality_parts():
     return {"fbWork": work, "fbClients": clients, "faq": faq}
 
 
+LUX_FAQ = [
+    ("What does a luxury PR agency do?",
+     "A luxury PR agency builds and protects the reputation of premium brands. At Apostrophe that means collection launches and store openings, private client previews, placements in luxury and fashion titles, celebrity associations, creator programmes, designer and founder profiling, and collaborations that keep a brand desirable without diluting its exclusivity."),
+    ("Which luxury brands has Apostrophe worked with?",
+     "Our luxury clients include " + ", ".join(b["name"] for c in D["clientIndex"] if c["name"] == "Luxury Retail" for b in c["brands"]) + "."),
+    ("How is luxury PR different from mainstream PR?",
+     "Luxury PR values the right audience over the biggest one. Coverage, guest lists, celebrity and creator choices are curated to match the brand's craft and heritage, and experiences are often private, so every touchpoint feels as considered as the product."),
+    ("Do you work with luxury brands outside Delhi?",
+     "Yes. Our studio is in New Delhi, with partner offices in " + ", ".join(D["offices"]) + " and campaigns in 18+ cities, including luxury activations in Ludhiana and fashion moments in Hyderabad and at Lakmé Fashion Week."),
+    ("How do I start working with Apostrophe?",
+     "Send us a note through the contact page or email " + C["email"] + " with your brand and what you are planning. We usually reply within two working days."),
+]
+
+
+def luxury_parts():
+    work_list = [p for p in D["projects"] if p["category"] == "luxury" and not p.get("placeholder")]
+    work = "".join(f'<li data-reveal><a class="link-u" href="project.html?p={p["slug"]}">{esc(p["title"])}: {esc(p["subtitle"])}</a></li>' for p in work_list)
+    cat = next(c for c in D["clientIndex"] if c["name"] == "Luxury Retail")
+    clients = f"""
+    <div class="index__cat" data-reveal>
+      <h3>{esc(cat["name"])}</h3>
+      <div class="index__logos">{"".join(f'<a class="index__b has-page" href="project.html?p={b["slug"]}" title="{esc(b["name"])}: view project">{logo(b)}</a>' if b.get("slug") else f'<span class="index__b" title="{esc(b["name"])}">{logo(b)}</span>' for b in cat["brands"])}</div>
+    </div>"""
+    faq = "".join(f"""
+        <div class="pillar">
+          <h2 data-split>{esc(q)}<span class="dotc"></span></h2>
+          <p data-reveal>{esc(a)}</p>
+        </div>""" for q, a in LUX_FAQ)
+    return {"luxWork": work, "luxClients": clients, "luxFaq": faq}
+
+
 # ---------------------------------------------------------------- structured data
 def social():
     return [u for u in (C.get("instagram"), C.get("linkedin")) if u and u.startswith("http")]
@@ -257,7 +288,7 @@ def org():
         "url": BASE,
         "logo": BASE + "logo-full-black-v6.png",
         "image": BASE + "logo-full-black-v6.png",
-        "description": ("Apostrophe Communications is a PR and marketing agency based in New Delhi, India, working with "
+        "description": ("Apostrophe Communications is an award-winning PR and integrated communications agency based in New Delhi, India, working with "
                         "luxury, fashion, lifestyle, beauty, interiors and hospitality brands. Since 2017 it has partnered with "
                         "250+ premium Indian and global brands, with campaigns in 18+ cities."),
         "foundingDate": "2017",
@@ -295,6 +326,18 @@ PAGES = {
     "careers.html": (careers_parts, ld(org(), page_ld("careers.html", "Careers at Apostrophe Communications"))),
     "contact.html": (contact_parts, ld(org(), page_ld("contact.html", "Contact Apostrophe Communications", "ContactPage"))),
     "project.html": (lambda: {}, None),
+    "luxury-pr-agency-india.html": (luxury_parts, ld(
+        org(),
+        {"@type": "Service", "@id": BASE + "luxury-pr-agency-india.html#service",
+         "name": "Luxury PR", "serviceType": "Public relations for luxury watch, jewellery, couture, fashion and design brands",
+         "provider": {"@id": BASE + "#org"}, "areaServed": {"@type": "Country", "name": "India"},
+         "url": BASE + "luxury-pr-agency-india.html"},
+        {"@type": "FAQPage", "@id": BASE + "luxury-pr-agency-india.html#faq",
+         "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in LUX_FAQ]},
+        {"@type": "BreadcrumbList", "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": BASE},
+            {"@type": "ListItem", "position": 2, "name": "Luxury PR", "item": BASE + "luxury-pr-agency-india.html"}]},
+        page_ld("luxury-pr-agency-india.html", "Luxury PR Agency in India"))),
     "hospitality-pr-agency-delhi.html": (hospitality_parts, ld(
         org(),
         {"@type": "Service", "@id": BASE + "hospitality-pr-agency-delhi.html#service",
@@ -348,9 +391,10 @@ cats = {c["id"]: c["name"] for c in D["categories"]}
 lines = [
     "# Apostrophe Communications",
     "",
-    "> Apostrophe Communications is a PR and marketing agency based in New Delhi, India, with partner offices in "
+    "> Apostrophe Communications is an award-winning PR and integrated communications agency based in New Delhi, India, with partner offices in "
     + ", ".join(D["offices"]) + ". Founded in 2017 by Kritika Lalchandani, it has worked with 250+ premium Indian and "
-    "global brands across luxury, fashion, lifestyle, beauty, interiors and hospitality, with campaigns in 18+ cities.",
+    "global brands across luxury, fashion, lifestyle, beauty, interiors and hospitality, with campaigns in 18+ cities. "
+    "Its awards include Rising PR Consultancy of the Year (BW Excel Awards 2025), Gold at AFAQs Communicon 2025 and Silver at ET Kaleido 2024.",
     "",
     f"Website: {BASE}",
     f"Contact: {C['email']}",
@@ -376,6 +420,7 @@ lines = [
     f"- [Projects]({BASE}projects.html): case studies and clients by sector",
     f"- [Contact]({BASE}contact.html): brand enquiries and creator sign-up",
     f"- [Careers]({BASE}careers.html): open roles",
+    f"- [Luxury PR]({BASE}luxury-pr-agency-india.html): PR for luxury watch, jewellery, couture, fashion and design brands in India",
     f"- [Restaurant & Hospitality PR]({BASE}hospitality-pr-agency-delhi.html): food, beverage and hospitality PR in Delhi and across India",
     "",
     "## Case studies",
