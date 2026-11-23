@@ -7,6 +7,9 @@
 !/wrangler.toml
 !/README.md
 
+# the script that copies data.js text into the pages for search engines
+!/scripts/
+
 # the live website (only the files listed below are published)
 !/Website/
 /Website/*
@@ -15,6 +18,7 @@
 !/Website/_redirects
 !/Website/robots.txt
 !/Website/sitemap.xml
+!/Website/llms.txt
 
 # the pages, scripts and styles
 !/Website/index.html

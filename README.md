@@ -22,7 +22,7 @@ npx wrangler@4.149.0 deploy
 ```
 
 ## Updating content
-Everything that changes lives in **`Website/data.js`**:
+Everything that changes lives in **`Website/data.js`**. After editing it, run `python3 scripts/prerender.py` so the pages and `llms.txt` carry the same text for Google and AI search:
 - **Projects**: copy an entry in `projects`, change the text. `featured` projects appear on the home page carousel (order set by the `featured` list).
 - **Real photos**: put images in `Website/work/` as `.webp` (plus an 800px `-sm.webp` copy for phones) and set `image: "work/name.webp"` on the project.
 - **Testimonials, awards, partners, offices, contact details**: edit the matching lists.
