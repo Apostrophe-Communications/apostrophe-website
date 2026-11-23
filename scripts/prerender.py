@@ -91,8 +91,14 @@ NAV = [("Home", "./"), ("Projects", "projects.html"), ("About", "about.html"),
 ARROW = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 13 13 3M5 3h8v8"/></svg>'
 
 
+EXPERTISE = "".join(f'<li><a class="link-u" href="{h}">{t}</a></li>' for t, h in [
+    ("Luxury PR", "luxury-pr-agency-india.html"), ("Luxury Retail PR", "luxury-retail-pr-agency-india.html"),
+    ("Fashion PR", "fashion-pr-agency-india.html"), ("Hospitality PR", "hospitality-pr-agency-delhi.html"),
+    ("Alcobev PR", "alcobev-pr-agency-india.html")])
+
+
 def footer():
-    nav = "".join(f'<li><a class="link-u" href="{h}">{t}</a></li>' for t, h in NAV) + '<li><a class="link-u" href="luxury-pr-agency-india.html">Luxury PR</a></li><li><a class="link-u" href="hospitality-pr-agency-delhi.html">Hospitality PR</a></li>'
+    nav = "".join(f'<li><a class="link-u" href="{h}">{t}</a></li>' for t, h in NAV) 
     careers = esc((D.get("careers") or {}).get("form") or "careers.html")
     return f"""
       <section class="s t-stone foot-cta" data-theme="dark">
@@ -106,7 +112,7 @@ def footer():
         <div class="wrap">
           <div class="foot-bar__top">
             <div><img class="foot-bar__logo" src="logo-full-white-v6.png?v=20260930150635" alt="Apostrophe Communications" width="150" height="102" loading="lazy"></div>
-            <div><h3>Explore</h3><ul>{nav}</ul></div>
+            <div><h3>Explore</h3><ul>{nav}</ul><h3 style="margin-top:28px">Expertise</h3><ul>{EXPERTISE}</ul></div>
             <div><h3>Sign Up</h3><ul><li><a class="link-u" href="contact.html">Brand Enquiries</a></li><li><a class="link-u" href="contact.html#creators">Creator Sign-Up</a></li><li><a class="link-u" href="{careers}" target="_blank" rel="noopener">Job Applications</a></li></ul></div>
             <div class="foot-bar__hello"><h3>Say Hello</h3><ul><li><a class="link-u mail" href="mailto:{C["email"]}">{esc(C["email"]).replace("@", "@<wbr>")}</a></li><li><a class="link-u" href="{esc(C["maps"])}" target="_blank" rel="noopener">{esc(C["address"])}</a></li></ul></div>
             <div><h3>Follow</h3><ul><li><a class="link-u" href="{C["instagram"]}">Instagram</a></li><li><a class="link-u" href="{C["linkedin"]}">LinkedIn</a></li></ul></div>
@@ -256,6 +262,96 @@ def luxury_parts():
     return {"luxWork": work, "luxClients": clients, "luxFaq": faq}
 
 
+# ---------------------------------------------------------------- more sector pages (one entry each)
+BRAND = {}
+for _c in D["clientIndex"]:
+    for _b in _c["brands"]:
+        BRAND.setdefault(_b["name"], _b)
+CONTACT_A = ("Send us a note through the contact page or email " + C["email"] +
+             " with your brand and what you are planning. We usually reply within two working days.")
+SECTORS = {
+    "luxury-retail-pr-agency-india.html": {
+        "name": "Luxury Retail PR Agency in India", "crumb": "Luxury Retail PR",
+        "service": "Public relations for luxury retailers, store launches and in-store activations",
+        "work": ["bvlgari-jwc", "chopard-jwc", "omega-ethos", "bath-body-works", "abraham-thakore", "bally", "paul-smith"],
+        "clients": [("Luxury Retail", ["BVLGARI", "Johnson Watch Co.", "Chopard", "Omega", "TAG Heuer", "Rado", "Tiffany & Co.", "Versace",
+                                       "Ferragamo", "Berluti", "René Caovilla", "Bally", "Paul Smith", "Brooks Brothers"]),
+                    ("Global Retail", ["Bath & Body Works", "SNKRHOOD", "Benefit Cosmetics", "Diesel", "GANT", "G-Star RAW", "Superdry",
+                                       "True Religion", "Replay", "Forever New", "Hamleys"])],
+        "faq": [
+            ("What does a luxury retail PR agency do?",
+             "A luxury retail PR agency turns store openings, collection arrivals and in-store moments into reasons for the right customers to visit. At Apostrophe that means store and shop-in-shop launches, private client previews with retail partners, media and creator visits, celebrity appearances and always-on coverage that keeps the boutique in conversation."),
+            ("Which luxury and retail brands has Apostrophe worked with?",
+             "Our retail clients include BVLGARI, Chopard and Omega with retail partners Johnson Watch Co. and Ethos Watch Co., as well as TAG Heuer, Rado, Tiffany & Co., Versace, Ferragamo, Berluti, René Caovilla, Bally, Paul Smith, Brooks Brothers, Bath & Body Works, SNKRHOOD, Diesel, GANT, Superdry and Hamleys."),
+            ("Can PR drive footfall and sales for a store?",
+             "Yes, when it is planned around the store. For the Bath & Body Works Disney Collection launch, the collection made up 21% of launch-day sales at DLF Promenade, 19.8% at DLF Mall of India and 16% at Ambience Mall."),
+            ("Do you handle store launches outside Delhi?",
+             "Yes. Our studio is in New Delhi, with partner offices in " + ", ".join(D["offices"]) + " and campaigns in 18+ cities, including an Omega and Ethos Watch Co. shop-in-shop activation in Ludhiana."),
+            ("How do I start working with Apostrophe?", CONTACT_A),
+        ],
+    },
+    "fashion-pr-agency-india.html": {
+        "name": "Fashion PR Agency in India", "crumb": "Fashion PR",
+        "service": "Public relations for fashion designers, couture houses and fashion and lifestyle brands",
+        "work": ["tasva", "tarun-tahiliani", "mrunalini-rao", "abraham-thakore", "sameer-madan", "saundh", "truebrowns", "superdry"],
+        "clients": [("Designers & Couture", ["Tarun Tahiliani", "JJ Valaya", "Abraham & Thakore", "Mrunalini Rao", "Sameer Madan", "Raghav Rathore",
+                                             "Pankaj & Nidhi", "Elisha Wadhwani", "Jorah", "Ordinaree", "Vazaneh", "Studio Medium"]),
+                    ("Fashion & Lifestyle", [b["name"] for c in D["clientIndex"] if c["name"] == "Fashion & Lifestyle" for b in c["brands"]])],
+        "faq": [
+            ("What does a fashion PR agency do?",
+             "A fashion PR agency gets collections seen and talked about. At Apostrophe that means collection launches, fashion week moments, editorial coverage in titles such as Vogue India, Harper's Bazaar India, ELLE and Grazia, celebrity dressing, creator programmes and designer profiling."),
+            ("Which fashion brands has Apostrophe worked with?",
+             "Our fashion clients include Tarun Tahiliani, TASVA, JJ Valaya, Abraham & Thakore, Mrunalini Rao, Sameer Madan, Raghav Rathore, Saundh, trueBrowns, Superdry, Diesel, GANT, G-Star RAW, Forever New and The House of Rare."),
+            ("Has Apostrophe's fashion work won awards?",
+             "Yes. Our TASVA × Aditya Birla Group campaign won Gold for Best Campaign in Fashion & Lifestyle at AFAQs Communicon 2025, and we won Silver for Best Fashion, Beauty & Lifestyle Campaign at ET Kaleido 2024."),
+            ("What results can fashion PR deliver?",
+             "For Mrunalini Rao's tenth anniversary Hastakala showcase, our communications programme delivered 13M+ reach and ₹9.6M+ in PR value. For TASVA we built moments around a baraat, a Hyderabad launch and Lakmé Fashion Week."),
+            ("How do I start working with Apostrophe?", CONTACT_A),
+        ],
+    },
+    "alcobev-pr-agency-india.html": {
+        "name": "Alcobev PR Agency in India", "crumb": "Alcobev PR",
+        "service": "Public relations for alcoholic beverage brands: spirits, beer, wine and bars",
+        "work": ["beeyoung", "lopera", "flow", "governor-house"],
+        "clients": [("Drinks & Bars", ["Hendrick’s", "Cashmir Vodka", "BeeYoung", "The Irish House", "Farzi Café", "Diva", "Townhall", "Bombay Brasserie", "Punjab Grill"])],
+        "faq": [
+            ("What does an alcobev PR agency do?",
+             "An alcobev PR agency builds awareness and preference for spirits, beer and wine brands through earned media, experiences and culture rather than paid advertising. At Apostrophe that means launches, bar and trade activations, creator programmes, brand collaborations, events and media relations."),
+            ("Why do alcohol brands in India rely on PR?",
+             "Direct advertising of alcoholic drinks is restricted in India, so brands depend on earned coverage, experiences, collaborations and creator content to reach consumers. We plan these to stay within the rules while still building a brand people talk about."),
+            ("Which alcobev brands has Apostrophe worked with?",
+             "Our drinks work includes Hendrick’s Gin, Cashmir Vodka, BeeYoung strong beer and bars such as The Irish House, alongside restaurant and nightlife clients including Farzi Café, Diva and Townhall."),
+            ("What results can alcobev PR deliver?",
+             "Our integrated programme for BeeYoung, built on culture, collaborations and creators, generated 1,816,598 total views and 27,646 shares with a total influencer spend of ₹2.34L."),
+            ("How do I start working with Apostrophe?", CONTACT_A),
+        ],
+    },
+}
+
+
+def sector_parts(spec):
+    def run():
+        by = {p["slug"]: p for p in D["projects"]}
+        work = "".join(f'<li data-reveal><a class="link-u" href="project.html?p={p["slug"]}">{esc(p["title"])}: {esc(p["subtitle"])}</a></li>'
+                       for p in (by.get(s) for s in spec["work"]) if p and not p.get("placeholder"))
+        def b_html(b):
+            if b.get("slug"):
+                return f'<a class="index__b has-page" href="project.html?p={b["slug"]}" title="{esc(b["name"])}: view project">{logo(b)}</a>'
+            return f'<span class="index__b" title="{esc(b["name"])}">{logo(b)}</span>'
+        clients = "".join(f"""
+    <div class="index__cat" data-reveal>
+      <h3>{esc(label)}</h3>
+      <div class="index__logos">{"".join(b_html(BRAND[n]) for n in names if n in BRAND)}</div>
+    </div>""" for label, names in spec["clients"])
+        faq = "".join(f"""
+        <div class="pillar">
+          <h2 data-split>{esc(q)}<span class="dotc"></span></h2>
+          <p data-reveal>{esc(a)}</p>
+        </div>""" for q, a in spec["faq"])
+        return {"svcWork": work, "svcClients": clients, "svcFaq": faq}
+    return run
+
+
 # ---------------------------------------------------------------- structured data
 def social():
     return [u for u in (C.get("instagram"), C.get("linkedin")) if u and u.startswith("http")]
@@ -353,6 +449,19 @@ PAGES = {
 }
 
 
+for _path, _spec in SECTORS.items():
+    PAGES[_path] = (sector_parts(_spec), ld(
+        org(),
+        {"@type": "Service", "@id": BASE + _path + "#service", "name": _spec["crumb"], "serviceType": _spec["service"],
+         "provider": {"@id": BASE + "#org"}, "areaServed": {"@type": "Country", "name": "India"}, "url": BASE + _path},
+        {"@type": "FAQPage", "@id": BASE + _path + "#faq",
+         "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in _spec["faq"]]},
+        {"@type": "BreadcrumbList", "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": BASE},
+            {"@type": "ListItem", "position": 2, "name": _spec["crumb"], "item": BASE + _path}]},
+        page_ld(_path, _spec["name"])))
+
+
 # ---------------------------------------------------------------- write
 def fill(html, cid, content):
     pat = re.compile(r'(id="%s"[^>]*>)(?:<!--pre-->.*?<!--/pre-->)?(</(?:div|ul|article)>)' % re.escape(cid), re.S)
@@ -422,6 +531,7 @@ lines = [
     f"- [Careers]({BASE}careers.html): open roles",
     f"- [Luxury PR]({BASE}luxury-pr-agency-india.html): PR for luxury watch, jewellery, couture, fashion and design brands in India",
     f"- [Restaurant & Hospitality PR]({BASE}hospitality-pr-agency-delhi.html): food, beverage and hospitality PR in Delhi and across India",
+    *[f"- [{sp['crumb']}]({BASE}{pth}): {sp['service'][0].lower() + sp['service'][1:]}" for pth, sp in SECTORS.items()],
     "",
     "## Case studies",
 ]

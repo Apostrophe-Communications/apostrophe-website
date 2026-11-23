@@ -2660,6 +2660,12 @@ window.APOS = {
      "w": 371,
      "h": 180,
      "slug": "apala"
+    },
+    {
+     "name": "Berluti"
+    },
+    {
+     "name": "René Caovilla"
     }
    ]
   },
@@ -2786,6 +2792,12 @@ window.APOS = {
      "w": 720,
      "h": 138,
      "slug": "tasva"
+    },
+    {
+     "name": "SNKRHOOD"
+    },
+    {
+     "name": "LITLIFE"
     }
    ]
   },
@@ -3054,6 +3066,12 @@ window.APOS = {
      "logo": "logos/marieta.webp",
      "w": 583,
      "h": 180
+    },
+    {
+     "name": "Hendrick’s"
+    },
+    {
+     "name": "PlushEscapes"
     }
    ]
   },
