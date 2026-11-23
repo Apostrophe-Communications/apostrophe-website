@@ -92,7 +92,7 @@ ARROW = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width
 
 
 def footer():
-    nav = "".join(f'<li><a class="link-u" href="{h}">{t}</a></li>' for t, h in NAV)
+    nav = "".join(f'<li><a class="link-u" href="{h}">{t}</a></li>' for t, h in NAV) + '<li><a class="link-u" href="hospitality-pr-agency-delhi.html">Hospitality PR</a></li>'
     careers = esc((D.get("careers") or {}).get("form") or "careers.html")
     return f"""
       <section class="s t-stone foot-cta" data-theme="dark">
@@ -194,6 +194,37 @@ def contact_parts():
     <div data-reveal><h2>Follow</h2><p><a class="link-u" href="{esc(C["instagram"])}">Instagram</a> &nbsp; <a class="link-u" href="{esc(C["linkedin"])}">LinkedIn</a></p></div>"""}
 
 
+FAQ = [
+    ("What does a restaurant PR agency do?",
+     "A restaurant PR agency gets a restaurant, bar or hotel talked about by the right people. At Apostrophe that means planning the launch, hosting media previews and tastings, securing coverage in food and lifestyle titles, running creator programmes, profiling chefs and founders, and setting up collaborations and events that bring guests through the door."),
+    ("Which food, beverage and hospitality brands has Apostrophe worked with?",
+     "Our dining and hospitality clients include " + ", ".join(b["name"] for c in D["clientIndex"] if c["name"].startswith("Dining") for b in c["brands"]) + "."),
+    ("When should a new restaurant start PR?",
+     "As early as possible, ideally while the menu and interiors are still being finalised. That leaves time to plan media previews, creator tastings and the opening together, so the launch builds momentum instead of starting cold."),
+    ("Do you only work with restaurants in Delhi?",
+     "Our studio is in Greater Kailash 1, New Delhi, and much of our hospitality work is in Delhi NCR. With partner offices in " + ", ".join(D["offices"]) + " and campaigns in 18+ cities, we also handle openings and F&B brands across India."),
+    ("How do I start working with Apostrophe?",
+     "Send us a note through the contact page or email " + C["email"] + " with your brand, location and opening date. We usually reply within two working days."),
+]
+
+
+def hospitality_parts():
+    dining = [p for p in D["projects"] if p["category"] == "dining" and not p.get("placeholder")]
+    work = "".join(f'<li data-reveal><a class="link-u" href="project.html?p={p["slug"]}">{esc(p["title"])}: {esc(p["subtitle"])}</a></li>' for p in dining)
+    cat = next(c for c in D["clientIndex"] if c["name"].startswith("Dining"))
+    clients = f"""
+    <div class="index__cat" data-reveal>
+      <h3>{esc(cat["name"])}</h3>
+      <div class="index__logos">{"".join(f'<a class="index__b has-page" href="project.html?p={b["slug"]}" title="{esc(b["name"])}: view project">{logo(b)}</a>' if b.get("slug") else f'<span class="index__b" title="{esc(b["name"])}">{logo(b)}</span>' for b in cat["brands"])}</div>
+    </div>"""
+    faq = "".join(f"""
+        <div class="pillar">
+          <h2 data-split>{esc(q)}<span class="dotc"></span></h2>
+          <p data-reveal>{esc(a)}</p>
+        </div>""" for q, a in FAQ)
+    return {"fbWork": work, "fbClients": clients, "faq": faq}
+
+
 # ---------------------------------------------------------------- structured data
 def social():
     return [u for u in (C.get("instagram"), C.get("linkedin")) if u and u.startswith("http")]
@@ -264,6 +295,18 @@ PAGES = {
     "careers.html": (careers_parts, ld(org(), page_ld("careers.html", "Careers at Apostrophe Communications"))),
     "contact.html": (contact_parts, ld(org(), page_ld("contact.html", "Contact Apostrophe Communications", "ContactPage"))),
     "project.html": (lambda: {}, None),
+    "hospitality-pr-agency-delhi.html": (hospitality_parts, ld(
+        org(),
+        {"@type": "Service", "@id": BASE + "hospitality-pr-agency-delhi.html#service",
+         "name": "Restaurant and hospitality PR", "serviceType": "Public relations for restaurants, bars, hotels and food and beverage brands",
+         "provider": {"@id": BASE + "#org"}, "areaServed": [{"@type": "City", "name": "New Delhi"}, {"@type": "Country", "name": "India"}],
+         "url": BASE + "hospitality-pr-agency-delhi.html"},
+        {"@type": "FAQPage", "@id": BASE + "hospitality-pr-agency-delhi.html#faq",
+         "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in FAQ]},
+        {"@type": "BreadcrumbList", "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": BASE},
+            {"@type": "ListItem", "position": 2, "name": "Restaurant & Hospitality PR", "item": BASE + "hospitality-pr-agency-delhi.html"}]},
+        page_ld("hospitality-pr-agency-delhi.html", "Restaurant & Hospitality PR Agency in Delhi"))),
 }
 
 
@@ -333,6 +376,7 @@ lines = [
     f"- [Projects]({BASE}projects.html): case studies and clients by sector",
     f"- [Contact]({BASE}contact.html): brand enquiries and creator sign-up",
     f"- [Careers]({BASE}careers.html): open roles",
+    f"- [Restaurant & Hospitality PR]({BASE}hospitality-pr-agency-delhi.html): food, beverage and hospitality PR in Delhi and across India",
     "",
     "## Case studies",
 ]
