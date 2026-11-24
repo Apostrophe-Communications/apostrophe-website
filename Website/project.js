@@ -4,13 +4,14 @@
 window.APOS_PAGE = () => {
   const { $, esc, media, srcset } = window.APOS_UI;
   const D = window.APOS;
-  const slug = new URLSearchParams(location.search).get("p");
+  // case-study pages (rado-case-study.html) name their project on <body data-slug>; project.html?p= still works
+  const slug = document.body.dataset.slug || new URLSearchParams(location.search).get("p");
   const i = Math.max(0, D.projects.findIndex((p) => p.slug === slug || (p.aliases || []).includes(slug)));
   const p = D.projects[i];
   const cat = D.categories.find((c) => c.id === p.category)?.name || "";
-  document.title = `${p.title} | Apostrophe Communications`;
-  // one address per project for Google: aliases and unknown slugs point at the real page; placeholders stay out of search
-  document.head.insertAdjacentHTML("beforeend", `<link rel="canonical" href="https://apostrophecommunications.com/project.html?p=${encodeURIComponent(p.slug)}">${p.placeholder ? '<meta name="robots" content="noindex">' : ""}`);
+  document.title = p.placeholder ? `${p.title} | Apostrophe Communications` : `${p.title} PR Case Study | Apostrophe Communications`;
+  // one address per project for Google: the project's own case-study page; placeholders stay out of search
+  if (!document.querySelector('link[rel="canonical"]')) document.head.insertAdjacentHTML("beforeend", `<link rel="canonical" href="https://apostrophecommunications.com/${p.placeholder ? `project.html?p=${encodeURIComponent(p.slug)}` : `${p.slug}-case-study.html`}">${p.placeholder ? '<meta name="robots" content="noindex">' : ""}`);
 
   const blocks = (list) => list.map((b) => {
     if (b.t === "h") return `<h3>${esc(b.v)}</h3>`;

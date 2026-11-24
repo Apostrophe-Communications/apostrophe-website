@@ -42,6 +42,12 @@ def num(x):
     return str(int(x)) if x == int(x) else repr(x)
 
 
+def purl(slug):
+    """Link to a project's own case-study page (mirrors purl in main.js)."""
+    p = next((x for x in D["projects"] if x["slug"] == slug or slug in (x.get("aliases") or [])), None)
+    return f'{p["slug"]}-case-study.html' if p and not p.get("placeholder") else f"project.html?p={slug}"
+
+
 def logo(b):
     if not b.get("logo"):
         return f'<span class="lg lg--txt">{esc(b["name"])}</span>'
@@ -73,7 +79,7 @@ def marquee(items):
                  if p.get("sticker") else f'<span class="mq__txt">{esc(p["title"])}</span>')
         cls = "mq__item" + ("" if p.get("slug") else " mq__item--brand")
         if p.get("slug"):
-            return (f'<a class="{cls}" href="project.html?p={p["slug"]}" aria-label="{esc(p["title"])}" '
+            return (f'<a class="{cls}" href="{purl(p["slug"])}" aria-label="{esc(p["title"])}" '
                     f'title="{esc(p["title"])}">{inner}</a>')
         return f'<div class="{cls}" role="img" aria-label="{esc(p["title"])}" title="{esc(p["title"])}">{inner}</div>'
 
@@ -216,12 +222,12 @@ FAQ = [
 
 def hospitality_parts():
     dining = [p for p in D["projects"] if p["category"] == "dining" and not p.get("placeholder")]
-    work = "".join(f'<li data-reveal><a class="link-u" href="project.html?p={p["slug"]}">{esc(p["title"])}: {esc(p["subtitle"])}</a></li>' for p in dining)
+    work = "".join(f'<li data-reveal><a class="link-u" href="{purl(p["slug"])}">{esc(p["title"])}: {esc(p["subtitle"])}</a></li>' for p in dining)
     cat = next(c for c in D["clientIndex"] if c["name"].startswith("Dining"))
     clients = f"""
     <div class="index__cat" data-reveal>
       <h3>{esc(cat["name"])}</h3>
-      <div class="index__logos">{"".join(f'<a class="index__b has-page" href="project.html?p={b["slug"]}" title="{esc(b["name"])}: view project">{logo(b)}</a>' if b.get("slug") else f'<span class="index__b" title="{esc(b["name"])}">{logo(b)}</span>' for b in cat["brands"])}</div>
+      <div class="index__logos">{"".join(f'<a class="index__b has-page" href="{purl(b["slug"])}" title="{esc(b["name"])}: view project">{logo(b)}</a>' if b.get("slug") else f'<span class="index__b" title="{esc(b["name"])}">{logo(b)}</span>' for b in cat["brands"])}</div>
     </div>"""
     faq = "".join(f"""
         <div class="pillar">
@@ -247,12 +253,12 @@ LUX_FAQ = [
 
 def luxury_parts():
     work_list = [p for p in D["projects"] if p["category"] == "luxury" and not p.get("placeholder")]
-    work = "".join(f'<li data-reveal><a class="link-u" href="project.html?p={p["slug"]}">{esc(p["title"])}: {esc(p["subtitle"])}</a></li>' for p in work_list)
+    work = "".join(f'<li data-reveal><a class="link-u" href="{purl(p["slug"])}">{esc(p["title"])}: {esc(p["subtitle"])}</a></li>' for p in work_list)
     cat = next(c for c in D["clientIndex"] if c["name"] == "Luxury Retail")
     clients = f"""
     <div class="index__cat" data-reveal>
       <h3>{esc(cat["name"])}</h3>
-      <div class="index__logos">{"".join(f'<a class="index__b has-page" href="project.html?p={b["slug"]}" title="{esc(b["name"])}: view project">{logo(b)}</a>' if b.get("slug") else f'<span class="index__b" title="{esc(b["name"])}">{logo(b)}</span>' for b in cat["brands"])}</div>
+      <div class="index__logos">{"".join(f'<a class="index__b has-page" href="{purl(b["slug"])}" title="{esc(b["name"])}: view project">{logo(b)}</a>' if b.get("slug") else f'<span class="index__b" title="{esc(b["name"])}">{logo(b)}</span>' for b in cat["brands"])}</div>
     </div>"""
     faq = "".join(f"""
         <div class="pillar">
@@ -349,11 +355,11 @@ SECTORS = {
 def sector_parts(spec):
     def run():
         by = {p["slug"]: p for p in D["projects"]}
-        work = "".join(f'<li data-reveal><a class="link-u" href="project.html?p={p["slug"]}">{esc(p["title"])}: {esc(p["subtitle"])}</a></li>'
+        work = "".join(f'<li data-reveal><a class="link-u" href="{purl(p["slug"])}">{esc(p["title"])}: {esc(p["subtitle"])}</a></li>'
                        for p in (by.get(s) for s in spec["work"]) if p and not p.get("placeholder"))
         def b_html(b):
             if b.get("slug"):
-                return f'<a class="index__b has-page" href="project.html?p={b["slug"]}" title="{esc(b["name"])}: view project">{logo(b)}</a>'
+                return f'<a class="index__b has-page" href="{purl(b["slug"])}" title="{esc(b["name"])}: view project">{logo(b)}</a>'
             return f'<span class="index__b" title="{esc(b["name"])}">{logo(b)}</span>'
         clients = "".join(f"""
     <div class="index__cat" data-reveal>
@@ -513,6 +519,146 @@ def blocks_text(lst):
     return "\n".join(out)
 
 
+# ---------------------------------------------------------------- case-study pages
+# One page per finished case study (rado-case-study.html), copied from project.html with the
+# case study written in (mirrors project.js). project.js still builds the page on load.
+def srcset(src):
+    return f'{src[:-5]}-sm.webp 800w, {src} 1600w' if src.endswith(".webp") else ""
+
+
+def cs_blocks(lst):
+    out = []
+    for b in lst:
+        if b["t"] == "h":
+            out.append(f"<h3>{esc(b['v'])}</h3>")
+        elif b["t"] == "label":
+            out.append(f'<div class="lbl">{esc(b["v"])}</div>')
+        elif b["t"] == "list":
+            out.append((f'<div class="lbl">{esc(b["label"])}</div>' if b.get("label") else "")
+                       + "<ul>" + "".join(f"<li>{esc(x)}</li>" for x in b["v"]) + "</ul>")
+        else:
+            out.append(f"<p>{esc(b['v'])}</p>")
+    return "".join(out)
+
+
+def cs_markup(p):
+    cat = next((c["name"] for c in D["categories"] if c["id"] == p["category"]), "")
+    img = p["image"]
+    media = (f'<div class="media"><img src="{esc(img)}" srcset="{srcset(img)}" sizes="(max-width: 760px) 100vw, 60vw" '
+             f'alt="{esc(p["title"])}" fetchpriority="high" decoding="async"></div>')
+    tl = p.get("titleLogo")
+    h1 = (f'<h1 class="cs-hero__logo" data-reveal><img src="{esc(tl["src"])}" alt="{esc(p["title"])}" width="{tl["w"]}" height="{tl["h"]}" fetchpriority="high" decoding="async"></h1>'
+          if tl else f'<h1 data-split>{esc(p["title"])}</h1>')
+    out = f"""
+    <section class="s t-dark cs-hero grain" data-theme="dark">
+      <div class="wrap">
+        <div class="cs-hero__meta" data-reveal><span class="pill">{esc(cat)}</span>{"".join(f'<span class="pill">{esc(t)}</span>' for t in p["tags"])}</div>
+        {h1}
+        <p class="cs-hero__sub" data-reveal>{esc(p["subtitle"])}</p>
+      </div>
+      <div class="cs-hero__media"><div data-parallax="8" style="position:absolute;inset:-10% 0;">{media}</div></div>
+    </section>
+"""
+    if p["highlights"]:
+        stats = "".join(
+            f'\n          <div data-reveal><span class="stat__n" data-count="{h["value"]}">'
+            + (f'<sup style="margin:0 .04em 0 0">{esc(h["prefix"])}</sup>' if h.get("prefix") else "")
+            + f'<span data-num>{h["value"]}</span>'
+            + (f'<sup>{esc(h["suffix"])}</sup>' if h.get("suffix") else "")
+            + f'</span><span class="stat__l">{esc(h["label"])}</span></div>' for h in p["highlights"])
+        out += f"""
+    <section class="s t-light" data-theme="light">
+      <div class="wrap cs-stats">{stats}
+      </div>
+    </section>
+"""
+    secs = [(k, l) for k, l in [("background", "Background"), ("objective", "Objective"), ("solution", "Solution"), ("impact", "Impact")] if p["sections"].get(k)]
+    out += """
+    <section class="s t-light cs-body" data-theme="light">
+      <div class="wrap">""" + "".join(f"""
+          <div class="cs-sec">
+            <div class="cs-sec__label"><span>{n + 1:02d}</span><h2 data-split>{label}</h2></div>
+            <div class="cs-sec__text" data-reveal>{cs_blocks(p["sections"][k])}</div>
+          </div>""" for n, (k, label) in enumerate(secs)) + """
+      </div>
+    </section>
+"""
+    sl = p.get("slider")
+    if sl:
+        r = str(sl.get("ratio") or "4 / 5")
+        a, b = (float(x) for x in r.split("/"))
+        tall = a / b < 0.65
+        items = "".join(
+            f'<figure class="cs-reel__item"><img src="{esc(it["src"])}" srcset="{esc(it["src"][:-5] + "-sm.webp" if it["src"].endswith(".webp") else it["src"])} 640w, {esc(it["src"])} 1080w" '
+            f'sizes="(max-width: 760px) 72vw, 26vw" alt="{esc(it["alt"])}" loading="lazy" decoding="async" draggable="false"></figure>' for it in sl["items"])
+        out += f"""
+    <section class="s t-light cs-reel" data-theme="light" aria-label="{esc(sl["title"])}">
+      <div class="wrap cs-reel__head">
+        <h2 data-split>{esc(sl["title"])}</h2>
+        <div class="slider__nav cs-reel__nav">
+          <button id="reelPrev" aria-label="Previous photos"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M14 8H2M7 3 2 8l5 5"/></svg></button>
+          <button id="reelNext" aria-label="Next photos"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 8h12M9 3l5 5-5 5"/></svg></button>
+        </div>
+      </div>
+      <div class="cs-reel__track{" cs-reel__track--tall" if tall else ""}" id="reel" tabindex="0" role="group" aria-label="{esc(sl["title"])}: scroll sideways for more" style="--ratio:{esc(r)}">
+        {items}
+      </div>
+    </section>
+"""
+    if p.get("gallery"):
+        out += """
+    <section class="s t-light cs-gallery" data-theme="light">
+      <div class="wrap cs-gallery__grid">
+        """ + "".join(f'<figure class="cs-gallery__item" data-reveal><img src="{esc(g)}" srcset="{srcset(g)}" sizes="(max-width: 760px) 100vw, 33vw" alt="{esc(p["title"])}, image {n + 2}" loading="lazy" decoding="async"></figure>' for n, g in enumerate(p["gallery"])) + """
+      </div>
+    </section>
+"""
+    return out
+
+
+TEMPLATE = (SITE / "project.html").read_text(encoding="utf-8")
+CASE_PAGES = []
+for p in D["projects"]:
+    if p.get("placeholder") or not p.get("image"):
+        continue
+    path = purl(p["slug"])
+    url = BASE + path
+    cat = next((c["name"] for c in D["categories"] if c["id"] == p["category"]), "")
+    title = f'{p["title"]} PR Case Study | Apostrophe Communications'
+    desc = (f'{p["title"]}: {p["subtitle"]}. {", ".join(p["tags"])} by Apostrophe Communications, '
+            f'an award-winning PR agency in New Delhi, India.')
+    image = BASE + p["image"]
+    html = TEMPLATE
+    html = re.sub(r"<title>.*?</title>", f"<title>{esc(title)}</title>", html, count=1)
+    html = re.sub(r'<meta name="description" content="[^"]*">',
+                  f'<meta name="description" content="{esc(desc)}">\n  <link rel="canonical" href="{url}">', html, count=1)
+    html = re.sub(r'<meta property="og:title" content="[^"]*">', f'<meta property="og:title" content="{esc(title)}">', html, count=1)
+    html = re.sub(r'<meta property="og:description" content="[^"]*">', f'<meta property="og:description" content="{esc(desc)}">', html, count=1)
+    html = re.sub(r'<meta property="og:image" content="[^"]*">',
+                  f'<meta property="og:image" content="{esc(image)}">\n  <meta property="og:url" content="{url}">\n'
+                  f'  <meta property="og:type" content="article">\n  <meta property="og:site_name" content="Apostrophe Communications">', html, count=1)
+    html = html.replace('<body data-page="project">', f'<body data-page="project" data-slug="{esc(p["slug"])}">', 1)
+    html = fill(html, "cs", cs_markup(p))
+    html = fill(html, "footer", footer())
+    text = " ".join(blocks_text(p["sections"][k]) for k in ("background", "objective", "solution", "impact") if p["sections"].get(k))
+    jsonld = ld(
+        org(),
+        {"@type": "Article", "@id": url + "#article", "headline": f'{p["title"]}: {p["subtitle"]}', "description": desc,
+         "image": [BASE + x for x in [p["image"], *(p.get("gallery") or [])]], "url": url, "mainEntityOfPage": {"@id": url + "#page"},
+         "articleSection": f"{cat} PR case study", "keywords": ", ".join([*p["tags"], f"{cat} PR", "PR agency Delhi", "PR agency India"]),
+         "about": {"@type": "Brand", "name": p["title"]}, "author": {"@id": BASE + "#org"}, "publisher": {"@id": BASE + "#org"},
+         "articleBody": text, "inLanguage": "en-IN"},
+        {"@type": "BreadcrumbList", "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": BASE},
+            {"@type": "ListItem", "position": 2, "name": "Projects", "item": BASE + "projects.html"},
+            {"@type": "ListItem", "position": 3, "name": p["title"], "item": url}]},
+        page_ld(path, title))
+    html = html.replace("</head>", "  <!--pre:ld-->" + jsonld + "<!--/pre:ld-->\n</head>", 1)
+    (SITE / path).write_text(html, encoding="utf-8")
+    CASE_PAGES.append(path)
+print("updated", len(CASE_PAGES), "case-study pages")
+
+
 cats = {c["id"]: c["name"] for c in D["categories"]}
 lines = [
     "# Apostrophe Communications",
@@ -557,7 +703,7 @@ for p in D["projects"]:
     if p.get("placeholder"):
         continue
     lines += ["", f"### {p['title']}: {p['subtitle']}",
-              f"{BASE}project.html?p={p['slug']}",
+              f"{BASE}{purl(p['slug'])}",
               f"Sector: {cats.get(p['category'], '')}. Work: {', '.join(p['tags'])}."]
     for h in p.get("highlights", []):
         lines.append(f"Result: {h.get('prefix', '')}{h['value']}{h.get('suffix', '')} {h['label']}")

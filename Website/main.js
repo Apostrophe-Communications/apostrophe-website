@@ -39,6 +39,13 @@
     return `<div class="ph tone-${p.tone ?? 0}" aria-hidden="true"><span class="ph__mono">${esc(initials(p.title))}</span><span class="ph__tag">${label}</span></div>`;
   }
 
+  /* Each case study has its own page (rado-case-study.html) so search engines and AI tools can read it.
+     Placeholders and unknown slugs fall back to the shared project.html?p= page. */
+  function purl(slug) {
+    const p = window.APOS.projects.find((x) => x.slug === slug || (x.aliases || []).includes(slug));
+    return p && !p.placeholder ? `${p.slug}-case-study.html` : `project.html?p=${slug}`;
+  }
+
   /* A brand logo drawn as a mask so it takes the text colour of whatever it sits on.
      Sized by area (not height) so wide wordmarks and tall badges feel equally heavy. */
   function logo(b) {
@@ -66,7 +73,7 @@
       const inner = p.sticker ? `<img src="${esc(p.sticker)}" alt="" style="${fit(p)}" loading="lazy" decoding="async">` : `<span class="mq__txt">${esc(p.title)}</span>`;
       const cls = `mq__item${p.slug ? "" : " mq__item--brand"}`;
       return p.slug
-        ? `<a class="${cls}" href="project.html?p=${p.slug}" aria-label="${esc(p.title)}" title="${esc(p.title)}">${inner}</a>`
+        ? `<a class="${cls}" href="${purl(p.slug)}" aria-label="${esc(p.title)}" title="${esc(p.title)}">${inner}</a>`
         : `<div class="${cls}" role="img" aria-label="${esc(p.title)}" title="${esc(p.title)}">${inner}</div>`;
     };
     el.classList.add("mq");
@@ -413,7 +420,7 @@
   initCursor();
   initTransitions();
 
-  window.APOS_UI = { $, $$, RM, esc, media, srcset, logo, marquee, MARK, get lenis() { return lenis; } };
+  window.APOS_UI = { $, $$, RM, esc, media, srcset, logo, marquee, purl, MARK, get lenis() { return lenis; } };
 
   // Page scripts register themselves on APOS_PAGE; run once fonts are ready so splits measure correctly.
   const ready = document.fonts ? document.fonts.ready : Promise.resolve();

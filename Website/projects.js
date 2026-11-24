@@ -2,7 +2,7 @@
    Projects page: filterable grid + client index
    ========================================================================== */
 window.APOS_PAGE = () => {
-  const { $, $$, esc, logo, marquee } = window.APOS_UI;
+  const { $, $$, esc, logo, marquee, purl } = window.APOS_UI;
   const D = window.APOS;
 
   // every brand in a category: its projects first (their logo links to the case study),
@@ -16,7 +16,7 @@ window.APOS_PAGE = () => {
     return [...projects, ...others];
   };
   const brandLink = (b) => b.slug
-    ? `<a class="index__b has-page" href="project.html?p=${b.slug}" title="${esc(b.name)}: view project">${logo(b)}</a>`
+    ? `<a class="index__b has-page" href="${purl(b.slug)}" title="${esc(b.name)}: view project">${logo(b)}</a>`
     : `<span class="index__b" title="${esc(b.name)}">${logo(b)}</span>`;
 
   // filters: Marquee Projects (the brands with a case study) and one tab per category
@@ -33,7 +33,7 @@ window.APOS_PAGE = () => {
     <div class="index__cat" data-reveal>
       <h3>${esc(c.name)}</h3>
       <div class="index__logos">${c.brands.map((b) => b.slug
-        ? `<a class="index__b has-page" href="project.html?p=${b.slug}" title="${esc(b.name)}: view project">${logo(b)}</a>`
+        ? `<a class="index__b has-page" href="${purl(b.slug)}" title="${esc(b.name)}: view project">${logo(b)}</a>`
         : `<span class="index__b" title="${esc(b.name)}">${logo(b)}</span>`).join("")}</div>
     </div>`).join("");
 
